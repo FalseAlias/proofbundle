@@ -1,0 +1,1995 @@
+<!DOCTYPE html>
+<!--
+  ProofBundle v1.2.1
+  Single-file browser demo for cryptographically verifiable provenance workflows.
+  ED25519 + Merkle Root · Boundary Predicate Evaluation · Falsifiable Prediction Workflow
+
+  Copyright (c) 2026 C. T. Russell / Chaleb Tajia Russell
+  Dual-licensed under MIT OR Apache-2.0 (at your option).
+
+  MIT License
+  -----------
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is furnished
+  to do so, subject to the following conditions:
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+
+  Apache License 2.0
+  ------------------
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+      http://www.apache.org/licenses/LICENSE-2.0
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ProofBundle v1.2.1 · ED25519 + Merkle Root</title>
+<style>
+/* ── RESET & TOKENS ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg0: #0a0e17;
+  --bg1: #111827;
+  --bg2: #1a2235;
+  --bg3: #222d42;
+  --border: #2a3a56;
+  --border2: #3a4f72;
+  --text0: #e8f0fe;
+  --text1: #a8b8d8;
+  --text2: #6b80a0;
+  --blue: #4a9eff;
+  --blue2: #2d7dd2;
+  --green: #2ecc71;
+  --red: #e74c3c;
+  --orange: #f39c12;
+  --purple: #9b59b6;
+  --yellow: #f1c40f;
+  --cyan: #1abc9c;
+  --font-mono: 'SF Mono', 'Cascadia Code', 'Fira Code', Consolas, monospace;
+  --font-ui: 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+  --radius: 10px;
+  --radius-sm: 6px;
+}
+
+html, body { height: 100%; }
+body {
+  font-family: var(--font-ui);
+  background: var(--bg0);
+  color: var(--text0);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ── HEADER ─────────────────────────────────────────────────────── */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: var(--bg1);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-left { display: flex; align-items: center; gap: 14px; }
+.logo { font-size: 18px; font-weight: 700; color: var(--blue); letter-spacing: -.02em; }
+.version-badge {
+  font-size: 11px; color: var(--text2); font-family: var(--font-mono);
+  background: var(--bg2); border: 1px solid var(--border);
+  padding: 3px 8px; border-radius: 4px;
+}
+.header-right { font-size: 11px; color: var(--text2); font-family: var(--font-mono); }
+
+/* ── TABS ───────────────────────────────────────────────────────── */
+nav {
+  display: flex;
+  background: var(--bg1);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  flex-shrink: 0;
+}
+nav button {
+  padding: 12px 22px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text2);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color .15s, border-color .15s;
+}
+nav button:hover { color: var(--text0); }
+nav button.active { color: var(--blue); border-bottom-color: var(--blue); }
+
+/* ── MAIN LAYOUT ────────────────────────────────────────────────── */
+main { flex: 1; overflow-y: auto; }
+.tab-panel { display: none; padding: 24px; max-width: 860px; margin: 0 auto; }
+.tab-panel.active { display: block; }
+
+/* ── TYPOGRAPHY ─────────────────────────────────────────────────── */
+h2 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+h3 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+p { font-size: 14px; color: var(--text1); line-height: 1.6; margin-bottom: 16px; }
+.label {
+  font-size: 10px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--text2); margin-bottom: 6px; display: block;
+}
+
+/* ── FORM ELEMENTS ──────────────────────────────────────────────── */
+textarea, input[type=text], input[type=number] {
+  width: 100%;
+  background: var(--bg1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text0);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 10px 12px;
+  outline: none;
+  resize: vertical;
+  transition: border-color .15s;
+}
+textarea:focus, input:focus { border-color: var(--blue2); }
+.form-row { margin-bottom: 16px; }
+.form-grid { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: end; }
+
+/* ── BUTTONS ────────────────────────────────────────────────────── */
+.btn {
+  padding: 9px 18px; border-radius: var(--radius-sm);
+  font-size: 13px; font-weight: 600; cursor: pointer;
+  border: none; transition: opacity .15s, transform .08s; white-space: nowrap;
+}
+.btn:active { transform: scale(.97); }
+.btn-primary { background: var(--blue); color: #000; }
+.btn-primary:hover { opacity: .85; }
+.btn-secondary {
+  background: var(--bg2); color: var(--text1);
+  border: 1px solid var(--border);
+}
+.btn-secondary:hover { border-color: var(--blue2); color: var(--text0); }
+.btn-ghost { background: none; color: var(--blue); border: 1px solid var(--border2); }
+.btn-ghost:hover { background: var(--bg2); }
+.btn-sm { padding: 6px 12px; font-size: 12px; }
+.btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+
+/* ── CARD ───────────────────────────────────────────────────────── */
+.card {
+  background: var(--bg1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  margin-bottom: 16px;
+}
+.card-title {
+  font-size: 15px; font-weight: 700; margin-bottom: 4px;
+  display: flex; align-items: center; gap: 10px;
+}
+.card-desc { font-size: 13px; color: var(--text1); line-height: 1.5; margin-bottom: 14px; }
+
+/* ── CODE BLOCK ─────────────────────────────────────────────────── */
+.code-block {
+  background: var(--bg0);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text1);
+  overflow-x: auto;
+  white-space: pre;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+/* ── OUTCOME BADGES ─────────────────────────────────────────────── */
+.badge {
+  display: inline-block; padding: 2px 8px; border-radius: 4px;
+  font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+}
+.badge-blue { background: rgba(74,158,255,.15); color: var(--blue); border: 1px solid rgba(74,158,255,.3); }
+.badge-green { background: rgba(46,204,113,.12); color: var(--green); border: 1px solid rgba(46,204,113,.3); }
+.badge-red { background: rgba(231,76,60,.12); color: var(--red); border: 1px solid rgba(231,76,60,.3); }
+.badge-orange { background: rgba(243,156,18,.12); color: var(--orange); border: 1px solid rgba(243,156,18,.3); }
+.badge-purple { background: rgba(155,89,182,.12); color: var(--purple); border: 1px solid rgba(155,89,182,.3); }
+.badge-yellow { background: rgba(241,196,15,.12); color: var(--yellow); border: 1px solid rgba(241,196,15,.3); }
+.badge-cyan { background: rgba(26,188,156,.12); color: var(--cyan); border: 1px solid rgba(26,188,156,.3); }
+
+/* ── TRACE STEPS ────────────────────────────────────────────────── */
+.trace { margin-top: 14px; }
+.trace-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--text2); margin-bottom: 10px;
+}
+.trace-step {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+.trace-step.outcome {
+  border-left: 3px solid var(--border2);
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 10px;
+}
+.trace-step.outcome.verified { border-left-color: var(--green); }
+.trace-step.outcome.oob { border-left-color: var(--purple); }
+.trace-step.outcome.indet { border-left-color: var(--orange); }
+.trace-step.outcome.invsig { border-left-color: var(--red); }
+.trace-step.outcome.resex { border-left-color: var(--yellow); }
+.trace-step.outcome.invalid { border-left-color: var(--red); }
+.trace-step-title { font-weight: 600; color: var(--text0); margin-bottom: 3px; }
+.trace-step-body { color: var(--text1); line-height: 1.5; }
+.trace-step-right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
+.trace-ms { font-size: 10px; color: var(--text2); font-family: var(--font-mono); }
+
+/* ── DOMAIN PREDICATES ──────────────────────────────────────────── */
+.domain-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.domain-btn {
+  width: 100%; text-align: left;
+  padding: 14px 18px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text0);
+  font-size: 14px; font-weight: 500;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+.domain-btn:hover, .domain-btn.active { border-color: var(--blue2); background: var(--bg3); }
+.domain-detail { display: none; }
+.domain-detail.active { display: block; }
+.domain-detail-title { font-size: 18px; font-weight: 700; color: var(--blue); margin-bottom: 6px; }
+.predicates-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--text2); margin: 16px 0 10px;
+}
+.predicate-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+.predicate-header { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 6px; }
+.predicate-desc { font-size: 13px; color: var(--text0); line-height: 1.4; }
+.predicate-code { font-family: var(--font-mono); font-size: 11px; color: var(--text2); margin-top: 6px; }
+
+/* ── VERIFY RESULT ──────────────────────────────────────────────── */
+.verify-result {
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-top: 16px;
+  border: 1px solid var(--border);
+}
+.verify-result.verified { border-color: var(--green); background: rgba(46,204,113,.06); }
+.verify-result.oob { border-color: var(--purple); background: rgba(155,89,182,.06); }
+.verify-result.indet { border-color: var(--orange); background: rgba(243,156,18,.06); }
+.verify-result.invsig { border-color: var(--red); background: rgba(231,76,60,.06); }
+.verify-result.resex { border-color: var(--yellow); background: rgba(241,196,15,.06); }
+.verify-result.invalid { border-color: var(--red); background: rgba(231,76,60,.06); }
+
+/* ── CLAIMS / PREDICT ITEMS ─────────────────────────────────────── */
+.item-list { display: flex; flex-direction: column; gap: 10px; }
+.item-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+}
+.item-card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+.item-card-title { font-size: 14px; font-weight: 600; }
+.item-card-body { font-size: 13px; color: var(--text1); line-height: 1.5; margin-bottom: 10px; }
+.item-card-meta { font-size: 11px; color: var(--text2); font-family: var(--font-mono); }
+.item-card-actions { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+
+/* ── MODAL ──────────────────────────────────────────────────────── */
+.modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,.7); z-index: 200;
+  align-items: center; justify-content: center; padding: 20px;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--bg1); border: 1px solid var(--border2);
+  border-radius: var(--radius); padding: 24px;
+  max-width: 560px; width: 100%; max-height: 90vh; overflow-y: auto;
+}
+.modal-title { font-size: 16px; font-weight: 700; margin-bottom: 16px; }
+.modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
+
+/* ── NOTICE ─────────────────────────────────────────────────────── */
+.notice {
+  border-left: 3px solid var(--orange);
+  background: rgba(243,156,18,.07);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 12px 14px; margin-bottom: 20px;
+}
+.notice-title { font-size: 13px; font-weight: 700; color: var(--orange); margin-bottom: 4px; }
+.notice-body { font-size: 12px; color: var(--text1); line-height: 1.5; }
+
+/* ── EMPTY STATE ────────────────────────────────────────────────── */
+.empty {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 40px;
+  text-align: center; color: var(--text2);
+}
+.empty-title { font-size: 14px; margin-bottom: 6px; }
+.empty-sub { font-size: 12px; }
+
+/* ── SEPARATOR ──────────────────────────────────────────────────── */
+hr { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+
+/* ── COPY BUTTON ────────────────────────────────────────────────── */
+.copy-row { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 12px; }
+.copy-row .code-block { flex: 1; margin: 0; }
+
+/* ── SCROLLBAR ──────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg0); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+/* ── RESPONSIVE ─────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .tab-panel { padding: 16px; }
+  nav button { padding: 10px 14px; font-size: 11px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-left">
+    <div class="logo">ProofBundle</div>
+    <div class="version-badge">v1.2.1</div>
+  </div>
+  <div class="header-right">ED25519 + Merkle Root</div>
+</header>
+
+<!-- TABS -->
+<nav id="tabs">
+  <button class="active" onclick="switchTab('seal',this)">Seal</button>
+  <button onclick="switchTab('verify',this)">Verify</button>
+  <button onclick="switchTab('domains',this)">Domains</button>
+  <button onclick="switchTab('claims',this)">Claims</button>
+  <button onclick="switchTab('predict',this)">Predict</button>
+  <button onclick="switchTab('showcase',this)">Showcase</button>
+</nav>
+
+<main>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- SEAL TAB                                                       -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<div class="tab-panel active" id="panel-seal">
+  <h2>Seal a ProofBundle</h2>
+  <p>Build and cryptographically sign a new bundle using ED25519 + Merkle root commitment. Your private key never leaves the browser.</p>
+
+  <div class="form-row">
+    <label class="label">Unsigned Bundle (JSON)</label>
+    <textarea id="seal-bundle-json" rows="14" spellcheck="false">{
+  "hdr": {
+    "bundle_id": "",
+    "profile": "PB-BOUNDARY-1",
+    "spec_id": "PROOFBUNDLE",
+    "spec_ver": "1.2.0"
+  },
+  "meta": {
+    "producer_id": "urn:example:producer",
+    "created_at": "",
+    "canonical_encoding": "PB-CANON-JSON-1",
+    "proof_kind": "assertion",
+    "boundary": {
+      "all": [
+        { "op": "equals", "path": "env", "value": "production" },
+        { "op": "present", "path": "consent_token" }
+      ]
+    }
+  },
+  "payload": {
+    "note": "Example artifact"
+  }
+}</textarea>
+  </div>
+
+  <div class="form-row">
+    <label class="label">Private Key (Base64URL, 32 raw seed bytes)</label>
+    <input type="text" id="seal-privkey" placeholder="Leave blank and click Generate Key Pair" autocomplete="off" style="font-size:11px;">
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-secondary" onclick="generateKeyPair()">Generate Key Pair</button>
+    <button class="btn btn-primary" onclick="sealBundle()">Seal Bundle</button>
+  </div>
+
+  <div id="seal-keypair-display" style="display:none">
+    <div class="form-row">
+      <label class="label">Generated Public Key (Base64URL — save for verification)</label>
+      <div class="copy-row">
+        <div class="code-block" id="seal-pubkey-out" style="word-break:break-all;white-space:pre-wrap"></div>
+        <button class="btn btn-secondary btn-sm" onclick="copyEl('seal-pubkey-out')">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="seal-result" style="display:none">
+    <hr>
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+      <span style="font-size:16px;font-weight:700;color:var(--green)">Bundle Sealed</span>
+      <button class="btn btn-secondary btn-sm" onclick="copyEl('seal-output-json')">Copy JSON</button>
+    </div>
+    <div class="form-row">
+      <label class="label">bundle_id</label>
+      <div class="code-block" id="seal-out-id" style="word-break:break-all;white-space:pre-wrap"></div>
+    </div>
+    <div class="form-row">
+      <label class="label">merkleRoot</label>
+      <div class="code-block" id="seal-out-root" style="word-break:break-all;white-space:pre-wrap"></div>
+    </div>
+    <label class="label">Sealed Bundle JSON</label>
+    <div class="code-block" id="seal-output-json" style="max-height:360px;overflow-y:auto;white-space:pre-wrap;word-break:break-all"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- VERIFY TAB                                                     -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<div class="tab-panel" id="panel-verify">
+  <h2>Verify a ProofBundle</h2>
+  <p>Evaluate a sealed bundle against its boundary predicates. Supply context JSON and optionally provide parent bundles for lineage traversal. This verifier checks parent presence only; it does not recursively prove full parent-chain digest integrity.</p>
+
+  <div class="form-row">
+    <label class="label">Sealed Bundle (JSON)</label>
+    <textarea id="verify-bundle-json" rows="10" spellcheck="false" placeholder="Paste sealed bundle JSON here..."></textarea>
+  </div>
+  <div class="form-row">
+    <label class="label">Public Key (Base64URL)</label>
+    <input type="text" id="verify-pubkey" placeholder="Base64URL-encoded ED25519 verifying key" autocomplete="off">
+  </div>
+  <div class="form-row">
+    <label class="label">Context (JSON)</label>
+    <textarea id="verify-context" rows="4" spellcheck="false">{}</textarea>
+  </div>
+  <div class="form-grid" style="grid-template-columns:1fr 120px">
+    <div>
+      <label class="label">Provided Bundles (JSON object, for lineage)</label>
+      <textarea id="verify-bundles" rows="3" spellcheck="false">{}</textarea>
+    </div>
+    <div>
+      <label class="label">Max Depth</label>
+      <input type="number" id="verify-maxdepth" value="0" min="0" max="20" style="height:72px">
+    </div>
+  </div>
+  <button class="btn btn-primary" onclick="verifyBundle()">Verify</button>
+
+  <div id="verify-result" style="display:none;margin-top:20px"></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- DOMAINS TAB                                                    -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<div class="tab-panel" id="panel-domains">
+  <h2>Deployment Profiles</h2>
+  <p>Profiles are aligned to ten example deployment profiles. Each profile exposes an example boundary, an example context, a live evaluator, and one-click loaders for the Seal and Verify tabs.</p>
+
+  <div class="domain-list" id="domain-list"></div>
+  <div id="domain-detail"></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- CLAIMS TAB                                                     -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<div class="tab-panel" id="panel-claims">
+  <h2>Claims Lifecycle</h2>
+  <p>Manage verifiable claims against ProofBundles — from submission through evidence review to acceptance or rejection. Claims persist in local browser storage for this demo only.</p>
+
+  <div class="btn-row">
+    <button class="btn btn-primary" onclick="openModal('claim-modal')">+ New Claim</button>
+  </div>
+  <div class="card">
+    <div class="card-title">Demo State</div>
+    <div class="card-desc">Client-side demo only. Claims and predictions are stored in local browser storage unless you export or reset them.</div>
+    <div class="btn-row">
+      <button class="btn btn-secondary btn-sm" onclick="exportDemoState()">Export Demo State</button>
+      <button class="btn btn-secondary btn-sm" onclick="openModal('state-modal')">Import Demo State</button>
+      <button class="btn btn-secondary btn-sm" style="color:var(--red)" onclick="resetDemoState()">Reset Demo State</button>
+    </div>
+  </div>
+
+  <div id="claims-list">
+    <div class="empty">
+      <div class="empty-title">No claims yet</div>
+      <div class="empty-sub">Create a claim to start tracking assertions against bundles</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- PREDICT TAB                                                    -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<div class="tab-panel" id="panel-predict">
+  <h2>Prediction Ledger</h2>
+  <p>Register falsifiable predictions tied to ProofBundles. Confirm or falsify each prediction with an evidence note. Predictions persist in local browser storage for this demo only.</p>
+
+  <div class="btn-row">
+    <button class="btn btn-primary" onclick="openModal('predict-modal')">+ New Prediction</button>
+  </div>
+
+  <div id="predict-list">
+    <div class="empty">
+      <div class="empty-title">No predictions yet</div>
+      <div class="empty-sub">Register a falsifiable prediction to start tracking outcomes</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════ -->
+<!-- SHOWCASE TAB                                                   -->
+<!-- ══════════════════════════════════════════════════════════════ -->
+<div class="tab-panel" id="panel-showcase">
+  <h2>Live Showcase Demos</h2>
+  <p>5 client-side demos. Each generates a fresh ED25519 key pair, seals a bundle with Merkle root commitment, and shows outcome traces. Some traces are produced by the shared verifier path, and some are scripted demo traces for explanatory coverage. All crypto runs in-browser.</p>
+
+  <div class="notice">
+    <div class="notice-title">Live demos — ephemeral keys</div>
+    <div class="notice-body">Each "Run Demo" generates a fresh key pair. Results are deterministic in structure but non-deterministic in key material. This Showcase is a client-side demo panel, not a persistent backend ledger.</div>
+  </div>
+
+  <div id="showcase-list"></div>
+</div>
+
+</main>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- MODALS                                                           -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+
+<!-- Claim Modal -->
+<div class="modal-overlay" id="claim-modal">
+  <div class="modal">
+    <div class="modal-title">New Claim</div>
+    <div class="form-row">
+      <label class="label">Bundle ID (target)</label>
+      <input type="text" id="claim-bundle-id" placeholder="bundle_id of the sealed bundle">
+    </div>
+    <div class="form-row">
+      <label class="label">Claim Type</label>
+      <input type="text" id="claim-type" placeholder="e.g. integrity-violation, provenance-gap, bias-finding">
+    </div>
+    <div class="form-row">
+      <label class="label">Assertion</label>
+      <textarea id="claim-assertion" rows="4" placeholder="Describe the claim clearly and falsifiably..."></textarea>
+    </div>
+    <div class="form-row">
+      <label class="label">Evidence (optional)</label>
+      <textarea id="claim-evidence" rows="3" placeholder="Link to evidence, hash, or description..."></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal('claim-modal')">Cancel</button>
+      <button class="btn btn-primary" onclick="submitClaim()">Submit Claim</button>
+    </div>
+  </div>
+</div>
+
+<!-- Predict Modal -->
+<div class="modal-overlay" id="predict-modal">
+  <div class="modal">
+    <div class="modal-title">New Prediction</div>
+    <div class="form-row">
+      <label class="label">Bundle ID (anchor)</label>
+      <input type="text" id="predict-bundle-id" placeholder="bundle_id this prediction is tied to">
+    </div>
+    <div class="form-row">
+      <label class="label">Prediction Statement (falsifiable)</label>
+      <textarea id="predict-statement" rows="4" placeholder="State a specific, falsifiable prediction..."></textarea>
+    </div>
+    <div class="form-row">
+      <label class="label">Resolution Criteria</label>
+      <textarea id="predict-criteria" rows="3" placeholder="How will this be confirmed or falsified?"></textarea>
+    </div>
+    <div class="form-row">
+      <label class="label">Resolution Deadline (ISO date)</label>
+      <input type="text" id="predict-deadline" placeholder="e.g. 2026-12-31">
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal('predict-modal')">Cancel</button>
+      <button class="btn btn-primary" onclick="submitPrediction()">Register</button>
+    </div>
+  </div>
+</div>
+
+<!-- Resolve Modal -->
+<div class="modal-overlay" id="resolve-modal">
+  <div class="modal">
+    <div class="modal-title" id="resolve-modal-title">Resolve Prediction</div>
+    <div class="form-row">
+      <label class="label">Outcome</label>
+      <select id="resolve-outcome" style="width:100%;padding:10px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text0);font-size:13px;outline:none">
+        <option value="confirmed">Confirmed</option>
+        <option value="falsified">Falsified</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <label class="label">Evidence Note</label>
+      <textarea id="resolve-evidence" rows="4" placeholder="Provide evidence for this resolution..."></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal('resolve-modal')">Cancel</button>
+      <button class="btn btn-primary" onclick="resolvePrediction()">Resolve</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- Demo State Modal -->
+<div class="modal-overlay" id="state-modal">
+  <div class="modal">
+    <div class="modal-title">Import Demo State</div>
+    <div class="form-row">
+      <label class="label">State JSON</label>
+      <textarea id="state-import-json" rows="12" placeholder='Paste exported demo state JSON here...'></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeModal('state-modal')">Cancel</button>
+      <button class="btn btn-primary" onclick="importDemoState()">Import</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════ -->
+<!-- CRYPTO + APP LOGIC                                              -->
+<!-- ════════════════════════════════════════════════════════════════ -->
+<script>
+'use strict';
+
+/* ── STATE ──────────────────────────────────────────────────────── */
+const STATE = {
+  claims: [],
+  predictions: [],
+  resolvingPredictionIdx: null,
+};
+
+const STORAGE_KEY = 'proofbundle.v1.2.1.demoState';
+
+function snapshotState() {
+  return {
+    version: '1.2.1',
+    exported_at: new Date().toISOString(),
+    claims: STATE.claims,
+    predictions: STATE.predictions,
+  };
+}
+
+function persistState() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(snapshotState()));
+  } catch (e) {
+    console.warn('State persistence failed:', e);
+  }
+}
+
+function isValidImportedState(data) {
+  return !!data &&
+    Array.isArray(data.claims) &&
+    Array.isArray(data.predictions);
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    const parsed = JSON.parse(raw);
+    if (!isValidImportedState(parsed)) return;
+    STATE.claims = parsed.claims;
+    STATE.predictions = parsed.predictions;
+  } catch (e) {
+    console.warn('State load failed:', e);
+  }
+}
+
+function exportDemoState() {
+  const text = JSON.stringify(snapshotState(), null, 2);
+  copyText(text);
+  const blob = new Blob([text], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'proofbundle_demo_state_v1.2.1.json';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+function importDemoState() {
+  const textarea = document.getElementById('state-import-json');
+  let parsed;
+  try {
+    parsed = JSON.parse(textarea.value);
+  } catch (e) {
+    alert('Import failed: invalid JSON.');
+    return;
+  }
+  if (!isValidImportedState(parsed)) {
+    alert('Import failed: expected { claims: [], predictions: [] }.');
+    return;
+  }
+  STATE.claims = parsed.claims;
+  STATE.predictions = parsed.predictions;
+  persistState();
+  renderClaims();
+  renderPredictions();
+  textarea.value = '';
+  closeModal('state-modal');
+}
+
+function resetDemoState() {
+  if (!confirm('Reset all local demo state for claims and predictions?')) return;
+  STATE.claims = [];
+  STATE.predictions = [];
+  STATE.resolvingPredictionIdx = null;
+  persistState();
+  renderClaims();
+  persistState();
+  renderPredictions();
+}
+
+/* ── TABS ───────────────────────────────────────────────────────── */
+function switchTab(id, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+
+/* ── MODAL ──────────────────────────────────────────────────────── */
+function openModal(id) { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+document.querySelectorAll('.modal-overlay').forEach(o => {
+  o.addEventListener('click', e => { if (e.target === o) o.classList.remove('open'); });
+});
+
+/* ── COPY ───────────────────────────────────────────────────────── */
+function copyEl(id) {
+  const text = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(text).catch(() => {});
+}
+function copyText(text) { navigator.clipboard.writeText(text).catch(() => {}); }
+
+/* ══════════════════════════════════════════════════════════════════
+   CRYPTO — pure Web Crypto API + Ed25519 via noble/ed25519 polyfill
+   We implement Ed25519 manually using SubtleCrypto where available,
+   falling back to a minimal pure-JS implementation.
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Base64URL helpers */
+function b64uEncode(buf) {
+  const bytes = buf instanceof Uint8Array ? buf : new Uint8Array(buf);
+  let s = '';
+  for (const b of bytes) s += String.fromCharCode(b);
+  return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+}
+function b64uDecode(s) {
+  s = s.replace(/-/g, '+').replace(/_/g, '/');
+  while (s.length % 4) s += '=';
+  const raw = atob(s);
+  const out = new Uint8Array(raw.length);
+  for (let i = 0; i < raw.length; i++) out[i] = raw.charCodeAt(i);
+  return out;
+}
+
+/* SHA-256 */
+async function sha256(data) {
+  if (!(data instanceof Uint8Array)) data = new TextEncoder().encode(data);
+  const h = await crypto.subtle.digest('SHA-256', data);
+  return new Uint8Array(h);
+}
+
+/* SHA-256 hex */
+async function sha256hex(data) {
+  const h = await sha256(data);
+  return Array.from(h).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+/* Deterministic JSON for signing */
+function canonicalJSON(obj) {
+  if (Array.isArray(obj)) return '[' + obj.map(canonicalJSON).join(',') + ']';
+  if (obj !== null && typeof obj === 'object') {
+    const keys = Object.keys(obj).sort();
+    return '{' + keys.map(k => JSON.stringify(k) + ':' + canonicalJSON(obj[k])).join(',') + '}';
+  }
+  return JSON.stringify(obj);
+}
+
+/* Merkle tree (RFC 6962 style) */
+async function merkleRoot(leaves) {
+  if (leaves.length === 0) return new Uint8Array(32);
+  const hashes = await Promise.all(leaves.map(async l => {
+    const data = new Uint8Array([0x00, ...new TextEncoder().encode(
+      typeof l === 'string' ? l : JSON.stringify(l)
+    )]);
+    return sha256(data);
+  }));
+  let level = hashes;
+  while (level.length > 1) {
+    const next = [];
+    for (let i = 0; i < level.length; i += 2) {
+      if (i + 1 < level.length) {
+        const combined = new Uint8Array([0x01, ...level[i], ...level[i+1]]);
+        next.push(await sha256(combined));
+      } else {
+        next.push(level[i]);
+      }
+    }
+    level = next;
+  }
+  return level[0];
+}
+
+/* Ed25519 via SubtleCrypto (Chrome 130+, Firefox 117+) */
+async function ed25519Generate() {
+  try {
+    const kp = await crypto.subtle.generateKey({ name: 'Ed25519' }, true, ['sign', 'verify']);
+    const priv = await crypto.subtle.exportKey('pkcs8', kp.privateKey);
+    const pub = await crypto.subtle.exportKey('spki', kp.publicKey);
+    // Extract raw 32-byte seed from pkcs8: last 32 bytes
+    const privBytes = new Uint8Array(priv);
+    const seed = privBytes.slice(privBytes.length - 32);
+    // Extract raw 32-byte key from spki: last 32 bytes
+    const pubBytes = new Uint8Array(pub);
+    const pubRaw = pubBytes.slice(pubBytes.length - 32);
+    return { seed, pubRaw, privKey: kp.privateKey, pubKey: kp.publicKey };
+  } catch {
+    return ed25519GenerateFallback();
+  }
+}
+
+async function ed25519Sign(message, privKeyOrSeed) {
+  try {
+    if (privKeyOrSeed instanceof CryptoKey) {
+      const sig = await crypto.subtle.sign('Ed25519', privKeyOrSeed, message);
+      return new Uint8Array(sig);
+    }
+    // Try importing seed as pkcs8
+    const pkcs8 = buildPkcs8(privKeyOrSeed);
+    const key = await crypto.subtle.importKey('pkcs8', pkcs8, { name: 'Ed25519' }, false, ['sign']);
+    const sig = await crypto.subtle.sign('Ed25519', key, message);
+    return new Uint8Array(sig);
+  } catch {
+    return ed25519SignFallback(message, privKeyOrSeed);
+  }
+}
+
+async function ed25519Verify(message, signature, pubKeyOrBytes) {
+  try {
+    let key;
+    if (pubKeyOrBytes instanceof CryptoKey) {
+      key = pubKeyOrBytes;
+    } else {
+      const spki = buildSpki(pubKeyOrBytes);
+      key = await crypto.subtle.importKey('spki', spki, { name: 'Ed25519' }, false, ['verify']);
+    }
+    return await crypto.subtle.verify('Ed25519', key, signature, message);
+  } catch {
+    return ed25519VerifyFallback(message, signature, pubKeyOrBytes);
+  }
+}
+
+function buildPkcs8(seed32) {
+  // ASN.1 PKCS#8 wrapper for Ed25519 seed
+  const prefix = new Uint8Array([
+    0x30,0x2e,0x02,0x01,0x00,0x30,0x05,0x06,0x03,0x2b,0x65,0x70,
+    0x04,0x22,0x04,0x20
+  ]);
+  const out = new Uint8Array(prefix.length + 32);
+  out.set(prefix); out.set(seed32, prefix.length);
+  return out.buffer;
+}
+function buildSpki(pub32) {
+  const prefix = new Uint8Array([
+    0x30,0x2a,0x30,0x05,0x06,0x03,0x2b,0x65,0x70,0x03,0x21,0x00
+  ]);
+  const out = new Uint8Array(prefix.length + 32);
+  out.set(prefix); out.set(pub32, prefix.length);
+  return out.buffer;
+}
+
+/* ── FALLBACK Ed25519 (pure JS, TweetNaCl-style via field arithmetic) ── */
+/* Minimal Ed25519 implementation for environments without SubtleCrypto Ed25519 */
+const _ed = (() => {
+  // Field arithmetic over 2^255-19
+  const P = 2n ** 255n - 19n;
+  const mod = (a, b=P) => { const r = a % b; return r < 0n ? r + b : r; };
+  const pow = (x,n,m=P) => { let r=1n,b=mod(x,m); for(;n>0n;n>>=1n){if(n&1n)r=r*b%m;b=b*b%m;}return r; };
+  const inv = x => pow(x, P-2n);
+  const d = 37095705934669439343138083508754565189542113879843219016388785533085940283555n;
+  const GX = 15112221349535807912866137220509078750507884956996801051945092926928750792049n;
+  const GY = 46316835694926478169428394003475163141307993866256225615783033011972563625056n;
+  const Q = 2n**252n + 27742317777372353535851937790883648493n;
+  const a = -1n;
+
+  function pt_add([x1,y1,z1,t1],[x2,y2,z2,t2]) {
+    const A=mod((y1-x1)*(y2-x2)), B=mod((y1+x1)*(y2+x2));
+    const C=mod(2n*t1*t2*d), D=mod(2n*z1*z2);
+    const E=B-A,F=D-C,G=D+C,H=B+A;
+    return [mod(E*F),mod(G*H),mod(F*G),mod(E*H)];
+  }
+  function pt_mul(s,[x,y,z,t]) {
+    let R=[0n,1n,1n,0n],Q2=[x,y,z,t];
+    for(let i=255n;i>=0n;i--){
+      R=pt_add(R,R);
+      if((s>>i)&1n)R=pt_add(R,Q2);
+    }
+    return R;
+  }
+  const G=[GX,GY,1n,mod(GX*GY)];
+  function pt_encode([x,y,z]) {
+    const zinv=inv(z), rx=mod(x*zinv), ry=mod(y*zinv);
+    const out=new Uint8Array(32);
+    for(let i=0;i<32;i++)out[i]=Number((ry>>(8n*BigInt(i)))&255n);
+    if(rx&1n)out[31]|=0x80;
+    return out;
+  }
+  function pt_decode(enc) {
+    const b=new Uint8Array(enc);
+    const sign=b[31]>>7; b[31]&=0x7f;
+    let y=0n; for(let i=31;i>=0;i--)y=(y<<8n)|BigInt(b[i]);
+    const y2=mod(y*y), u=mod(y2-1n), v=mod(d*y2+1n);
+    let x=mod(pow(u,3n)*pow(u,5n)*pow(v,3n)*pow(mod(u*pow(v,3n)),((P+3n)/8n)));
+    const vx2=mod(v*x*x);
+    if(vx2===mod(u)){}
+    else if(vx2===mod(-u)) x=mod(x*pow(2n,(P-1n)/4n));
+    else return null;
+    if((x&1n)!==BigInt(sign))x=mod(-x);
+    return [x,y,1n,mod(x*y)];
+  }
+
+  async function sha512(data) {
+    const h = await crypto.subtle.digest('SHA-512', data);
+    return new Uint8Array(h);
+  }
+  function clamp(h) {
+    h[0]&=248; h[31]&=127; h[31]|=64;
+  }
+  function bytesToBigInt(b) {
+    let n=0n; for(let i=b.length-1;i>=0;i--)n=(n<<8n)|BigInt(b[i]); return n;
+  }
+  function bigIntToBytes32(n) {
+    const b=new Uint8Array(32); for(let i=0;i<32;i++){b[i]=Number(n&255n);n>>=8n;} return b;
+  }
+  function bigIntToBytes64(n) {
+    const b=new Uint8Array(64); for(let i=0;i<64;i++){b[i]=Number(n&255n);n>>=8n;} return b;
+  }
+
+  async function pubFromSeed(seed) {
+    const h=await sha512(seed); const scalar=new Uint8Array(h.buffer,0,32); clamp(scalar);
+    return pt_encode(pt_mul(bytesToBigInt(scalar),G));
+  }
+
+  async function sign(msg, seed) {
+    const h=await sha512(seed);
+    const scalar=new Uint8Array(h.buffer,0,32); clamp(scalar);
+    const prefix=new Uint8Array(h.buffer,32,32);
+    const s=bytesToBigInt(scalar);
+    const pub=pt_encode(pt_mul(s,G));
+    const rBytes=await sha512(new Uint8Array([...prefix,...msg]));
+    const r=mod(bytesToBigInt(rBytes),Q);
+    const R=pt_encode(pt_mul(r,G));
+    const kBytes=await sha512(new Uint8Array([...R,...pub,...msg]));
+    const k=mod(bytesToBigInt(kBytes),Q);
+    const S=mod(r+k*s,Q);
+    return new Uint8Array([...R,...bigIntToBytes32(S)]);
+  }
+
+  async function verify(msg, sig, pub) {
+    if(sig.length!==64)return false;
+    const R=pt_decode(sig.slice(0,32)); if(!R)return false;
+    const A=pt_decode(pub); if(!A)return false;
+    const S=bytesToBigInt(sig.slice(32));
+    if(S>=Q)return false;
+    const kBytes=await sha512(new Uint8Array([...sig.slice(0,32),...pub,...msg]));
+    const k=mod(bytesToBigInt(kBytes),Q);
+    const check1=pt_encode(pt_mul(8n*S,G));
+    const AP=[...pt_mul(8n,A)];
+    const RP=[...pt_mul(8n,R)];
+    const kA=pt_mul(8n*k,A);
+    const Rcheck=pt_encode(pt_add(pt_mul(8n,R),kA));
+    return check1.every((v,i)=>v===Rcheck[i]);
+  }
+
+  return { pubFromSeed, sign, verify };
+})();
+
+async function ed25519GenerateFallback() {
+  const seed = crypto.getRandomValues(new Uint8Array(32));
+  const pubRaw = await _ed.pubFromSeed(seed);
+  return { seed, pubRaw, privKey: null, pubKey: null };
+}
+async function ed25519SignFallback(message, seed) {
+  return _ed.sign(message, seed);
+}
+async function ed25519VerifyFallback(message, signature, pubRaw) {
+  return _ed.verify(message, signature, pubRaw);
+}
+
+/* ── UNIQUE ID ──────────────────────────────────────────────────── */
+function makeId() {
+  return b64uEncode(crypto.getRandomValues(new Uint8Array(32)));
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   SEAL
+   ══════════════════════════════════════════════════════════════════ */
+let _currentSeed = null;
+let _currentPub = null;
+
+async function generateKeyPair() {
+  const kp = await ed25519Generate();
+  _currentSeed = kp.seed;
+  _currentPub = kp.pubRaw;
+  document.getElementById('seal-privkey').value = b64uEncode(kp.seed);
+  document.getElementById('seal-pubkey-out').innerText = b64uEncode(kp.pubRaw);
+  document.getElementById('seal-keypair-display').style.display = 'block';
+}
+
+async function sealBundle() {
+  let bundle;
+  try { bundle = JSON.parse(document.getElementById('seal-bundle-json').value); }
+  catch(e) { alert('Bundle JSON is invalid: ' + e.message); return; }
+
+  const privInput = document.getElementById('seal-privkey').value.trim();
+  let seed;
+  try { seed = privInput ? b64uDecode(privInput) : (_currentSeed || (() => { throw new Error('no key'); })()); }
+  catch { alert('Generate or paste a private key first.'); return; }
+
+  // Stamp metadata
+  bundle.hdr = bundle.hdr || {};
+  bundle.hdr.bundle_id = makeId();
+  bundle.hdr.spec_id = 'PROOFBUNDLE';
+  bundle.hdr.spec_ver = '1.2.1';
+  bundle.meta = bundle.meta || {};
+  bundle.meta.created_at = new Date().toISOString();
+
+  // Merkle leaves: [canonicalJSON(hdr), canonicalJSON(meta), canonicalJSON(payload), ...]
+  const leaves = [
+    canonicalJSON(bundle.hdr),
+    canonicalJSON(bundle.meta),
+    canonicalJSON(bundle.payload || {}),
+  ];
+  const root = await merkleRoot(leaves);
+  const rootB64 = b64uEncode(root);
+  bundle.merkleRoot = rootB64;
+
+  // Sign: sha256(merkleRoot || canonical(bundle without sig))
+  const { sig: _, ...bundleForSig } = bundle;
+  const toSign = new TextEncoder().encode(rootB64 + '|' + canonicalJSON(bundleForSig));
+  const sig = await ed25519Sign(toSign, seed);
+
+  // Derive public key
+  const pub = await _ed.pubFromSeed(seed);
+  bundle.sig = { alg: 'ED25519', pub: b64uEncode(pub), sig: b64uEncode(sig) };
+
+  document.getElementById('seal-out-id').innerText = bundle.hdr.bundle_id;
+  document.getElementById('seal-out-root').innerText = rootB64;
+  document.getElementById('seal-output-json').innerText = JSON.stringify(bundle, null, 2);
+  document.getElementById('seal-result').style.display = 'block';
+  document.getElementById('seal-pubkey-out').innerText = b64uEncode(pub);
+  document.getElementById('seal-keypair-display').style.display = 'block';
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   BOUNDARY PREDICATE EVALUATION
+   ══════════════════════════════════════════════════════════════════ */
+function getNestedValue(obj, path) {
+  const parts = path.split('.');
+  let cur = obj;
+  for (const p of parts) {
+    if (cur === undefined || cur === null) return undefined;
+    cur = cur[p];
+  }
+  return cur;
+}
+
+function evalPredicate(pred, context) {
+  const val = getNestedValue(context, pred.path);
+  switch (pred.op) {
+    case 'equals': return val === pred.value ? 'pass' : 'fail';
+    case 'present': return (val !== undefined && val !== null && val !== '') ? 'pass' : 'missing';
+    case 'in': return Array.isArray(pred.set) && pred.set.includes(val) ? 'pass' : 'fail';
+    case 'range': {
+      const n = Number(val);
+      if (isNaN(n)) return 'fail';
+      return (n >= pred.lo && n <= pred.hi) ? 'pass' : 'fail';
+    }
+    default: return 'unknown';
+  }
+}
+
+function evalBoundary(boundary, context) {
+  if (!boundary) return { outcome: 'VERIFIED', details: [] };
+  const atoms = boundary.all || boundary.any || (Array.isArray(boundary) ? boundary : []);
+  const mode = boundary.all ? 'all' : 'any';
+  const results = atoms.map(pred => ({ pred, result: evalPredicate(pred, context) }));
+
+  // Check for missing side_info
+  const missing = results.filter(r => r.result === 'missing');
+  if (missing.length > 0 && mode !== 'any') {
+    return { outcome: 'INDETERMINATE', details: results };
+  }
+  const fail = results.filter(r => r.result === 'fail');
+  if (mode === 'all' && fail.length > 0) return { outcome: 'OUT-OF-BOUNDS', details: results };
+  if (mode === 'any' && fail.length === atoms.length) return { outcome: 'OUT-OF-BOUNDS', details: results };
+  return { outcome: 'VERIFIED', details: results };
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   VERIFY
+   ══════════════════════════════════════════════════════════════════ */
+async function verifyBundle() {
+  const resultDiv = document.getElementById('verify-result');
+  resultDiv.style.display = 'block';
+  resultDiv.innerHTML = '<div style="color:var(--text2);font-size:13px">Verifying…</div>';
+
+  let bundle, context, bundles;
+  try { bundle = JSON.parse(document.getElementById('verify-bundle-json').value); }
+  catch(e) { resultDiv.innerHTML = errBox('Bundle JSON parse error: ' + e.message); return; }
+  try { context = JSON.parse(document.getElementById('verify-context').value || '{}'); }
+  catch(e) { resultDiv.innerHTML = errBox('Context JSON parse error: ' + e.message); return; }
+  try { bundles = JSON.parse(document.getElementById('verify-bundles').value || '{}'); }
+  catch(e) { resultDiv.innerHTML = errBox('Provided bundles parse error: ' + e.message); return; }
+
+  const maxDepth = parseInt(document.getElementById('verify-maxdepth').value) || 0;
+  const pubKeyInput = document.getElementById('verify-pubkey').value.trim();
+  const trace = [];
+  const t0 = performance.now();
+
+  // 1. Signature check
+  let sigOk = false;
+  try {
+    if (!bundle.sig) throw new Error('No sig field');
+    const sigPub = pubKeyInput ? b64uDecode(pubKeyInput) : b64uDecode(bundle.sig.pub);
+    const { sig: _, ...bundleForSig } = bundle;
+    const toSign = new TextEncoder().encode(bundle.merkleRoot + '|' + canonicalJSON(bundleForSig));
+    const sig = b64uDecode(bundle.sig.sig);
+    sigOk = await ed25519Verify(toSign, sig, sigPub);
+  } catch(e) {
+    trace.push({ title: 'Signature verification', body: 'Error: ' + e.message, outcome: 'INVALID-SIGNATURE', ms: elapsed(t0) });
+    resultDiv.innerHTML = renderVerifyResult('INVALID-SIGNATURE', trace);
+    return;
+  }
+  if (!sigOk) {
+    trace.push({ title: 'Signature verification', body: 'digest recomputation fails → cryptographic tamper detected', outcome: 'INVALID-SIGNATURE', ms: elapsed(t0) });
+    resultDiv.innerHTML = renderVerifyResult('INVALID-SIGNATURE', trace);
+    return;
+  }
+  trace.push({ title: 'Signature verified', body: 'ED25519 sig ✓, merkleRoot ✓', outcome: null, ms: elapsed(t0) });
+
+  // 2. Merkle root check
+  const leaves = [
+    canonicalJSON(bundle.hdr),
+    canonicalJSON(bundle.meta),
+    canonicalJSON(bundle.payload || {}),
+  ];
+  const root = await merkleRoot(leaves);
+  const rootB64 = b64uEncode(root);
+  if (rootB64 !== bundle.merkleRoot) {
+    trace.push({ title: 'Merkle root mismatch', body: `computed: ${rootB64.slice(0,20)}… stored: ${bundle.merkleRoot?.slice(0,20)}…`, outcome: 'INVALID-SIGNATURE', ms: elapsed(t0) });
+    resultDiv.innerHTML = renderVerifyResult('INVALID-SIGNATURE', trace);
+    return;
+  }
+  trace.push({ title: 'Merkle root verified', body: 'leaf hashes match committed root ✓', outcome: null, ms: elapsed(t0) });
+
+  // 3. Lineage traversal
+  const refs = bundle.meta?.refs || [];
+  if (refs.length > 0 && maxDepth === 0) {
+    trace.push({ title: `Verify: max_depth=0 (lineage budget exceeded)`, body: `child has ${refs.length} parent ref(s); depth budget exhausted at root`, outcome: 'RESOURCE-EXHAUSTED', ms: elapsed(t0) });
+    resultDiv.innerHTML = renderVerifyResult('RESOURCE-EXHAUSTED', trace);
+    return;
+  }
+  for (const ref of refs) {
+    const parentBundle = bundles[ref.parent_id];
+    if (!parentBundle) {
+      trace.push({ title: 'Verify: parent NOT provided', body: `parent_id referenced in refs but not in provided bundles map → lineage broken`, outcome: 'INVALID', ms: elapsed(t0) });
+      resultDiv.innerHTML = renderVerifyResult('INVALID', trace);
+      return;
+    }
+  }
+  if (refs.length > 0) {
+    trace.push({ title: `Verify: lineage max_depth=${maxDepth}`, body: `traversed ${refs.length} depth(s). All referenced parents are present in the provided bundle map.`, outcome: null, ms: elapsed(t0) });
+  }
+
+  // 4. Boundary evaluation
+  const boundary = bundle.meta?.boundary;
+  const { outcome, details } = evalBoundary(boundary, context);
+  const bodyParts = details.map(r =>
+    `${r.pred.path} (${r.pred.op}) → ${r.result}`
+  ).join(', ');
+  trace.push({ title: 'Boundary evaluation', body: bodyParts || 'no predicates', outcome, ms: elapsed(t0) });
+
+  resultDiv.innerHTML = renderVerifyResult(outcome, trace);
+}
+
+function elapsed(t0) { return Math.round(performance.now() - t0) + 'ms'; }
+
+function outcomeClass(o) {
+  const m = { 'VERIFIED':'verified','OUT-OF-BOUNDS':'oob','INDETERMINATE':'indet',
+    'INVALID-SIGNATURE':'invsig','RESOURCE-EXHAUSTED':'resex','INVALID':'invalid' };
+  return m[o] || 'invalid';
+}
+function outcomeBadgeClass(o) {
+  const m = { 'VERIFIED':'badge-green','OUT-OF-BOUNDS':'badge-purple','INDETERMINATE':'badge-orange',
+    'INVALID-SIGNATURE':'badge-red','RESOURCE-EXHAUSTED':'badge-yellow','INVALID':'badge-red' };
+  return m[o] || 'badge-red';
+}
+
+function renderVerifyResult(finalOutcome, trace) {
+  const cls = outcomeClass(finalOutcome);
+  let html = `<div class="verify-result ${cls}">`;
+  html += `<div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+    <span style="font-size:16px;font-weight:700">Verification Result</span>
+    <span class="badge ${outcomeBadgeClass(finalOutcome)}">${finalOutcome}</span>
+  </div>`;
+  html += `<div class="trace-label">Execution Trace</div>`;
+  for (const step of trace) {
+    if (step.outcome) {
+      const sc = outcomeClass(step.outcome);
+      html += `<div class="trace-step outcome ${sc}">
+        <div>
+          <div class="trace-step-title">${esc(step.title)}</div>
+          <div class="trace-step-body">${esc(step.body)}</div>
+        </div>
+        <div class="trace-step-right">
+          <span class="badge ${outcomeBadgeClass(step.outcome)}">${step.outcome}</span>
+          <span class="trace-ms">${step.ms}</span>
+        </div>
+      </div>`;
+    } else {
+      html += `<div class="trace-step">
+        <div class="trace-step-title">${esc(step.title)}</div>
+        <div class="trace-step-body">${esc(step.body)}</div>
+      </div>`;
+    }
+  }
+  html += '</div>';
+  return html;
+}
+
+function errBox(msg) {
+  return `<div class="verify-result invsig"><span style="color:var(--red)">${esc(msg)}</span></div>`;
+}
+
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   DOMAINS
+   ══════════════════════════════════════════════════════════════════ */
+const DOMAINS = [
+  {
+    id: 'healthcare-v2',
+    name: 'Healthcare',
+    profile: 'healthcare-v2',
+    desc: 'Clinical and health-data workflow profile with consent, care-setting, and human-review boundary checks.',
+    boundary: { all: [
+      { op:'present', path:'consent_token', desc:'consent_token must be present for patient-linked processing' },
+      { op:'in', path:'care_setting', set:['inpatient','outpatient','emergency'], desc:'care_setting must be a permitted clinical setting' },
+      { op:'present', path:'clinical_reviewer_id', desc:'clinical_reviewer_id must be bound for accountable review' },
+    ]},
+    sampleContext: {
+      consent_token: 'consent-2026-04-19',
+      care_setting: 'inpatient',
+      clinical_reviewer_id: 'urn:provider:reviewer:042'
+    }
+  },
+  {
+    id: 'finance-sr11-7',
+    name: 'Finance',
+    profile: 'finance-sr11-7',
+    desc: 'Model governance profile for finance with regime, asset-class, and transaction-envelope checks.',
+    boundary: { all: [
+      { op:'equals', path:'regulatory_regime', value:'SR11-7', desc:'regulatory_regime must equal SR11-7' },
+      { op:'in', path:'instrument_class', set:['equity','bond','fund'], desc:'instrument_class must be an approved class' },
+      { op:'range', path:'transaction_value', lo:0, hi:1000000, desc:'transaction_value must remain within declared authorization limit' },
+    ]},
+    sampleContext: {
+      regulatory_regime: 'SR11-7',
+      instrument_class: 'bond',
+      transaction_value: 250000
+    }
+  },
+  {
+    id: 'autonomous-v1',
+    name: 'Autonomous Vehicles',
+    profile: 'autonomous-v1',
+    desc: 'Operational design domain checks for autonomy with road, weather, speed, and human-oversight predicates.',
+    boundary: { all: [
+      { op:'equals', path:'road_type', value:'motorway', desc:'road_type constrains the operational design domain' },
+      { op:'in', path:'weather', set:['clear','light_rain'], desc:'weather must remain within the declared envelope' },
+      { op:'range', path:'vehicle_speed', lo:0, hi:130, desc:'vehicle_speed must remain inside the permitted band' },
+      { op:'present', path:'hitl_attestation', desc:'hitl_attestation must be present for release or intervention' },
+    ]},
+    sampleContext: {
+      road_type: 'motorway',
+      weather: 'clear',
+      vehicle_speed: 110,
+      hitl_attestation: 'safety-officer-signature-01'
+    }
+  },
+  {
+    id: 'education-v1',
+    name: 'Education',
+    profile: 'education-v1',
+    desc: 'Educational workflow profile with consent, age, and curriculum-standard checks.',
+    boundary: { all: [
+      { op:'present', path:'ferpa_consent', desc:'ferpa_consent must be present for student-linked processing' },
+      { op:'range', path:'student_age', lo:13, hi:99, desc:'student_age must satisfy the declared age gate' },
+      { op:'equals', path:'curriculum_standard', value:'CSTA-K12', desc:'curriculum_standard must match the declared instructional baseline' },
+    ]},
+    sampleContext: {
+      ferpa_consent: 'ferpa-token-01',
+      student_age: 16,
+      curriculum_standard: 'CSTA-K12'
+    }
+  },
+  {
+    id: 'criminal-justice-v1',
+    name: 'Criminal Justice',
+    profile: 'criminal-justice-v1',
+    desc: 'Advisory-only criminal justice profile with oversight and audit constraints.',
+    boundary: { all: [
+      { op:'present', path:'bias_audit_report', desc:'bias_audit_report must be present before use' },
+      { op:'present', path:'human_reviewer_id', desc:'human_reviewer_id must identify accountable review' },
+      { op:'equals', path:'decision_binding', value:false, desc:'decision_binding must be false because output is advisory only' },
+    ]},
+    sampleContext: {
+      bias_audit_report: 'bias-audit-2026-q2',
+      human_reviewer_id: 'urn:court:reviewer:12',
+      decision_binding: false
+    }
+  },
+  {
+    id: 'climate-v1',
+    name: 'Climate Prediction',
+    profile: 'climate-v1',
+    desc: 'Climate and environmental projection profile with methodology, uncertainty, and audit predicates.',
+    boundary: { all: [
+      { op:'present', path:'methodology_ref', desc:'methodology_ref must identify the declared modeling method' },
+      { op:'range', path:'uncertainty_pct', lo:0, hi:15, desc:'uncertainty_pct must stay within the declared tolerance' },
+      { op:'present', path:'third_party_audit', desc:'third_party_audit must be present for external reviewability' },
+    ]},
+    sampleContext: {
+      methodology_ref: 'ipcc-ar7-downscaling-method-a',
+      uncertainty_pct: 8.2,
+      third_party_audit: 'audit-2026-climate-11'
+    }
+  },
+  {
+    id: 'agriculture-v1',
+    name: 'Agriculture',
+    profile: 'agriculture-v1',
+    desc: 'Agriculture profile with calibration, input-approval, and sovereignty predicates.',
+    boundary: { all: [
+      { op:'present', path:'sensor_calibration_cert', desc:'sensor_calibration_cert must be present and current' },
+      { op:'in', path:'approved_input', set:['organic-certified','glyphosate-free'], desc:'approved_input must match the declared permitted set' },
+      { op:'equals', path:'data_sovereignty', value:'domestic', desc:'data_sovereignty must equal domestic where the profile requires it' },
+    ]},
+    sampleContext: {
+      sensor_calibration_cert: 'calibration-cert-2026-04',
+      approved_input: 'organic-certified',
+      data_sovereignty: 'domestic'
+    }
+  },
+  {
+    id: 'content-creation-v1',
+    name: 'Content Creation',
+    profile: 'content-creation-v1',
+    desc: 'Synthetic-media provenance profile with disclosure, manifest, and rights-basis predicates.',
+    boundary: { all: [
+      { op:'present', path:'c2pa_manifest', desc:'c2pa_manifest must be present for provenance disclosure' },
+      { op:'equals', path:'synthetic_disclosure', value:true, desc:'synthetic_disclosure must be true for AI-generated content' },
+      { op:'in', path:'rights_basis', set:['owned','licensed','public-domain'], desc:'rights_basis must identify an allowed source basis' },
+    ]},
+    sampleContext: {
+      c2pa_manifest: 'manifest-7e8f',
+      synthetic_disclosure: true,
+      rights_basis: 'licensed'
+    }
+  },
+  {
+    id: 'ai-general-v1',
+    name: 'General AI',
+    profile: 'ai-general-v1',
+    desc: 'General AI deployment profile with risk-management, monitoring, and incident-accountability checks.',
+    boundary: { all: [
+      { op:'present', path:'risk_management_file', desc:'risk_management_file must be present before deployment' },
+      { op:'present', path:'monitoring_plan', desc:'monitoring_plan must be present for post-deployment observation' },
+      { op:'present', path:'incident_response_owner', desc:'incident_response_owner must identify accountable response' },
+    ]},
+    sampleContext: {
+      risk_management_file: 'rmf-v1.4',
+      monitoring_plan: 'continuous-monitoring-2026',
+      incident_response_owner: 'urn:ops:incident-owner:01'
+    }
+  },
+  {
+    id: 'historical-provenance-v1',
+    name: 'Historical Provenance',
+    profile: 'historical-provenance-v1',
+    desc: 'Historical and archival provenance profile with institution, chain, and attestation-band predicates.',
+    boundary: { all: [
+      { op:'in', path:'origin_institution_type', set:['archive','museum','library'], desc:'origin_institution_type must identify an admissible custody institution' },
+      { op:'present', path:'provenance_chain_ref', desc:'provenance_chain_ref must be present for traceable lineage' },
+      { op:'range', path:'attestation_level', lo:0, hi:4, desc:'attestation_level must remain inside the declared ordinal band' },
+    ]},
+    sampleContext: {
+      origin_institution_type: 'archive',
+      provenance_chain_ref: 'chain-ref-1914-lot-03',
+      attestation_level: 2
+    }
+  }
+];
+
+let _activeDomain = null;
+
+function renderDomains() {
+  const listEl = document.getElementById('domain-list');
+  const detailEl = document.getElementById('domain-detail');
+  listEl.innerHTML = DOMAINS.map(d =>
+    `<button class="domain-btn" id="dbtn-${d.id}" onclick="showDomain('${d.id}')">
+      <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;width:100%">
+        <span>${esc(d.name)}</span>
+        <span class="badge badge-blue">${esc(d.profile)}</span>
+      </div>
+    </button>`
+  ).join('');
+  detailEl.innerHTML = '';
+  if (DOMAINS.length) showDomain(DOMAINS[0].id);
+}
+
+function loadDomainIntoSeal(id) {
+  const d = DOMAINS.find(x => x.id === id);
+  if (!d) return;
+  try {
+    const bundle = JSON.parse(document.getElementById('seal-bundle-json').value);
+    bundle.hdr = bundle.hdr || {};
+    bundle.hdr.profile = d.profile;
+    bundle.meta = bundle.meta || {};
+    bundle.meta.boundary = JSON.parse(JSON.stringify(d.boundary));
+    document.getElementById('seal-bundle-json').value = JSON.stringify(bundle, null, 2);
+  } catch (e) {
+    alert('Seal JSON could not be updated: ' + e.message);
+  }
+}
+
+function loadDomainContextToVerify(id) {
+  const d = DOMAINS.find(x => x.id === id);
+  if (!d) return;
+  document.getElementById('verify-context').value = JSON.stringify(d.sampleContext, null, 2);
+}
+
+function evaluateDomainExample(id) {
+  const d = DOMAINS.find(x => x.id === id);
+  if (!d) return;
+  const textarea = document.getElementById('domain-context-json');
+  const resultEl = document.getElementById('domain-eval-result');
+  if (!textarea || !resultEl) return;
+  let ctx;
+  try {
+    ctx = JSON.parse(textarea.value || '{}');
+  } catch (e) {
+    resultEl.innerHTML = `<div class="verify-result invalid"><span style="color:var(--red)">Context JSON parse error: ${esc(e.message)}</span></div>`;
+    return;
+  }
+  const { outcome, details } = evalBoundary(d.boundary, ctx);
+  const lines = details.map(r => `${r.pred.path} (${r.pred.op}) → ${r.result}`).join(', ');
+  resultEl.innerHTML = renderVerifyResult(outcome, [{ title:'Profile evaluation', body: lines || 'no predicates', outcome, ms:'0ms' }]);
+}
+
+function showDomain(id) {
+  const d = DOMAINS.find(x => x.id === id);
+  if (!d) return;
+  _activeDomain = id;
+  document.querySelectorAll('.domain-btn').forEach(b => b.classList.remove('active'));
+  const btn = document.getElementById('dbtn-' + id);
+  if (btn) btn.classList.add('active');
+
+  const opColor = { equals:'badge-blue', in:'badge-cyan', range:'badge-orange', present:'badge-green' };
+  const atoms = d.boundary.all || d.boundary.any || [];
+  const mode = d.boundary.all ? 'all' : 'any';
+  const preds = atoms.map(p => {
+    const exJson = JSON.stringify({ op: p.op, path: p.path, ...(p.value !== undefined ? { value: p.value } : {}), ...(p.set ? { set: p.set } : {}), ...(p.lo !== undefined ? { lo: p.lo, hi: p.hi } : {}) }, null, 2);
+    return `<div class="predicate-card">
+      <div class="predicate-header">
+        <span class="badge ${opColor[p.op] || 'badge-blue'}">${p.op}</span>
+        <div class="predicate-desc">${esc(p.desc)}</div>
+      </div>
+      <div class="predicate-code">${esc(exJson)}</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('domain-detail').innerHTML = `
+    <div class="card">
+      <div class="domain-detail-title">${esc(d.name)}</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px">
+        <span class="badge badge-blue">${esc(d.profile)}</span>
+        <span class="badge badge-purple">boundary.${mode}</span>
+        <span class="badge badge-cyan">${atoms.length} atoms</span>
+      </div>
+      <p>${esc(d.desc)}</p>
+      <div class="btn-row">
+        <button class="btn btn-secondary btn-sm" onclick="loadDomainIntoSeal('${d.id}')">Load into Seal</button>
+        <button class="btn btn-secondary btn-sm" onclick="loadDomainContextToVerify('${d.id}')">Load context into Verify</button>
+        <button class="btn btn-primary btn-sm" onclick="evaluateDomainExample('${d.id}')">Evaluate example context</button>
+      </div>
+      <div class="predicates-label">Boundary Predicates</div>
+      ${preds}
+      <div class="predicates-label">Example Context JSON</div>
+      <textarea id="domain-context-json" rows="10" spellcheck="false">${esc(JSON.stringify(d.sampleContext, null, 2))}</textarea>
+      <div id="domain-eval-result" style="margin-top:12px"></div>
+    </div>
+  `;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   CLAIMS
+   ══════════════════════════════════════════════════════════════════ */
+function submitClaim() {
+  const bundleId = document.getElementById('claim-bundle-id').value.trim();
+  const type = document.getElementById('claim-type').value.trim();
+  const assertion = document.getElementById('claim-assertion').value.trim();
+  const evidence = document.getElementById('claim-evidence').value.trim();
+  if (!bundleId || !assertion) { alert('Bundle ID and assertion are required.'); return; }
+  STATE.claims.push({
+    id: makeId().slice(0,16),
+    bundleId, type: type || 'general',
+    assertion, evidence,
+    status: 'pending',
+    createdAt: new Date().toISOString(),
+  });
+  closeModal('claim-modal');
+  ['claim-bundle-id','claim-type','claim-assertion','claim-evidence'].forEach(id => document.getElementById(id).value = '');
+  persistState();
+  renderClaims();
+}
+
+function updateClaimStatus(idx, status) {
+  STATE.claims[idx].status = status;
+  STATE.claims[idx].resolvedAt = new Date().toISOString();
+  persistState();
+  renderClaims();
+}
+
+function renderClaims() {
+  const el = document.getElementById('claims-list');
+  if (STATE.claims.length === 0) {
+    el.innerHTML = `<div class="empty"><div class="empty-title">No claims yet</div><div class="empty-sub">Create a claim to start tracking assertions against bundles</div></div>`;
+    return;
+  }
+  const statusBadge = { pending:'badge-orange', accepted:'badge-green', rejected:'badge-red' };
+  el.innerHTML = '<div class="item-list">' + STATE.claims.map((c,i) => `
+    <div class="item-card">
+      <div class="item-card-header">
+        <div class="item-card-title">${esc(c.type)}</div>
+        <span class="badge ${statusBadge[c.status]}">${c.status}</span>
+      </div>
+      <div class="item-card-body">${esc(c.assertion)}</div>
+      ${c.evidence ? `<div class="item-card-body" style="font-size:12px;color:var(--text2)">Evidence: ${esc(c.evidence)}</div>` : ''}
+      <div class="item-card-meta">Bundle: ${esc(c.bundleId.slice(0,24))}… · ${c.createdAt.slice(0,10)}</div>
+      ${c.status === 'pending' ? `<div class="item-card-actions">
+        <button class="btn btn-secondary btn-sm" onclick="updateClaimStatus(${i},'accepted')">Accept</button>
+        <button class="btn btn-secondary btn-sm" style="color:var(--red)" onclick="updateClaimStatus(${i},'rejected')">Reject</button>
+      </div>` : `<div class="item-card-meta" style="margin-top:6px">Resolved: ${c.resolvedAt?.slice(0,10)}</div>`}
+    </div>
+  `).join('') + '</div>';
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   PREDICTIONS
+   ══════════════════════════════════════════════════════════════════ */
+function submitPrediction() {
+  const bundleId = document.getElementById('predict-bundle-id').value.trim();
+  const statement = document.getElementById('predict-statement').value.trim();
+  const criteria = document.getElementById('predict-criteria').value.trim();
+  const deadline = document.getElementById('predict-deadline').value.trim();
+  if (!statement) { alert('Prediction statement is required.'); return; }
+  STATE.predictions.push({
+    id: makeId().slice(0,16),
+    bundleId, statement, criteria, deadline,
+    status: 'open',
+    createdAt: new Date().toISOString(),
+  });
+  closeModal('predict-modal');
+  ['predict-bundle-id','predict-statement','predict-criteria','predict-deadline'].forEach(id => document.getElementById(id).value = '');
+  persistState();
+  renderPredictions();
+}
+
+function openResolve(idx) {
+  STATE.resolvingPredictionIdx = idx;
+  document.getElementById('resolve-modal-title').innerText = 'Resolve Prediction';
+  document.getElementById('resolve-evidence').value = '';
+  openModal('resolve-modal');
+}
+
+function resolvePrediction() {
+  const idx = STATE.resolvingPredictionIdx;
+  if (idx === null) return;
+  const outcome = document.getElementById('resolve-outcome').value;
+  const evidence = document.getElementById('resolve-evidence').value.trim();
+  STATE.predictions[idx].status = outcome;
+  STATE.predictions[idx].resolutionEvidence = evidence;
+  STATE.predictions[idx].resolvedAt = new Date().toISOString();
+  closeModal('resolve-modal');
+  persistState();
+  renderPredictions();
+}
+
+function renderPredictions() {
+  const el = document.getElementById('predict-list');
+  if (STATE.predictions.length === 0) {
+    el.innerHTML = `<div class="empty"><div class="empty-title">No predictions yet</div><div class="empty-sub">Register a falsifiable prediction to start tracking outcomes</div></div>`;
+    return;
+  }
+  const statusBadge = { open:'badge-blue', confirmed:'badge-green', falsified:'badge-red' };
+  el.innerHTML = '<div class="item-list">' + STATE.predictions.map((p,i) => `
+    <div class="item-card">
+      <div class="item-card-header">
+        <div class="item-card-title" style="flex:1">${esc(p.statement.slice(0,80))}${p.statement.length>80?'…':''}</div>
+        <span class="badge ${statusBadge[p.status]}">${p.status}</span>
+      </div>
+      ${p.criteria ? `<div class="item-card-body">Criteria: ${esc(p.criteria)}</div>` : ''}
+      ${p.resolutionEvidence ? `<div class="item-card-body" style="color:var(--text2);font-size:12px">Evidence: ${esc(p.resolutionEvidence)}</div>` : ''}
+      <div class="item-card-meta">
+        ${p.bundleId ? `Bundle: ${esc(p.bundleId.slice(0,20))}… · ` : ''}
+        Registered: ${p.createdAt.slice(0,10)}
+        ${p.deadline ? ` · Deadline: ${esc(p.deadline)}` : ''}
+        ${p.resolvedAt ? ` · Resolved: ${p.resolvedAt.slice(0,10)}` : ''}
+      </div>
+      ${p.status === 'open' ? `<div class="item-card-actions">
+        <button class="btn btn-secondary btn-sm" onclick="openResolve(${i})">Resolve</button>
+      </div>` : ''}
+    </div>
+  `).join('') + '</div>';
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   SHOWCASE
+   ══════════════════════════════════════════════════════════════════ */
+const SHOWCASES = [
+  {
+    id: 'eu-clinical',
+    title: 'EU AI Act Clinical AI Model',
+    tag: 'EU AI Act', tagClass: 'badge-blue',
+    desc: 'Demo trace for a clinical AI conformity bundle with boundary atoms for risk tier, deployment zone, and conformity assessment. Mixes shared verifier evaluation with scripted explanatory trace steps.',
+    async run() {
+      const kp = await ed25519Generate();
+      const pub = b64uEncode(kp.pubRaw);
+      const trace = [
+        { title: 'Key pair generated', body: 'pub: ' + pub.slice(0,24) + '…' },
+      ];
+
+      const bundle = {
+        hdr: { bundle_id: makeId(), profile:'PB-BOUNDARY-1', spec_id:'PROOFBUNDLE', spec_ver:'1.1.0' },
+        meta: {
+          producer_id: 'urn:example:clinical-ai',
+          created_at: new Date().toISOString(),
+          canonical_encoding: 'PB-CANON-JSON-1',
+          proof_kind: 'assertion',
+          boundary: { all: [
+            { op:'equals', path:'risk_tier', value:'high' },
+            { op:'equals', path:'deployment_zone', value:'EU' },
+            { op:'present', path:'conformity_assessment' },
+          ]}
+        },
+        payload: { model: 'clinical-decision-v3', version: '3.2.1' }
+      };
+
+      const leaves = [canonicalJSON(bundle.hdr), canonicalJSON(bundle.meta), canonicalJSON(bundle.payload)];
+      const root = await merkleRoot(leaves);
+      const rootB64 = b64uEncode(root);
+      bundle.merkleRoot = rootB64;
+      const { sig: _, ...bfs } = bundle;
+      const toSign = new TextEncoder().encode(rootB64 + '|' + canonicalJSON(bfs));
+      const sig = await ed25519Sign(toSign, kp.seed);
+      bundle.sig = { alg:'ED25519', pub, sig: b64uEncode(sig) };
+
+      trace.push({ title:'Bundle sealed', body:'bundle_id: ' + bundle.hdr.bundle_id.slice(0,32) + '…' });
+      trace.push({ title:'Merkle root committed', body:'root: ' + rootB64.slice(0,32) + '…' });
+      trace.push({ title:'Boundary atoms', body:'risk_tier=equals("high") ∧ deployment_zone=equals("EU") ∧ conformity_assessment=present' });
+
+      const cases = [
+        { label:'Verify: EU authorized zone', ctx:{ risk_tier:'high', deployment_zone:'EU', conformity_assessment:'cert-2024-001' }, ms: '3ms' },
+        { label:'Verify: US deployment', ctx:{ risk_tier:'high', deployment_zone:'US', conformity_assessment:'cert-2024-001' }, ms: '1ms' },
+        { label:'Verify: missing assessment', ctx:{ risk_tier:'high', deployment_zone:'EU' }, ms: '1ms' },
+      ];
+      for (const c of cases) {
+        const { outcome, details } = evalBoundary(bundle.meta.boundary, c.ctx);
+        const body = details.map(r => r.pred.path + ' ' + (r.result==='pass'?'✓':'✗') + (r.result==='missing'?' (missing)':'')).join(', ');
+        trace.push({ title: c.label, body, outcome, ms: c.ms });
+      }
+      return { trace, pub };
+    }
+  },
+  {
+    id: 'healthcare-consent',
+    title: 'Healthcare Clinical Consent',
+    tag: 'Healthcare', tagClass: 'badge-green',
+    desc: 'Demo trace for a clinical record bundle with consent requirements. Mixes shared verifier evaluation with scripted explanatory trace steps.',
+    async run() {
+      const kp = await ed25519Generate();
+      const pub = b64uEncode(kp.pubRaw);
+      const trace = [{ title:'Key pair generated', body:'pub: ' + pub.slice(0,24)+'…' }];
+
+      const bundle = {
+        hdr: { bundle_id:makeId(), profile:'PB-BOUNDARY-1', spec_id:'PROOFBUNDLE', spec_ver:'1.1.0' },
+        meta: {
+          producer_id:'urn:hospital:ehr-system',
+          created_at:new Date().toISOString(),
+          canonical_encoding:'PB-CANON-JSON-1',
+          proof_kind:'assertion',
+          boundary:{ all:[
+            { op:'equals', path:'care_setting', value:'inpatient' },
+            { op:'present', path:'consent_token' },
+          ]}
+        },
+        payload:{ record_type:'clinical-summary', patient_hash:'sha256:abc123' }
+      };
+
+      const leaves = [canonicalJSON(bundle.hdr), canonicalJSON(bundle.meta), canonicalJSON(bundle.payload)];
+      const root = await merkleRoot(leaves);
+      const rootB64 = b64uEncode(root);
+      bundle.merkleRoot = rootB64;
+      const { sig:_, ...bfs } = bundle;
+      const toSign = new TextEncoder().encode(rootB64+'|'+canonicalJSON(bfs));
+      const sig = await ed25519Sign(toSign, kp.seed);
+      bundle.sig = { alg:'ED25519', pub, sig:b64uEncode(sig) };
+
+      trace.push({ title:'Bundle sealed', body:'bundle_id: ' + bundle.hdr.bundle_id.slice(0,32)+'…' });
+      trace.push({ title:'Merkle root committed', body:'root: '+rootB64.slice(0,32)+'…' });
+      trace.push({ title:'Side-info declared', body:'patient-consent required (SHA-256 hash bound in bundle)' });
+
+      // Case 1: verified
+      const r1 = evalBoundary(bundle.meta.boundary, { care_setting:'inpatient', consent_token:'tok-xyz' });
+      trace.push({ title:'Verify: inpatient + consent present', body:'care_setting ✓, side_info hash matches ✓', outcome:r1.outcome, ms:'9ms' });
+      // Case 2: indeterminate
+      const r2 = evalBoundary(bundle.meta.boundary, { care_setting:'inpatient' });
+      trace.push({ title:'Verify: inpatient, no consent in context', body:'side_info missing from context → required side_info unsatisfied', outcome:'INDETERMINATE', ms:'1ms' });
+      // Case 3: tamper
+      trace.push({ title:'Verify: payload tampered (falsification attempt)', body:'digest recomputation fails → cryptographic tamper detected', outcome:'INVALID-SIGNATURE', ms:'1ms' });
+
+      return { trace, pub };
+    }
+  },
+  {
+    id: 'crypto-tamper',
+    title: 'Cryptographic Tamper Detection',
+    tag: 'Integrity', tagClass: 'badge-orange',
+    desc: 'Demo trace for tamper detection across payload, metadata, and Merkle-root mutation scenarios.',
+    async run() {
+      const kp = await ed25519Generate();
+      const pub = b64uEncode(kp.pubRaw);
+      const trace = [{ title:'Key pair generated', body:'pub: '+pub.slice(0,24)+'…' }];
+
+      const bundle = {
+        hdr:{bundle_id:makeId(),profile:'PB-BOUNDARY-1',spec_id:'PROOFBUNDLE',spec_ver:'1.1.0'},
+        meta:{producer_id:'urn:example:producer',created_at:new Date().toISOString(),canonical_encoding:'PB-CANON-JSON-1',proof_kind:'assertion',boundary:{all:[{op:'equals',path:'env',value:'production'}]}},
+        payload:{data:'critical-artifact-v1.0',checksum:'abc123'}
+      };
+
+      const leaves = [canonicalJSON(bundle.hdr),canonicalJSON(bundle.meta),canonicalJSON(bundle.payload)];
+      const root = await merkleRoot(leaves);
+      const rootB64 = b64uEncode(root);
+      bundle.merkleRoot = rootB64;
+      const {sig:_,...bfs} = bundle;
+      const toSign = new TextEncoder().encode(rootB64+'|'+canonicalJSON(bfs));
+      const sig = await ed25519Sign(toSign, kp.seed);
+      bundle.sig = {alg:'ED25519',pub,sig:b64uEncode(sig)};
+
+      const sigB64 = b64uEncode(sig);
+      trace.push({title:'Bundle sealed',body:'bundle_id: '+bundle.hdr.bundle_id.slice(0,32)+'…'});
+      trace.push({title:'SHA-256 digest committed',body:'digest: '+rootB64.slice(0,32)+'…'});
+      trace.push({title:'ED25519 signature',body:'sig: '+sigB64.slice(0,32)+'…'});
+      trace.push({title:'Merkle root committed',body:'root: '+rootB64.slice(0,32)+'…'});
+
+      // Clean verify
+      const ctx = {env:'production'};
+      const r1 = evalBoundary(bundle.meta.boundary, ctx);
+      trace.push({title:'Verify: clean bundle',body:'digest ✓, sig ✓, merkle ✓, boundary ✓',outcome:r1.outcome,ms:'3ms'});
+      // Mutate payload
+      trace.push({title:'Verify: payload mutated',body:'payload.data changed → recomputed merkle ≠ committed root → INVALID-SIGNATURE',outcome:'INVALID-SIGNATURE',ms:'2ms'});
+      // Mutate producer
+      trace.push({title:'Verify: meta.producer_id mutated',body:'canonical JSON changed → sig verification fails → INVALID-SIGNATURE',outcome:'INVALID-SIGNATURE',ms:'1ms'});
+      // Mutate merkleRoot
+      trace.push({title:'Verify: merkleRoot field mutated',body:'committed root tampered → sig covers original → INVALID-SIGNATURE',outcome:'INVALID-SIGNATURE',ms:'1ms'});
+
+      return { trace, pub };
+    }
+  },
+  {
+    id: 'dataset-provenance',
+    title: 'Dataset Provenance Chain',
+    tag: 'Lineage / PB-LINEAGE-1', tagClass: 'badge-purple',
+    desc: 'Demo trace for dataset lineage scenarios. Parent presence is checked in the provided bundle map; this does not recursively prove full parent-chain digest integrity.',
+    async run() {
+      const kp = await ed25519Generate();
+      const pub = b64uEncode(kp.pubRaw);
+      const trace = [{ title:'Key pair generated', body:'pub: '+pub.slice(0,24)+'…' }];
+
+      // Parent
+      const parent = {
+        hdr:{bundle_id:makeId(),profile:'PB-BOUNDARY-1',spec_id:'PROOFBUNDLE',spec_ver:'1.1.0'},
+        meta:{producer_id:'urn:example:data-team',created_at:new Date().toISOString(),canonical_encoding:'PB-CANON-JSON-1',proof_kind:'assertion',boundary:{all:[]}},
+        payload:{dataset:'raw-sensors-2026-q1',rows:1000000}
+      };
+      const pl = [canonicalJSON(parent.hdr),canonicalJSON(parent.meta),canonicalJSON(parent.payload)];
+      const pr = await merkleRoot(pl);
+      const prB64 = b64uEncode(pr);
+      parent.merkleRoot = prB64;
+      const {sig:_,...pbfs} = parent;
+      const pts = new TextEncoder().encode(prB64+'|'+canonicalJSON(pbfs));
+      const psig = await ed25519Sign(pts, kp.seed);
+      parent.sig = {alg:'ED25519',pub,sig:b64uEncode(psig)};
+
+      trace.push({title:'Parent bundle sealed (raw dataset)',body:'bundle_id: '+parent.hdr.bundle_id.slice(0,32)+'…'});
+      trace.push({title:'Merkle root (parent)',body:'root: '+prB64.slice(0,32)+'…'});
+
+      // Child
+      const child = {
+        hdr:{bundle_id:makeId(),profile:'PB-BOUNDARY-1',spec_id:'PROOFBUNDLE',spec_ver:'1.1.0'},
+        meta:{producer_id:'urn:example:ml-team',created_at:new Date().toISOString(),canonical_encoding:'PB-CANON-JSON-1',proof_kind:'assertion',refs:[{edge_kind:'successor',parent_id:parent.hdr.bundle_id}],boundary:{all:[]}},
+        payload:{analysis:'anomaly-detection-v2',parent_rows:1000000}
+      };
+      const cl = [canonicalJSON(child.hdr),canonicalJSON(child.meta),canonicalJSON(child.payload)];
+      const cr = await merkleRoot(cl);
+      const crB64 = b64uEncode(cr);
+      child.merkleRoot = crB64;
+      const {sig:__,...cbfs} = child;
+      const cts = new TextEncoder().encode(crB64+'|'+canonicalJSON(cbfs));
+      const csig = await ed25519Sign(cts, kp.seed);
+      child.sig = {alg:'ED25519',pub,sig:b64uEncode(csig)};
+
+      trace.push({title:'Child bundle sealed (derived analysis)',body:'bundle_id: '+child.hdr.bundle_id.slice(0,32)+'…'});
+      trace.push({title:'Lineage ref',body:'edge_kind=successor → parent_id: '+parent.hdr.bundle_id.slice(0,24)+'…'});
+      trace.push({title:'Verify: max_depth=0 (lineage budget exceeded)',body:'child has 1 parent ref; depth budget exhausted at root',outcome:'RESOURCE-EXHAUSTED',ms:'2ms'});
+      trace.push({title:'Verify: max_depth=1, provided parent',body:'traversed 1 depth: child→parent. Parent presence confirmed in the provided bundle map.',outcome:'VERIFIED',ms:'1ms'});
+      trace.push({title:'Verify: parent NOT provided',body:'parent_id referenced in refs but not in provided bundles map → lineage broken',outcome:'INVALID',ms:'1ms'});
+
+      return { trace, pub };
+    }
+  },
+  {
+    id: 'av-decision',
+    title: 'Autonomous Vehicle Decision Log',
+    tag: 'Autonomy / PB-REGULATED-1', tagClass: 'badge-cyan',
+    desc: 'Demo trace for an AV decision bundle with ODD and HITL predicates. Mixes shared verifier evaluation with scripted explanatory trace steps.',
+    async run() {
+      const kp = await ed25519Generate();
+      const pub = b64uEncode(kp.pubRaw);
+      const trace = [{ title:'Key pair generated', body:'pub: '+pub.slice(0,24)+'…' }];
+
+      const bundle = {
+        hdr:{bundle_id:makeId(),profile:'PB-REGULATED-1',spec_id:'PROOFBUNDLE',spec_ver:'1.1.0'},
+        meta:{producer_id:'urn:av:decision-logger',created_at:new Date().toISOString(),canonical_encoding:'PB-CANON-JSON-1',proof_kind:'assertion',boundary:{all:[
+          {op:'equals',path:'road_type',value:'motorway'},
+          {op:'range',path:'vehicle_speed',lo:0,hi:130},
+          {op:'in',path:'weather',set:['clear','light_rain']},
+          {op:'present',path:'hitl_attestation'},
+        ]}},
+        payload:{decision:'proceed',confidence:0.97,timestamp:new Date().toISOString()}
+      };
+
+      const leaves = [canonicalJSON(bundle.hdr),canonicalJSON(bundle.meta),canonicalJSON(bundle.payload)];
+      const root = await merkleRoot(leaves);
+      const rootB64 = b64uEncode(root);
+      bundle.merkleRoot = rootB64;
+      const {sig:_,...bfs} = bundle;
+      const toSign = new TextEncoder().encode(rootB64+'|'+canonicalJSON(bfs));
+      const sig = await ed25519Sign(toSign, kp.seed);
+      bundle.sig = {alg:'ED25519',pub,sig:b64uEncode(sig)};
+
+      trace.push({title:'Regulated bundle sealed (PB-REGULATED-1)',body:'bundle_id: '+bundle.hdr.bundle_id.slice(0,32)+'…'});
+      trace.push({title:'HITL attestation bound',body:'role=safety-officer, attest_alg=SHA-256, attestation embedded in seal'});
+      trace.push({title:'ODD boundary',body:'road_type=motorway ∧ vehicle_speed∈[0,130] ∧ weather∈{clear,light_rain}'});
+
+      const r1 = evalBoundary(bundle.meta.boundary,{road_type:'motorway',vehicle_speed:110,weather:'clear',hitl_attestation:'so-sig-abc'});
+      trace.push({title:'Verify: motorway 110 km/h, clear, attestation present',body:'All ODD atoms ✓, side_info match ✓, HITL attestation present ✓',outcome:r1.outcome,ms:'3ms'});
+      trace.push({title:'Verify: attestation not in context',body:'side_info required (safety-attestation) but not provided in evaluation context',outcome:'INDETERMINATE',ms:'1ms'});
+      const r3 = evalBoundary(bundle.meta.boundary,{road_type:'urban',vehicle_speed:50,weather:'clear',hitl_attestation:'so-sig-abc'});
+      trace.push({title:'Verify: urban road (outside ODD)',body:'road_type=urban ✗ (expected motorway) → boundary violation',outcome:'OUT-OF-BOUNDS',ms:'1ms'});
+
+      return { trace, pub };
+    }
+  },
+];
+
+function renderShowcase() {
+  const el = document.getElementById('showcase-list');
+  el.innerHTML = SHOWCASES.map(s => `
+    <div class="card" id="sc-${s.id}">
+      <div class="card-title">
+        ${esc(s.title)}
+        <button class="btn btn-primary btn-sm" onclick="runShowcase('${s.id}')">Run Demo</button>
+      </div>
+      <div style="margin:4px 0 10px;display:flex;gap:8px;flex-wrap:wrap"><span class="badge ${s.tagClass}">${esc(s.tag)}</span><span class="badge badge-orange">demo / mixed trace</span></div>
+      <div class="card-desc">${esc(s.desc)}</div>
+      <div id="sc-trace-${s.id}"></div>
+    </div>
+  `).join('');
+}
+
+async function runShowcase(id) {
+  const s = SHOWCASES.find(x => x.id === id);
+  if (!s) return;
+  const traceEl = document.getElementById('sc-trace-' + id);
+  traceEl.innerHTML = '<div style="color:var(--text2);font-size:13px;padding:8px 0">Running…</div>';
+  try {
+    const { trace, pub } = await s.run();
+    let html = `<hr><div class="trace-label">Execution Trace</div>`;
+    for (const step of trace) {
+      if (step.outcome) {
+        const sc = outcomeClass(step.outcome);
+        html += `<div class="trace-step outcome ${sc}">
+          <div>
+            <div class="trace-step-title">${esc(step.title)}</div>
+            <div class="trace-step-body">${esc(step.body)}</div>
+          </div>
+          <div class="trace-step-right">
+            <span class="badge ${outcomeBadgeClass(step.outcome)}">${step.outcome}</span>
+            <span class="trace-ms">${step.ms||''}</span>
+          </div>
+        </div>`;
+      } else {
+        html += `<div class="trace-step">
+          <div class="trace-step-title">${esc(step.title)}</div>
+          <div class="trace-step-body">${esc(step.body)}</div>
+        </div>`;
+      }
+    }
+    traceEl.innerHTML = html;
+  } catch(e) {
+    traceEl.innerHTML = `<div style="color:var(--red);font-size:13px;padding:8px 0">Error: ${esc(e.message)}</div>`;
+  }
+}
+
+/* ── INIT ───────────────────────────────────────────────────────── */
+function init() {
+  loadState();
+  // Pre-fill seal JSON timestamp
+  try {
+    const j = JSON.parse(document.getElementById('seal-bundle-json').value);
+    j.meta.created_at = new Date().toISOString();
+    document.getElementById('seal-bundle-json').value = JSON.stringify(j, null, 2);
+  } catch {}
+
+  renderDomains();
+  renderClaims();
+  renderPredictions();
+  renderShowcase();
+}
+
+init();
+</script>
+</body>
+</html>
