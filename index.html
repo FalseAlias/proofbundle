@@ -3,27 +3,110 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="0; url=web/proofbundle_v1_0_app.html">
-  <title>ProofBundle Browser Verifier</title>
+  <title>ProofBundle Public Alpha</title>
   <style>
+    :root { color-scheme: light dark; }
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      margin: 2rem;
-      line-height: 1.5;
+      margin: 0;
+      line-height: 1.55;
       color: #151515;
       background: #f7f7f4;
     }
-    a {
-      color: #0645ad;
+    main { max-width: 980px; margin: 0 auto; padding: 32px 20px 56px; }
+    h1 { margin: 0 0 8px; font-size: clamp(2rem, 5vw, 3.25rem); }
+    h2 { margin-top: 32px; }
+    a { color: #0645ad; }
+    .status {
+      border: 1px solid #c9d1d9;
+      background: #fff;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 18px 0;
+    }
+    .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .card {
+      border: 1px solid #c9d1d9;
+      background: #fff;
+      border-radius: 8px;
+      padding: 14px;
+    }
+    code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+    @media (prefers-color-scheme: dark) {
+      body { color: #e8edf2; background: #111827; }
+      .status, .card { background: #172033; border-color: #314158; }
+      a { color: #8ab4ff; }
     }
   </style>
 </head>
 <body>
   <main>
-    <h1>ProofBundle Browser Verifier</h1>
-    <p>The browser verifier is the main showcase artifact for this repository snapshot.</p>
-    <p><a href="web/proofbundle_v1_0_app.html">Open the ProofBundle browser verifier</a>.</p>
-    <p>Standing: alpha repair snapshot. This page does not claim release-green or proof closure.</p>
+    <h1>ProofBundle Public Alpha</h1>
+    <p>
+      Public alpha entrypoint for the live expanding ProofBundle corpus. This
+      page exposes the browser verifier, public manifest, audit standing,
+      quarantine evidence, and inventory references without asserting final
+      release standing.
+    </p>
+
+    <div class="status">
+      <strong>Standing:</strong> <code>blocked_not_release_green</code>.
+      This alpha exposes scoped verification where artifacts support it. It
+      does not assert universal closure, proof closure, legal compliance, or
+      release-green status.
+    </div>
+
+    <section>
+      <h2>Open The Verifier</h2>
+      <p><a href="web/proofbundle_v1_0_app.html">Launch the browser verifier and sealer</a></p>
+      <p><a href="web/2026-05-03_proofbundle_ui_v1.0.html">Open the dated browser artifact</a></p>
+    </section>
+
+    <section>
+      <h2>Public Alpha References</h2>
+      <div class="grid">
+        <div class="card"><a href="PUBLIC_PROOFBUNDLE_MANIFEST_20260516.json">Slim public manifest</a></div>
+        <div class="card"><a href="README.md">README</a></div>
+        <div class="card"><a href="STATUS.md">Status</a></div>
+        <div class="card"><a href="docs/CURRENT_STATE_20260516.md">Current state snapshot</a></div>
+        <div class="card"><a href="conformance/vectors_v1.json">300-vector corpus</a></div>
+        <div class="card"><a href="proofs/PROOF_INVENTORY.generated.json">Canonical proof inventory</a></div>
+        <div class="card"><a href="proofs/PROOF_STATUS.generated.json">Proof audit standing</a></div>
+        <div class="card"><a href="evidence/quarantine/README.md">Quarantine evidence</a></div>
+        <div class="card"><a href="docs/OUTREACH_PACKET_20260516.md">Outreach packet</a></div>
+        <div class="card"><a href="docs/MONETIZATION_PATHS_20260516.md">Monetization paths</a></div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Latest Confirmed Bridge Root</h2>
+      <p>
+        Latest confirmed bridge sequence in this publication pass:
+        <code>2681</code>.
+      </p>
+      <p>
+        Latest confirmed bridge hash-chain head:
+        <code>E3976878A6D86040DFCBA0D5CFB890F9CF4D039469BE35C8F7A509A6E04AD1C3</code>.
+      </p>
+      <p>
+        Bridge Merkle root artifact: <code>unknown</code> in this public alpha
+        manifest. The hash-chain head is not mislabeled as a Merkle root.
+      </p>
+    </section>
+
+    <section>
+      <h2>Audit And Quarantine Standing</h2>
+      <p>
+        Known release-green blockers remain visible by design: unresolved proof
+        failures, audit exceptions, quarantine records, missing closure checks,
+        missing reproduction records, and missing external witnesses.
+      </p>
+      <p>
+        Quarantine marker:
+        <code>suppression_exceeds_continuity</code>. See
+        <a href="proofs/QUARANTINE_suppression_exceeds_continuity_20260515.md">proof quarantine note</a>.
+      </p>
+    </section>
   </main>
 </body>
 </html>

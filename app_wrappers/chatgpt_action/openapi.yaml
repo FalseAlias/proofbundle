@@ -1,0 +1,19 @@
+openapi: 3.1.0
+info:
+  title: ProofBundle Verifier
+  description: Verify cryptographically sealed ProofBundle artifacts
+  version: 1.0.0
+servers:
+  - url: https://falsealias.github.io/proofbundle
+paths:
+  /web/proofbundle_v1_0_app.html:
+    get:
+      operationId: openVerifier
+      summary: Open the ProofBundle browser verifier
+      responses:
+        '200':
+          description: HTML verifier loaded
+          content:
+            text/html:
+              schema:
+                type: string
