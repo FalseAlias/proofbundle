@@ -1,6 +1,6 @@
 {
   "schema": "proofbundle-status/1.0",
-  "generatedUtc": "2026-05-16T21:32:00Z",
+  "generatedUtc": "2026-05-16T22:56:00Z",
   "lane": "v1.0.0-alpha.1_conformance-manifest-sync",
   "closurePhrase": "Closed for this lane. Open to governed evolution.",
   "standing": "blocked_not_release_green",
@@ -15,13 +15,19 @@
       "python": "4 / 4",
       "javascript": "303 / 303",
       "typescript": "300 / 300"
+    },
+    "ciEvidence": {
+      "typescript": "GitHub Proofbench full 300-vector conformance gate passed on PR #3 head 97f21d748c40fcd2f256d5a00a742594d6d408c7",
+      "python": "GitHub Proofbench Python schema/import/smoke gate passed on PR #3 head 97f21d748c40fcd2f256d5a00a742594d6d408c7; full 300-vector Python parity is not claimed by committed CI evidence",
+      "go": "GitHub Proofbench Go test gate passed on PR #3 head 97f21d748c40fcd2f256d5a00a742594d6d408c7",
+      "staticBrowser": "GitHub static browser artifact check passed on PR #3 head 97f21d748c40fcd2f256d5a00a742594d6d408c7"
     }
   },
   "implementationMatrix": {
-    "python": "local full conformance passes 300/300 vectors",
-    "typescript": "bridge-reported 300/300 public-alpha conformance; release-green remains blocked until reproduction records, cross-implementation closure, proof audit, and witnessing gates are committed",
+    "python": "committed GitHub evidence currently covers Python package import, profile constants, vector corpus shape/count/unique IDs, required vector fields, and signed-vector smoke sample V0001-V0003; full 300-vector Python parity remains a release blocker unless separately reproduced and committed",
+    "typescript": "committed GitHub Proofbench evidence covers 300/300 public-alpha conformance; release-green remains blocked until reproduction records, cross-implementation closure, proof audit, and witnessing gates are committed",
     "rust": "cargo build and 18/18 unit tests reported passing; 36/37 conformance reported passing; context-commitment encoding blocker remains",
-    "go": "code patched; build and conformance unverified in the repair environment"
+    "go": "committed GitHub Proofbench evidence covers current Go test gate; full Go/vector parity status remains bounded by the current test suite"
   },
   "publicAlphaSnapshot": {
     "manifest": "PUBLIC_PROOFBUNDLE_MANIFEST_20260516.json",
@@ -63,9 +69,10 @@
     ]
   },
   "remainingBlockers": [
+    "Python full 300-vector parity requires committed reproduction records before release-green",
     "TypeScript bridge-reported conformance requires committed reproduction records before release-green",
     "Rust context-commitment encoding blocker",
-    "Go build/conformance unverified",
+    "Full Go/vector parity remains bounded by current committed test evidence",
     "Proof assistant guard scaffolds are narrow VM-checked guards only; no proof closure",
     "No release signing or external timestamp proof included"
   ]
