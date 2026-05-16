@@ -1,0 +1,14 @@
+node_modules/
+.vscode/
+dist/
+target/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+*.swo
+proofbundle-7-commits.patch
+000_PUBLICATION_CONTROL_20260516.md
