@@ -31,7 +31,7 @@ explicit standing categories.
 Full corpus growth and swarm audit continue in parallel. Known release-green
 blockers remain visible by design. Adversarial review is welcome.
 
-Latest bridge-reported public alpha snapshot used for this page:
+Latest bridge-reported public alpha snapshot and committed CI standing used for this page:
 
 | Field | Value |
 | --- | --- |
@@ -44,9 +44,10 @@ Latest bridge-reported public alpha snapshot used for this page:
 | Verified bridge records in source report | 2,639 |
 | Current verified bridge head in this publication pass | sequence 2684 |
 | OTS artifacts present in source report | 2,634 / 2,634 |
-| Python conformance | 4 / 4 |
-| JavaScript conformance | 303 / 303 |
-| TypeScript conformance | 300 / 300 |
+| TypeScript committed CI conformance | 300-vector gate passed |
+| Python committed CI evidence | schema/import/smoke gate only; full 300-vector parity not claimed |
+| Go committed CI evidence | current test gate only; full vector parity not claimed |
+| JavaScript/browser conformance | bridge-reported standing data pending committed reproduction records |
 | Canonical proof audit exceptions | 189 |
 | Quarantine files | 1 |
 | Large-file dedup scan | 432 files over 10 MB, 63 duplicate groups |
@@ -54,8 +55,8 @@ Latest bridge-reported public alpha snapshot used for this page:
 | Unique bytes | 4.61 GB |
 | Active VM instances | 2 |
 
-These are indexed corpus and standing numbers, not a claim that the indexed
-proof corpus is closed or that every proof has passed a proof assistant.
+These are indexed corpus, committed CI, and standing numbers. They are not a claim that the indexed
+proof corpus is closed, that every proof has passed a proof assistant, or that all implementations agree.
 
 ## What This Is
 
@@ -129,15 +130,16 @@ agent output
 
 ## Security & Continuity Rules
 
-1. Every artifact gets a SHA-256 receipt.
+1. Every artifact with an active precise receipt claim must have a matching SHA-256 receipt.
 2. Every state-changing action gets identity: sender, recipient, timestamp, lane, scope.
 3. No chat-only state is admissible.
 4. No external network without fresh Tor verification.
 5. No release-green claims until formal proof gates pass.
+6. Pending-recompute metadata must stay explicit until fresh digests are regenerated and committed.
 
 ## Contributing
 
-This project is currently driven by a single researcher (FalseAlias / Chaleb Tajia Russell) with agent coordination support. The formal proof debt must close before v1.0.0 can be claimed release-green.
+This project is currently maintained under the `FalseAlias` public handle, with authorship attributed as `C. T. Russell` where required. The formal proof debt must close before v1.0.0 can be claimed release-green.
 
 ## Acknowledgments
 
