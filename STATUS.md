@@ -46,10 +46,10 @@ claim.
 
 ## Implementation Matrix
 
-- Python: local full conformance passes 300/300 vectors.
-- TypeScript: bridge-reported 300/300 public-alpha conformance; release-green remains blocked until reproduction records, cross-implementation closure, proof audit, and witnessing gates are committed.
+- Python: committed GitHub evidence currently covers package import, profile constants, vector corpus shape/count/unique IDs, required vector fields, and signed-vector smoke sample V0001-V0003. Full 300-vector Python parity remains a release blocker unless separately reproduced and committed.
+- TypeScript: committed GitHub Proofbench evidence covers 300/300 public-alpha conformance; release-green remains blocked until reproduction records, cross-implementation closure, proof audit, and witnessing gates are committed.
 - Rust: cargo build and 18/18 unit tests reported passing; 36/37 conformance reported passing; context-commitment encoding blocker remains.
-- Go: code patched; build and conformance unverified in the repair environment.
+- Go: committed GitHub Proofbench evidence covers the current Go test gate; full Go/vector parity status remains bounded by the current test suite.
 
 ## Proof Standing
 
