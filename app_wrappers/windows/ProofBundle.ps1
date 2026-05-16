@@ -19,7 +19,7 @@ function Launch-BrowserApp {
 
 function Run-ConformanceCheck {
     Write-Host "Running conformance verification..." -ForegroundColor Cyan
-    $VectorsFile = Join-Path $RepoRoot "conformance" "vectors_v1.json"
+    $VectorsFile = Join-Path (Join-Path $RepoRoot "conformance") "vectors_v1.json"
     if (Test-Path $VectorsFile) {
         Write-Host "Conformance vectors found: $VectorsFile" -ForegroundColor Green
         Write-Host "Use the browser verifier to load and validate these vectors." -ForegroundColor Yellow
