@@ -64,3 +64,17 @@ jobs:
       - name: Run TypeScript conformance tests
         run: |
           cd core && npm test
+
+  conformance-go:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-go@v6
+        with:
+          go-version: "1.22"
+      - name: Run Go unit tests
+        run: |
+          cd implementations/go-core-20260516 && go test -v ./...
+      - name: Run Go conformance tests
+        run: |
+          cd implementations/go-core-20260516 && go test -v -run TestConformance ./...
