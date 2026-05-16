@@ -1,0 +1,28 @@
+{
+  "schema": "proofbundle-cross-implementation-results/1.0",
+  "generatedUtc": "2026-05-16T06:40:00Z",
+  "lane": "v1.0.0-alpha.1_conformance-manifest-sync",
+  "standing": "partial_not_release_green",
+  "releaseAllowed": false,
+  "releaseGreen": false,
+  "results": {
+    "python": {
+      "standing": "reported_local_full_conformance_pass",
+      "vectors": "300/300"
+    },
+    "typescript": {
+      "standing": "reported_partial_full_run",
+      "vectors": "157/300",
+      "sampleRunner": "20/20"
+    },
+    "rust": {
+      "standing": "reported_near_green_with_context_commitment_blocker",
+      "unitTests": "18/18",
+      "vectors": "36/37"
+    },
+    "go": {
+      "standing": "patched_but_unverified"
+    }
+  },
+  "note": "This records known local standing only. It does not establish all-implementation agreement or release-green status."
+}
