@@ -1,0 +1,7 @@
+coqc -q ContinuitySuppressionGuard.v
+File "./ContinuitySuppressionGuard.v", line 1, characters 0-28:
+Warning: "From Coq" has been replaced by "From Stdlib".
+[deprecated-from-Coq,deprecated-since-9.0,deprecated,default]
+File "./ContinuitySuppressionGuard.v", line 11, characters 0-34:
+Warning: Trying to mask the absolute name "ContinuitySuppressionGuard"!
+[masking-absolute-name,deprecated-since-8.8,deprecated,default]

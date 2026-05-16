@@ -1,0 +1,8 @@
+[project]
+name = "proofbundle"
+version = "1.0.0"
+description = "ProofBundle reference implementation"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest", "cryptography", "blake3"]

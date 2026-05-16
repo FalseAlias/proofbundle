@@ -1,0 +1,8 @@
+schema: proofbundle-repo-merkle-root/1.0
+generated_at_utc: 2026-05-16T13:47:20.440Z
+repo_root: .
+file_count: 75
+zero_byte_file_count: 1
+merkle_root_sha256: 5EBD3B560AAF7BB01597DA22B281BB9E7F9DB4929EDFB676632B8578C87AE88C
+manifest_path: C:\Users\alib90\Downloads\ORGANIZED\AGENT_COORDINATION\github_repos\FalseAlias_proofbundle\manifest\repo_merkle_manifest_20260516T134720Z.json
+manifest_sha256: 1AA50827DFA44F0D32D211F0AA9ED0ACE209CBD5DECE342C5A27AD6156B9E41A

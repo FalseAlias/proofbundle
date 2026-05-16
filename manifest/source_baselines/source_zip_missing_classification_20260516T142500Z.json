@@ -1,0 +1,3198 @@
+﻿{
+    "schema":  "proofbundle-source-missing-classification/1.0",
+    "generated_at_utc":  "2026-05-16T14:25:35Z",
+    "source_diff_report":  "manifest/source_baselines/source_zip_vs_repo_diff_after_import_20260516T142100Z.json",
+    "total_missing":  791,
+    "summary":  [
+                    {
+                        "class":  "core/node_modules",
+                        "count":  754
+                    },
+                    {
+                        "class":  "core/dist",
+                        "count":  20
+                    },
+                    {
+                        "class":  "python/__pycache__",
+                        "count":  10
+                    },
+                    {
+                        "class":  "python/.pytest_cache",
+                        "count":  5
+                    },
+                    {
+                        "class":  "archive_wrapper_plan",
+                        "count":  1
+                    },
+                    {
+                        "class":  "archive_wrapper_nested_zip",
+                        "count":  1
+                    }
+                ],
+    "entries":  [
+                    {
+                        "path":  "core/dist/src/boundary.d.ts",
+                        "class":  "core/dist"
+                    },
+                    {
+                        "path":  "core/dist/src/boundary.js",
+                        "class":  "core/dist"
+                    },
+                    {
+                        "path":  "core/dist/src/canonical.d.ts",
+                        "class":  "core/dist"
+                    },
+                    {
+                        "path":  "core/dist/src/canonical.js",
+                        "class":  "core/dist"
+                    },
+                    {
+                        "path":  "core/dist/src/digest.d.ts",
+                        "class":  "core/dist"
+                    },
+                    {
+                        "path":  "core/dist/src/digest.js",
+                        "class":  "core/dist"
+                    },
+                    {
+                        "path":  "core/dist/src/index.d.ts",
+                        "class":  "core/dist"
+                    },
+                    {
+                        "path":  "core/dist/src/index.js",
+                        "class":  "core/dist"
+                    },
+                    {
+                        "path":  "core/dist/src/lineage.d.ts",
+                        "class":  "core/dist"
+                    },
+                    {
+                        "path":  "core/dist/src/lineage.js",
+                        "class":  "core/dist"
+                    },
+                    {
+                        "path":  "core/dist/src/seal.d.ts",
+                        "class":  "core/dist"
+                    },
+                    {
+                        "path":  "core/dist/src/seal.js",
+                        "class":  "core/dist"
+                    },
+                    {
+                        "path":  "core/dist/src/signature.d.ts",
+                        "class":  "core/dist"
+                    },
+                    {
+                        "path":  "core/dist/src/signature.js",
+                        "class":  "core/dist"
+                    },
+                    {
+                        "path":  "core/dist/src/types.d.ts",
+                        "class":  "core/dist"
+                    },
+                    {
+                        "path":  "core/dist/src/types.js",
+                        "class":  "core/dist"
+                    },
+                    {
+                        "path":  "core/dist/src/verify.d.ts",
+                        "class":  "core/dist"
+                    },
+                    {
+                        "path":  "core/dist/src/verify.js",
+                        "class":  "core/dist"
+                    },
+                    {
+                        "path":  "core/dist/test/conformance.test.d.ts",
+                        "class":  "core/dist"
+                    },
+                    {
+                        "path":  "core/dist/test/conformance.test.js",
+                        "class":  "core/dist"
+                    },
+                    {
+                        "path":  "core/node_modules/.package-lock.json",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/LICENSE",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/README.md",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/_shortw_utils.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/_shortw_utils.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/_shortw_utils.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/_shortw_utils.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/bls.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/bls.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/bls.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/bls.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/curve.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/curve.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/curve.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/curve.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/edwards.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/edwards.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/edwards.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/edwards.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/fft.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/fft.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/fft.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/fft.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/hash-to-curve.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/hash-to-curve.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/hash-to-curve.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/hash-to-curve.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/modular.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/modular.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/modular.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/modular.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/montgomery.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/montgomery.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/montgomery.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/montgomery.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/poseidon.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/poseidon.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/poseidon.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/poseidon.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/tower.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/tower.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/tower.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/tower.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/utils.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/utils.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/utils.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/utils.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/weierstrass.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/weierstrass.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/weierstrass.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/abstract/weierstrass.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/bls12-381.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/bls12-381.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/bls12-381.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/bls12-381.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/bn254.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/bn254.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/bn254.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/bn254.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/ed25519.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/ed25519.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/ed25519.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/ed25519.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/ed448.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/ed448.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/ed448.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/ed448.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/_shortw_utils.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/_shortw_utils.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/_shortw_utils.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/_shortw_utils.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/bls.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/bls.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/bls.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/bls.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/curve.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/curve.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/curve.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/curve.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/edwards.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/edwards.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/edwards.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/edwards.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/fft.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/fft.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/fft.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/fft.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/hash-to-curve.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/hash-to-curve.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/hash-to-curve.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/hash-to-curve.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/modular.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/modular.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/modular.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/modular.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/montgomery.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/montgomery.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/montgomery.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/montgomery.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/poseidon.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/poseidon.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/poseidon.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/poseidon.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/tower.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/tower.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/tower.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/tower.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/utils.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/utils.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/utils.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/utils.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/weierstrass.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/weierstrass.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/weierstrass.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/abstract/weierstrass.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/bls12-381.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/bls12-381.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/bls12-381.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/bls12-381.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/bn254.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/bn254.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/bn254.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/bn254.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/ed25519.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/ed25519.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/ed25519.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/ed25519.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/ed448.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/ed448.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/ed448.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/ed448.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/index.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/index.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/index.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/index.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/jubjub.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/jubjub.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/jubjub.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/jubjub.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/misc.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/misc.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/misc.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/misc.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/nist.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/nist.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/nist.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/nist.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/p256.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/p256.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/p256.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/p256.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/p384.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/p384.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/p384.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/p384.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/p521.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/p521.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/p521.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/p521.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/package.json",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/pasta.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/pasta.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/pasta.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/pasta.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/secp256k1.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/secp256k1.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/secp256k1.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/secp256k1.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/utils.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/utils.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/utils.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/esm/utils.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/index.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/index.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/index.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/index.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/jubjub.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/jubjub.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/jubjub.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/jubjub.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/misc.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/misc.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/misc.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/misc.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/nist.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/nist.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/nist.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/nist.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/p256.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/p256.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/p256.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/p256.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/p384.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/p384.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/p384.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/p384.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/p521.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/p521.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/p521.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/p521.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/package.json",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/pasta.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/pasta.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/pasta.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/pasta.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/secp256k1.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/secp256k1.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/secp256k1.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/secp256k1.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/_shortw_utils.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/abstract/bls.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/abstract/curve.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/abstract/edwards.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/abstract/fft.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/abstract/hash-to-curve.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/abstract/modular.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/abstract/montgomery.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/abstract/poseidon.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/abstract/tower.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/abstract/utils.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/abstract/weierstrass.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/bls12-381.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/bn254.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/ed25519.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/ed448.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/index.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/jubjub.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/misc.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/nist.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/p256.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/p384.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/p521.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/package.json",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/pasta.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/secp256k1.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/src/utils.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/utils.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/utils.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/utils.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/curves/utils.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/LICENSE",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/README.md",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/_assert.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/_assert.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/_assert.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/_assert.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/_blake.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/_blake.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/_blake.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/_blake.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/_md.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/_md.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/_md.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/_md.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/_u64.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/_u64.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/_u64.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/_u64.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/argon2.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/argon2.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/argon2.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/argon2.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/blake1.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/blake1.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/blake1.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/blake1.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/blake2.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/blake2.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/blake2.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/blake2.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/blake2b.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/blake2b.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/blake2b.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/blake2b.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/blake2s.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/blake2s.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/blake2s.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/blake2s.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/blake3.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/blake3.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/blake3.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/blake3.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/crypto.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/crypto.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/crypto.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/crypto.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/cryptoNode.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/cryptoNode.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/cryptoNode.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/cryptoNode.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/eskdf.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/eskdf.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/eskdf.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/eskdf.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/_assert.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/_assert.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/_assert.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/_assert.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/_blake.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/_blake.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/_blake.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/_blake.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/_md.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/_md.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/_md.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/_md.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/_u64.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/_u64.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/_u64.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/_u64.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/argon2.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/argon2.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/argon2.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/argon2.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/blake1.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/blake1.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/blake1.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/blake1.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/blake2.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/blake2.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/blake2.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/blake2.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/blake2b.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/blake2b.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/blake2b.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/blake2b.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/blake2s.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/blake2s.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/blake2s.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/blake2s.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/blake3.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/blake3.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/blake3.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/blake3.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/crypto.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/crypto.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/crypto.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/crypto.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/cryptoNode.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/cryptoNode.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/cryptoNode.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/cryptoNode.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/eskdf.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/eskdf.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/eskdf.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/eskdf.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/hkdf.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/hkdf.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/hkdf.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/hkdf.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/hmac.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/hmac.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/hmac.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/hmac.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/index.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/index.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/index.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/index.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/legacy.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/legacy.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/legacy.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/legacy.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/package.json",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/pbkdf2.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/pbkdf2.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/pbkdf2.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/pbkdf2.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/ripemd160.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/ripemd160.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/ripemd160.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/ripemd160.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/scrypt.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/scrypt.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/scrypt.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/scrypt.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/sha1.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/sha1.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/sha1.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/sha1.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/sha2.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/sha2.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/sha2.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/sha2.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/sha256.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/sha256.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/sha256.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/sha256.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/sha3-addons.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/sha3-addons.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/sha3-addons.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/sha3-addons.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/sha3.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/sha3.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/sha3.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/sha3.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/sha512.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/sha512.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/sha512.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/sha512.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/utils.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/utils.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/utils.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/esm/utils.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/hkdf.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/hkdf.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/hkdf.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/hkdf.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/hmac.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/hmac.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/hmac.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/hmac.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/index.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/index.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/index.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/index.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/legacy.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/legacy.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/legacy.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/legacy.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/package.json",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/pbkdf2.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/pbkdf2.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/pbkdf2.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/pbkdf2.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/ripemd160.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/ripemd160.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/ripemd160.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/ripemd160.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/scrypt.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/scrypt.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/scrypt.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/scrypt.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/sha1.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/sha1.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/sha1.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/sha1.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/sha2.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/sha2.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/sha2.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/sha2.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/sha256.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/sha256.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/sha256.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/sha256.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/sha3-addons.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/sha3-addons.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/sha3-addons.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/sha3-addons.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/sha3.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/sha3.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/sha3.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/sha3.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/sha512.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/sha512.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/sha512.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/sha512.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/_assert.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/_blake.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/_md.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/_u64.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/argon2.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/blake1.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/blake2.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/blake2b.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/blake2s.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/blake3.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/crypto.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/cryptoNode.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/eskdf.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/hkdf.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/hmac.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/index.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/legacy.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/pbkdf2.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/ripemd160.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/scrypt.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/sha1.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/sha2.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/sha256.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/sha3-addons.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/sha3.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/sha512.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/src/utils.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/utils.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/utils.d.ts.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/utils.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@noble/hashes/utils.js.map",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/LICENSE",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/README.md",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/assert.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/assert/strict.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/async_hooks.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/buffer.buffer.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/buffer.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/child_process.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/cluster.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/compatibility/iterators.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/console.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/constants.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/crypto.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/dgram.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/diagnostics_channel.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/dns.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/dns/promises.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/domain.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/events.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/fs.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/fs/promises.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/globals.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/globals.typedarray.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/http.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/http2.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/https.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/index.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/inspector.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/inspector.generated.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/inspector/promises.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/module.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/net.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/os.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/package.json",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/path.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/path/posix.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/path/win32.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/perf_hooks.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/process.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/punycode.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/querystring.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/quic.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/readline.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/readline/promises.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/repl.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/sea.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/sqlite.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/stream.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/stream/consumers.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/stream/promises.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/stream/web.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/string_decoder.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/test.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/test/reporters.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/timers.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/timers/promises.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/tls.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/trace_events.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/ts5.6/buffer.buffer.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/ts5.6/compatibility/float16array.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/ts5.6/globals.typedarray.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/ts5.6/index.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/ts5.7/compatibility/float16array.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/ts5.7/index.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/tty.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/url.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/util.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/util/types.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/v8.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/vm.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/wasi.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/web-globals/abortcontroller.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/web-globals/blob.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/web-globals/console.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/web-globals/crypto.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/web-globals/domexception.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/web-globals/encoding.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/web-globals/events.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/web-globals/fetch.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/web-globals/importmeta.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/web-globals/messaging.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/web-globals/navigator.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/web-globals/performance.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/web-globals/storage.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/web-globals/streams.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/web-globals/timers.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/web-globals/url.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/worker_threads.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/@types/node/zlib.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/LICENSE.txt",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/README.md",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/SECURITY.md",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/ThirdPartyNoticeText.txt",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/bin/tsc",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/bin/tsserver",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/_tsc.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/_tsserver.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/_typingsInstaller.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/cs/diagnosticMessages.generated.json",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/de/diagnosticMessages.generated.json",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/es/diagnosticMessages.generated.json",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/fr/diagnosticMessages.generated.json",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/it/diagnosticMessages.generated.json",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/ja/diagnosticMessages.generated.json",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/ko/diagnosticMessages.generated.json",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.decorators.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.decorators.legacy.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.dom.asynciterable.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.dom.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.dom.iterable.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2015.collection.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2015.core.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2015.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2015.generator.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2015.iterable.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2015.promise.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2015.proxy.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2015.reflect.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2015.symbol.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2016.array.include.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2016.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2016.full.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2016.intl.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2017.arraybuffer.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2017.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2017.date.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2017.full.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2017.intl.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2017.object.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2017.string.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2018.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2018.full.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2018.intl.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2018.promise.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2018.regexp.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2019.array.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2019.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2019.full.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2019.intl.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2019.object.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2019.string.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2019.symbol.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2020.bigint.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2020.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2020.date.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2020.full.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2020.intl.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2020.number.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2020.promise.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2020.sharedmemory.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2020.string.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2021.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2021.full.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2021.intl.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2021.promise.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2021.string.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2021.weakref.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2022.array.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2022.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2022.error.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2022.full.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2022.intl.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2022.object.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2022.regexp.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2022.string.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2023.array.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2023.collection.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2023.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2023.full.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2023.intl.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2024.arraybuffer.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2024.collection.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2024.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2024.full.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2024.object.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2024.promise.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2024.regexp.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2024.sharedmemory.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es2024.string.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es5.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.es6.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.esnext.array.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.esnext.collection.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.esnext.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.esnext.decorators.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.esnext.disposable.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.esnext.error.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.esnext.float16.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.esnext.full.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.esnext.intl.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.esnext.iterator.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.esnext.promise.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.esnext.sharedmemory.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.scripthost.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.webworker.asynciterable.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.webworker.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.webworker.importscripts.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/lib.webworker.iterable.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/pl/diagnosticMessages.generated.json",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/pt-br/diagnosticMessages.generated.json",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/ru/diagnosticMessages.generated.json",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/tr/diagnosticMessages.generated.json",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/tsc.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/tsserver.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/tsserverlibrary.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/tsserverlibrary.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/typesMap.json",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/typescript.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/typescript.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/typingsInstaller.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/watchGuard.js",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/zh-cn/diagnosticMessages.generated.json",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/lib/zh-tw/diagnosticMessages.generated.json",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/typescript/package.json",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/LICENSE",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/README.md",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/agent.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/api.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/balanced-pool.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/cache-interceptor.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/cache.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/client-stats.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/client.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/connector.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/content-type.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/cookies.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/diagnostics-channel.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/dispatcher.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/env-http-proxy-agent.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/errors.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/eventsource.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/fetch.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/formdata.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/global-dispatcher.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/global-origin.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/h2c-client.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/handlers.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/header.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/index.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/interceptors.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/mock-agent.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/mock-call-history.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/mock-client.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/mock-errors.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/mock-interceptor.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/mock-pool.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/package.json",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/patch.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/pool-stats.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/pool.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/proxy-agent.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/readable.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/retry-agent.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/retry-handler.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/round-robin-pool.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/snapshot-agent.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/util.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/utility.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/webidl.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "core/node_modules/undici-types/websocket.d.ts",
+                        "class":  "core/node_modules"
+                    },
+                    {
+                        "path":  "plan.md",
+                        "class":  "archive_wrapper_plan"
+                    },
+                    {
+                        "path":  "proofbundle-v1.0.0-alpha-repair-snapshot.zip",
+                        "class":  "archive_wrapper_nested_zip"
+                    },
+                    {
+                        "path":  "python/.pytest_cache/.gitignore",
+                        "class":  "python/.pytest_cache"
+                    },
+                    {
+                        "path":  "python/.pytest_cache/CACHEDIR.TAG",
+                        "class":  "python/.pytest_cache"
+                    },
+                    {
+                        "path":  "python/.pytest_cache/README.md",
+                        "class":  "python/.pytest_cache"
+                    },
+                    {
+                        "path":  "python/.pytest_cache/v/cache/lastfailed",
+                        "class":  "python/.pytest_cache"
+                    },
+                    {
+                        "path":  "python/.pytest_cache/v/cache/nodeids",
+                        "class":  "python/.pytest_cache"
+                    },
+                    {
+                        "path":  "python/proofbundle/__pycache__/__init__.cpython-312.pyc",
+                        "class":  "python/__pycache__"
+                    },
+                    {
+                        "path":  "python/proofbundle/__pycache__/boundary.cpython-312.pyc",
+                        "class":  "python/__pycache__"
+                    },
+                    {
+                        "path":  "python/proofbundle/__pycache__/canonical.cpython-312.pyc",
+                        "class":  "python/__pycache__"
+                    },
+                    {
+                        "path":  "python/proofbundle/__pycache__/digest.cpython-312.pyc",
+                        "class":  "python/__pycache__"
+                    },
+                    {
+                        "path":  "python/proofbundle/__pycache__/lineage.cpython-312.pyc",
+                        "class":  "python/__pycache__"
+                    },
+                    {
+                        "path":  "python/proofbundle/__pycache__/seal.cpython-312.pyc",
+                        "class":  "python/__pycache__"
+                    },
+                    {
+                        "path":  "python/proofbundle/__pycache__/signature.cpython-312.pyc",
+                        "class":  "python/__pycache__"
+                    },
+                    {
+                        "path":  "python/proofbundle/__pycache__/verify.cpython-312.pyc",
+                        "class":  "python/__pycache__"
+                    },
+                    {
+                        "path":  "python/tests/__pycache__/__init__.cpython-312.pyc",
+                        "class":  "python/__pycache__"
+                    },
+                    {
+                        "path":  "python/tests/__pycache__/test_conformance.cpython-312-pytest-9.0.3.pyc",
+                        "class":  "python/__pycache__"
+                    }
+                ]
+}

@@ -50,3 +50,28 @@ The repo and the May 15 source zip are not byte-identical and are not the same v
 The source zip is the baseline for the current `v1.0.0-alpha.1_conformance-manifest-sync` repair lane.
 
 Existing pushed branch work remains as an append-only derivative and should not be deleted. Further work should reconcile the repo against this Downloads source package with explicit diffs, manifests, Merkle roots, OTS artifacts, and standing labels.
+
+## Post-Import Standing - 2026-05-16T14:23:38Z
+
+The May 15 baseline was imported into this repository working tree as a new append-only correction layer.
+
+- Import report: `manifest/source_baselines/source_zip_import_report_20260516T142055Z.json`
+- Post-import diff report: `manifest/source_baselines/source_zip_vs_repo_diff_after_import_20260516T142100Z.json`
+- Source files written from `proofbundle/` entries: 1,140
+- Source wrapper entries skipped: 2 (`plan.md`, `proofbundle-v1.0.0-alpha-repair-snapshot.zip`)
+- Shared operative paths after import: 351
+- Identical shared operative paths after import: 351
+- Different shared operative paths after import: 0
+
+Remaining source-zip paths not present in the Git-tracked clean repo scope are classified as generated/vendor/cache/archive-wrapper material:
+
+| Class | Count | Standing |
+|---|---:|---|
+| `core/node_modules` | 754 | excluded from clean repo publication scope |
+| `core/dist` | 20 | generated build output, excluded from clean repo publication scope |
+| Python `__pycache__` | 10 | cache output, excluded from clean repo publication scope |
+| Python `.pytest_cache` | 5 | cache output, excluded from clean repo publication scope |
+| `plan.md` | 1 | source-zip wrapper entry, not imported under repo root |
+| nested repair snapshot zip | 1 | source-zip wrapper artifact, not imported into clean repo |
+
+This means the repo is now aligned with the May 15 operative source baseline for files admitted to the clean repository scope. It is not a byte-for-byte reproduction of every zip entry, because the clean repo intentionally excludes generated dependencies, build output, caches, and nested archive artifacts.

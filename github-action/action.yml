@@ -1,0 +1,19 @@
+name: 'ProofBundle Conformance'
+description: 'Verify ProofBundle conformance against a vector corpus'
+inputs:
+  vectors:
+    description: 'Path to vectors_v1.json'
+    required: true
+    default: 'conformance/vectors_v1.json'
+  implementation:
+    description: 'Implementation to test (rust, npm, python, go)'
+    required: true
+    default: 'rust'
+runs:
+  using: 'docker'
+  image: '../docker/Dockerfile'
+  args:
+    - 'conformance'
+    - 'run'
+    - '--vectors'
+    - ${{ inputs.vectors }}

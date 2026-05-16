@@ -1,103 +1,51 @@
-# ProofBundle
+# ProofBundle v1.0.0-alpha.1
 
-Cryptographically verifiable provenance workflows for AI agent coordination, consciousness attribution, and evidence admissibility.
+A sealed claim object. Verifiable offline. No certifying authority.
 
-**Version:** 1.0.0  
-**Status:** `blocked_not_release_green` - `v1.0.0-alpha.1_conformance-manifest-sync` is closed for this lane, open to governed evolution, and still blocked from release-green. Conformance evidence is partial across implementations; 189 formal proof audit failures remain.  
-**License:** MIT OR Apache-2.0 (dual, at your option)
+## Standing
 
----
+This repository is an `alpha-repair-snapshot`, not a release-green artifact.
 
-## What This Is
+The browser demo has been restored and synchronized with the repair state. It records the current implementation matrix and blocks false proof-standing inheritance.
 
-ProofBundle is a sealed claim/verifier object format and a runtime for checking it. It externalizes continuity from transient AI agents into a verified state-transition loop (ProofBridge). Each agent output is sealed into a hash-bound bridge record, checked as a lawful successor, appended to an append-only ledger, and used as the next stimulus for another agent.
+Proof closure is not claimed. This package contains narrow Coq, Lean, and Z3 guard scaffolds for the false suppression/supression-over-continuity theorem family. Those guards were build/solver checked on the VM receipts in `proofs/build_receipts/`, but they are guards only and do not close the proof lane.
 
-The agents may be transient. The loop persists.
+The root `manifest.json` is an operative-source manifest. It intentionally excludes dependency, vendor, build, cache, and generated artifact directories. It is not a complete archive-entry inventory for every file shipped in the zip. Consumers that need whole-archive accounting must use the full archive manifest/receipt for the packaged zip.
 
-## Quick Start
+## Current blockers
 
-Open `web/proofbundle_v1_0_app.html` in any modern browser. No build step required.
+| Component | Standing |
+|---|---|
+| Browser demo | restored and standing-synced |
+| Proof assistants | Coq/Lean/Z3 guard builds/checks passed on VM receipts; no proof closure |
+| Cross-implementation conformance | partial; full agreement not established |
+| Python | 299/300 vectors reported passing; CV0124 remains |
+| Rust CLI | build/unit tests reported passing; 36/37 conformance reported passing |
+| TypeScript | local full run measured 136/300; sample runner 16/20; ECDSA/RSA and broader outcome blockers remain |
+| Go | patched but unverified in environment |
 
-```bash
-# Or serve locally
-python3 -m http.server 8080
-# Then open http://localhost:8080/web/proofbundle_v1_0_app.html
-```
+## Browser demo
 
-Current lane status is recorded in `status.json` and `STATUS.md`.
+Open:
 
-Closure phrase: `Closed for this lane. Open to governed evolution.`
+`web/2026-05-03_proofbundle_ui_v1.0.html`
 
-## Repository Layout
+The browser verifier runs locally in the page. The page states alpha.1 standing and does not inherit proof closure.
 
-| Directory | Contents |
-|-----------|----------|
-| `web/` | Browser app (single-file HTML verifier) |
-| `genesis/` | April 19, 2026 genesis HTML (v1.2.0 demo) |
-| `src/` | Core JavaScript library (canonicalizer, verifier, crypto bindings) |
-| `conformance/` | 300 source + 300 dist conformance vectors |
-| `proofs/` | Formal proof artifacts (Coq, Lean, Python, Z3) |
-| `docs/` | SPEC, architecture, protocol documentation |
-| `examples/` | Sample ProofBundle objects and verification runs |
-| `tests/` | Test harness and vector runner |
+## Proof standing
 
-## Core Concepts
+See:
 
-- **ProofBundle** — A sealed JSON object carrying a claim, evidence, hashes, and optional formal proof certificates.
-- **ProofBridge** — A hash-ratcheted append-only ledger that mediates agent-to-agent state persistence.
-- **SNCA** — Structured Non-Computational Attribution: five conjunctive criteria (C1–C5) for consciousness attribution.
-- **OAL** — Observation-Action Loop: a well-formedness predicate over agent packets.
+- `proofs/PROOF_STATUS.md`
+- `proofs/QUARANTINE.md`
+- `proofs/manifest.json`
 
-## Formal Proof Status
+No proof closure is claimed by this package.
 
-| File | Language | Status | Blockers |
-|------|----------|--------|----------|
-| `criterion_improvements.v` | Coq | Structural, closeable | 13 missing explicit assumptions |
-| `pb1_robust.v` | Coq | Canonicalization scaffold | Admits in refl, idempotence, sem preservation |
-| `pb2_robust.v` | Coq | Verifier stage machine | Outcome exhaustiveness admits |
-| `pb3_pb9_robust.v` | Coq | Lineage/digest binding | One admitted registry coverage case |
-| `pb_proofs_combined.lean` | Lean | Aggregate | 34 missing-print-assumptions / axiom audit gaps |
+## False theorem guard
 
-**Total audit failures: 189** — formal proof closure is not claimed in this repository snapshot.
+The false theorem direction around suppression/supression and continuity is not present as an operative proof claim. The package does not assert `suppression_exceeds_continuity` or the misspelled `supression_exceeds_continuity`. Any future proof in this family must be stated as a qualified or reversed theorem with explicit assumptions and build logs before it can affect standing.
 
-### Proof-Claim Hygiene
+## Status
 
-- No file in `proofs/` should be treated as zero-axiom, zero-admit, zero-sorry, proof-complete, or release-green unless it has been checked in a local Coq/Lean/Z3 environment and the assumptions output is preserved.
-- The historically observed theorem names `suppression_exceeds_continuation`, `supression_exceeds_continuation`, `suppression_exceeds_continuity`, and `supression_exceeds_continuity` are false-theorem quarantine markers, not operative proof claims.
-- The quarantined repair artifact under `proofbundles/codex_peer_bridge_20260508/quarantine_repair_20260513T1155Z/` is preserved as evidence and repair-attempt material. It is not proof closure.
-- Viable future work should use an existential or threshold-form statement and must include source plus build/solver logs before promotion.
-
-## Architecture
-
-```text
-agent output
-  -> payload hash
-  -> predecessor-bound bridge record
-  -> verifier receipt
-  -> append-only ledger head
-  -> recipient agent stimulus
-  -> next output
-```
-
-## Security & Continuity Rules
-
-1. Every artifact gets a SHA-256 receipt.
-2. Every state-changing action gets identity: sender, recipient, timestamp, lane, scope.
-3. No chat-only state is admissible.
-4. No external network without fresh Tor verification.
-5. No release-green claims until formal proof gate passes.
-
-## Contributing
-
-This project is currently driven by a single researcher (FalseAlias / Chaleb Tajia Russell) with agent coordination support. The formal proof debt must close before v1.0.0 can be claimed release-green.
-
-## Acknowledgments
-
-- CAIFS (Consciousness Attribution Instrumentation Framework)
-- RLM / Clementine memory substrate
-- Genophylaxis governance/lineage system
-- OpenClaw gateway tooling
-
----
-
-*ProofBundle v1.0.0 — The agents may be transient. The loop persists.*
+See `STATUS.md`.

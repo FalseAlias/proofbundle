@@ -1,0 +1,175 @@
+{
+  "schema": "proofbundle-source-zip-import-report/1.0",
+  "generated_at_utc": "2026-05-16T14:20:56Z",
+  "source_zip": "C:\\Users\\alib90\\Downloads\\2026-05-15_proofbundle_v1.0.0-alpha.1_standing-sync-repaired_20260515T111154Z.zip",
+  "repo_root": "C:\\Users\\alib90\\Downloads\\ORGANIZED\\AGENT_COORDINATION\\github_repos\\FalseAlias_proofbundle",
+  "written_count": 1140,
+  "skipped_count": 2,
+  "path_list": "manifest\\source_baselines\\source_zip_import_paths_20260516T142055Z.txt",
+  "written_sample": [
+    {
+      "path": ".gitignore",
+      "bytes": 100
+    },
+    {
+      "path": "archive_manifest_full.json",
+      "bytes": 321990
+    },
+    {
+      "path": "ARCHIVE_MANIFEST_SCOPE.md",
+      "bytes": 1695
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 1402
+    },
+    {
+      "path": "compute_manifest.py",
+      "bytes": 7417
+    },
+    {
+      "path": "false_theorem_scan_latest.json",
+      "bytes": 104957
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1795
+    },
+    {
+      "path": "manifest.json",
+      "bytes": 48169
+    },
+    {
+      "path": "README.md",
+      "bytes": 2368
+    },
+    {
+      "path": "REPAIR_LEDGER.md",
+      "bytes": 13831
+    },
+    {
+      "path": "repo_summary.txt",
+      "bytes": 4612
+    },
+    {
+      "path": "SECURITY.md",
+      "bytes": 1800
+    },
+    {
+      "path": "SPEC.md",
+      "bytes": 32700
+    },
+    {
+      "path": "STATUS.md",
+      "bytes": 4466
+    },
+    {
+      "path": "cli/Cargo.lock",
+      "bytes": 29580
+    },
+    {
+      "path": "cli/Cargo.toml",
+      "bytes": 1141
+    },
+    {
+      "path": "cli/src/boundary.rs",
+      "bytes": 14650
+    },
+    {
+      "path": "cli/src/canonical.rs",
+      "bytes": 6805
+    },
+    {
+      "path": "cli/src/digest.rs",
+      "bytes": 1580
+    },
+    {
+      "path": "cli/src/lib.rs",
+      "bytes": 2102
+    },
+    {
+      "path": "cli/src/lineage.rs",
+      "bytes": 8397
+    },
+    {
+      "path": "cli/src/main.rs",
+      "bytes": 7801
+    },
+    {
+      "path": "cli/src/seal.rs",
+      "bytes": 5683
+    },
+    {
+      "path": "cli/src/signature.rs",
+      "bytes": 11566
+    },
+    {
+      "path": "cli/src/verify.rs",
+      "bytes": 18789
+    },
+    {
+      "path": "cli/src/commands/conformance.rs",
+      "bytes": 20854
+    },
+    {
+      "path": "cli/src/commands/inspect.rs",
+      "bytes": 3524
+    },
+    {
+      "path": "cli/src/commands/key.rs",
+      "bytes": 2042
+    },
+    {
+      "path": "cli/src/commands/lineage.rs",
+      "bytes": 1808
+    },
+    {
+      "path": "cli/src/commands/mod.rs",
+      "bytes": 124
+    },
+    {
+      "path": "cli/src/commands/seal.rs",
+      "bytes": 2265
+    },
+    {
+      "path": "cli/src/commands/verify.rs",
+      "bytes": 2211
+    },
+    {
+      "path": "conformance/CONFORMANCE_STATUS.md",
+      "bytes": 4205
+    },
+    {
+      "path": "conformance/cross_impl_results.json",
+      "bytes": 8815
+    },
+    {
+      "path": "conformance/README.md",
+      "bytes": 1266
+    },
+    {
+      "path": "conformance/vectors_v1.json",
+      "bytes": 534647
+    },
+    {
+      "path": "core/package-lock.json",
+      "bytes": 2463
+    },
+    {
+      "path": "core/package.json",
+      "bytes": 428
+    },
+    {
+      "path": "core/test_vectors.js",
+      "bytes": 1567
+    },
+    {
+      "path": "core/test_vector_sample.js",
+      "bytes": 1981
+    }
+  ],
+  "skipped_sample": [
+    "plan.md",
+    "proofbundle-v1.0.0-alpha-repair-snapshot.zip"
+  ]
+}

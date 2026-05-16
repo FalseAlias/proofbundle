@@ -1,0 +1,19 @@
+{
+  "name": "@falsealias/proofbundle",
+  "version": "1.0.0",
+  "description": "ProofBundle reference implementation",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "node --test dist/test/*.js"
+  },
+  "dependencies": {
+    "@noble/curves": "^1.4.0",
+    "@noble/hashes": "^1.4.0",
+    "@types/node": "^25.7.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  }
+}

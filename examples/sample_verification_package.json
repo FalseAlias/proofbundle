@@ -1,0 +1,24 @@
+{
+  "_comment": "Sample verification package for ProofBundle v1.0.0",
+  "bundle": {
+    "version": "1.0.0",
+    "issuer": "https://issuer.example",
+    "subject": "https://subject.example/resource",
+    "claims": {
+      "canonical": true,
+      "lineage": ["genesis", "draft", "release"]
+    },
+    "proof": {
+      "type": "Ed25519Signature2020",
+      "created": "2026-05-13T00:00:00Z",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z58DAdFfa9SkqZMVPBAQN6df68W..."
+    }
+  },
+  "publicKey": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAGYarO1xHnsjd2dC78vG9j+G58dIVq9JEY8KaKMQYKaM=\n-----END PUBLIC KEY-----",
+  "context": {
+    "domain": "example.com",
+    "purpose": "conformance-test",
+    "timestamp": "2026-05-13T00:00:00Z"
+  }
+}

@@ -8,7 +8,7 @@ const logPath = path.join(outDir, 'repo_merkle_log.jsonl');
 const latestManifestPath = path.join(outDir, 'LATEST_REPO_MERKLE_MANIFEST.json');
 const latestRootPath = path.join(outDir, 'LATEST_REPO_MERKLE_ROOT.txt');
 
-const excludedParts = new Set(['.git', 'node_modules', 'dist', 'target', '__pycache__', '.pytest_cache', '.mypy_cache']);
+const excludedParts = new Set(['.git', '.vscode', 'node_modules', 'dist', 'target', '__pycache__', '.pytest_cache', '.mypy_cache']);
 const excludedFiles = new Set(['proofbundle-7-commits.patch']);
 const excludedManifestOutputs = [
   /^manifest\/LATEST_REPO_MERKLE_(MANIFEST|ROOT)\.(json|txt)$/,

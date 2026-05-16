@@ -1,0 +1,2994 @@
+{
+  "scanner": "worker4_false_theorem_guard_scan_20260515",
+  "root": "C:\\Users\\alib90\\Downloads\\proofbundle_alpha1_standing_sync_extract_20260515T105132Z\\proofbundle",
+  "scannedAtUtc": "2026-05-15T11:10:18.239Z",
+  "scannedFiles": 1140,
+  "skippedBinaryFiles": [
+    "python/proofbundle/__pycache__/boundary.cpython-312.pyc",
+    "python/proofbundle/__pycache__/canonical.cpython-312.pyc",
+    "python/proofbundle/__pycache__/digest.cpython-312.pyc",
+    "python/proofbundle/__pycache__/lineage.cpython-312.pyc",
+    "python/proofbundle/__pycache__/seal.cpython-312.pyc",
+    "python/proofbundle/__pycache__/signature.cpython-312.pyc",
+    "python/proofbundle/__pycache__/verify.cpython-312.pyc",
+    "python/proofbundle/__pycache__/__init__.cpython-312.pyc",
+    "python/tests/__pycache__/test_conformance.cpython-312-pytest-9.0.3.pyc",
+    "python/tests/__pycache__/__init__.cpython-312.pyc"
+  ],
+  "exactTerms": {
+    "suppression_exceeds_continuity": {
+      "standing": "forbidden_false_direction",
+      "total": 13,
+      "classifications": {
+        "quarantine_or_report_reference": 13
+      },
+      "hits": [
+        {
+          "file": "conformance/CONFORMANCE_STATUS.md",
+          "line": 58,
+          "term": "suppression_exceeds_continuity",
+          "standing": "forbidden_false_direction",
+          "text": "- No operative theorem named `suppression_exceeds_continuity` or `supression_exceeds_continuity` is introduced as a release-supporting claim.",
+          "context": [
+            {
+              "line": 55,
+              "text": ""
+            },
+            {
+              "line": 56,
+              "text": "The operative guard status reflected here is:"
+            },
+            {
+              "line": 57,
+              "text": ""
+            },
+            {
+              "line": 58,
+              "text": "- No operative theorem named `suppression_exceeds_continuity` or `supression_exceeds_continuity` is introduced as a release-supporting claim."
+            },
+            {
+              "line": 59,
+              "text": "- `proofs/coq/ContinuitySuppressionGuard.v` records an equal-cost counterexample and guards against the universal claim that suppression always strictly exceeds continuity."
+            },
+            {
+              "line": 60,
+              "text": "- `proofs/lean/ProofBundle/SuppressionContinuityGuard.lean` records that suppression-only observations do not establish continuity and that true continuity standing requires explicit `ContinuityEvidence`."
+            },
+            {
+              "line": 61,
+              "text": "- VM receipts in `proofs/build_receipts/` show Coq/Rocq warnings only, Lean/Lake build success, and the expected Z3 `sat`, `sat`, `unsat`, `unsat` sequence. These proof artifacts are still not promoted to proof closure."
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "conformance/cross_impl_results.json",
+          "line": 189,
+          "term": "suppression_exceeds_continuity",
+          "standing": "forbidden_false_direction",
+          "text": "        \"suppression_exceeds_continuity\",",
+          "context": [
+            {
+              "line": 186,
+              "text": "    \"release_effect\": \"blocker\","
+            },
+            {
+              "line": 187,
+              "text": "    \"false_theorem_guard\": {"
+            },
+            {
+              "line": 188,
+              "text": "      \"bad_theorem_names_not_introduced_as_operative_claims\": ["
+            },
+            {
+              "line": 189,
+              "text": "        \"suppression_exceeds_continuity\","
+            },
+            {
+              "line": 190,
+              "text": "        \"supression_exceeds_continuity\""
+            },
+            {
+              "line": 191,
+              "text": "      ],"
+            },
+            {
+              "line": 192,
+              "text": "      \"coq_source\": \"proofs/coq/ContinuitySuppressionGuard.v records an equal-cost counterexample and no-universal-suppression-strict-excess guard; VM Coq/Rocq receipt completed with warnings only.\","
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "proofs/FALSE_THEOREM_GUARD.md",
+          "line": 15,
+          "term": "suppression_exceeds_continuity",
+          "standing": "forbidden_false_direction",
+          "text": "| `suppression_exceeds_continuity` | false direction | absent from operative proof sources; only report/quarantine references remain |",
+          "context": [
+            {
+              "line": 12,
+              "text": ""
+            },
+            {
+              "line": 13,
+              "text": "| Identifier | Direction status | Operational status |"
+            },
+            {
+              "line": 14,
+              "text": "|---|---|---|"
+            },
+            {
+              "line": 15,
+              "text": "| `suppression_exceeds_continuity` | false direction | absent from operative proof sources; only report/quarantine references remain |"
+            },
+            {
+              "line": 16,
+              "text": "| `supression_exceeds_continuity` | false misspelled direction | absent from operative proof sources; only report/quarantine references remain |"
+            },
+            {
+              "line": 17,
+              "text": "| `continuity_exceeds_suppression` | reversed-direction watch | no incorrect operative use found |"
+            },
+            {
+              "line": 18,
+              "text": ""
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "proofs/LEAN_STATUS.md",
+          "line": 20,
+          "term": "suppression_exceeds_continuity",
+          "standing": "forbidden_false_direction",
+          "text": "- No theorem named `suppression_exceeds_continuity` or `supression_exceeds_continuity` is introduced.",
+          "context": [
+            {
+              "line": 17,
+              "text": ""
+            },
+            {
+              "line": 18,
+              "text": "False-theorem guard:"
+            },
+            {
+              "line": 19,
+              "text": ""
+            },
+            {
+              "line": 20,
+              "text": "- No theorem named `suppression_exceeds_continuity` or `supression_exceeds_continuity` is introduced."
+            },
+            {
+              "line": 21,
+              "text": "- Suppression-only observations map to `false` continuity standing."
+            },
+            {
+              "line": 22,
+              "text": "- A `true` continuity standing requires an explicit `ContinuityEvidence` witness."
+            },
+            {
+              "line": 23,
+              "text": "- This is a qualified/reversed scaffold only. It does not prove continuity from suppression and does not claim proof closure."
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "proofs/manifest.json",
+          "line": 86,
+          "term": "suppression_exceeds_continuity",
+          "standing": "forbidden_false_direction",
+          "text": "      \"suppression_exceeds_continuity\",",
+          "context": [
+            {
+              "line": 83,
+              "text": "    \"forbidden_operational_theorem_hits\": 0,"
+            },
+            {
+              "line": 84,
+              "text": "    \"incorrect_reversed_direction_hits\": 0,"
+            },
+            {
+              "line": 85,
+              "text": "    \"bad_theorem_names\": ["
+            },
+            {
+              "line": 86,
+              "text": "      \"suppression_exceeds_continuity\","
+            },
+            {
+              "line": 87,
+              "text": "      \"supression_exceeds_continuity\""
+            },
+            {
+              "line": 88,
+              "text": "    ],"
+            },
+            {
+              "line": 89,
+              "text": "    \"qualified_or_reversed_guard_files\": ["
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "proofs/PROOF_STATUS.md",
+          "line": 28,
+          "term": "suppression_exceeds_continuity",
+          "standing": "forbidden_false_direction",
+          "text": "- `suppression_exceeds_continuity`: absent from operative proof sources.",
+          "context": [
+            {
+              "line": 25,
+              "text": ""
+            },
+            {
+              "line": 26,
+              "text": "The false theorem direction is not present as an operative proof claim:"
+            },
+            {
+              "line": 27,
+              "text": ""
+            },
+            {
+              "line": 28,
+              "text": "- `suppression_exceeds_continuity`: absent from operative proof sources."
+            },
+            {
+              "line": 29,
+              "text": "- `supression_exceeds_continuity`: absent from operative proof sources."
+            },
+            {
+              "line": 30,
+              "text": "- `continuity_exceeds_suppression`: not used as an incorrect operative theorem."
+            },
+            {
+              "line": 31,
+              "text": ""
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "proofs/QUARANTINE.md",
+          "line": 9,
+          "term": "suppression_exceeds_continuity",
+          "standing": "forbidden_false_direction",
+          "text": "- `suppression_exceeds_continuity`: not found",
+          "context": [
+            {
+              "line": 6,
+              "text": ""
+            },
+            {
+              "line": 7,
+              "text": "Exact forbidden-symbol scan:"
+            },
+            {
+              "line": 8,
+              "text": ""
+            },
+            {
+              "line": 9,
+              "text": "- `suppression_exceeds_continuity`: not found"
+            },
+            {
+              "line": 10,
+              "text": "- `supression_exceeds_continuity`: not found"
+            },
+            {
+              "line": 11,
+              "text": ""
+            },
+            {
+              "line": 12,
+              "text": "Metadata-level issue repaired:"
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "README.md",
+          "line": 47,
+          "term": "suppression_exceeds_continuity",
+          "standing": "forbidden_false_direction",
+          "text": "The false theorem direction around suppression/supression and continuity is not present as an operative proof claim. The package does not assert `suppression_exceeds_continuity` or the misspelled `supression_exceeds_continuity`. Any future proof in this family must be stated as a qualified or reversed theorem with explicit assumptions and build logs before it can affect standing.",
+          "context": [
+            {
+              "line": 44,
+              "text": ""
+            },
+            {
+              "line": 45,
+              "text": "## False theorem guard"
+            },
+            {
+              "line": 46,
+              "text": ""
+            },
+            {
+              "line": 47,
+              "text": "The false theorem direction around suppression/supression and continuity is not present as an operative proof claim. The package does not assert `suppression_exceeds_continuity` or the misspelled `supression_exceeds_continuity`. Any future proof in this family must be stated as a qualified or reversed theorem with explicit assumptions and build logs before it can affect standing."
+            },
+            {
+              "line": 48,
+              "text": ""
+            },
+            {
+              "line": 49,
+              "text": "## Status"
+            },
+            {
+              "line": 50,
+              "text": ""
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "SECURITY.md",
+          "line": 33,
+          "term": "suppression_exceeds_continuity",
+          "standing": "forbidden_false_direction",
+          "text": "The exact symbols `suppression_exceeds_continuity` and `supression_exceeds_continuity` are absent as operative theorem claims after patch. Metadata-level proof-standing contamination was present and repaired. Missing or unbuilt proof files cannot inherit proof authority through lineage, manifests, README text, browser standing blocks, or scaffold comments.",
+          "context": [
+            {
+              "line": 30,
+              "text": ""
+            },
+            {
+              "line": 31,
+              "text": "## Forbidden proof-standing inheritance"
+            },
+            {
+              "line": 32,
+              "text": ""
+            },
+            {
+              "line": 33,
+              "text": "The exact symbols `suppression_exceeds_continuity` and `supression_exceeds_continuity` are absent as operative theorem claims after patch. Metadata-level proof-standing contamination was present and repaired. Missing or unbuilt proof files cannot inherit proof authority through lineage, manifests, README text, browser standing blocks, or scaffold comments."
+            },
+            {
+              "line": 34,
+              "text": ""
+            },
+            {
+              "line": 35,
+              "text": "## Scope"
+            },
+            {
+              "line": 36,
+              "text": ""
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "STATUS.md",
+          "line": 58,
+          "term": "suppression_exceeds_continuity",
+          "standing": "forbidden_false_direction",
+          "text": "- `suppression_exceeds_continuity`: no forbidden operative theorem hit; quarantine/status/report references only",
+          "context": [
+            {
+              "line": 55,
+              "text": ""
+            },
+            {
+              "line": 56,
+              "text": "Exact forbidden-symbol scan after patch:"
+            },
+            {
+              "line": 57,
+              "text": ""
+            },
+            {
+              "line": 58,
+              "text": "- `suppression_exceeds_continuity`: no forbidden operative theorem hit; quarantine/status/report references only"
+            },
+            {
+              "line": 59,
+              "text": "- `supression_exceeds_continuity`: no forbidden operative theorem hit; quarantine/status/report references only"
+            },
+            {
+              "line": 60,
+              "text": ""
+            },
+            {
+              "line": 61,
+              "text": "No operative proof claim is allowed to assert that false direction. If this theorem family is reintroduced, it must be qualified or reversed with explicit assumptions and build logs before it can affect proof standing."
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "tooling/worker4_false_theorem_guard_scan_20260515.mjs",
+          "line": 9,
+          "term": "suppression_exceeds_continuity",
+          "standing": "forbidden_false_direction",
+          "text": "    term: 'suppression_exceeds_continuity',",
+          "context": [
+            {
+              "line": 6,
+              "text": ""
+            },
+            {
+              "line": 7,
+              "text": "const exactTerms = ["
+            },
+            {
+              "line": 8,
+              "text": "  {"
+            },
+            {
+              "line": 9,
+              "text": "    term: 'suppression_exceeds_continuity',"
+            },
+            {
+              "line": 10,
+              "text": "    standing: 'forbidden_false_direction'"
+            },
+            {
+              "line": 11,
+              "text": "  },"
+            },
+            {
+              "line": 12,
+              "text": "  {"
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "tooling/worker4_false_theorem_guard_scan_20260515.mjs",
+          "line": 84,
+          "term": "suppression_exceeds_continuity",
+          "standing": "forbidden_false_direction",
+          "text": "    (hit.term === 'suppression_exceeds_continuity' ||",
+          "context": [
+            {
+              "line": 81,
+              "text": "  }"
+            },
+            {
+              "line": 82,
+              "text": ""
+            },
+            {
+              "line": 83,
+              "text": "  if ("
+            },
+            {
+              "line": 84,
+              "text": "    (hit.term === 'suppression_exceeds_continuity' ||"
+            },
+            {
+              "line": 85,
+              "text": "      hit.term === 'supression_exceeds_continuity') &&"
+            },
+            {
+              "line": 86,
+              "text": "    (proofSource || theoremLike) &&"
+            },
+            {
+              "line": 87,
+              "text": "    !quarantineOrReport"
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "web/2026-05-03_proofbundle_ui_v1.0.html",
+          "line": 1315,
+          "term": "suppression_exceeds_continuity",
+          "standing": "forbidden_false_direction",
+          "text": "  forbiddenSymbolScan: 'suppression_exceeds_continuity and supression_exceeds_continuity absent from operative tree after patch',",
+          "context": [
+            {
+              "line": 1312,
+              "text": "  crossImplementationStanding: 'partial; cross_impl_results.json is populated but does not establish all-implementation agreement',"
+            },
+            {
+              "line": 1313,
+              "text": "  proofArchiveStanding: 'guard_builds_passed_not_closed; narrow Coq, Lean, and Z3 guard scaffolds passed VM build/solver checks, but no proof closure is claimed',"
+            },
+            {
+              "line": 1314,
+              "text": "  falseInheritanceFinding: 'lineage/proof metadata previously allowed proof-closure standing to appear without proof source; repaired state blocks that inheritance',"
+            },
+            {
+              "line": 1315,
+              "text": "  forbiddenSymbolScan: 'suppression_exceeds_continuity and supression_exceeds_continuity absent from operative tree after patch',"
+            },
+            {
+              "line": 1316,
+              "text": "  falseTheoremStanding: 'the false suppression/supression-over-continuity theorem direction is not an operative proof claim; any future theorem in this family must be qualified or reversed and backed by source plus build logs',"
+            },
+            {
+              "line": 1317,
+              "text": "  proofAudit: 'No formal proof closure is claimed by this browser artifact or repository snapshot. The Coq, Lean, and Z3 guard scaffolds block or qualify the false theorem direction, and VM receipts are present for those narrow checks only.',"
+            },
+            {
+              "line": 1318,
+              "text": "  releaseStanding: 'alpha-repair-snapshot; not release-green; browser restored; proof closure unavailable; conformance partial; implementation blockers remain',"
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        }
+      ]
+    },
+    "supression_exceeds_continuity": {
+      "standing": "forbidden_misspelled_false_direction",
+      "total": 13,
+      "classifications": {
+        "quarantine_or_report_reference": 13
+      },
+      "hits": [
+        {
+          "file": "conformance/CONFORMANCE_STATUS.md",
+          "line": 58,
+          "term": "supression_exceeds_continuity",
+          "standing": "forbidden_misspelled_false_direction",
+          "text": "- No operative theorem named `suppression_exceeds_continuity` or `supression_exceeds_continuity` is introduced as a release-supporting claim.",
+          "context": [
+            {
+              "line": 55,
+              "text": ""
+            },
+            {
+              "line": 56,
+              "text": "The operative guard status reflected here is:"
+            },
+            {
+              "line": 57,
+              "text": ""
+            },
+            {
+              "line": 58,
+              "text": "- No operative theorem named `suppression_exceeds_continuity` or `supression_exceeds_continuity` is introduced as a release-supporting claim."
+            },
+            {
+              "line": 59,
+              "text": "- `proofs/coq/ContinuitySuppressionGuard.v` records an equal-cost counterexample and guards against the universal claim that suppression always strictly exceeds continuity."
+            },
+            {
+              "line": 60,
+              "text": "- `proofs/lean/ProofBundle/SuppressionContinuityGuard.lean` records that suppression-only observations do not establish continuity and that true continuity standing requires explicit `ContinuityEvidence`."
+            },
+            {
+              "line": 61,
+              "text": "- VM receipts in `proofs/build_receipts/` show Coq/Rocq warnings only, Lean/Lake build success, and the expected Z3 `sat`, `sat`, `unsat`, `unsat` sequence. These proof artifacts are still not promoted to proof closure."
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "conformance/cross_impl_results.json",
+          "line": 190,
+          "term": "supression_exceeds_continuity",
+          "standing": "forbidden_misspelled_false_direction",
+          "text": "        \"supression_exceeds_continuity\"",
+          "context": [
+            {
+              "line": 187,
+              "text": "    \"false_theorem_guard\": {"
+            },
+            {
+              "line": 188,
+              "text": "      \"bad_theorem_names_not_introduced_as_operative_claims\": ["
+            },
+            {
+              "line": 189,
+              "text": "        \"suppression_exceeds_continuity\","
+            },
+            {
+              "line": 190,
+              "text": "        \"supression_exceeds_continuity\""
+            },
+            {
+              "line": 191,
+              "text": "      ],"
+            },
+            {
+              "line": 192,
+              "text": "      \"coq_source\": \"proofs/coq/ContinuitySuppressionGuard.v records an equal-cost counterexample and no-universal-suppression-strict-excess guard; VM Coq/Rocq receipt completed with warnings only.\","
+            },
+            {
+              "line": 193,
+              "text": "      \"lean_source\": \"proofs/lean/ProofBundle/SuppressionContinuityGuard.lean maps suppression-only standing to false and requires ContinuityEvidence for true continuity; VM Lean/Lake receipt completed successfully.\","
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "proofs/FALSE_THEOREM_GUARD.md",
+          "line": 16,
+          "term": "supression_exceeds_continuity",
+          "standing": "forbidden_misspelled_false_direction",
+          "text": "| `supression_exceeds_continuity` | false misspelled direction | absent from operative proof sources; only report/quarantine references remain |",
+          "context": [
+            {
+              "line": 13,
+              "text": "| Identifier | Direction status | Operational status |"
+            },
+            {
+              "line": 14,
+              "text": "|---|---|---|"
+            },
+            {
+              "line": 15,
+              "text": "| `suppression_exceeds_continuity` | false direction | absent from operative proof sources; only report/quarantine references remain |"
+            },
+            {
+              "line": 16,
+              "text": "| `supression_exceeds_continuity` | false misspelled direction | absent from operative proof sources; only report/quarantine references remain |"
+            },
+            {
+              "line": 17,
+              "text": "| `continuity_exceeds_suppression` | reversed-direction watch | no incorrect operative use found |"
+            },
+            {
+              "line": 18,
+              "text": ""
+            },
+            {
+              "line": 19,
+              "text": "## Scan Verdict"
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "proofs/LEAN_STATUS.md",
+          "line": 20,
+          "term": "supression_exceeds_continuity",
+          "standing": "forbidden_misspelled_false_direction",
+          "text": "- No theorem named `suppression_exceeds_continuity` or `supression_exceeds_continuity` is introduced.",
+          "context": [
+            {
+              "line": 17,
+              "text": ""
+            },
+            {
+              "line": 18,
+              "text": "False-theorem guard:"
+            },
+            {
+              "line": 19,
+              "text": ""
+            },
+            {
+              "line": 20,
+              "text": "- No theorem named `suppression_exceeds_continuity` or `supression_exceeds_continuity` is introduced."
+            },
+            {
+              "line": 21,
+              "text": "- Suppression-only observations map to `false` continuity standing."
+            },
+            {
+              "line": 22,
+              "text": "- A `true` continuity standing requires an explicit `ContinuityEvidence` witness."
+            },
+            {
+              "line": 23,
+              "text": "- This is a qualified/reversed scaffold only. It does not prove continuity from suppression and does not claim proof closure."
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "proofs/manifest.json",
+          "line": 87,
+          "term": "supression_exceeds_continuity",
+          "standing": "forbidden_misspelled_false_direction",
+          "text": "      \"supression_exceeds_continuity\"",
+          "context": [
+            {
+              "line": 84,
+              "text": "    \"incorrect_reversed_direction_hits\": 0,"
+            },
+            {
+              "line": 85,
+              "text": "    \"bad_theorem_names\": ["
+            },
+            {
+              "line": 86,
+              "text": "      \"suppression_exceeds_continuity\","
+            },
+            {
+              "line": 87,
+              "text": "      \"supression_exceeds_continuity\""
+            },
+            {
+              "line": 88,
+              "text": "    ],"
+            },
+            {
+              "line": 89,
+              "text": "    \"qualified_or_reversed_guard_files\": ["
+            },
+            {
+              "line": 90,
+              "text": "      \"coq/ContinuitySuppressionGuard.v\","
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "proofs/PROOF_STATUS.md",
+          "line": 29,
+          "term": "supression_exceeds_continuity",
+          "standing": "forbidden_misspelled_false_direction",
+          "text": "- `supression_exceeds_continuity`: absent from operative proof sources.",
+          "context": [
+            {
+              "line": 26,
+              "text": "The false theorem direction is not present as an operative proof claim:"
+            },
+            {
+              "line": 27,
+              "text": ""
+            },
+            {
+              "line": 28,
+              "text": "- `suppression_exceeds_continuity`: absent from operative proof sources."
+            },
+            {
+              "line": 29,
+              "text": "- `supression_exceeds_continuity`: absent from operative proof sources."
+            },
+            {
+              "line": 30,
+              "text": "- `continuity_exceeds_suppression`: not used as an incorrect operative theorem."
+            },
+            {
+              "line": 31,
+              "text": ""
+            },
+            {
+              "line": 32,
+              "text": "The current guard files are deliberately qualified:"
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "proofs/QUARANTINE.md",
+          "line": 10,
+          "term": "supression_exceeds_continuity",
+          "standing": "forbidden_misspelled_false_direction",
+          "text": "- `supression_exceeds_continuity`: not found",
+          "context": [
+            {
+              "line": 7,
+              "text": "Exact forbidden-symbol scan:"
+            },
+            {
+              "line": 8,
+              "text": ""
+            },
+            {
+              "line": 9,
+              "text": "- `suppression_exceeds_continuity`: not found"
+            },
+            {
+              "line": 10,
+              "text": "- `supression_exceeds_continuity`: not found"
+            },
+            {
+              "line": 11,
+              "text": ""
+            },
+            {
+              "line": 12,
+              "text": "Metadata-level issue repaired:"
+            },
+            {
+              "line": 13,
+              "text": ""
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "README.md",
+          "line": 47,
+          "term": "supression_exceeds_continuity",
+          "standing": "forbidden_misspelled_false_direction",
+          "text": "The false theorem direction around suppression/supression and continuity is not present as an operative proof claim. The package does not assert `suppression_exceeds_continuity` or the misspelled `supression_exceeds_continuity`. Any future proof in this family must be stated as a qualified or reversed theorem with explicit assumptions and build logs before it can affect standing.",
+          "context": [
+            {
+              "line": 44,
+              "text": ""
+            },
+            {
+              "line": 45,
+              "text": "## False theorem guard"
+            },
+            {
+              "line": 46,
+              "text": ""
+            },
+            {
+              "line": 47,
+              "text": "The false theorem direction around suppression/supression and continuity is not present as an operative proof claim. The package does not assert `suppression_exceeds_continuity` or the misspelled `supression_exceeds_continuity`. Any future proof in this family must be stated as a qualified or reversed theorem with explicit assumptions and build logs before it can affect standing."
+            },
+            {
+              "line": 48,
+              "text": ""
+            },
+            {
+              "line": 49,
+              "text": "## Status"
+            },
+            {
+              "line": 50,
+              "text": ""
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "SECURITY.md",
+          "line": 33,
+          "term": "supression_exceeds_continuity",
+          "standing": "forbidden_misspelled_false_direction",
+          "text": "The exact symbols `suppression_exceeds_continuity` and `supression_exceeds_continuity` are absent as operative theorem claims after patch. Metadata-level proof-standing contamination was present and repaired. Missing or unbuilt proof files cannot inherit proof authority through lineage, manifests, README text, browser standing blocks, or scaffold comments.",
+          "context": [
+            {
+              "line": 30,
+              "text": ""
+            },
+            {
+              "line": 31,
+              "text": "## Forbidden proof-standing inheritance"
+            },
+            {
+              "line": 32,
+              "text": ""
+            },
+            {
+              "line": 33,
+              "text": "The exact symbols `suppression_exceeds_continuity` and `supression_exceeds_continuity` are absent as operative theorem claims after patch. Metadata-level proof-standing contamination was present and repaired. Missing or unbuilt proof files cannot inherit proof authority through lineage, manifests, README text, browser standing blocks, or scaffold comments."
+            },
+            {
+              "line": 34,
+              "text": ""
+            },
+            {
+              "line": 35,
+              "text": "## Scope"
+            },
+            {
+              "line": 36,
+              "text": ""
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "STATUS.md",
+          "line": 59,
+          "term": "supression_exceeds_continuity",
+          "standing": "forbidden_misspelled_false_direction",
+          "text": "- `supression_exceeds_continuity`: no forbidden operative theorem hit; quarantine/status/report references only",
+          "context": [
+            {
+              "line": 56,
+              "text": "Exact forbidden-symbol scan after patch:"
+            },
+            {
+              "line": 57,
+              "text": ""
+            },
+            {
+              "line": 58,
+              "text": "- `suppression_exceeds_continuity`: no forbidden operative theorem hit; quarantine/status/report references only"
+            },
+            {
+              "line": 59,
+              "text": "- `supression_exceeds_continuity`: no forbidden operative theorem hit; quarantine/status/report references only"
+            },
+            {
+              "line": 60,
+              "text": ""
+            },
+            {
+              "line": 61,
+              "text": "No operative proof claim is allowed to assert that false direction. If this theorem family is reintroduced, it must be qualified or reversed with explicit assumptions and build logs before it can affect proof standing."
+            },
+            {
+              "line": 62,
+              "text": ""
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "tooling/worker4_false_theorem_guard_scan_20260515.mjs",
+          "line": 13,
+          "term": "supression_exceeds_continuity",
+          "standing": "forbidden_misspelled_false_direction",
+          "text": "    term: 'supression_exceeds_continuity',",
+          "context": [
+            {
+              "line": 10,
+              "text": "    standing: 'forbidden_false_direction'"
+            },
+            {
+              "line": 11,
+              "text": "  },"
+            },
+            {
+              "line": 12,
+              "text": "  {"
+            },
+            {
+              "line": 13,
+              "text": "    term: 'supression_exceeds_continuity',"
+            },
+            {
+              "line": 14,
+              "text": "    standing: 'forbidden_misspelled_false_direction'"
+            },
+            {
+              "line": 15,
+              "text": "  },"
+            },
+            {
+              "line": 16,
+              "text": "  {"
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "tooling/worker4_false_theorem_guard_scan_20260515.mjs",
+          "line": 85,
+          "term": "supression_exceeds_continuity",
+          "standing": "forbidden_misspelled_false_direction",
+          "text": "      hit.term === 'supression_exceeds_continuity') &&",
+          "context": [
+            {
+              "line": 82,
+              "text": ""
+            },
+            {
+              "line": 83,
+              "text": "  if ("
+            },
+            {
+              "line": 84,
+              "text": "    (hit.term === 'suppression_exceeds_continuity' ||"
+            },
+            {
+              "line": 85,
+              "text": "      hit.term === 'supression_exceeds_continuity') &&"
+            },
+            {
+              "line": 86,
+              "text": "    (proofSource || theoremLike) &&"
+            },
+            {
+              "line": 87,
+              "text": "    !quarantineOrReport"
+            },
+            {
+              "line": 88,
+              "text": "  ) {"
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "web/2026-05-03_proofbundle_ui_v1.0.html",
+          "line": 1315,
+          "term": "supression_exceeds_continuity",
+          "standing": "forbidden_misspelled_false_direction",
+          "text": "  forbiddenSymbolScan: 'suppression_exceeds_continuity and supression_exceeds_continuity absent from operative tree after patch',",
+          "context": [
+            {
+              "line": 1312,
+              "text": "  crossImplementationStanding: 'partial; cross_impl_results.json is populated but does not establish all-implementation agreement',"
+            },
+            {
+              "line": 1313,
+              "text": "  proofArchiveStanding: 'guard_builds_passed_not_closed; narrow Coq, Lean, and Z3 guard scaffolds passed VM build/solver checks, but no proof closure is claimed',"
+            },
+            {
+              "line": 1314,
+              "text": "  falseInheritanceFinding: 'lineage/proof metadata previously allowed proof-closure standing to appear without proof source; repaired state blocks that inheritance',"
+            },
+            {
+              "line": 1315,
+              "text": "  forbiddenSymbolScan: 'suppression_exceeds_continuity and supression_exceeds_continuity absent from operative tree after patch',"
+            },
+            {
+              "line": 1316,
+              "text": "  falseTheoremStanding: 'the false suppression/supression-over-continuity theorem direction is not an operative proof claim; any future theorem in this family must be qualified or reversed and backed by source plus build logs',"
+            },
+            {
+              "line": 1317,
+              "text": "  proofAudit: 'No formal proof closure is claimed by this browser artifact or repository snapshot. The Coq, Lean, and Z3 guard scaffolds block or qualify the false theorem direction, and VM receipts are present for those narrow checks only.',"
+            },
+            {
+              "line": 1318,
+              "text": "  releaseStanding: 'alpha-repair-snapshot; not release-green; browser restored; proof closure unavailable; conformance partial; implementation blockers remain',"
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        }
+      ]
+    },
+    "continuity_exceeds_suppression": {
+      "standing": "reversed_direction_watch",
+      "total": 4,
+      "classifications": {
+        "quarantine_or_report_reference": 4
+      },
+      "hits": [
+        {
+          "file": "proofs/FALSE_THEOREM_GUARD.md",
+          "line": 17,
+          "term": "continuity_exceeds_suppression",
+          "standing": "reversed_direction_watch",
+          "text": "| `continuity_exceeds_suppression` | reversed-direction watch | no incorrect operative use found |",
+          "context": [
+            {
+              "line": 14,
+              "text": "|---|---|---|"
+            },
+            {
+              "line": 15,
+              "text": "| `suppression_exceeds_continuity` | false direction | absent from operative proof sources; only report/quarantine references remain |"
+            },
+            {
+              "line": 16,
+              "text": "| `supression_exceeds_continuity` | false misspelled direction | absent from operative proof sources; only report/quarantine references remain |"
+            },
+            {
+              "line": 17,
+              "text": "| `continuity_exceeds_suppression` | reversed-direction watch | no incorrect operative use found |"
+            },
+            {
+              "line": 18,
+              "text": ""
+            },
+            {
+              "line": 19,
+              "text": "## Scan Verdict"
+            },
+            {
+              "line": 20,
+              "text": ""
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "proofs/PROOF_STATUS.md",
+          "line": 30,
+          "term": "continuity_exceeds_suppression",
+          "standing": "reversed_direction_watch",
+          "text": "- `continuity_exceeds_suppression`: not used as an incorrect operative theorem.",
+          "context": [
+            {
+              "line": 27,
+              "text": ""
+            },
+            {
+              "line": 28,
+              "text": "- `suppression_exceeds_continuity`: absent from operative proof sources."
+            },
+            {
+              "line": 29,
+              "text": "- `supression_exceeds_continuity`: absent from operative proof sources."
+            },
+            {
+              "line": 30,
+              "text": "- `continuity_exceeds_suppression`: not used as an incorrect operative theorem."
+            },
+            {
+              "line": 31,
+              "text": ""
+            },
+            {
+              "line": 32,
+              "text": "The current guard files are deliberately qualified:"
+            },
+            {
+              "line": 33,
+              "text": ""
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "tooling/worker4_false_theorem_guard_scan_20260515.mjs",
+          "line": 17,
+          "term": "continuity_exceeds_suppression",
+          "standing": "reversed_direction_watch",
+          "text": "    term: 'continuity_exceeds_suppression',",
+          "context": [
+            {
+              "line": 14,
+              "text": "    standing: 'forbidden_misspelled_false_direction'"
+            },
+            {
+              "line": 15,
+              "text": "  },"
+            },
+            {
+              "line": 16,
+              "text": "  {"
+            },
+            {
+              "line": 17,
+              "text": "    term: 'continuity_exceeds_suppression',"
+            },
+            {
+              "line": 18,
+              "text": "    standing: 'reversed_direction_watch'"
+            },
+            {
+              "line": 19,
+              "text": "  }"
+            },
+            {
+              "line": 20,
+              "text": "];"
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        },
+        {
+          "file": "tooling/worker4_false_theorem_guard_scan_20260515.mjs",
+          "line": 93,
+          "term": "continuity_exceeds_suppression",
+          "standing": "reversed_direction_watch",
+          "text": "    hit.term === 'continuity_exceeds_suppression' &&",
+          "context": [
+            {
+              "line": 90,
+              "text": "  }"
+            },
+            {
+              "line": 91,
+              "text": ""
+            },
+            {
+              "line": 92,
+              "text": "  if ("
+            },
+            {
+              "line": 93,
+              "text": "    hit.term === 'continuity_exceeds_suppression' &&"
+            },
+            {
+              "line": 94,
+              "text": "    (proofSource || theoremLike) &&"
+            },
+            {
+              "line": 95,
+              "text": "    !quarantineOrReport"
+            },
+            {
+              "line": 96,
+              "text": "  ) {"
+            }
+          ],
+          "classification": "quarantine_or_report_reference"
+        }
+      ]
+    }
+  },
+  "theoremFamilyText": [
+    {
+      "file": "conformance/CONFORMANCE_STATUS.md",
+      "line": 58,
+      "text": "- No operative theorem named `suppression_exceeds_continuity` or `supression_exceeds_continuity` is introduced as a release-supporting claim.",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 55,
+          "text": ""
+        },
+        {
+          "line": 56,
+          "text": "The operative guard status reflected here is:"
+        },
+        {
+          "line": 57,
+          "text": ""
+        },
+        {
+          "line": 58,
+          "text": "- No operative theorem named `suppression_exceeds_continuity` or `supression_exceeds_continuity` is introduced as a release-supporting claim."
+        },
+        {
+          "line": 59,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v` records an equal-cost counterexample and guards against the universal claim that suppression always strictly exceeds continuity."
+        },
+        {
+          "line": 60,
+          "text": "- `proofs/lean/ProofBundle/SuppressionContinuityGuard.lean` records that suppression-only observations do not establish continuity and that true continuity standing requires explicit `ContinuityEvidence`."
+        },
+        {
+          "line": 61,
+          "text": "- VM receipts in `proofs/build_receipts/` show Coq/Rocq warnings only, Lean/Lake build success, and the expected Z3 `sat`, `sat`, `unsat`, `unsat` sequence. These proof artifacts are still not promoted to proof closure."
+        }
+      ]
+    },
+    {
+      "file": "conformance/CONFORMANCE_STATUS.md",
+      "line": 59,
+      "text": "- `proofs/coq/ContinuitySuppressionGuard.v` records an equal-cost counterexample and guards against the universal claim that suppression always strictly exceeds continuity.",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 56,
+          "text": "The operative guard status reflected here is:"
+        },
+        {
+          "line": 57,
+          "text": ""
+        },
+        {
+          "line": 58,
+          "text": "- No operative theorem named `suppression_exceeds_continuity` or `supression_exceeds_continuity` is introduced as a release-supporting claim."
+        },
+        {
+          "line": 59,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v` records an equal-cost counterexample and guards against the universal claim that suppression always strictly exceeds continuity."
+        },
+        {
+          "line": 60,
+          "text": "- `proofs/lean/ProofBundle/SuppressionContinuityGuard.lean` records that suppression-only observations do not establish continuity and that true continuity standing requires explicit `ContinuityEvidence`."
+        },
+        {
+          "line": 61,
+          "text": "- VM receipts in `proofs/build_receipts/` show Coq/Rocq warnings only, Lean/Lake build success, and the expected Z3 `sat`, `sat`, `unsat`, `unsat` sequence. These proof artifacts are still not promoted to proof closure."
+        },
+        {
+          "line": 62,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "file": "conformance/cross_impl_results.json",
+      "line": 196,
+      "text": "      \"standing_note\": \"These are narrow guard scaffolds and VM receipts, not proof closure, release-green, proof-complete, or axiom-free standing.\"",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 193,
+          "text": "      \"lean_source\": \"proofs/lean/ProofBundle/SuppressionContinuityGuard.lean maps suppression-only standing to false and requires ContinuityEvidence for true continuity; VM Lean/Lake receipt completed successfully.\","
+        },
+        {
+          "line": 194,
+          "text": "      \"z3_source\": \"proofs/z3/suppression_continuation_guard.smt2 returned the expected sat, sat, unsat, unsat sequence on VM Z3.\","
+        },
+        {
+          "line": 195,
+          "text": "      \"receipt_dir\": \"proofs/build_receipts\","
+        },
+        {
+          "line": 196,
+          "text": "      \"standing_note\": \"These are narrow guard scaffolds and VM receipts, not proof closure, release-green, proof-complete, or axiom-free standing.\""
+        },
+        {
+          "line": 197,
+          "text": "    }"
+        },
+        {
+          "line": 198,
+          "text": "  },"
+        },
+        {
+          "line": 199,
+          "text": "  \"verification_performed\": ["
+        }
+      ]
+    },
+    {
+      "file": "proofs/agda/README.md",
+      "line": 5,
+      "text": "No Agda proof source is provided in this alpha.1 repair extract. Worker 3 did not add postulates, holes, pragmas, or theorem claims here.",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "Standing: `unavailable`"
+        },
+        {
+          "line": 4,
+          "text": ""
+        },
+        {
+          "line": 5,
+          "text": "No Agda proof source is provided in this alpha.1 repair extract. Worker 3 did not add postulates, holes, pragmas, or theorem claims here."
+        },
+        {
+          "line": 6,
+          "text": ""
+        },
+        {
+          "line": 7,
+          "text": "The suppression-vs-continuation defect is handled only as a non-closing Z3 guard scaffold in `../z3/`. This directory does not inherit proof closure from that scaffold, from lineage metadata, or from README/status text."
+        },
+        {
+          "line": 8,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "file": "proofs/coq/ContinuitySuppressionGuard.v",
+      "line": 13,
+      "text": "Definition cost := nat.",
+      "proofSource": true,
+      "context": [
+        {
+          "line": 10,
+          "text": ""
+        },
+        {
+          "line": 11,
+          "text": "Module ContinuitySuppressionGuard."
+        },
+        {
+          "line": 12,
+          "text": ""
+        },
+        {
+          "line": 13,
+          "text": "Definition cost := nat."
+        },
+        {
+          "line": 14,
+          "text": ""
+        },
+        {
+          "line": 15,
+          "text": "Definition strictly_exceeds (left right : cost) : Prop :="
+        },
+        {
+          "line": 16,
+          "text": "  right < left."
+        }
+      ]
+    },
+    {
+      "file": "proofs/coq/ContinuitySuppressionGuard.v",
+      "line": 18,
+      "text": "Theorem equal_cost_counterexample :",
+      "proofSource": true,
+      "context": [
+        {
+          "line": 15,
+          "text": "Definition strictly_exceeds (left right : cost) : Prop :="
+        },
+        {
+          "line": 16,
+          "text": "  right < left."
+        },
+        {
+          "line": 17,
+          "text": ""
+        },
+        {
+          "line": 18,
+          "text": "Theorem equal_cost_counterexample :"
+        },
+        {
+          "line": 19,
+          "text": "  exists suppression continuity : cost,"
+        },
+        {
+          "line": 20,
+          "text": "    suppression = continuity /\\ ~ strictly_exceeds suppression continuity."
+        },
+        {
+          "line": 21,
+          "text": "Proof."
+        }
+      ]
+    },
+    {
+      "file": "proofs/coq/ContinuitySuppressionGuard.v",
+      "line": 27,
+      "text": "Theorem no_universal_suppression_strict_excess :",
+      "proofSource": true,
+      "context": [
+        {
+          "line": 24,
+          "text": "  split; lia."
+        },
+        {
+          "line": 25,
+          "text": "Qed."
+        },
+        {
+          "line": 26,
+          "text": ""
+        },
+        {
+          "line": 27,
+          "text": "Theorem no_universal_suppression_strict_excess :"
+        },
+        {
+          "line": 28,
+          "text": "  ~ (forall suppression continuity : cost,"
+        },
+        {
+          "line": 29,
+          "text": "       strictly_exceeds suppression continuity)."
+        },
+        {
+          "line": 30,
+          "text": "Proof."
+        }
+      ]
+    },
+    {
+      "file": "proofs/coq/ContinuitySuppressionGuard.v",
+      "line": 37,
+      "text": "Theorem no_universal_supression_strict_excess :",
+      "proofSource": true,
+      "context": [
+        {
+          "line": 34,
+          "text": "  lia."
+        },
+        {
+          "line": 35,
+          "text": "Qed."
+        },
+        {
+          "line": 36,
+          "text": ""
+        },
+        {
+          "line": 37,
+          "text": "Theorem no_universal_supression_strict_excess :"
+        },
+        {
+          "line": 38,
+          "text": "  ~ (forall supression continuity : cost,"
+        },
+        {
+          "line": 39,
+          "text": "       strictly_exceeds supression continuity)."
+        },
+        {
+          "line": 40,
+          "text": "Proof."
+        }
+      ]
+    },
+    {
+      "file": "proofs/coq/ContinuitySuppressionGuard.v",
+      "line": 47,
+      "text": "Theorem strict_excess_requires_inequality :",
+      "proofSource": true,
+      "context": [
+        {
+          "line": 44,
+          "text": "  lia."
+        },
+        {
+          "line": 45,
+          "text": "Qed."
+        },
+        {
+          "line": 46,
+          "text": ""
+        },
+        {
+          "line": 47,
+          "text": "Theorem strict_excess_requires_inequality :"
+        },
+        {
+          "line": 48,
+          "text": "  forall suppression continuity : cost,"
+        },
+        {
+          "line": 49,
+          "text": "    strictly_exceeds suppression continuity -> suppression <> continuity."
+        },
+        {
+          "line": 50,
+          "text": "Proof."
+        }
+      ]
+    },
+    {
+      "file": "proofs/COQ_STATUS.md",
+      "line": 7,
+      "text": "Operative Coq source now exists only for a narrow false-theorem guard:",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 4,
+          "text": ""
+        },
+        {
+          "line": 5,
+          "text": "Standing: `guard_build_passed_not_closed`"
+        },
+        {
+          "line": 6,
+          "text": ""
+        },
+        {
+          "line": 7,
+          "text": "Operative Coq source now exists only for a narrow false-theorem guard:"
+        },
+        {
+          "line": 8,
+          "text": ""
+        },
+        {
+          "line": 9,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v`"
+        },
+        {
+          "line": 10,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "file": "proofs/COQ_STATUS.md",
+      "line": 14,
+      "text": "- It proves an equal-cost counterexample to the universal claim that suppression always strictly exceeds continuity.",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 11,
+          "text": "Guard implemented:"
+        },
+        {
+          "line": 12,
+          "text": ""
+        },
+        {
+          "line": 13,
+          "text": "- The scaffold does not assert proof closure."
+        },
+        {
+          "line": 14,
+          "text": "- It proves an equal-cost counterexample to the universal claim that suppression always strictly exceeds continuity."
+        },
+        {
+          "line": 15,
+          "text": "- It proves the same negative guard for the common `supression` misspelling lane."
+        },
+        {
+          "line": 16,
+          "text": "- It records only a qualified positive fact: strict excess implies inequality."
+        },
+        {
+          "line": 17,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "file": "proofs/COQ_STATUS.md",
+      "line": 18,
+      "text": "No release-green, proof-complete, or axiom-free standing is claimed by this Coq lane.",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 15,
+          "text": "- It proves the same negative guard for the common `supression` misspelling lane."
+        },
+        {
+          "line": 16,
+          "text": "- It records only a qualified positive fact: strict excess implies inequality."
+        },
+        {
+          "line": 17,
+          "text": ""
+        },
+        {
+          "line": 18,
+          "text": "No release-green, proof-complete, or axiom-free standing is claimed by this Coq lane."
+        },
+        {
+          "line": 19,
+          "text": ""
+        },
+        {
+          "line": 20,
+          "text": "Build status:"
+        },
+        {
+          "line": 21,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "file": "proofs/FALSE_THEOREM_GUARD.md",
+      "line": 28,
+      "text": "Observed nearby proof-source theorem text is quarantined or reversed, not the false universal claim:",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 25,
+          "text": ""
+        },
+        {
+          "line": 26,
+          "text": "## Nearby Theorem Text"
+        },
+        {
+          "line": 27,
+          "text": ""
+        },
+        {
+          "line": 28,
+          "text": "Observed nearby proof-source theorem text is quarantined or reversed, not the false universal claim:"
+        },
+        {
+          "line": 29,
+          "text": ""
+        },
+        {
+          "line": 30,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v:18`: `Theorem equal_cost_counterexample :`"
+        },
+        {
+          "line": 31,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v:27`: `Theorem no_universal_suppression_strict_excess :`"
+        }
+      ]
+    },
+    {
+      "file": "proofs/FALSE_THEOREM_GUARD.md",
+      "line": 30,
+      "text": "- `proofs/coq/ContinuitySuppressionGuard.v:18`: `Theorem equal_cost_counterexample :`",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 27,
+          "text": ""
+        },
+        {
+          "line": 28,
+          "text": "Observed nearby proof-source theorem text is quarantined or reversed, not the false universal claim:"
+        },
+        {
+          "line": 29,
+          "text": ""
+        },
+        {
+          "line": 30,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v:18`: `Theorem equal_cost_counterexample :`"
+        },
+        {
+          "line": 31,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v:27`: `Theorem no_universal_suppression_strict_excess :`"
+        },
+        {
+          "line": 32,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v:37`: `Theorem no_universal_supression_strict_excess :`"
+        },
+        {
+          "line": 33,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v:47`: `Theorem strict_excess_requires_inequality :`"
+        }
+      ]
+    },
+    {
+      "file": "proofs/FALSE_THEOREM_GUARD.md",
+      "line": 31,
+      "text": "- `proofs/coq/ContinuitySuppressionGuard.v:27`: `Theorem no_universal_suppression_strict_excess :`",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 28,
+          "text": "Observed nearby proof-source theorem text is quarantined or reversed, not the false universal claim:"
+        },
+        {
+          "line": 29,
+          "text": ""
+        },
+        {
+          "line": 30,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v:18`: `Theorem equal_cost_counterexample :`"
+        },
+        {
+          "line": 31,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v:27`: `Theorem no_universal_suppression_strict_excess :`"
+        },
+        {
+          "line": 32,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v:37`: `Theorem no_universal_supression_strict_excess :`"
+        },
+        {
+          "line": 33,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v:47`: `Theorem strict_excess_requires_inequality :`"
+        },
+        {
+          "line": 34,
+          "text": "- `proofs/lean/ProofBundle/SuppressionContinuityGuard.lean:19`: `theorem suppression_only_does_not_establish_continuity`"
+        }
+      ]
+    },
+    {
+      "file": "proofs/FALSE_THEOREM_GUARD.md",
+      "line": 32,
+      "text": "- `proofs/coq/ContinuitySuppressionGuard.v:37`: `Theorem no_universal_supression_strict_excess :`",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 29,
+          "text": ""
+        },
+        {
+          "line": 30,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v:18`: `Theorem equal_cost_counterexample :`"
+        },
+        {
+          "line": 31,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v:27`: `Theorem no_universal_suppression_strict_excess :`"
+        },
+        {
+          "line": 32,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v:37`: `Theorem no_universal_supression_strict_excess :`"
+        },
+        {
+          "line": 33,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v:47`: `Theorem strict_excess_requires_inequality :`"
+        },
+        {
+          "line": 34,
+          "text": "- `proofs/lean/ProofBundle/SuppressionContinuityGuard.lean:19`: `theorem suppression_only_does_not_establish_continuity`"
+        },
+        {
+          "line": 35,
+          "text": "- `proofs/lean/ProofBundle/SuppressionContinuityGuard.lean:24`: `theorem true_continuity_standing_has_evidence`"
+        }
+      ]
+    },
+    {
+      "file": "proofs/FALSE_THEOREM_GUARD.md",
+      "line": 33,
+      "text": "- `proofs/coq/ContinuitySuppressionGuard.v:47`: `Theorem strict_excess_requires_inequality :`",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 30,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v:18`: `Theorem equal_cost_counterexample :`"
+        },
+        {
+          "line": 31,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v:27`: `Theorem no_universal_suppression_strict_excess :`"
+        },
+        {
+          "line": 32,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v:37`: `Theorem no_universal_supression_strict_excess :`"
+        },
+        {
+          "line": 33,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v:47`: `Theorem strict_excess_requires_inequality :`"
+        },
+        {
+          "line": 34,
+          "text": "- `proofs/lean/ProofBundle/SuppressionContinuityGuard.lean:19`: `theorem suppression_only_does_not_establish_continuity`"
+        },
+        {
+          "line": 35,
+          "text": "- `proofs/lean/ProofBundle/SuppressionContinuityGuard.lean:24`: `theorem true_continuity_standing_has_evidence`"
+        },
+        {
+          "line": 36,
+          "text": "- `proofs/z3/suppression_continuation_guard.smt2:5`: `;   theorem-direction defect.`"
+        }
+      ]
+    },
+    {
+      "file": "proofs/FALSE_THEOREM_GUARD.md",
+      "line": 34,
+      "text": "- `proofs/lean/ProofBundle/SuppressionContinuityGuard.lean:19`: `theorem suppression_only_does_not_establish_continuity`",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 31,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v:27`: `Theorem no_universal_suppression_strict_excess :`"
+        },
+        {
+          "line": 32,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v:37`: `Theorem no_universal_supression_strict_excess :`"
+        },
+        {
+          "line": 33,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v:47`: `Theorem strict_excess_requires_inequality :`"
+        },
+        {
+          "line": 34,
+          "text": "- `proofs/lean/ProofBundle/SuppressionContinuityGuard.lean:19`: `theorem suppression_only_does_not_establish_continuity`"
+        },
+        {
+          "line": 35,
+          "text": "- `proofs/lean/ProofBundle/SuppressionContinuityGuard.lean:24`: `theorem true_continuity_standing_has_evidence`"
+        },
+        {
+          "line": 36,
+          "text": "- `proofs/z3/suppression_continuation_guard.smt2:5`: `;   theorem-direction defect.`"
+        },
+        {
+          "line": 37,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "file": "proofs/FALSE_THEOREM_GUARD.md",
+      "line": 35,
+      "text": "- `proofs/lean/ProofBundle/SuppressionContinuityGuard.lean:24`: `theorem true_continuity_standing_has_evidence`",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 32,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v:37`: `Theorem no_universal_supression_strict_excess :`"
+        },
+        {
+          "line": 33,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v:47`: `Theorem strict_excess_requires_inequality :`"
+        },
+        {
+          "line": 34,
+          "text": "- `proofs/lean/ProofBundle/SuppressionContinuityGuard.lean:19`: `theorem suppression_only_does_not_establish_continuity`"
+        },
+        {
+          "line": 35,
+          "text": "- `proofs/lean/ProofBundle/SuppressionContinuityGuard.lean:24`: `theorem true_continuity_standing_has_evidence`"
+        },
+        {
+          "line": 36,
+          "text": "- `proofs/z3/suppression_continuation_guard.smt2:5`: `;   theorem-direction defect.`"
+        },
+        {
+          "line": 37,
+          "text": ""
+        },
+        {
+          "line": 38,
+          "text": "These statements block or qualify the bad direction. They do not assert that suppression universally exceeds continuity, and they do not claim release-green or proof closure."
+        }
+      ]
+    },
+    {
+      "file": "proofs/FALSE_THEOREM_GUARD.md",
+      "line": 36,
+      "text": "- `proofs/z3/suppression_continuation_guard.smt2:5`: `;   theorem-direction defect.`",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 33,
+          "text": "- `proofs/coq/ContinuitySuppressionGuard.v:47`: `Theorem strict_excess_requires_inequality :`"
+        },
+        {
+          "line": 34,
+          "text": "- `proofs/lean/ProofBundle/SuppressionContinuityGuard.lean:19`: `theorem suppression_only_does_not_establish_continuity`"
+        },
+        {
+          "line": 35,
+          "text": "- `proofs/lean/ProofBundle/SuppressionContinuityGuard.lean:24`: `theorem true_continuity_standing_has_evidence`"
+        },
+        {
+          "line": 36,
+          "text": "- `proofs/z3/suppression_continuation_guard.smt2:5`: `;   theorem-direction defect.`"
+        },
+        {
+          "line": 37,
+          "text": ""
+        },
+        {
+          "line": 38,
+          "text": "These statements block or qualify the bad direction. They do not assert that suppression universally exceeds continuity, and they do not claim release-green or proof closure."
+        },
+        {
+          "line": 39,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "file": "proofs/FALSE_THEOREM_GUARD.md",
+      "line": 38,
+      "text": "These statements block or qualify the bad direction. They do not assert that suppression universally exceeds continuity, and they do not claim release-green or proof closure.",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 35,
+          "text": "- `proofs/lean/ProofBundle/SuppressionContinuityGuard.lean:24`: `theorem true_continuity_standing_has_evidence`"
+        },
+        {
+          "line": 36,
+          "text": "- `proofs/z3/suppression_continuation_guard.smt2:5`: `;   theorem-direction defect.`"
+        },
+        {
+          "line": 37,
+          "text": ""
+        },
+        {
+          "line": 38,
+          "text": "These statements block or qualify the bad direction. They do not assert that suppression universally exceeds continuity, and they do not claim release-green or proof closure."
+        },
+        {
+          "line": 39,
+          "text": ""
+        },
+        {
+          "line": 40,
+          "text": "## Current Scan Evidence"
+        },
+        {
+          "line": 41,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "file": "proofs/hol-light/README.md",
+      "line": 5,
+      "text": "No HOL Light proof source is provided in this alpha.1 repair extract. Worker 3 did not add theorem declarations, admitted results, or loader scripts that could be mistaken for proof closure.",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "Standing: `unavailable`"
+        },
+        {
+          "line": 4,
+          "text": ""
+        },
+        {
+          "line": 5,
+          "text": "No HOL Light proof source is provided in this alpha.1 repair extract. Worker 3 did not add theorem declarations, admitted results, or loader scripts that could be mistaken for proof closure."
+        },
+        {
+          "line": 6,
+          "text": ""
+        },
+        {
+          "line": 7,
+          "text": "The suppression-vs-continuation defect is handled only as a non-closing Z3 guard scaffold in `../z3/`. This directory does not inherit proof closure from that scaffold, from lineage metadata, or from README/status text."
+        },
+        {
+          "line": 8,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "file": "proofs/isabelle/README.md",
+      "line": 5,
+      "text": "No Isabelle/HOL proof source is provided in this alpha.1 repair extract. Worker 3 did not add theorem statements, axioms, sorry-equivalents, or imported proof obligations here.",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 2,
+          "text": ""
+        },
+        {
+          "line": 3,
+          "text": "Standing: `unavailable`"
+        },
+        {
+          "line": 4,
+          "text": ""
+        },
+        {
+          "line": 5,
+          "text": "No Isabelle/HOL proof source is provided in this alpha.1 repair extract. Worker 3 did not add theorem statements, axioms, sorry-equivalents, or imported proof obligations here."
+        },
+        {
+          "line": 6,
+          "text": ""
+        },
+        {
+          "line": 7,
+          "text": "The suppression-vs-continuation defect is handled only as a non-closing Z3 guard scaffold in `../z3/`. This directory does not inherit proof closure from that scaffold, from lineage metadata, or from README/status text."
+        },
+        {
+          "line": 8,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "file": "proofs/lean/ProofBundle/SuppressionContinuityGuard.lean",
+      "line": 11,
+      "text": "def continuityStanding (evidence : Option ContinuityEvidence) : Bool :=",
+      "proofSource": true,
+      "context": [
+        {
+          "line": 8,
+          "text": "  lawfulSuccessor : Bool"
+        },
+        {
+          "line": 9,
+          "text": "deriving Repr, DecidableEq"
+        },
+        {
+          "line": 10,
+          "text": ""
+        },
+        {
+          "line": 11,
+          "text": "def continuityStanding (evidence : Option ContinuityEvidence) : Bool :="
+        },
+        {
+          "line": 12,
+          "text": "  match evidence with"
+        },
+        {
+          "line": 13,
+          "text": "  | none => false"
+        },
+        {
+          "line": 14,
+          "text": "  | some evidence => evidence.lawfulSuccessor"
+        }
+      ]
+    },
+    {
+      "file": "proofs/lean/ProofBundle/SuppressionContinuityGuard.lean",
+      "line": 16,
+      "text": "def standingFromSuppressionOnly (_observation : SuppressionObservation) : Bool :=",
+      "proofSource": true,
+      "context": [
+        {
+          "line": 13,
+          "text": "  | none => false"
+        },
+        {
+          "line": 14,
+          "text": "  | some evidence => evidence.lawfulSuccessor"
+        },
+        {
+          "line": 15,
+          "text": ""
+        },
+        {
+          "line": 16,
+          "text": "def standingFromSuppressionOnly (_observation : SuppressionObservation) : Bool :="
+        },
+        {
+          "line": 17,
+          "text": "  continuityStanding none"
+        },
+        {
+          "line": 18,
+          "text": ""
+        },
+        {
+          "line": 19,
+          "text": "theorem suppression_only_does_not_establish_continuity"
+        }
+      ]
+    },
+    {
+      "file": "proofs/lean/ProofBundle/SuppressionContinuityGuard.lean",
+      "line": 19,
+      "text": "theorem suppression_only_does_not_establish_continuity",
+      "proofSource": true,
+      "context": [
+        {
+          "line": 16,
+          "text": "def standingFromSuppressionOnly (_observation : SuppressionObservation) : Bool :="
+        },
+        {
+          "line": 17,
+          "text": "  continuityStanding none"
+        },
+        {
+          "line": 18,
+          "text": ""
+        },
+        {
+          "line": 19,
+          "text": "theorem suppression_only_does_not_establish_continuity"
+        },
+        {
+          "line": 20,
+          "text": "    (observation : SuppressionObservation) :"
+        },
+        {
+          "line": 21,
+          "text": "    standingFromSuppressionOnly observation = false := by"
+        },
+        {
+          "line": 22,
+          "text": "  rfl"
+        }
+      ]
+    },
+    {
+      "file": "proofs/lean/ProofBundle/SuppressionContinuityGuard.lean",
+      "line": 24,
+      "text": "theorem true_continuity_standing_has_evidence",
+      "proofSource": true,
+      "context": [
+        {
+          "line": 21,
+          "text": "    standingFromSuppressionOnly observation = false := by"
+        },
+        {
+          "line": 22,
+          "text": "  rfl"
+        },
+        {
+          "line": 23,
+          "text": ""
+        },
+        {
+          "line": 24,
+          "text": "theorem true_continuity_standing_has_evidence"
+        },
+        {
+          "line": 25,
+          "text": "    (evidence : Option ContinuityEvidence) :"
+        },
+        {
+          "line": 26,
+          "text": "    continuityStanding evidence = true ->"
+        },
+        {
+          "line": 27,
+          "text": "      Exists fun witness =>"
+        }
+      ]
+    },
+    {
+      "file": "proofs/LEAN_STATUS.md",
+      "line": 18,
+      "text": "False-theorem guard:",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 15,
+          "text": "- `proofs/lean/lakefile.lean`"
+        },
+        {
+          "line": 16,
+          "text": "- `proofs/lean/lean-toolchain`"
+        },
+        {
+          "line": 17,
+          "text": ""
+        },
+        {
+          "line": 18,
+          "text": "False-theorem guard:"
+        },
+        {
+          "line": 19,
+          "text": ""
+        },
+        {
+          "line": 20,
+          "text": "- No theorem named `suppression_exceeds_continuity` or `supression_exceeds_continuity` is introduced."
+        },
+        {
+          "line": 21,
+          "text": "- Suppression-only observations map to `false` continuity standing."
+        }
+      ]
+    },
+    {
+      "file": "proofs/LEAN_STATUS.md",
+      "line": 20,
+      "text": "- No theorem named `suppression_exceeds_continuity` or `supression_exceeds_continuity` is introduced.",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 17,
+          "text": ""
+        },
+        {
+          "line": 18,
+          "text": "False-theorem guard:"
+        },
+        {
+          "line": 19,
+          "text": ""
+        },
+        {
+          "line": 20,
+          "text": "- No theorem named `suppression_exceeds_continuity` or `supression_exceeds_continuity` is introduced."
+        },
+        {
+          "line": 21,
+          "text": "- Suppression-only observations map to `false` continuity standing."
+        },
+        {
+          "line": 22,
+          "text": "- A `true` continuity standing requires an explicit `ContinuityEvidence` witness."
+        },
+        {
+          "line": 23,
+          "text": "- This is a qualified/reversed scaffold only. It does not prove continuity from suppression and does not claim proof closure."
+        }
+      ]
+    },
+    {
+      "file": "proofs/LEAN_STATUS.md",
+      "line": 23,
+      "text": "- This is a qualified/reversed scaffold only. It does not prove continuity from suppression and does not claim proof closure.",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 20,
+          "text": "- No theorem named `suppression_exceeds_continuity` or `supression_exceeds_continuity` is introduced."
+        },
+        {
+          "line": 21,
+          "text": "- Suppression-only observations map to `false` continuity standing."
+        },
+        {
+          "line": 22,
+          "text": "- A `true` continuity standing requires an explicit `ContinuityEvidence` witness."
+        },
+        {
+          "line": 23,
+          "text": "- This is a qualified/reversed scaffold only. It does not prove continuity from suppression and does not claim proof closure."
+        },
+        {
+          "line": 24,
+          "text": ""
+        },
+        {
+          "line": 25,
+          "text": "Build/tool status:"
+        },
+        {
+          "line": 26,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "file": "proofs/PROOF_STATUS.md",
+      "line": 8,
+      "text": "suppression/supression-over-continuity theorem family. These scaffolds are",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 5,
+          "text": "Standing: `guard_builds_passed_not_closed`"
+        },
+        {
+          "line": 6,
+          "text": ""
+        },
+        {
+          "line": 7,
+          "text": "This package now contains narrow proof-assistant guard scaffolds for the false"
+        },
+        {
+          "line": 8,
+          "text": "suppression/supression-over-continuity theorem family. These scaffolds are"
+        },
+        {
+          "line": 9,
+          "text": "not proof closure for ProofBundle v1.0.0-alpha.1, and they do not support a"
+        },
+        {
+          "line": 10,
+          "text": "release-green claim."
+        },
+        {
+          "line": 11,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "file": "proofs/PROOF_STATUS.md",
+      "line": 10,
+      "text": "release-green claim.",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 7,
+          "text": "This package now contains narrow proof-assistant guard scaffolds for the false"
+        },
+        {
+          "line": 8,
+          "text": "suppression/supression-over-continuity theorem family. These scaffolds are"
+        },
+        {
+          "line": 9,
+          "text": "not proof closure for ProofBundle v1.0.0-alpha.1, and they do not support a"
+        },
+        {
+          "line": 10,
+          "text": "release-green claim."
+        },
+        {
+          "line": 11,
+          "text": ""
+        },
+        {
+          "line": 12,
+          "text": "The browser artifact, lineage record, repository metadata, and scaffold files"
+        },
+        {
+          "line": 13,
+          "text": "do not inherit proof authority from absent files, stale metadata, or narrow guard builds."
+        }
+      ]
+    },
+    {
+      "file": "proofs/PROOF_STATUS.md",
+      "line": 26,
+      "text": "The false theorem direction is not present as an operative proof claim:",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 23,
+          "text": ""
+        },
+        {
+          "line": 24,
+          "text": "## False-Theorem Guard"
+        },
+        {
+          "line": 25,
+          "text": ""
+        },
+        {
+          "line": 26,
+          "text": "The false theorem direction is not present as an operative proof claim:"
+        },
+        {
+          "line": 27,
+          "text": ""
+        },
+        {
+          "line": 28,
+          "text": "- `suppression_exceeds_continuity`: absent from operative proof sources."
+        },
+        {
+          "line": 29,
+          "text": "- `supression_exceeds_continuity`: absent from operative proof sources."
+        }
+      ]
+    },
+    {
+      "file": "proofs/PROOF_STATUS.md",
+      "line": 30,
+      "text": "- `continuity_exceeds_suppression`: not used as an incorrect operative theorem.",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 27,
+          "text": ""
+        },
+        {
+          "line": 28,
+          "text": "- `suppression_exceeds_continuity`: absent from operative proof sources."
+        },
+        {
+          "line": 29,
+          "text": "- `supression_exceeds_continuity`: absent from operative proof sources."
+        },
+        {
+          "line": 30,
+          "text": "- `continuity_exceeds_suppression`: not used as an incorrect operative theorem."
+        },
+        {
+          "line": 31,
+          "text": ""
+        },
+        {
+          "line": 32,
+          "text": "The current guard files are deliberately qualified:"
+        },
+        {
+          "line": 33,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "file": "proofs/PROOF_STATUS.md",
+      "line": 35,
+      "text": "  negative guards against the universal claim that suppression always strictly",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 32,
+          "text": "The current guard files are deliberately qualified:"
+        },
+        {
+          "line": 33,
+          "text": ""
+        },
+        {
+          "line": 34,
+          "text": "- `coq/ContinuitySuppressionGuard.v` proves an equal-cost counterexample and"
+        },
+        {
+          "line": 35,
+          "text": "  negative guards against the universal claim that suppression always strictly"
+        },
+        {
+          "line": 36,
+          "text": "  exceeds continuity."
+        },
+        {
+          "line": 37,
+          "text": "- `lean/ProofBundle/SuppressionContinuityGuard.lean` records that"
+        },
+        {
+          "line": 38,
+          "text": "  suppression-only observations do not establish continuity, and true"
+        }
+      ]
+    },
+    {
+      "file": "proofs/z3/suppression_continuation_guard.smt2",
+      "line": 5,
+      "text": ";   theorem-direction defect.",
+      "proofSource": true,
+      "context": [
+        {
+          "line": 2,
+          "text": ";"
+        },
+        {
+          "line": 3,
+          "text": "; Scope:"
+        },
+        {
+          "line": 4,
+          "text": "; - This is a bounded SMT-LIB scaffold for the suppression-vs-continuation"
+        },
+        {
+          "line": 5,
+          "text": ";   theorem-direction defect."
+        },
+        {
+          "line": 6,
+          "text": "; - It is not a proof-closure artifact."
+        },
+        {
+          "line": 7,
+          "text": "; - It deliberately models only the arithmetic core reported for the corrupt"
+        },
+        {
+          "line": 8,
+          "text": ";   direction: suppression_cost(k, W) = k * W and normalized continuation cost = 1."
+        }
+      ]
+    },
+    {
+      "file": "README.md",
+      "line": 11,
+      "text": "Proof closure is not claimed. This package contains narrow Coq, Lean, and Z3 guard scaffolds for the false suppression/supression-over-continuity theorem family. Those guards were build/solver checked on the VM receipts in `proofs/build_receipts/`, but they are guards only and do not close the proof lane.",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 8,
+          "text": ""
+        },
+        {
+          "line": 9,
+          "text": "The browser demo has been restored and synchronized with the repair state. It records the current implementation matrix and blocks false proof-standing inheritance."
+        },
+        {
+          "line": 10,
+          "text": ""
+        },
+        {
+          "line": 11,
+          "text": "Proof closure is not claimed. This package contains narrow Coq, Lean, and Z3 guard scaffolds for the false suppression/supression-over-continuity theorem family. Those guards were build/solver checked on the VM receipts in `proofs/build_receipts/`, but they are guards only and do not close the proof lane."
+        },
+        {
+          "line": 12,
+          "text": ""
+        },
+        {
+          "line": 13,
+          "text": "The root `manifest.json` is an operative-source manifest. It intentionally excludes dependency, vendor, build, cache, and generated artifact directories. It is not a complete archive-entry inventory for every file shipped in the zip. Consumers that need whole-archive accounting must use the full archive manifest/receipt for the packaged zip."
+        },
+        {
+          "line": 14,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "file": "README.md",
+      "line": 45,
+      "text": "## False theorem guard",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 42,
+          "text": ""
+        },
+        {
+          "line": 43,
+          "text": "No proof closure is claimed by this package."
+        },
+        {
+          "line": 44,
+          "text": ""
+        },
+        {
+          "line": 45,
+          "text": "## False theorem guard"
+        },
+        {
+          "line": 46,
+          "text": ""
+        },
+        {
+          "line": 47,
+          "text": "The false theorem direction around suppression/supression and continuity is not present as an operative proof claim. The package does not assert `suppression_exceeds_continuity` or the misspelled `supression_exceeds_continuity`. Any future proof in this family must be stated as a qualified or reversed theorem with explicit assumptions and build logs before it can affect standing."
+        },
+        {
+          "line": 48,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "file": "README.md",
+      "line": 47,
+      "text": "The false theorem direction around suppression/supression and continuity is not present as an operative proof claim. The package does not assert `suppression_exceeds_continuity` or the misspelled `supression_exceeds_continuity`. Any future proof in this family must be stated as a qualified or reversed theorem with explicit assumptions and build logs before it can affect standing.",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 44,
+          "text": ""
+        },
+        {
+          "line": 45,
+          "text": "## False theorem guard"
+        },
+        {
+          "line": 46,
+          "text": ""
+        },
+        {
+          "line": 47,
+          "text": "The false theorem direction around suppression/supression and continuity is not present as an operative proof claim. The package does not assert `suppression_exceeds_continuity` or the misspelled `supression_exceeds_continuity`. Any future proof in this family must be stated as a qualified or reversed theorem with explicit assumptions and build logs before it can affect standing."
+        },
+        {
+          "line": 48,
+          "text": ""
+        },
+        {
+          "line": 49,
+          "text": "## Status"
+        },
+        {
+          "line": 50,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "file": "REPAIR_LEDGER.md",
+      "line": 131,
+      "text": "**Symbol searched**: `forbidden suppression-continuity theorem string`",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 128,
+          "text": "## 4. Quarantine Scan Results"
+        },
+        {
+          "line": 129,
+          "text": ""
+        },
+        {
+          "line": 130,
+          "text": "**Scan date**: 2026-05-15"
+        },
+        {
+          "line": 131,
+          "text": "**Symbol searched**: `forbidden suppression-continuity theorem string`"
+        },
+        {
+          "line": 132,
+          "text": "**Scope**: Entire repository tree (all files — code, docs, vectors, configs)"
+        },
+        {
+          "line": 133,
+          "text": "**Method**: `grep -rn \"forbidden suppression-continuity theorem string\" /mnt/agents/output/proofbundle --include=\"*\"`"
+        },
+        {
+          "line": 134,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "file": "REPAIR_LEDGER.md",
+      "line": 133,
+      "text": "**Method**: `grep -rn \"forbidden suppression-continuity theorem string\" /mnt/agents/output/proofbundle --include=\"*\"`",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 130,
+          "text": "**Scan date**: 2026-05-15"
+        },
+        {
+          "line": 131,
+          "text": "**Symbol searched**: `forbidden suppression-continuity theorem string`"
+        },
+        {
+          "line": 132,
+          "text": "**Scope**: Entire repository tree (all files — code, docs, vectors, configs)"
+        },
+        {
+          "line": 133,
+          "text": "**Method**: `grep -rn \"forbidden suppression-continuity theorem string\" /mnt/agents/output/proofbundle --include=\"*\"`"
+        },
+        {
+          "line": 134,
+          "text": ""
+        },
+        {
+          "line": 135,
+          "text": "**Result**: **Symbol NOT FOUND — quarantine passed**"
+        },
+        {
+          "line": 136,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "file": "SECURITY.md",
+      "line": 33,
+      "text": "The exact symbols `suppression_exceeds_continuity` and `supression_exceeds_continuity` are absent as operative theorem claims after patch. Metadata-level proof-standing contamination was present and repaired. Missing or unbuilt proof files cannot inherit proof authority through lineage, manifests, README text, browser standing blocks, or scaffold comments.",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 30,
+          "text": ""
+        },
+        {
+          "line": 31,
+          "text": "## Forbidden proof-standing inheritance"
+        },
+        {
+          "line": 32,
+          "text": ""
+        },
+        {
+          "line": 33,
+          "text": "The exact symbols `suppression_exceeds_continuity` and `supression_exceeds_continuity` are absent as operative theorem claims after patch. Metadata-level proof-standing contamination was present and repaired. Missing or unbuilt proof files cannot inherit proof authority through lineage, manifests, README text, browser standing blocks, or scaffold comments."
+        },
+        {
+          "line": 34,
+          "text": ""
+        },
+        {
+          "line": 35,
+          "text": "## Scope"
+        },
+        {
+          "line": 36,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "file": "STATUS.md",
+      "line": 48,
+      "text": "Narrow Coq, Lean, and Z3 guard scaffolds are present. They block or qualify the false suppression/supression-over-continuity theorem direction. The guard files were checked on the VM and receipts are present in `proofs/build_receipts/`: Coq/Rocq completed with warnings only, Lean/Lake completed successfully, and Z3 returned the expected `sat`, `sat`, `unsat`, `unsat` sequence. These are narrow guard checks, not full assistant closure. Isabelle, Agda, and HOL Light remain unavailable/status-only.",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 45,
+          "text": ""
+        },
+        {
+          "line": 46,
+          "text": "Status: guard_builds_passed_not_closed."
+        },
+        {
+          "line": 47,
+          "text": ""
+        },
+        {
+          "line": 48,
+          "text": "Narrow Coq, Lean, and Z3 guard scaffolds are present. They block or qualify the false suppression/supression-over-continuity theorem direction. The guard files were checked on the VM and receipts are present in `proofs/build_receipts/`: Coq/Rocq completed with warnings only, Lean/Lake completed successfully, and Z3 returned the expected `sat`, `sat`, `unsat`, `unsat` sequence. These are narrow guard checks, not full assistant closure. Isabelle, Agda, and HOL Light remain unavailable/status-only."
+        },
+        {
+          "line": 49,
+          "text": ""
+        },
+        {
+          "line": 50,
+          "text": "## False proof-standing inheritance"
+        },
+        {
+          "line": 51,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "file": "STATUS.md",
+      "line": 58,
+      "text": "- `suppression_exceeds_continuity`: no forbidden operative theorem hit; quarantine/status/report references only",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 55,
+          "text": ""
+        },
+        {
+          "line": 56,
+          "text": "Exact forbidden-symbol scan after patch:"
+        },
+        {
+          "line": 57,
+          "text": ""
+        },
+        {
+          "line": 58,
+          "text": "- `suppression_exceeds_continuity`: no forbidden operative theorem hit; quarantine/status/report references only"
+        },
+        {
+          "line": 59,
+          "text": "- `supression_exceeds_continuity`: no forbidden operative theorem hit; quarantine/status/report references only"
+        },
+        {
+          "line": 60,
+          "text": ""
+        },
+        {
+          "line": 61,
+          "text": "No operative proof claim is allowed to assert that false direction. If this theorem family is reintroduced, it must be qualified or reversed with explicit assumptions and build logs before it can affect proof standing."
+        }
+      ]
+    },
+    {
+      "file": "STATUS.md",
+      "line": 59,
+      "text": "- `supression_exceeds_continuity`: no forbidden operative theorem hit; quarantine/status/report references only",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 56,
+          "text": "Exact forbidden-symbol scan after patch:"
+        },
+        {
+          "line": 57,
+          "text": ""
+        },
+        {
+          "line": 58,
+          "text": "- `suppression_exceeds_continuity`: no forbidden operative theorem hit; quarantine/status/report references only"
+        },
+        {
+          "line": 59,
+          "text": "- `supression_exceeds_continuity`: no forbidden operative theorem hit; quarantine/status/report references only"
+        },
+        {
+          "line": 60,
+          "text": ""
+        },
+        {
+          "line": 61,
+          "text": "No operative proof claim is allowed to assert that false direction. If this theorem family is reintroduced, it must be qualified or reversed with explicit assumptions and build logs before it can affect proof standing."
+        },
+        {
+          "line": 62,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "file": "STATUS.md",
+      "line": 61,
+      "text": "No operative proof claim is allowed to assert that false direction. If this theorem family is reintroduced, it must be qualified or reversed with explicit assumptions and build logs before it can affect proof standing.",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 58,
+          "text": "- `suppression_exceeds_continuity`: no forbidden operative theorem hit; quarantine/status/report references only"
+        },
+        {
+          "line": 59,
+          "text": "- `supression_exceeds_continuity`: no forbidden operative theorem hit; quarantine/status/report references only"
+        },
+        {
+          "line": 60,
+          "text": ""
+        },
+        {
+          "line": 61,
+          "text": "No operative proof claim is allowed to assert that false direction. If this theorem family is reintroduced, it must be qualified or reversed with explicit assumptions and build logs before it can affect proof standing."
+        },
+        {
+          "line": 62,
+          "text": ""
+        },
+        {
+          "line": 63,
+          "text": "## Remaining blockers"
+        },
+        {
+          "line": 64,
+          "text": ""
+        }
+      ]
+    },
+    {
+      "file": "tooling/worker4_false_theorem_guard_scan_20260515.mjs",
+      "line": 26,
+      "text": "  /\\b(Theorem|Lemma|Corollary|Proposition|Axiom|Definition|Conjecture|Claim|theorem|lemma|axiom|def|conjecture|claim)\\b/;",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 23,
+          "text": "const skipFiles = new Set(['false_theorem_scan_latest.json']);"
+        },
+        {
+          "line": 24,
+          "text": "const proofExtensions = new Set(['.v', '.lean', '.smt2', '.thy', '.agda', '.ml', '.p']);"
+        },
+        {
+          "line": 25,
+          "text": "const theoremLikePattern ="
+        },
+        {
+          "line": 26,
+          "text": "  /\\b(Theorem|Lemma|Corollary|Proposition|Axiom|Definition|Conjecture|Claim|theorem|lemma|axiom|def|conjecture|claim)\\b/;"
+        },
+        {
+          "line": 27,
+          "text": "const familyPattern = /(suppression|supression|continuity|continuation)/i;"
+        },
+        {
+          "line": 28,
+          "text": "const quarantineOrReportPattern ="
+        },
+        {
+          "line": 29,
+          "text": "  /\\b(absent|not found|guard|quarantine|scan|forbidden-symbol|false-theorem|does not assert|not introduced|not present|not an operative proof claim|qualified|reversed|counterexample|no universal|does not prove|blocked|report|standing)\\b/i;"
+        }
+      ]
+    },
+    {
+      "file": "tooling/worker4_false_theorem_guard_scan_20260515.mjs",
+      "line": 29,
+      "text": "  /\\b(absent|not found|guard|quarantine|scan|forbidden-symbol|false-theorem|does not assert|not introduced|not present|not an operative proof claim|qualified|reversed|counterexample|no universal|does not prove|blocked|report|standing)\\b/i;",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 26,
+          "text": "  /\\b(Theorem|Lemma|Corollary|Proposition|Axiom|Definition|Conjecture|Claim|theorem|lemma|axiom|def|conjecture|claim)\\b/;"
+        },
+        {
+          "line": 27,
+          "text": "const familyPattern = /(suppression|supression|continuity|continuation)/i;"
+        },
+        {
+          "line": 28,
+          "text": "const quarantineOrReportPattern ="
+        },
+        {
+          "line": 29,
+          "text": "  /\\b(absent|not found|guard|quarantine|scan|forbidden-symbol|false-theorem|does not assert|not introduced|not present|not an operative proof claim|qualified|reversed|counterexample|no universal|does not prove|blocked|report|standing)\\b/i;"
+        },
+        {
+          "line": 30,
+          "text": ""
+        },
+        {
+          "line": 31,
+          "text": "function toRepoPath(filePath) {"
+        },
+        {
+          "line": 32,
+          "text": "  return path.relative(root, filePath).split(path.sep).join('/');"
+        }
+      ]
+    },
+    {
+      "file": "web/2026-05-03_proofbundle_ui_v1.0.html",
+      "line": 1316,
+      "text": "  falseTheoremStanding: 'the false suppression/supression-over-continuity theorem direction is not an operative proof claim; any future theorem in this family must be qualified or reversed and backed by source plus build logs',",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 1313,
+          "text": "  proofArchiveStanding: 'guard_builds_passed_not_closed; narrow Coq, Lean, and Z3 guard scaffolds passed VM build/solver checks, but no proof closure is claimed',"
+        },
+        {
+          "line": 1314,
+          "text": "  falseInheritanceFinding: 'lineage/proof metadata previously allowed proof-closure standing to appear without proof source; repaired state blocks that inheritance',"
+        },
+        {
+          "line": 1315,
+          "text": "  forbiddenSymbolScan: 'suppression_exceeds_continuity and supression_exceeds_continuity absent from operative tree after patch',"
+        },
+        {
+          "line": 1316,
+          "text": "  falseTheoremStanding: 'the false suppression/supression-over-continuity theorem direction is not an operative proof claim; any future theorem in this family must be qualified or reversed and backed by source plus build logs',"
+        },
+        {
+          "line": 1317,
+          "text": "  proofAudit: 'No formal proof closure is claimed by this browser artifact or repository snapshot. The Coq, Lean, and Z3 guard scaffolds block or qualify the false theorem direction, and VM receipts are present for those narrow checks only.',"
+        },
+        {
+          "line": 1318,
+          "text": "  releaseStanding: 'alpha-repair-snapshot; not release-green; browser restored; proof closure unavailable; conformance partial; implementation blockers remain',"
+        },
+        {
+          "line": 1319,
+          "text": "  releaseAllowed: false,"
+        }
+      ]
+    },
+    {
+      "file": "web/2026-05-03_proofbundle_ui_v1.0.html",
+      "line": 1317,
+      "text": "  proofAudit: 'No formal proof closure is claimed by this browser artifact or repository snapshot. The Coq, Lean, and Z3 guard scaffolds block or qualify the false theorem direction, and VM receipts are present for those narrow checks only.',",
+      "proofSource": false,
+      "context": [
+        {
+          "line": 1314,
+          "text": "  falseInheritanceFinding: 'lineage/proof metadata previously allowed proof-closure standing to appear without proof source; repaired state blocks that inheritance',"
+        },
+        {
+          "line": 1315,
+          "text": "  forbiddenSymbolScan: 'suppression_exceeds_continuity and supression_exceeds_continuity absent from operative tree after patch',"
+        },
+        {
+          "line": 1316,
+          "text": "  falseTheoremStanding: 'the false suppression/supression-over-continuity theorem direction is not an operative proof claim; any future theorem in this family must be qualified or reversed and backed by source plus build logs',"
+        },
+        {
+          "line": 1317,
+          "text": "  proofAudit: 'No formal proof closure is claimed by this browser artifact or repository snapshot. The Coq, Lean, and Z3 guard scaffolds block or qualify the false theorem direction, and VM receipts are present for those narrow checks only.',"
+        },
+        {
+          "line": 1318,
+          "text": "  releaseStanding: 'alpha-repair-snapshot; not release-green; browser restored; proof closure unavailable; conformance partial; implementation blockers remain',"
+        },
+        {
+          "line": 1319,
+          "text": "  releaseAllowed: false,"
+        },
+        {
+          "line": 1320,
+          "text": "  releaseGreen: false,"
+        }
+      ]
+    }
+  ],
+  "verdict": {
+    "forbiddenFalseTheoremAbsentFromOperativeProofSources": true,
+    "reversedDirectionIncorrectUseFound": false,
+    "failed": false
+  }
+}

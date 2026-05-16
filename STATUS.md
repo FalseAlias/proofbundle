@@ -1,44 +1,76 @@
-# ProofBundle Status
+# ProofBundle v1.0.0-alpha.1 — Repair Snapshot Status
 
-Lane: `v1.0.0-alpha.1_conformance-manifest-sync`
+Generated: 2026-05-15T11:09:00Z
+Standing: `alpha-repair-snapshot`
 
-Closure phrase: `Closed for this lane. Open to governed evolution.`
+Reason: the browser artifact is restored and synchronized with the repair state; false proof-standing inheritance is blocked; implementation conformance remains partial; proof assistant guard scaffolds passed narrow VM build/solver checks but are not proof closure.
 
-Standing: `blocked_not_release_green`
+## Browser artifact
 
-This lane is closed for the current browser artifact, conformance manifest, and standing-synchronization surface. New work must be classified as an existing-gate defect, governed v1.1 item, extension-pack item, proof-augmented item, or inadmissible.
+Path: `web/2026-05-03_proofbundle_ui_v1.0.html`
 
-No release-green, proof-complete, axiom-free, or formal proof closure claim is made here.
+Status: restored and standing-synced.
 
-## Current Evidence
+Size: 175639 bytes
 
-- Browser app: `web/proofbundle_v1_0_app.html`
-- Static app tests: `tests/proofbundle_app_static.test.mjs`
-- Conformance vectors: `conformance/vectors_v1.json`
-- Conformance vector count: 300
-- Conformance vector SHA-256: `7ACAF3C90DB8DF28BF250433FB29E31DC156482B3F1CEB30E08062E9C0560C1B`
-- Transcript manifest SHA-256: `1C490970FB474B11DAD4AAD155CADEBB043BDE568C88D863505CBEDE545CD659`
-- Bridge read extract SHA-256: `FD4800900911A904F2784AEE5758A029BAD19C2DB05DC105AA2823D580B2F568`
+SHA-256: `f44dcbd55355ced84f4840b0d7a4cc15ddd61e54e9abeee9e64b8b79cd7a9557`
+SHA-384: `b2eb0a34aab878bd92f0d7d8250e5c2f6dbbd00804f856529c3e94ea4d48dc01fb9f460665b9685b37235ff40d3b5262`
+SHA-512: `7629aeeab6e24243a46071460a03eba1b54209acb2c95485df77b02a28ecdad6583a11a5a7416f52ce43ddc0467e80896ad68f98f1ea4f80eb607c8ab30aa71b`
 
-## Implementation Matrix
+Markers present: `ProofBundle v1.0.0`, `SHA-384`, `ECDSA-P384`, `RSA-PSS-4096`, `BLAKE3`, `BLAKE2b`.
 
-- Python: local full conformance passes 300/300 vectors.
-- TypeScript: current repository implementation test verified 300/300 vectors after resolving the conformance-vector path for both the Kimi working layout and repository layout. Release standing remains blocked by non-TypeScript gates.
-- Rust: cargo build and 18/18 unit tests reported passing; 36/37 conformance reported passing; context-commitment encoding blocker remains.
-- Go: code patched; build and conformance unverified in the repair environment.
+The browser page states alpha.1 standing, records the implementation matrix, blocks false proof-standing inheritance, and does not claim release-green.
 
-## Kimi TypeScript Handoff
+## Implementation matrix
 
-- Implementation path: `implementations/typescript-core-20260516/`
-- Evidence path: `conformance/kimi_20260516/`
-- Bridge sequences: 2255, 2262, 2263, 2264
-- TypeScript core result: 300 pass, 0 fail, 0 skipped
-- Current repository result: 300 pass, 0 fail, 0 skipped from `implementations/typescript-core-20260516/test/conformance.test.ts`
-- Historical Kimi root-tree caveat: 303 pass, 0 fail; corpus summary 297 passed, 0 failed, 3 skipped, total 300
-- Generated vectors SHA-256: `354EAE0DEFD3B8270362B2417B07DA20A14133D38AC1889221796EA7E3460445`
+Python: 299/300 vectors reported passing. Remaining blocker: CV0124 base64url/malformed-signature edge.
 
-## Proof Standing
+TypeScript: local full 300-vector run measured 136/300. The sample runner remains 16/20. Remaining blockers include RSA-PSS-3072/4096 behavior, ECDSA/key-format handling, and broader outcome divergences across malformed, missing-side-info, lineage, resource, policy, temporal, and unsupported-version categories.
 
-Formal proof closure is unavailable. The narrow Coq, Lean, and Z3 guard scaffolds are not a proof-complete release gate. The known audit debt remains 189 failures.
+Rust CLI: cargo build and 18/18 unit tests reported passing; 36/37 conformance reported passing. Remaining blocker: context-commitment encoding mismatch.
 
-The historically observed symbols `suppression_exceeds_continuity`, `supression_exceeds_continuity`, `suppression_exceeds_continuation`, and `supression_exceeds_continuation` are quarantine markers, not operative proof claims.
+Go: code patched; build and conformance unverified because Go was unavailable in the repair environment.
+
+## Cross-implementation standing
+
+`conformance/cross_impl_results.json` is populated with partial results. It does not establish full agreement across TypeScript, Python, Rust, and Go.
+
+## Manifest scope
+
+`manifest.json` is an operative-source manifest, not a complete zip-entry inventory. It excludes dependency directories, vendor directories, build outputs, caches, and generated artifacts from the Merkle root. That scope must remain explicit in any alpha.1 package; otherwise the archive can look under-manifested even when the operative source subset is intentionally bounded.
+
+The source package contains additional shipped files outside that operative manifest scope. Whole-archive accounting must be recorded in a separate full archive manifest/receipt and must not be confused with the operative-source Merkle root.
+
+## Proof assistant standing
+
+Status: guard_builds_passed_not_closed.
+
+Narrow Coq, Lean, and Z3 guard scaffolds are present. They block or qualify the false suppression/supression-over-continuity theorem direction. The guard files were checked on the VM and receipts are present in `proofs/build_receipts/`: Coq/Rocq completed with warnings only, Lean/Lake completed successfully, and Z3 returned the expected `sat`, `sat`, `unsat`, `unsat` sequence. These are narrow guard checks, not full assistant closure. Isabelle, Agda, and HOL Light remain unavailable/status-only.
+
+## False proof-standing inheritance
+
+Status: repaired / blocked.
+
+Lineage and proof manifest metadata no longer allow proof-closure standing to be inherited from absent or unbuilt proof files.
+
+Exact forbidden-symbol scan after patch:
+
+- `suppression_exceeds_continuity`: no forbidden operative theorem hit; quarantine/status/report references only
+- `supression_exceeds_continuity`: no forbidden operative theorem hit; quarantine/status/report references only
+
+No operative proof claim is allowed to assert that false direction. If this theorem family is reintroduced, it must be qualified or reversed with explicit assumptions and build logs before it can affect proof standing.
+
+## Remaining blockers
+
+1. Python CV0124 base64url/malformed-signature edge.
+2. TypeScript full 300-vector run is 136/300, not green.
+3. TypeScript RSA-PSS/ECDSA and broader outcome-class blockers remain.
+4. Rust context-commitment encoding blocker.
+5. Go build/conformance unverified.
+6. Proof assistant guard scaffolds are narrow guards only; no proof closure.
+7. Full cross-implementation agreement not established.
+8. Release signing / OTS external witnessing not included.
+
+## Release standing
+
+This artifact is not release-green. It is a synchronized alpha repair snapshot.

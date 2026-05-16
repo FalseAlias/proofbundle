@@ -1,0 +1,39 @@
+[package]
+name = "proofbundle"
+version = "1.0.0"
+edition = "2021"
+authors = ["ProofBundle Contributors"]
+description = "ProofBundle CLI - cryptographic bundle sealing and verification"
+license = "MIT OR Apache-2.0"
+rust-version = "1.70"
+
+[dependencies]
+clap = { version = "4.4", features = ["derive"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = { version = "1.0", features = ["arbitrary_precision"] }
+sha2 = "0.10"
+blake3 = "1.5"
+blake2 = "0.10"
+ed25519-dalek = { version = "2.1", features = ["rand_core", "pkcs8", "pem"] }
+p256 = { version = "0.13", features = ["ecdsa", "pkcs8", "pem"] }
+p384 = { version = "0.13", features = ["ecdsa", "pkcs8", "pem"] }
+p521 = { version = "0.13", features = ["ecdsa", "pkcs8", "pem"] }
+rsa = { version = "0.9", features = ["sha2", "pem"] }
+pkcs8 = { version = "0.10", features = ["pem", "pkcs5"] }
+pem-rfc7468 = "0.7"
+rand = "0.8"
+thiserror = "1.0"
+hex = "0.4"
+base64 = "0.22"
+chrono = { version = "0.4", features = ["serde"] }
+digest = "0.10"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
+panic = "abort"
+
+[profile.release.build-override]
+opt-level = 3
