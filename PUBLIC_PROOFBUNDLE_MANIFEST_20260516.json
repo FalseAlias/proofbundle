@@ -1,6 +1,6 @@
 {
   "schema": "ProofBundlePublicAlphaManifest/2026-05-16",
-  "generated_utc": "2026-05-16T22:59:00Z",
+  "generated_utc": "2026-05-16T23:09:00Z",
   "public_alpha_standing": "blocked_not_release_green",
   "release_status": "blocked_not_release_green",
   "release_green": false,
@@ -70,10 +70,12 @@
     },
     {
       "path": "conformance/cross_impl_results.json",
-      "bytes": 3923,
-      "sha256": "7B670A39A242857701D61ECE40149BAC74DFD5383B9BF6A993EFDF74D3E1C3DA",
-      "sha384": "4435E746B7667549D832DBE09A48F159FDB998E70144E277F8B2AC95BF5D058FE560F1488093EBE6FD2490AA0CE8B7B8",
-      "sha512": "0BC53286303E0EEB56187FE06195961CDB9D079B9EA2922B5629863A07734F307EE3AAFBB342400480EB7D70F1770F12F723B07402A140F6EA6559D77DB46C22"
+      "bytes": null,
+      "sha256": "unknown_pending_recompute_after_pr_8",
+      "sha384": "unknown_pending_recompute_after_pr_8",
+      "sha512": "unknown_pending_recompute_after_pr_8",
+      "standing": "metadata_pending_recompute",
+      "note": "This file was corrected by PR #8 after the prior public manifest hash record was generated. Precise digest metadata is intentionally withheld here until recomputed by the next manifest regeneration pass."
     },
     {
       "path": "proofs/PROOF_INVENTORY.generated.json",
@@ -164,7 +166,8 @@
     "Bridge-reported corpus counts are recorded as standing data, not independently expanded into this repository snapshot.",
     "Where a Merkle root artifact is not committed here, the value is recorded as unknown.",
     "Committed public surface is a slim alpha entrypoint plus references, not the full corpus.",
-    "Python full 300-vector parity is not claimed by committed GitHub CI evidence."
+    "Python full 300-vector parity is not claimed by committed GitHub CI evidence.",
+    "conformance/cross_impl_results.json digest metadata is pending recomputation after PR #8."
   ],
   "standing_boundaries": [
     "No universal closure asserted.",
