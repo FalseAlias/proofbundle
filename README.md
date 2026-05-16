@@ -10,6 +10,16 @@ Cryptographically verifiable provenance workflows for AI agent coordination, con
 
 **License:** MIT OR Apache-2.0 (dual, at your option)
 
+## Main Showcase
+
+The main public showcase is the single-file browser verifier:
+
+- GitHub Pages entrypoint when Pages is enabled: `index.html`
+- Direct browser app path: `web/proofbundle_v1_0_app.html`
+- May 15 standing-sync browser artifact: `web/2026-05-03_proofbundle_ui_v1.0.html`
+
+The app runs as static HTML with no build step. It is the first artifact reviewers should open. Its standing remains alpha repair snapshot, not release-green and not proof-closed.
+
 ## What This Is
 
 ProofBundle is a sealed claim/verifier object format and a runtime for checking it. It externalizes continuity from transient AI agents into a verified state-transition loop called ProofBridge. Each agent output is sealed into a hash-bound bridge record, checked as a lawful successor, appended to an append-only ledger, and used as the next stimulus for another agent.
