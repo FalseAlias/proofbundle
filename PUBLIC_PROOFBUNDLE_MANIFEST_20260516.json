@@ -1,10 +1,13 @@
 {
   "schema": "ProofBundlePublicAlphaManifest/2026-05-16",
-  "generated_utc": "2026-05-16T21:32:00Z",
-  "public_alpha_standing": "live_expanding_public_alpha",
+  "generated_utc": "2026-05-16T22:59:00Z",
+  "public_alpha_standing": "blocked_not_release_green",
   "release_status": "blocked_not_release_green",
   "release_green": false,
   "proof_closed": false,
+  "status_source": "status.json",
+  "status_source_generated_utc": "2026-05-16T22:56:00Z",
+  "standing_note": "Public alpha is live as a review surface, but release standing is blocked_not_release_green. This manifest does not assert release-green, universal closure, or proof closure.",
   "public_pages": {
     "pages_url": "https://falsealias.github.io/proofbundle/",
     "verifier_url": "https://falsealias.github.io/proofbundle/web/proofbundle_v1_0_app.html",
@@ -126,6 +129,12 @@
       "standing": "synthetic_demo_data"
     }
   ],
+  "ci_evidence": {
+    "typescript": "GitHub Proofbench full 300-vector conformance gate passed on PR #3 head 97f21d748c40fcd2f256d5a00a742594d6d408c7",
+    "python": "GitHub Proofbench Python schema/import/smoke gate passed on PR #3 head 97f21d748c40fcd2f256d5a00a742594d6d408c7; full 300-vector Python parity is not claimed by committed CI evidence",
+    "go": "GitHub Proofbench Go test gate passed on PR #3 head 97f21d748c40fcd2f256d5a00a742594d6d408c7",
+    "static_browser": "GitHub static browser artifact check passed on PR #3 head 97f21d748c40fcd2f256d5a00a742594d6d408c7"
+  },
   "audit_exception_counts_used": {
     "legacy_audit_failure_count": 189,
     "bridge_reported_canonical_proof_audit_exceptions": 189,
@@ -154,12 +163,14 @@
   "source_limits": [
     "Bridge-reported corpus counts are recorded as standing data, not independently expanded into this repository snapshot.",
     "Where a Merkle root artifact is not committed here, the value is recorded as unknown.",
-    "Committed public surface is a slim alpha entrypoint plus references, not the full corpus."
+    "Committed public surface is a slim alpha entrypoint plus references, not the full corpus.",
+    "Python full 300-vector parity is not claimed by committed GitHub CI evidence."
   ],
   "standing_boundaries": [
     "No universal closure asserted.",
     "No proof closure asserted.",
     "No legal compliance asserted.",
+    "No release-green asserted.",
     "Full corpus growth and swarm audit continue in parallel."
   ]
 }
