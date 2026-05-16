@@ -1,0 +1,15 @@
+{
+  "schema": "ProofBundlePublicAlphaReference/2026-05-16",
+  "standing": "real_manifest_reference_record_not_signature_proof",
+  "manifest_path": "PUBLIC_PROOFBUNDLE_MANIFEST_20260516.json",
+  "verifier_path": "web/proofbundle_v1_0_app.html",
+  "bridge_sequence": 2684,
+  "bridge_hash_chain_head_sha256": "BBC43459FC55341897D8DD13B03D202238C4F0BA7A5AB0AD23528BB646E62252",
+  "release_status": "blocked_not_release_green",
+  "proof_closed": false,
+  "release_green": false,
+  "notes": [
+    "This record points to the public alpha manifest and verifier.",
+    "It is not a signature proof, legal-compliance claim, or proof-closure claim."
+  ]
+}

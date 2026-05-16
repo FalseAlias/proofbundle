@@ -1,0 +1,72 @@
+{
+  "artifact": "proofbundle-proof-manifest",
+  "generated": "2026-05-03T00:00:00Z",
+  "count": 13,
+  "entries": [
+    {
+      "sha256": "B8254F3358C1F80C2ACA07BF17FA1CECA5F2A0FED9A91DFB28B2A459B187A6E6",
+      "bytes": 8310,
+      "path": "proofs/2026-05-03_criterion_improvements.v"
+    },
+    {
+      "sha256": "F28B653145FFE643B86C88F4E26722DFCA9FE20B52265FA3E33A0EEC2F87D8D2",
+      "bytes": 7888,
+      "path": "proofs/2026-05-03_manifest.txt"
+    },
+    {
+      "sha256": "8FA101E2BE2C65071BB841D7FE4888DA014E40FD020DF76CF0BFA7BF3193F889",
+      "bytes": 13243,
+      "path": "proofs/2026-05-03_minimal_corpus_skeleton.json"
+    },
+    {
+      "sha256": "13FDF0BBE4D6184D2DC175A48CDC4BAA9CB52C05F7C47492D65AD4BCD70BD431",
+      "bytes": 13172,
+      "path": "proofs/2026-05-03_pb1_robust.v"
+    },
+    {
+      "sha256": "BDE2AD2727611A116162E9C27E277A17482692074B04CF3E564DC6521657FC85",
+      "bytes": 17178,
+      "path": "proofs/2026-05-03_pb2_robust.v"
+    },
+    {
+      "sha256": "82362BFA61C671DD8C9782639E86B84156BC79DD4405539546C230FBD98C3420",
+      "bytes": 10984,
+      "path": "proofs/2026-05-03_pb3_pb9_robust.v"
+    },
+    {
+      "sha256": "53DD464577D370C2CAB92CAB24214BE6FE114281816743F0568F0A04C5DF52B1",
+      "bytes": 7695,
+      "path": "proofs/2026-05-03_pb_proof10_coverage.py"
+    },
+    {
+      "sha256": "DB404FD75E72D8E2BD1D44F6258DC916EE080006B13B7F26172F17B1957BBBC5",
+      "bytes": 13568,
+      "path": "proofs/2026-05-03_pb_proofs_1248.v"
+    },
+    {
+      "sha256": "5CD934B84328E6DB0FEA62702797C6ACB94A94E4AFD1590CB420119C3B9F2585",
+      "bytes": 11208,
+      "path": "proofs/2026-05-03_pb_proofs_3567.v"
+    },
+    {
+      "sha256": "3B5366FF7948A4A2F734986A69238EF0548D5AF3220084790B09BC497BF06C4B",
+      "bytes": 17907,
+      "path": "proofs/2026-05-03_pb_proofs_combined.lean"
+    },
+    {
+      "sha256": "3A3E590FBC0A6351A6C060FA31EFF7EEF9B2FEBD36DB6F66D4BFBC337BA89ACB",
+      "bytes": 7294,
+      "path": "proofs/2026-05-03_pb_proofs_z3.smt2"
+    },
+    {
+      "sha256": "F062E6E2B1E40135AF1EE0F9225C5F06A9FA1F851A2E910021C85C2997B33DFD",
+      "bytes": 1511,
+      "path": "proofs/PB11_PB20_OBLIGATIONS.md"
+    },
+    {
+      "sha256": "80ABF9851526347A7C17319A9F569B2144539EE62736E93902E905E06D584B62",
+      "bytes": 25202,
+      "path": "proofs/ROBUSTNESS_ASSESSMENT.md"
+    }
+  ]
+}

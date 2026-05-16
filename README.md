@@ -1,6 +1,6 @@
 # ProofBundle
 
-Cryptographically verifiable provenance workflows for AI agent coordination, consciousness attribution, and evidence admissibility.
+Cryptographically verifiable provenance workflows for AI agent coordination and evidence admissibility.
 
 **Version:** 1.0.0
 
@@ -19,6 +19,43 @@ The main public showcase is the single-file browser verifier:
 - May 15 standing-sync browser artifact: `web/2026-05-03_proofbundle_ui_v1.0.html`
 
 The app runs as static HTML with no build step. It is the first artifact reviewers should open. Its standing remains alpha repair snapshot, not release-green and not proof-closed.
+
+## Public Alpha Standing
+
+ProofBundle public alpha exposes the current inventory, hash, bridge head,
+verifier, audit, and quarantine standing. This release does not assert
+universal closure. It asserts scoped verification only where supported by
+committed artifacts, preserved bridge records, conformance outputs, hashes, or
+explicit standing categories.
+
+Full corpus growth and swarm audit continue in parallel. Known release-green
+blockers remain visible by design. Adversarial review is welcome.
+
+Latest bridge-reported public alpha snapshot used for this page:
+
+| Field | Value |
+| --- | --- |
+| Formal proof and verification files indexed | 13,236 |
+| Coq files | 9,181 |
+| Lean 4 files | 2,840 |
+| Isabelle files | 981 |
+| Z3 files | 121 |
+| Python proof/check files | 113 |
+| Verified bridge records in source report | 2,639 |
+| Current verified bridge head in this publication pass | sequence 2684 |
+| OTS artifacts present in source report | 2,634 / 2,634 |
+| Python conformance | 4 / 4 |
+| JavaScript conformance | 303 / 303 |
+| TypeScript conformance | 300 / 300 |
+| Canonical proof audit exceptions | 189 |
+| Quarantine files | 1 |
+| Large-file dedup scan | 432 files over 10 MB, 63 duplicate groups |
+| Duplicate data identified | 25.79 GB |
+| Unique bytes | 4.61 GB |
+| Active VM instances | 2 |
+
+These are indexed corpus and standing numbers, not a claim that the indexed
+proof corpus is closed or that every proof has passed a proof assistant.
 
 ## What This Is
 
@@ -56,8 +93,9 @@ Closure phrase: `Closed for this lane. Open to governed evolution.`
 
 - **ProofBundle**: A sealed JSON object carrying a claim, evidence, hashes, and optional formal proof certificates.
 - **ProofBridge**: A hash-ratcheted append-only ledger that mediates agent-to-agent state persistence.
-- **SNCA**: Structured Non-Computational Attribution, five conjunctive criteria for consciousness attribution.
 - **OAL**: Observation-Action Loop, a well-formedness predicate over agent packets.
+- **Adjacent attribution evidence**: kept outside this core public-alpha
+  standing unless explicitly quarantined or linked as non-operative evidence.
 
 ## Formal Proof Status
 

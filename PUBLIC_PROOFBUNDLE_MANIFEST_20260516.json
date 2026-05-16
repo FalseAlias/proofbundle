@@ -1,0 +1,165 @@
+{
+  "schema": "ProofBundlePublicAlphaManifest/2026-05-16",
+  "generated_utc": "2026-05-16T21:32:00Z",
+  "public_alpha_standing": "live_expanding_public_alpha",
+  "release_status": "blocked_not_release_green",
+  "release_green": false,
+  "proof_closed": false,
+  "public_pages": {
+    "pages_url": "https://falsealias.github.io/proofbundle/",
+    "verifier_url": "https://falsealias.github.io/proofbundle/web/proofbundle_v1_0_app.html",
+    "pages_status": "bridge_reported_http_200_verify_after_push"
+  },
+  "corpus_summary": {
+    "conformance_vectors": 300,
+    "conformance_vector_file": "conformance/vectors_v1.json",
+    "full_corpus_growth": "continues_in_parallel",
+    "full_corpus_committed_here": false,
+    "full_corpus_reference_paths": [
+      "proofbundle_working_20260515/",
+      "PROOF_MASTER_ORGANIZED_20260513/",
+      "VM proofbundle-dev-20260513:/home/falsealias267_gmail_com/proofbundle-cloud/runs/organism_20260516T080342Z",
+      "VM proofbundle-dev-20260516-b:/home/falsealias267_gmail_com/proofbundle-cloud/second_vm_20260516"
+    ]
+  },
+  "counts": {
+    "public_alpha_vm2_sync_tranche_files": 45,
+    "public_alpha_vm2_sync_tranche_bytes": 1845242,
+    "proof_files_committed_in_public_surface": 20,
+    "conformance_files_committed_in_public_surface": 5,
+    "bridge_reported_formal_proof_and_verification_files_indexed": 13236,
+    "bridge_reported_verified_bridge_records": 2639,
+    "bridge_reported_ots_artifacts_present": 2634,
+    "bridge_reported_ots_artifacts_total": 2634,
+    "bridge_reported_files_over_10mb_scanned": 432,
+    "bridge_reported_duplicate_groups": 63,
+    "bridge_reported_duplicate_data_gb": 25.79,
+    "bridge_reported_unique_bytes_gb": 4.61,
+    "bridge_reported_active_vm_instances": 2,
+    "bridge_reported_vm_migration_archives": 3,
+    "bridge_reported_pending_vm_swarm_work_orders": 2,
+    "bridge_reported_quarantine_files": 1,
+    "full_local_proof_master_files": 7472,
+    "full_local_proof_master_bytes": 9774721177,
+    "full_local_proof_master_committed_here": false
+  },
+  "proof_system_counts": {
+    "bridge_reported_coq_files": 9181,
+    "bridge_reported_lean4_files": 2840,
+    "bridge_reported_isabelle_files": 981,
+    "bridge_reported_z3_files": 121,
+    "bridge_reported_python_files": 113,
+    "committed_coq_v_files": 6,
+    "committed_lean_files": 1,
+    "committed_z3_smt2_files": 1,
+    "committed_python_guard_files": 1,
+    "json_status_or_inventory_files": 5,
+    "markdown_status_files": 4,
+    "jsonl_proof_ledger_files": 1
+  },
+  "major_inventory_files": [
+    {
+      "path": "conformance/vectors_v1.json",
+      "bytes": 593462,
+      "sha256": "7ACAF3C90DB8DF28BF250433FB29E31DC156482B3F1CEB30E08062E9C0560C1B",
+      "sha384": "E81BC7317DB4CBC7E7D1375B99669E29BA0D77E4661AE042BE9B599C003104D549EB6F5E147855A3A207265C5864B36B",
+      "sha512": "551B07D9811EA299E64191A59F25A9EDB334105D3E0286E9DE6970D6D86C5D08CFE94F78406440D73A52F7ED2BECFA45925EBC400974D0B41A9B0DFD27AF34CE"
+    },
+    {
+      "path": "conformance/cross_impl_results.json",
+      "bytes": 3923,
+      "sha256": "7B670A39A242857701D61ECE40149BAC74DFD5383B9BF6A993EFDF74D3E1C3DA",
+      "sha384": "4435E746B7667549D832DBE09A48F159FDB998E70144E277F8B2AC95BF5D058FE560F1488093EBE6FD2490AA0CE8B7B8",
+      "sha512": "0BC53286303E0EEB56187FE06195961CDB9D079B9EA2922B5629863A07734F307EE3AAFBB342400480EB7D70F1770F12F723B07402A140F6EA6559D77DB46C22"
+    },
+    {
+      "path": "proofs/PROOF_INVENTORY.generated.json",
+      "bytes": 21364,
+      "sha256": "1B37D4139FAF4F4C5581091330B761769DFB0E58350106BE7ABA634076A65C9A",
+      "sha384": "36458F7CF4B2C8B1DA615F74A50726BF0D382C3B33C73E38E6F52CD86E93090A982D14CFB373B6EE5EEBA4E73D969932",
+      "sha512": "FD7B24223EA15B43E18036FD23AB866A06F4F3B011EB41253DE69253DDBFCD4E79E9B41B3C2C8FA3CA68ECF971147147BB2B268AAF15080F26C24CE5216F36F8"
+    },
+    {
+      "path": "proofs/PROOF_STATUS.generated.json",
+      "bytes": 24244,
+      "sha256": "6CFFCF9266E0ADA6D13D13789431B7897092639341EB0D5207A9669A13B5206D",
+      "sha384": "6FABF5CD842DAAAB2382B232980F9033436CB48DB60AA0B79395A2C95AA7F03797136D648D88822B26F709916C0E88D0",
+      "sha512": "FA3C4A38D646F172DBE879BEB5F956CB44EF45AE23A1798123DBBF271FD6562526E76A2A448AB068CD0A584A173A752F3AAC66014962C872EFC493630E88700B"
+    },
+    {
+      "path": "proofs/PROOF_LEDGER.jsonl",
+      "bytes": 37618,
+      "sha256": "CEE92AA28589A1892A5752B0DBA5222DB27E22CD56FABAA78D30E259939500D4",
+      "sha384": "60221175651BD4E797ECEF49EE9D5D447A88334A9796BC2C00035ED0E3982D2D7A402F9AE8B62393CDA4773D46E76CCE",
+      "sha512": "6CF180A1237AA42ED4B6AA3EE5E836E744BC24ACEC0D7DEE1F236FD3CE80B860038E770F4973E8BB6CA7D5489E794BBB914A8B3B666E70ED26BDF6A86D20CE9D"
+    },
+    {
+      "path": "proofs/QUARANTINE_suppression_exceeds_continuity_20260515.md",
+      "bytes": 3607,
+      "sha256": "A85AF78DB6A34FB0D6A9DB01D865A3340BE95F26C688CEDCE6D5662BD4658B79",
+      "sha384": "527382712079D54E2CA09A86E1EF45C95B22C93BD42CADBB2E4DC766D57205667F0C02B1A92357B3A6997E7F6CD37463",
+      "sha512": "97C904A369301945B830C53977E833C295C415F539010A26329D2761F7115F7EB6EC6E031860C4A51E40712EFA5FB27F3565237C8012256224C4F905821CD68A"
+    },
+    {
+      "path": "web/proofbundle_v1_0_app.html",
+      "bytes": 182322,
+      "sha256": "313A25F33DC823B6F41A430041573CD5C4B3E69C07374E8306B40D5D0EE698C2",
+      "sha384": "D807B82A6493936EE20113F5E77B5767452898070BE1D780C0610675C54D59F9B80E1E997C90A94CF407825335BAA149",
+      "sha512": "550A5303A22934ED824D9F1567AA55C27B65164AAF638AD4C99FDDFA19AF97D768597242DA686C77F82DF6FF09672A3CB0C37D59D3F16BC4A71BEA985E7A9A20"
+    }
+  ],
+  "bridge_and_roots": {
+    "newest_confirmed_bridge_sequence": 2684,
+    "newest_confirmed_bridge_hash_chain_head_sha256": "BBC43459FC55341897D8DD13B03D202238C4F0BA7A5AB0AD23528BB646E62252",
+    "newest_confirmed_bridge_merkle_root": "unknown",
+    "manifest_merkle_root": "unknown",
+    "bridge_reported_merkle_roots_computed_across_major_sequences": 4,
+    "note": "The bridge hash-chain head is confirmed and is not labeled as a Merkle root. Merkle root artifacts are recorded as unknown where not committed here."
+  },
+  "sample_sealed_claims": [
+    {
+      "path": "examples/public_alpha_manifest_reference_20260516.json",
+      "standing": "real_manifest_reference_record_not_signature_proof"
+    },
+    {
+      "path": "web/proofbundle_v1_0_app.html embedded sample package",
+      "standing": "synthetic_demo_data"
+    }
+  ],
+  "audit_exception_counts_used": {
+    "legacy_audit_failure_count": 189,
+    "bridge_reported_canonical_proof_audit_exceptions": 189,
+    "bridge_reported_python_conformance": "4 / 4",
+    "bridge_reported_javascript_conformance": "303 / 303",
+    "bridge_reported_typescript_conformance": "300 / 300",
+    "vm_audit_total_files_checked": 8,
+    "vm_audit_compilation_passed": 1,
+    "vm_audit_compilation_failed": 6,
+    "vm_audit_z3_completed": 1,
+    "release_green_blocked": true
+  },
+  "quarantine_evidence_paths": [
+    "evidence/quarantine/README.md",
+    "proofs/QUARANTINE_suppression_exceeds_continuity_20260515.md"
+  ],
+  "verifier_path": "web/proofbundle_v1_0_app.html",
+  "canonical_proof_index_reference": "proofs/PROOF_INVENTORY.generated.json",
+  "full_inventory_reference_path": "proofs/PROOF_LEDGER.jsonl",
+  "eu_ai_act_mapping": "unknown",
+  "service_status": {
+    "github_pages": "bridge_reported_http_200",
+    "code_server": "bridge_reported_http_302",
+    "vm_novnc": "bridge_reported_http_200"
+  },
+  "source_limits": [
+    "Bridge-reported corpus counts are recorded as standing data, not independently expanded into this repository snapshot.",
+    "Where a Merkle root artifact is not committed here, the value is recorded as unknown.",
+    "Committed public surface is a slim alpha entrypoint plus references, not the full corpus."
+  ],
+  "standing_boundaries": [
+    "No universal closure asserted.",
+    "No proof closure asserted.",
+    "No legal compliance asserted.",
+    "Full corpus growth and swarm audit continue in parallel."
+  ]
+}
