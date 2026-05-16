@@ -1,82 +1,104 @@
 {
   "schema": "ProofBundleCrossImplementationResults/v1.0.0",
-  "created_at_utc": "2026-05-15T18:21:00-07:00",
-  "vector_source": "conformance/vectors.generated.json",
-  "vector_source_sha256": "C0AAD55A2FB408FB631D50C0EBC8E61A2FA0890492F87206A35B194716796ABD",
+  "updated_at_utc": "2026-05-16T23:04:00Z",
+  "standing": "blocked_not_release_green",
+  "status_source": "status.json",
+  "vector_source": "conformance/vectors_v1.json",
+  "vector_source_sha256": "7ACAF3C90DB8DF28BF250433FB29E31DC156482B3F1CEB30E08062E9C0560C1B",
   "vector_count": 300,
+  "release_green": false,
+  "agreement": null,
+  "agreement_note": "Cross-implementation agreement is not yet claimed. Current committed CI evidence shows TypeScript full 300-vector conformance, Python schema/import/smoke coverage, Go current test-gate coverage, and static browser artifact checks. Full Python, Go, Rust, JavaScript, and cross-implementation parity require separately committed reproduction records before release-green.",
+  "ci_evidence": {
+    "typescript": {
+      "workflow": "Proofbench",
+      "job": "TypeScript current implementation",
+      "commit": "97f21d748c40fcd2f256d5a00a742594d6d408c7",
+      "coverage": "300-vector conformance gate",
+      "status": "success"
+    },
+    "python": {
+      "workflow": "Proofbench",
+      "job": "Python schema and smoke gate",
+      "commit": "97f21d748c40fcd2f256d5a00a742594d6d408c7",
+      "coverage": "package import, profile constants, vector corpus shape/count/unique IDs, required vector fields, and signed-vector smoke sample V0001-V0003",
+      "status": "success",
+      "full_300_vector_parity_claimed": false
+    },
+    "go": {
+      "workflow": "Proofbench",
+      "job": "Go current implementation",
+      "commit": "97f21d748c40fcd2f256d5a00a742594d6d408c7",
+      "coverage": "current Go test gate",
+      "status": "success",
+      "full_vector_parity_claimed": false
+    },
+    "static_browser": {
+      "workflow": "ProofBundle static verification / Proofbench static browser artifact check",
+      "commit": "97f21d748c40fcd2f256d5a00a742594d6d408c7",
+      "coverage": "static browser artifact check",
+      "status": "success"
+    }
+  },
   "implementations_tested": [
     {
-      "language": "Python",
-      "path": "python/proofbundle/core.py",
-      "status": "tested",
-      "vectors_run": 223,
-      "failures": 0,
-      "failure_rate": 0,
-      "notes": "All 4 pytest tests pass. All 12 algorithm roundtrips verify (5 digests x 7 signatures). Domain library positive/negative contexts pass."
-    },
-    {
       "language": "TypeScript",
-      "path": "core/src/ (other Kimi instance workspace)",
-      "status": "300_of_300_pass",
+      "path": "implementations/typescript-core-20260516",
+      "status": "committed_ci_success",
       "vectors_run": 300,
       "failures": 0,
       "failure_rate": 0,
-      "notes": "OTHER KIMI INSTANCE achieved 300/300. Rewrote verify.ts, boundary.ts, lineage.ts, signature.ts, digest.ts to match Python exactly. Files not yet present in this workspace; background agent spawned to recreate from Python reference."
+      "claim_boundary": "Full 300-vector TypeScript conformance gate passed in GitHub Proofbench. This does not by itself establish cross-implementation agreement or release-green standing."
     },
     {
-      "language": "JavaScript",
-      "path": "src/canonical.js, src/registry.js",
-      "status": "corpus_wired_282_pass",
-      "vectors_run": 282,
+      "language": "Python",
+      "path": "python/",
+      "status": "committed_ci_smoke_success",
+      "vectors_run": 3,
       "failures": 0,
       "failure_rate": 0,
-      "notes": "Node v24.15.0: 2/2 unit tests pass. 282/282 conformance vectors pass (canonicalization + digest for all 5 digest algorithms). Ed25519 signature verification passes for all Ed25519 vectors (verified and invalid-signature). Adversarial vectors correctly detect digest mismatch. Cross-check against Python confirms byte-identical canonical output."
+      "claim_boundary": "Python committed CI evidence is smoke/schema/import coverage only. Full 300-vector Python parity is not claimed here."
     },
     {
       "language": "Go",
-      "path": "go/",
-      "status": "canonical_scaffold_written",
-      "vectors_run": 0,
+      "path": "implementations/go-core-20260516",
+      "status": "committed_ci_test_gate_success",
+      "vectors_run": null,
+      "failures": 0,
+      "failure_rate": 0,
+      "claim_boundary": "Go current test gate passed in GitHub Proofbench. Full vector parity is not claimed here."
+    },
+    {
+      "language": "JavaScript",
+      "path": "src/ and browser verifier surface",
+      "status": "bridge_reported_partial_conformance",
+      "vectors_run": null,
       "failures": null,
       "failure_rate": null,
-      "notes": "Canonicalization scaffold written in Go (go/canonical.go). Key sort by codepoint, NFC normalization, number formatting, NaN/Infinity rejection. Tests in go/canonical_test.go. Cannot compile: Go not installed in workspace."
+      "claim_boundary": "Bridge-reported JavaScript standing remains standing data until reproduction records are committed."
     },
     {
       "language": "Rust",
-      "path": "cli/",
-      "status": "canonical_scaffold_written",
-      "vectors_run": 0,
+      "path": "cli/ or Rust implementation surface",
+      "status": "blocked_pending_reproduction",
+      "vectors_run": null,
       "failures": null,
       "failure_rate": null,
-      "notes": "Canonicalization scaffold written in Rust (cli/src/lib.rs). Key sort via BTreeMap, NFC normalization, number formatting, NaN/Infinity rejection. Cannot compile: Rust not installed in workspace."
+      "claim_boundary": "Rust parity remains blocked by the context-commitment encoding issue and requires committed reproduction evidence."
     }
   ],
-  "canonicalization_cross_check": {
-    "method": "Byte-level hex comparison of canonicalBytes() for 5 test cases",
-    "implementations": [
-      "Python",
-      "JavaScript"
-    ],
-    "test_cases": [
-      "NFC string normalization + key sorting",
-      "Nested array and object",
-      "Boolean, null, integer, float",
-      "Negative zero handling",
-      "Scientific notation large/small"
-    ],
-    "result": "BYTE_IDENTICAL",
-    "python_hex_sample": "7b2261223a22436166c3a9222c2262223a327d",
-    "javascript_hex_sample": "7b2261223a22436166c3a9222c2262223a327d"
-  },
-  "agreement": null,
-  "agreement_note": "Cannot compute full corpus agreement until JavaScript conformance runner is wired against vectors.generated.json. Python passes all 223 vectors. JS canonicalization is byte-identical to Python on unit tests.",
   "blockers_for_agreement": [
-    "All runnable implementations must produce byte-identical canonical output for every vector",
-    "Go scaffold written but needs compilation and execution against corpus",
-    "Rust scaffold written but needs compilation and execution against corpus",
-    "ECDSA and RSA-PSS signature verification needed in JS"
+    "Python full 300-vector parity requires committed reproduction records",
+    "Go full vector parity requires committed reproduction records or an explicit vector runner gate",
+    "Rust context-commitment encoding blocker remains unresolved",
+    "JavaScript/browser conformance requires committed reproduction records aligned with vectors_v1.json",
+    "Cross-implementation agreement requires comparable outputs from all claimed implementations over the same vector source",
+    "Release signing and external timestamp evidence are not committed"
   ],
-  "standing": "partial_python_js_blocked_not_release_green",
-  "updated_at_utc": "2026-05-16T05:41:57.944Z",
-  "agent_note": "kimi-b (this instance) wired JS conformance test against vectors.generated.json on 2026-05-16. 282/282 vectors pass."
+  "standing_boundaries": [
+    "No release-green standing is asserted.",
+    "No universal cross-implementation agreement is asserted.",
+    "No formal proof closure is asserted.",
+    "Bridge-reported counts are standing data unless independently committed and reproduced."
+  ]
 }
