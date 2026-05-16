@@ -418,6 +418,22 @@ footer {
 
 <main id="main-content">
 
+<div class="card">
+  <h2>Public alpha standing</h2>
+  <p class="muted">
+    This browser app is the public alpha verifier surface. It links a real
+    public manifest and runs synthetic local verification samples separately.
+    Current standing remains blocked_not_release_green.
+  </p>
+  <div class="kv"><span>Public manifest</span><span><a href="../PUBLIC_PROOFBUNDLE_MANIFEST_20260516.json">PUBLIC_PROOFBUNDLE_MANIFEST_20260516.json</a></span></div>
+  <div class="kv"><span>Reference record</span><span><a href="../examples/public_alpha_manifest_reference_20260516.json">examples/public_alpha_manifest_reference_20260516.json</a></span></div>
+  <div class="kv"><span>Latest bridge sequence</span><span class="mono">2684</span></div>
+  <div class="kv"><span>Bridge head SHA-256</span><span class="mono">BBC43459FC55341897D8DD13B03D202238C4F0BA7A5AB0AD23528BB646E62252</span></div>
+  <div class="kv"><span>Indexed proof corpus</span><span class="mono">13,236 files; 189 audit exceptions remain</span></div>
+  <div class="code-header" style="margin-top:12px;"><span class="code-label">Real manifest load status</span></div>
+  <div class="code" id="public-manifest-status">pending</div>
+</div>
+
 <div class="tab-panel" id="panel-seal" role="tabpanel">
   <h2>Make a receipt</h2>
   <p class="muted">Choose what kind of claim this is, bind the facts it depends on, and create a local cryptographic receipt.</p>
@@ -606,7 +622,7 @@ footer {
       <h2 id="verify-title">Verify a ProofBundle</h2>
       <p class="muted">Drop a bundle or paste a verification package. Everything runs locally: schema, canonical digest, signature, context boundary, lineage, and policy checks.</p>
       <div class="verifier-actions">
-        <button class="btn btn-primary" id="btn-load-demo-package">Verify sample package</button>
+        <button class="btn btn-primary" id="btn-load-demo-package">Verify synthetic sample package</button>
         <button class="btn" id="btn-use-last-package">Use last created receipt</button>
         <button class="btn" id="btn-copy-verify-package">Copy package</button>
         <button class="btn" id="btn-download-verify-package">Download package</button>
@@ -1342,6 +1358,16 @@ const CONFORMANCE_STANDING = {
   ],
   minimumTargetVectors: 200,
   terminalTargetVectors: 300
+};
+
+const PUBLIC_ALPHA_SNAPSHOT = {
+  sequence: 2684,
+  bridge_head_sha256: 'BBC43459FC55341897D8DD13B03D202238C4F0BA7A5AB0AD23528BB646E62252',
+  indexed_formal_proof_and_verification_files: 13236,
+  proof_system_counts: { coq: 9181, lean4: 2840, isabelle: 981, z3: 121, python: 113 },
+  ots_artifacts_present: '2634 / 2634',
+  canonical_proof_audit_exceptions: 189,
+  standing: 'public alpha, not release-green, not proof-closed'
 };
 
 const ADAPTER_CONTRACT = {
@@ -3584,8 +3610,36 @@ function init() {
   renderDomains();
   renderQuickWorkbench();
   renderRegistry();
+  loadPublicManifestStatus();
   setStatus('ready');
   setFooterStatus('PB-CANON-JSON-1 - 12 algorithms - 11 outcomes - release blocked');
+}
+
+async function loadPublicManifestStatus() {
+  const target = document.getElementById('public-manifest-status');
+  if (!target) return;
+  try {
+    const res = await fetch('../PUBLIC_PROOFBUNDLE_MANIFEST_20260516.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const manifest = await res.json();
+    target.textContent = JSON.stringify({
+      status: 'loaded_real_manifest',
+      path: '../PUBLIC_PROOFBUNDLE_MANIFEST_20260516.json',
+      release_status: manifest.release_status,
+      bridge_sequence: manifest.bridge_and_roots && manifest.bridge_and_roots.newest_confirmed_bridge_sequence,
+      bridge_head_sha256: manifest.bridge_and_roots && manifest.bridge_and_roots.newest_confirmed_bridge_hash_chain_head_sha256,
+      proof_files_indexed: manifest.counts && manifest.counts.bridge_reported_formal_proof_and_verification_files_indexed,
+      audit_exceptions: manifest.audit_exception_counts_used && manifest.audit_exception_counts_used.bridge_reported_canonical_proof_audit_exceptions,
+      note: 'Real manifest loaded for standing display. Synthetic sample verification remains labeled separately.'
+    }, null, 2);
+  } catch (err) {
+    target.textContent = JSON.stringify({
+      status: 'manifest_load_failed',
+      path: '../PUBLIC_PROOFBUNDLE_MANIFEST_20260516.json',
+      error: String(err && err.message ? err.message : err),
+      note: 'The local verifier still works; Pages or file-origin fetch policy may block manifest fetch.'
+    }, null, 2);
+  }
 }
 
 if (document.readyState === 'loading') {

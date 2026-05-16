@@ -71,8 +71,10 @@
         <div class="card"><a href="docs/CURRENT_STATE_20260516.md">Current state snapshot</a></div>
         <div class="card"><a href="conformance/vectors_v1.json">300-vector corpus</a></div>
         <div class="card"><a href="proofs/PROOF_INVENTORY.generated.json">Canonical proof inventory</a></div>
+        <div class="card"><a href="proofs/PROOF_LEDGER.jsonl">Full inventory reference</a></div>
         <div class="card"><a href="proofs/PROOF_STATUS.generated.json">Proof audit standing</a></div>
         <div class="card"><a href="evidence/quarantine/README.md">Quarantine evidence</a></div>
+        <div class="card"><a href="docs/PINNED_ISSUE_DRAFT_20260516.md">Pinned issue draft</a></div>
         <div class="card"><a href="docs/OUTREACH_PACKET_20260516.md">Outreach packet</a></div>
         <div class="card"><a href="docs/MONETIZATION_PATHS_20260516.md">Monetization paths</a></div>
       </div>
@@ -82,15 +84,33 @@
       <h2>Latest Confirmed Bridge Root</h2>
       <p>
         Latest confirmed bridge sequence in this publication pass:
-        <code>2681</code>.
+        <code>2684</code>.
       </p>
       <p>
         Latest confirmed bridge hash-chain head:
-        <code>E3976878A6D86040DFCBA0D5CFB890F9CF4D039469BE35C8F7A509A6E04AD1C3</code>.
+        <code>BBC43459FC55341897D8DD13B03D202238C4F0BA7A5AB0AD23528BB646E62252</code>.
       </p>
       <p>
-        Bridge Merkle root artifact: <code>unknown</code> in this public alpha
-        manifest. The hash-chain head is not mislabeled as a Merkle root.
+        Bridge Merkle standing: roots are bridge-reported across four major
+        sequences. Where no Merkle root artifact is committed here, this public
+        manifest records <code>unknown</code>. The hash-chain head is not
+        mislabeled as a Merkle root.
+      </p>
+    </section>
+
+    <section>
+      <h2>Bridge-Reported Corpus Snapshot</h2>
+      <div class="grid">
+        <div class="card"><strong>Indexed proof files:</strong><br><code>13,236</code></div>
+        <div class="card"><strong>Coq:</strong> <code>9,181</code><br><strong>Lean 4:</strong> <code>2,840</code></div>
+        <div class="card"><strong>Isabelle:</strong> <code>981</code><br><strong>Z3:</strong> <code>121</code><br><strong>Python:</strong> <code>113</code></div>
+        <div class="card"><strong>OTS artifacts:</strong><br><code>2,634 / 2,634</code></div>
+        <div class="card"><strong>Audit exceptions:</strong><br><code>189</code></div>
+        <div class="card"><strong>Large-file scan:</strong><br><code>432 files, 63 duplicate groups</code></div>
+      </div>
+      <p>
+        These are indexed corpus and standing numbers. They are not a universal
+        closure claim and not a proof-closed claim.
       </p>
     </section>
 

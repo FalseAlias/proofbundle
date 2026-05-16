@@ -46,6 +46,35 @@ Known blockers reported by the VM audit:
 The older `189` audit-failure count remains a standing blocker unless replaced
 by a narrower, reproducible proof audit with preserved logs and exact scope.
 
+## Bridge-Reported Indexed Corpus Snapshot
+
+The bridge-reported public alpha snapshot relayed for publication records:
+
+- formal proof and verification files indexed: 13,236
+- Coq: 9,181
+- Lean 4: 2,840
+- Isabelle: 981
+- Z3: 121
+- Python: 113
+- verified bridge records in the source report: 2,639
+- current verified bridge sequence in this publication pass: 2,684
+- current verified bridge head: `BBC43459FC55341897D8DD13B03D202238C4F0BA7A5AB0AD23528BB646E62252`
+- OTS artifacts present in the source report: 2,634 / 2,634
+- Python conformance: 4 / 4
+- JavaScript conformance: 303 / 303
+- TypeScript conformance: 300 / 300
+- canonical proof audit exceptions: 189
+- quarantine files: 1
+- large-file dedup scan: 432 files over 10 MB, 63 duplicate groups
+- duplicate data identified: 25.79 GB
+- unique bytes: 4.61 GB
+- active VM instances: 2
+- VM migration archives: 3
+- pending VM swarm work orders: 2
+
+These numbers describe indexed corpus and standing. They do not claim the
+indexed proof corpus has universal closure.
+
 ## VM State
 
 Primary worker VM:
@@ -67,9 +96,11 @@ Second worker VM:
 ## OTS And Merkle Standing
 
 Bridge sequences are being written with record hashes and OTS submit receipts
-when fresh Tor checks pass. This repository snapshot does not claim every
-historical sequence has an upgraded Bitcoin-calendar attestation. Missing or
-pending attestations remain operational evidence tasks, not release-green.
+when fresh Tor checks pass. The source report states OTS artifacts are present
+for 2,634 / 2,634 reported artifacts and Merkle roots were computed across four
+major sequences. This repository snapshot records unknown where the underlying
+Merkle root artifact is not committed here. Missing or pending attestations
+remain operational evidence tasks, not release-green.
 
 ## Current Standing
 

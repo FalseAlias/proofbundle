@@ -13,17 +13,41 @@ No release-green, proof-complete, axiom-free, or formal proof closure claim is m
 ## Current Evidence
 
 - Browser app: `web/proofbundle_v1_0_app.html`
+- Public entrypoint: `index.html`
+- Slim public manifest: `PUBLIC_PROOFBUNDLE_MANIFEST_20260516.json`
 - Static app tests: `tests/proofbundle_app_static.test.mjs`
 - Conformance vectors: `conformance/vectors_v1.json`
 - Conformance vector count: 300
 - Conformance vector SHA-256: `7ACAF3C90DB8DF28BF250433FB29E31DC156482B3F1CEB30E08062E9C0560C1B`
+- Current verified bridge sequence: 2684
+- Current verified bridge head SHA-256: `BBC43459FC55341897D8DD13B03D202238C4F0BA7A5AB0AD23528BB646E62252`
 - Transcript manifest SHA-256: `1C490970FB474B11DAD4AAD155CADEBB043BDE568C88D863505CBEDE545CD659`
 - Bridge read extract SHA-256: `FD4800900911A904F2784AEE5758A029BAD19C2DB05DC105AA2823D580B2F568`
+
+## Public Alpha Snapshot
+
+Bridge-reported standing data used in the public alpha manifest:
+
+- formal proof and verification files indexed: 13,236
+- Coq: 9,181
+- Lean 4: 2,840
+- Isabelle: 981
+- Z3: 121
+- Python: 113
+- OTS artifacts present in source report: 2,634 / 2,634
+- JavaScript conformance: 303 / 303
+- TypeScript conformance: 300 / 300
+- canonical proof audit exceptions: 189
+- quarantine files: 1
+- active VM instances: 2
+
+These are indexed corpus and standing numbers, not a universal proof-closure
+claim.
 
 ## Implementation Matrix
 
 - Python: local full conformance passes 300/300 vectors.
-- TypeScript: local full 300-vector run measured 157/300; sample runner is 20/20; broader outcome-class blockers remain.
+- TypeScript: bridge-reported 300/300 public-alpha conformance; release-green remains blocked until reproduction records, cross-implementation closure, proof audit, and witnessing gates are committed.
 - Rust: cargo build and 18/18 unit tests reported passing; 36/37 conformance reported passing; context-commitment encoding blocker remains.
 - Go: code patched; build and conformance unverified in the repair environment.
 
