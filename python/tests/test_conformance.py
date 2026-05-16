@@ -40,7 +40,20 @@ def load_vectors():
     if not VECTORS_PATH.exists():
         return []
     with open(VECTORS_PATH, "r", encoding="utf-8") as f:
-        return json.load(f)
+        data = json.load(f)
+    if isinstance(data, list):
+        return data
+    if isinstance(data, dict):
+        vectors = data.get("vectors", [])
+        if not isinstance(vectors, list):
+            raise TypeError("conformance vectors_v1.json field 'vectors' must be a list")
+        declared_count = data.get("vector_count")
+        if declared_count is not None and declared_count != len(vectors):
+            raise ValueError(
+                f"vector_count mismatch: declared {declared_count}, found {len(vectors)}"
+            )
+        return vectors
+    raise TypeError("conformance vectors_v1.json must be a list or an object with a vectors list")
 
 
 VECTORS = load_vectors()
@@ -312,17 +325,24 @@ class TestLineage:
 class TestConformanceVectors:
     @pytest.mark.parametrize("vector", VECTORS, ids=lambda v: v["id"])
     def test_vector(self, vector):
-        inp = vector["input"]
+        inp = vector.get("input", vector)
+        bundle = inp.get("bundle", vector.get("bundle"))
+        public_key_b64u = inp.get("public_key_b64u", vector.get("public_key_b64u"))
+        context = inp.get("context", vector.get("context", {}))
+        profile = inp.get("profile", vector.get("profile"))
+        parent_bundles = inp.get("parent_bundles", vector.get("parent_bundles", []))
+        max_bundle_bytes = inp.get("max_bundle_bytes", vector.get("max_bundle_bytes", 1024 * 1024))
+        expected = vector.get("expected_outcome", vector.get("expected", {}).get("outcome"))
         result = verify_bundle(
-            bundle=inp["bundle"],
-            public_key_b64u=inp["public_key_b64u"],
-            context=inp["context"],
-            profile=inp["profile"],
-            parent_bundles=inp.get("parent_bundles", []),
-            max_bundle_bytes=inp.get("max_bundle_bytes", 1024 * 1024),
+            bundle=bundle,
+            public_key_b64u=public_key_b64u,
+            context=context,
+            profile=profile,
+            parent_bundles=parent_bundles,
+            max_bundle_bytes=max_bundle_bytes,
             max_lineage_depth=256,
         )
-        assert result["outcome"] == vector["expected_outcome"], \
+        assert result["outcome"] == expected, \
             f"trace: {json.dumps(result['trace'], indent=2)}"
 
 
