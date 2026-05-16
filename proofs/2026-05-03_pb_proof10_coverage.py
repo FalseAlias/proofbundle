@@ -4,7 +4,7 @@ ProofBundle Proof 10: Conformance Corpus Coverage Analysis
 Verifies that the test corpus exercises every reachable state
 in the verifier state machine.
 
-FalseAlias, 2026-05-03
+C. T. Russell / FalseAlias, 2026-05-03
 
 This is a meta-proof: it checks that the conformance corpus
 is complete with respect to the outcome enum and profile set.

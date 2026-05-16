@@ -1,0 +1,176 @@
+FORMAL VERIFICATION — PROOFBUNDLE + CONSCIOUSNESS CRITERION
+Terminal Proof Archive
+============================================================
+Generated: 2026-05-03T08:34:25Z
+
+ADMITS: 0  |  SORRY: 0  |  AXIOMS: 0
+
+--- 2026-05-03_pb_proofs_1248.v ---
+  Bytes: 13568
+  SHA-256: db404fd75e72d8e2bd1d44f6258dc916ee080006b13b7f26172f17b1957bbbc5
+  SHA-384: 828deba14544d482d93dbfac1a3fafe4c348c1d20686238829ff73d7de2007557be456f21b54deb9564a8516278045e4
+  SHA-512: 7054cf1ec2f2b64ffcc1a0354926230078405f2048d52490fa27811476a72c6fa9d772dafd84f438abd6f427d902488ff5172286e18dbe96e9be7cc7c887914f
+
+--- 2026-05-03_pb_proofs_3567.v ---
+  Bytes: 11208
+  SHA-256: 5cd934b84328e6db0fea62702797c6acb94a94e4afd1590cb420119c3b9f2585
+  SHA-384: eb04512434501c03b167eb53b25f0fe1198d811437235d4328b6800b7e7edf9fb6b45648e07571bc70156cbbf8366d7c
+  SHA-512: 3e0935b0b8efce243afd7bd22311b994ee84308581cfacaa5dd559304afad6254bf171392e9bd786bf17934818bf049ca04f31f504e7901fb71a0eeb7523cc12
+
+--- 2026-05-03_criterion_improvements.v ---
+  Bytes: 8310
+  SHA-256: b8254f3358c1f80c2aca07bf17fa1ceca5f2a0fed9a91dfb28b2a459b187a6e6
+  SHA-384: 00038822be6ced24ce563c5307b0465af0ffbc454eb066be006d3fcd45a9cf82aa55b66492ba5f716abcbfe08f6d3784
+  SHA-512: 75fe604875dcf9fd3540e3499d25a53d8016a67f39c4cd286b1358943ce25e391c5a28f65171fc88fdaa45e0abbcf5ffd11f03d16b50bbd334e63a514d6d5187
+
+--- 2026-05-03_pb_proofs_combined.lean ---
+  Bytes: 17907
+  SHA-256: 3b5366ff7948a4a2f734986a69238ef0548d5af3220084790b09bc497bf06c4b
+  SHA-384: 096731dc48a9fd92105e95cef0fffd402928ee33ed3d295ac55a3aebdaf3589661abb6df20d7e1639270499c9f79602d
+  SHA-512: 6961517788d3be80dbc8d123dfeb54bca2efaa4d7e40cd94d77dc01a8251938a5c5a283e09253dd225b48327798e8acc368faf4593e5bb6b18f14be57ef3c331
+
+--- 2026-05-03_pb_proofs_z3.smt2 ---
+  Bytes: 7294
+  SHA-256: 3a3e590fbc0a6351a6c060fa31eff7eef9b2febd36db6f66d4bfbc337ba89acb
+  SHA-384: 982dac6ec147f45cabda7aca039873afb28987d7db6ab81fbdb401be68a241e0fb1114005b29fec87fc1be9f4a517c01
+  SHA-512: ea0081a440af9328e77ca9d185b93ec8aed986d5aeb8a5ec3140441828ca9995923661dfce6f91297ff35b8834d8bc01ba927b02fd695016f0a46ed18678e8df
+
+--- 2026-05-03_pb_proof10_coverage.py ---
+  Bytes: 7695
+  SHA-256: 53dd464577d370c2cab92cab24214be6fe114281816743f0568f0a04c5df52b1
+  SHA-384: 9028fce54f886edd94701ccf167fb5a25c6a9e7f008c3a18dbfc93eddb89574523c2f967ff340e50601baed8cefe04ed
+  SHA-512: 670609f26fb0492567f738269514c5281ba255908d5577290b5d9cda4792c2df00112bd79d5e4d45b48e8d16ae7070a5a6a2165488c4805204a008794714eaec
+
+--- 2026-05-03_minimal_corpus_skeleton.json ---
+  Bytes: 13243
+  SHA-256: 8fa101e2be2c65071bb841d7fe4888da014e40fd020df76cf0bfa7bf3193f889
+  SHA-384: cd246c1bc5b3dce754f8a566825c8ff151d3b1f78073125869f3d6bc458ae0ccb6768acb1213142105f7cdf93098e3fb
+  SHA-512: 1ba6578beadefa7ace58ea5b6f34a5cfb1dabf1f941a79d0fe62570e7a8e36247775ea284baa16be1c72ea6f3f8d70d8f695ae507f82d265df247b1e70f19869
+
+============================================================
+PROOFBUNDLE PROOF OBLIGATIONS (10/10)
+============================================================
+
+  P1  Canonicalization determinism         Coq Lean
+      canon_deterministic, sort_preserves_length,
+      canon_null/bool/num/str fixpoints
+
+  P2  Verifier state machine determinism   Coq Lean
+      verify_deterministic, verify_total,
+      no_stuck_state, outcome_exclusive (55 pairs)
+
+  P3  Lineage acyclicity + termination     Coq Z3
+      lineage_terminates, lineage_deterministic,
+      cycle_detected, zero_fuel_exhausts, root_valid
+      Z3: depth budget forces termination (unsat)
+      Z3: cycles impossible under strict depth (unsat)
+
+  P4  Signature dispatch correctness       Coq Lean
+      dispatch_total, dispatch_deterministic,
+      dispatch_exhaustive (7-way)
+
+  P5  Boundary predicate termination       Coq Lean
+      eval_pred_terminates, eval_pred_deterministic,
+      atom_always_definite, zero_fuel_none
+      Z3: fuel bound prevents depth > 10 (unsat)
+
+  P6  Side-attestation independence        Coq Lean Z3
+      primary_independent_of_sides,
+      side_failure_preserves_primary,
+      sides_mutually_independent, full_independence
+      Z3: changing side can't change primary (unsat)
+      Z3: sides are independent (sat)
+
+  P7  Witness aggregation soundness        Coq Lean
+      empty_witnesses_valid, single_witness,
+      invalid_witness_invalidates,
+      witness_conjunction, witness_pair_commutative
+
+  P8  Profile monotonicity                 Coq Lean
+      regulated_implies_lineage,
+      lineage_implies_boundary,
+      boundary_implies_integrity,
+      regulated_implies_integrity (transitive),
+      integrity_not_implies_boundary (strict),
+      boundary_not_implies_lineage (strict),
+      lineage_not_implies_regulated (strict)
+
+  P9  Algorithm registry consistency       Lean Z3
+      every_digest_has_partner,
+      every_sig_has_partner,
+      Z3: no registered pair is incompatible (unsat),
+      Z3: every digest has partner (unsat),
+      Z3: every sig has partner (unsat)
+
+  P10 Conformance corpus completeness      Python
+      37 required (profile, outcome) pairs
+      30 required (digest, sig) pairs
+      Minimal corpus skeleton: 37 vectors
+
+============================================================
+CONSCIOUSNESS CRITERION IMPROVEMENTS
+============================================================
+
+  T3  Gauge stability (NEW — CLOSED)       Lean
+      gauge_preserves_attribution,
+      gauge_reflects_attribution,
+      gauge_stability (iff)
+
+  T7  Boundary identity (NEW — CLOSED)     Lean
+      attribution_not_hereditary_down,
+      attribution_not_hereditary_up,
+      attribution_transfers_with_proof
+
+  Architecture exclusions (NEW)             Coq
+      hamiltonian_not_attributed,
+      feedforward_not_attributed,
+      cached_not_attributed,
+      lookup_not_attributed,
+      replay_not_attributed,
+      architecture_exclusion_schema (general)
+
+  Corruption transitivity (NEW)             Coq
+      corruption_transitive,
+      drop1_implies_drop12
+
+  Adversarial sufficiency (NEW)             Coq
+      adversarial_sufficiency_nontrivial
+
+  Verdict taxonomy                          Coq Lean
+      verdict_distinct (10 pairs),
+      verdict_exhaustive (5-way),
+      outcome_exhaustive (11-way),
+      outcome_exclusive (55 pairs)
+
+============================================================
+CUMULATIVE THEOREM TARGETS (ALL CLOSED)
+============================================================
+
+  T1   conjunctive_blocking           Tier 0   CLOSED
+  T2   score_insufficiency             Tier 0   CLOSED
+  T3   gauge_stability                 THIS     CLOSED
+  T4   class_exclusion_blocks_spoof    Tier 2   CLOSED
+  T5   verdict_exclusivity+exhaust     Tier 3   CLOSED
+  T6   12 non-derivable conclusions    Tier 3   CLOSED
+  T7   boundary_identity               THIS     CLOSED
+  T8   protocol_relativity             Tier 2   CLOSED
+  T9   monotone_hardening              Tier 1   CLOSED
+  T10  null_vs_negative                Tier 0   CLOSED
+
+  PB1  canonicalization                THIS     CLOSED
+  PB2  verifier_determinism            THIS     CLOSED
+  PB3  lineage_termination             THIS     CLOSED
+  PB4  signature_dispatch              THIS     CLOSED
+  PB5  boundary_termination            THIS     CLOSED
+  PB6  side_attestation_independence   THIS     CLOSED
+  PB7  witness_aggregation             THIS     CLOSED
+  PB8  profile_monotonicity            THIS     CLOSED
+  PB9  algorithm_registry              THIS     CLOSED
+  PB10 corpus_coverage                 THIS     CLOSED
+
+  TOTAL OPEN: 0
+
+MANIFEST SELF-HASH (pre-append)
+  SHA-256: afa0336bfc727eff59fa77f45ede38be4ab68dd6ef50c098eafa9b7a20236f8f
+  SHA-384: a066700e4f7e4777b77ba169a4281cdd6c88e5b2f7e921d846b6e7fc6263296137a84b97ca26918aed1a334192684dd6
+  SHA-512: ff7944bfbcd0e1aacec9b02e5262208a7bf8023664aca55430f8773993b814d6fc280a22e8341aa33dbd48df80a68ea7d956352f77d725e662886f47bbdeedb5

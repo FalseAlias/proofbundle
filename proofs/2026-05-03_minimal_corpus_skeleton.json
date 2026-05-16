@@ -1,0 +1,378 @@
+{
+  "spec_id": "PB-CANON-JSON-1",
+  "spec_ver": "1.0.0",
+  "generated": "2026-05-03T08:33:20Z",
+  "vector_count": 37,
+  "vectors": [
+    {
+      "id": "V0001",
+      "profile": "BOUNDARY",
+      "expected_outcome": "indeterminate",
+      "digest_alg": "BLAKE2b",
+      "sig_alg": "ECDSA-P256",
+      "description": "Test BOUNDARY/indeterminate with BLAKE2b/ECDSA-P256",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0002",
+      "profile": "BOUNDARY",
+      "expected_outcome": "invalid-signature",
+      "digest_alg": "BLAKE2b",
+      "sig_alg": "ECDSA-P384",
+      "description": "Test BOUNDARY/invalid-signature with BLAKE2b/ECDSA-P384",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0003",
+      "profile": "BOUNDARY",
+      "expected_outcome": "malformed",
+      "digest_alg": "BLAKE2b",
+      "sig_alg": "ECDSA-P521",
+      "description": "Test BOUNDARY/malformed with BLAKE2b/ECDSA-P521",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0004",
+      "profile": "BOUNDARY",
+      "expected_outcome": "not-defined-in-version",
+      "digest_alg": "BLAKE2b",
+      "sig_alg": "Ed25519",
+      "description": "Test BOUNDARY/not-defined-in-version with BLAKE2b/Ed25519",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0005",
+      "profile": "BOUNDARY",
+      "expected_outcome": "out-of-bounds",
+      "digest_alg": "BLAKE2b",
+      "sig_alg": "RSA-PSS-2048",
+      "description": "Test BOUNDARY/out-of-bounds with BLAKE2b/RSA-PSS-2048",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0006",
+      "profile": "BOUNDARY",
+      "expected_outcome": "resource-exhausted",
+      "digest_alg": "BLAKE2b",
+      "sig_alg": "RSA-PSS-3072",
+      "description": "Test BOUNDARY/resource-exhausted with BLAKE2b/RSA-PSS-3072",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0007",
+      "profile": "BOUNDARY",
+      "expected_outcome": "unknown-version",
+      "digest_alg": "BLAKE2b",
+      "sig_alg": "RSA-PSS-4096",
+      "description": "Test BOUNDARY/unknown-version with BLAKE2b/RSA-PSS-4096",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0008",
+      "profile": "BOUNDARY",
+      "expected_outcome": "verified",
+      "digest_alg": "BLAKE3",
+      "sig_alg": "ECDSA-P256",
+      "description": "Test BOUNDARY/verified with BLAKE3/ECDSA-P256",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0009",
+      "profile": "INTEGRITY",
+      "expected_outcome": "indeterminate",
+      "digest_alg": "BLAKE3",
+      "sig_alg": "Ed25519",
+      "description": "Test INTEGRITY/indeterminate with BLAKE3/Ed25519",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0010",
+      "profile": "INTEGRITY",
+      "expected_outcome": "invalid-signature",
+      "digest_alg": "BLAKE3",
+      "sig_alg": "RSA-PSS-2048",
+      "description": "Test INTEGRITY/invalid-signature with BLAKE3/RSA-PSS-2048",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0011",
+      "profile": "INTEGRITY",
+      "expected_outcome": "malformed",
+      "digest_alg": "BLAKE3",
+      "sig_alg": "RSA-PSS-3072",
+      "description": "Test INTEGRITY/malformed with BLAKE3/RSA-PSS-3072",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0012",
+      "profile": "INTEGRITY",
+      "expected_outcome": "not-defined-in-version",
+      "digest_alg": "BLAKE3",
+      "sig_alg": "RSA-PSS-4096",
+      "description": "Test INTEGRITY/not-defined-in-version with BLAKE3/RSA-PSS-4096",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0013",
+      "profile": "INTEGRITY",
+      "expected_outcome": "out-of-bounds",
+      "digest_alg": "SHA-256",
+      "sig_alg": "ECDSA-P256",
+      "description": "Test INTEGRITY/out-of-bounds with SHA-256/ECDSA-P256",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0014",
+      "profile": "INTEGRITY",
+      "expected_outcome": "resource-exhausted",
+      "digest_alg": "SHA-256",
+      "sig_alg": "Ed25519",
+      "description": "Test INTEGRITY/resource-exhausted with SHA-256/Ed25519",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0015",
+      "profile": "INTEGRITY",
+      "expected_outcome": "unknown-version",
+      "digest_alg": "SHA-256",
+      "sig_alg": "RSA-PSS-2048",
+      "description": "Test INTEGRITY/unknown-version with SHA-256/RSA-PSS-2048",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0016",
+      "profile": "INTEGRITY",
+      "expected_outcome": "verified",
+      "digest_alg": "SHA-256",
+      "sig_alg": "RSA-PSS-3072",
+      "description": "Test INTEGRITY/verified with SHA-256/RSA-PSS-3072",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0017",
+      "profile": "LINEAGE",
+      "expected_outcome": "indeterminate",
+      "digest_alg": "SHA-256",
+      "sig_alg": "RSA-PSS-4096",
+      "description": "Test LINEAGE/indeterminate with SHA-256/RSA-PSS-4096",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0018",
+      "profile": "LINEAGE",
+      "expected_outcome": "invalid-signature",
+      "digest_alg": "SHA-384",
+      "sig_alg": "ECDSA-P256",
+      "description": "Test LINEAGE/invalid-signature with SHA-384/ECDSA-P256",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0019",
+      "profile": "LINEAGE",
+      "expected_outcome": "lineage-invalid",
+      "digest_alg": "SHA-384",
+      "sig_alg": "ECDSA-P384",
+      "description": "Test LINEAGE/lineage-invalid with SHA-384/ECDSA-P384",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0020",
+      "profile": "LINEAGE",
+      "expected_outcome": "malformed",
+      "digest_alg": "SHA-384",
+      "sig_alg": "Ed25519",
+      "description": "Test LINEAGE/malformed with SHA-384/Ed25519",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0021",
+      "profile": "LINEAGE",
+      "expected_outcome": "missing-side-info",
+      "digest_alg": "SHA-384",
+      "sig_alg": "RSA-PSS-2048",
+      "description": "Test LINEAGE/missing-side-info with SHA-384/RSA-PSS-2048",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0022",
+      "profile": "LINEAGE",
+      "expected_outcome": "not-defined-in-version",
+      "digest_alg": "SHA-384",
+      "sig_alg": "RSA-PSS-3072",
+      "description": "Test LINEAGE/not-defined-in-version with SHA-384/RSA-PSS-3072",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0023",
+      "profile": "LINEAGE",
+      "expected_outcome": "out-of-bounds",
+      "digest_alg": "SHA-384",
+      "sig_alg": "RSA-PSS-4096",
+      "description": "Test LINEAGE/out-of-bounds with SHA-384/RSA-PSS-4096",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0024",
+      "profile": "LINEAGE",
+      "expected_outcome": "resource-exhausted",
+      "digest_alg": "SHA-512",
+      "sig_alg": "ECDSA-P256",
+      "description": "Test LINEAGE/resource-exhausted with SHA-512/ECDSA-P256",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0025",
+      "profile": "LINEAGE",
+      "expected_outcome": "unknown-version",
+      "digest_alg": "SHA-512",
+      "sig_alg": "ECDSA-P384",
+      "description": "Test LINEAGE/unknown-version with SHA-512/ECDSA-P384",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0026",
+      "profile": "LINEAGE",
+      "expected_outcome": "verified",
+      "digest_alg": "SHA-512",
+      "sig_alg": "ECDSA-P521",
+      "description": "Test LINEAGE/verified with SHA-512/ECDSA-P521",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0027",
+      "profile": "REGULATED",
+      "expected_outcome": "indeterminate",
+      "digest_alg": "SHA-512",
+      "sig_alg": "Ed25519",
+      "description": "Test REGULATED/indeterminate with SHA-512/Ed25519",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0028",
+      "profile": "REGULATED",
+      "expected_outcome": "invalid-signature",
+      "digest_alg": "SHA-512",
+      "sig_alg": "RSA-PSS-2048",
+      "description": "Test REGULATED/invalid-signature with SHA-512/RSA-PSS-2048",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0029",
+      "profile": "REGULATED",
+      "expected_outcome": "lineage-invalid",
+      "digest_alg": "SHA-512",
+      "sig_alg": "RSA-PSS-3072",
+      "description": "Test REGULATED/lineage-invalid with SHA-512/RSA-PSS-3072",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0030",
+      "profile": "REGULATED",
+      "expected_outcome": "malformed",
+      "digest_alg": "SHA-512",
+      "sig_alg": "RSA-PSS-4096",
+      "description": "Test REGULATED/malformed with SHA-512/RSA-PSS-4096",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0031",
+      "profile": "REGULATED",
+      "expected_outcome": "missing-side-info",
+      "digest_alg": "BLAKE2b",
+      "sig_alg": "ECDSA-P256",
+      "description": "Test REGULATED/missing-side-info with BLAKE2b/ECDSA-P256",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0032",
+      "profile": "REGULATED",
+      "expected_outcome": "not-defined-in-version",
+      "digest_alg": "BLAKE2b",
+      "sig_alg": "ECDSA-P384",
+      "description": "Test REGULATED/not-defined-in-version with BLAKE2b/ECDSA-P384",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0033",
+      "profile": "REGULATED",
+      "expected_outcome": "out-of-bounds",
+      "digest_alg": "BLAKE2b",
+      "sig_alg": "ECDSA-P521",
+      "description": "Test REGULATED/out-of-bounds with BLAKE2b/ECDSA-P521",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0034",
+      "profile": "REGULATED",
+      "expected_outcome": "policy-denied",
+      "digest_alg": "BLAKE2b",
+      "sig_alg": "Ed25519",
+      "description": "Test REGULATED/policy-denied with BLAKE2b/Ed25519",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0035",
+      "profile": "REGULATED",
+      "expected_outcome": "resource-exhausted",
+      "digest_alg": "BLAKE2b",
+      "sig_alg": "RSA-PSS-2048",
+      "description": "Test REGULATED/resource-exhausted with BLAKE2b/RSA-PSS-2048",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0036",
+      "profile": "REGULATED",
+      "expected_outcome": "unknown-version",
+      "digest_alg": "BLAKE2b",
+      "sig_alg": "RSA-PSS-3072",
+      "description": "Test REGULATED/unknown-version with BLAKE2b/RSA-PSS-3072",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    },
+    {
+      "id": "V0037",
+      "profile": "REGULATED",
+      "expected_outcome": "verified",
+      "digest_alg": "BLAKE2b",
+      "sig_alg": "RSA-PSS-4096",
+      "description": "Test REGULATED/verified with BLAKE2b/RSA-PSS-4096",
+      "input": "PLACEHOLDER",
+      "notes": "Skeleton vector \u2014 replace input with actual test data"
+    }
+  ]
+}

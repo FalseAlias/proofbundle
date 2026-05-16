@@ -57,3 +57,9 @@ Do not claim:
 - consciousness proof
 
 Allowed framing:
+
+- static browser verifier
+- sealed provenance/evidence receipts
+- current alpha standing
+- current blockers visible in-repo
+- adversarial review requested

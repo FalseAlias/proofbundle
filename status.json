@@ -1,6 +1,6 @@
 {
   "schema": "proofbundle-status/1.0",
-  "generatedUtc": "2026-05-16T08:20:31Z",
+  "generatedUtc": "2026-05-16T21:32:00Z",
   "lane": "v1.0.0-alpha.1_conformance-manifest-sync",
   "closurePhrase": "Closed for this lane. Open to governed evolution.",
   "standing": "blocked_not_release_green",
@@ -10,13 +10,38 @@
   "conformance": {
     "vectorsFile": "conformance/vectors_v1.json",
     "vectors": 300,
-    "vectorsSha256": "7ACAF3C90DB8DF28BF250433FB29E31DC156482B3F1CEB30E08062E9C0560C1B"
+    "vectorsSha256": "7ACAF3C90DB8DF28BF250433FB29E31DC156482B3F1CEB30E08062E9C0560C1B",
+    "bridgeReported": {
+      "python": "4 / 4",
+      "javascript": "303 / 303",
+      "typescript": "300 / 300"
+    }
   },
   "implementationMatrix": {
     "python": "local full conformance passes 300/300 vectors",
-    "typescript": "current repository implementation test verified 300/300 vectors after conformance-vector path repair; release standing remains blocked by non-TypeScript gates",
+    "typescript": "bridge-reported 300/300 public-alpha conformance; release-green remains blocked until reproduction records, cross-implementation closure, proof audit, and witnessing gates are committed",
     "rust": "cargo build and 18/18 unit tests reported passing; 36/37 conformance reported passing; context-commitment encoding blocker remains",
     "go": "code patched; build and conformance unverified in the repair environment"
+  },
+  "publicAlphaSnapshot": {
+    "manifest": "PUBLIC_PROOFBUNDLE_MANIFEST_20260516.json",
+    "entrypoint": "index.html",
+    "verifier": "web/proofbundle_v1_0_app.html",
+    "bridgeSequence": 2684,
+    "bridgeHashChainHeadSha256": "BBC43459FC55341897D8DD13B03D202238C4F0BA7A5AB0AD23528BB646E62252",
+    "bridgeReportedFormalProofAndVerificationFilesIndexed": 13236,
+    "proofSystemCounts": {
+      "coq": 9181,
+      "lean4": 2840,
+      "isabelle": 981,
+      "z3": 121,
+      "python": 113
+    },
+    "bridgeReportedOtsArtifactsPresent": "2634 / 2634",
+    "bridgeReportedCanonicalProofAuditExceptions": 189,
+    "quarantineFiles": 1,
+    "activeVmInstances": 2,
+    "standingNote": "Indexed corpus and standing numbers only; no universal closure or proof-closed claim."
   },
   "proofStanding": {
     "status": "guard_builds_passed_not_closed",
@@ -26,22 +51,6 @@
   "transcriptEvidence": {
     "manifestSha256": "1C490970FB474B11DAD4AAD155CADEBB043BDE568C88D863505CBEDE545CD659",
     "bridgeReadExtractSha256": "FD4800900911A904F2784AEE5758A029BAD19C2DB05DC105AA2823D580B2F568"
-  },
-  "kimiTypeScriptHandoff": {
-    "standing": "evidence_verified_not_release_green",
-    "bridgeSequences": [
-      2255,
-      2262,
-      2263,
-      2264
-    ],
-    "repoImplementationPath": "implementations/typescript-core-20260516",
-    "evidencePath": "conformance/kimi_20260516",
-    "generatedVectorsSha256": "354EAE0DEFD3B8270362B2417B07DA20A14133D38AC1889221796EA7E3460445",
-    "jsTestOutputSha256": "9CD85C4AEE3224B1347AF206FC99CB9BBFFDB9E10AEF26D092D55588E70CAD50",
-    "pyTestOutputSha256": "E31D661BEA9E9022D45439C5CA78B3C9652C613E2A426AB6655515F9BE19E555",
-    "coreResult": "300 pass, 0 fail, 0 skipped",
-    "rootResult": "current repository implementation test 300 pass, 0 fail, 0 skipped; historical Kimi root-tree caveat preserved separately as 303 pass, 0 fail with corpus summary 297 passed, 0 failed, 3 skipped, total 300"
   },
   "classificationRule": {
     "closedLane": true,
@@ -54,6 +63,7 @@
     ]
   },
   "remainingBlockers": [
+    "TypeScript bridge-reported conformance requires committed reproduction records before release-green",
     "Rust context-commitment encoding blocker",
     "Go build/conformance unverified",
     "Proof assistant guard scaffolds are narrow VM-checked guards only; no proof closure",

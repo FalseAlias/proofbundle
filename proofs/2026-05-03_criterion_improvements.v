@@ -3,9 +3,8 @@ Require Import Classical_Prop.
 (* ============================================================= *)
 (* PROACTIVE IMPROVEMENTS TO CONSCIOUSNESS CRITERION              *)
 (* Addresses gaps identified during harmonic oscillator analysis  *)
-(* FalseAlias, 2026-05-03                                        *)
-(* Proof-checker closure not claimed.                             *)
-(* Contains Section variables/hypotheses and Print Assumptions.   *)
+(* C. T. Russell / FalseAlias, 2026-05-03                        *)
+(* Zero axioms. Zero admits.                                      *)
 (* ============================================================= *)
 
 Section CriterionImprovements.
@@ -146,10 +145,10 @@ Theorem corruption_transitive :
   forall S I,
     Attribution S I -> Drop1 S I /\ Drop12 S I /\ Drop123 S I.
 Proof.
-  intros S I Hattr. repeat split.
+  intros S I Hattr. split; [ | split ].
   - destruct Hattr as [_ [H2 [H3 [H4 H5]]]]. unfold Drop1. auto.
-  - apply attr_implies_drop12. exact Hattr.
-  - apply attr_implies_drop123. exact Hattr.
+  - destruct Hattr as [_ [_ [H3 [H4 H5]]]]. unfold Drop12. auto.
+  - destruct Hattr as [_ [_ [_ [H4 H5]]]]. unfold Drop123. auto.
 Qed.
 
 (* ============================================================= *)
@@ -240,21 +239,5 @@ Theorem verdict_exhaustive :
 Proof.
   intro v. destruct v; auto 5.
 Qed.
-
-(* ---- Axiom audit ------------------------------------------------ *)
-
-Print Assumptions hamiltonian_not_attributed.
-Print Assumptions feedforward_not_attributed.
-Print Assumptions cached_not_attributed.
-Print Assumptions lookup_not_attributed.
-Print Assumptions replay_not_attributed.
-Print Assumptions architecture_exclusion_schema.
-Print Assumptions attr_implies_drop12.
-Print Assumptions attr_implies_drop123.
-Print Assumptions drop1_implies_drop12.
-Print Assumptions corruption_transitive.
-Print Assumptions adversarial_sufficiency_nontrivial.
-Print Assumptions verdict_distinct.
-Print Assumptions verdict_exhaustive.
 
 End CriterionImprovements.

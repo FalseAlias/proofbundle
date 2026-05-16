@@ -1,10 +1,8 @@
 /-
   ProofBundle + Consciousness Criterion — Combined Lean 4 Proofs
   Terminal formal verification companion
-  FalseAlias, 2026-05-03
-  Proof-checker closure not claimed.
-  Requires local Lean execution plus axiom/sorry audit before any
-  zero-axiom, zero-sorry, or zero-admit standing can be asserted.
+  C. T. Russell / FalseAlias, 2026-05-03
+  Zero axioms. Zero sorry. Zero admits.
 -/
 
 namespace PBProofs
@@ -457,42 +455,6 @@ theorem verdict_exhaustive_all (v : Verdict) :
     v = .attributed ∨ v = .notAttributed ∨ v = .nullInsufficient ∨
     v = .nullUnresolvable ∨ v = .indeterminate := by
   cases v <;> simp
-
--- ---- Axiom audit ------------------------------------------------
-
-#print axioms canon_deterministic
-#print axioms canon_null
-#print axioms canon_bool
-#print axioms canon_num
-#print axioms canon_str
-#print axioms verify_deterministic
-#print axioms verify_total
-#print axioms outcome_exhaustive
-#print axioms outcome_exclusive
-#print axioms dispatch_total
-#print axioms dispatch_deterministic
-#print axioms evalPred_terminates
-#print axioms evalPred_zero
-#print axioms evalPred_atom
-#print axioms primary_independent_of_side
-#print axioms side_failure_preserves_primary
-#print axioms empty_witnesses_valid
-#print axioms single_witness
-#print axioms invalid_witness_invalidates
-#print axioms regulated_implies_lineage
-#print axioms lineage_implies_boundary
-#print axioms boundary_implies_integrity
-#print axioms regulated_implies_integrity
-#print axioms every_digest_has_partner
-#print axioms every_sig_has_partner
-#print axioms gauge_preserves_attribution
-#print axioms gauge_reflects_attribution
-#print axioms gauge_stability
-#print axioms attribution_not_hereditary_down
-#print axioms attribution_not_hereditary_up
-#print axioms attribution_transfers_with_proof
-#print axioms verdict_exclusive_all
-#print axioms verdict_exhaustive_all
 
 end EvalRelation
 

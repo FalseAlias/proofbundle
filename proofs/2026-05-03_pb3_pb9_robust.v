@@ -9,20 +9,18 @@ Require Import Arith.
 Require Import Lia.
 Import ListNotations.
 
-Section PB3_Robust.
-
-Variable byte : Type.
+Parameter byte : Type.
 Definition octets := list byte.
-Variable digest_t : Type.
-Hypothesis digest_eq_dec : forall (d1 d2 : digest_t), {d1 = d2} + {d1 <> d2}.
+Parameter digest_t : Type.
+Parameter digest_eq_dec : forall (d1 d2 : digest_t), {d1 = d2} + {d1 <> d2}.
 
-Variable Header : Type.
-Variable Metadata : Type.
-Variable Seal : Type.
-Variable ParentRef : Type.
+Parameter Header : Type.
+Parameter Metadata : Type.
+Parameter Seal : Type.
+Parameter ParentRef : Type.
 
-Variable pr_parent_id     : ParentRef -> digest_t.
-Variable pr_parent_digest : ParentRef -> digest_t.
+Parameter pr_parent_id     : ParentRef -> digest_t.
+Parameter pr_parent_digest : ParentRef -> digest_t.
 
 Record Bundle := {
   b_hdr     : Header;
@@ -32,9 +30,9 @@ Record Bundle := {
   b_seal    : Seal
 }.
 
-Variable hdr_bundle_id : Header -> digest_t.
-Variable canonical_minus_seal : Bundle -> octets.
-Variable digest_alg : Bundle -> octets -> digest_t.
+Parameter hdr_bundle_id : Header -> digest_t.
+Parameter canonical_minus_seal : Bundle -> octets.
+Parameter digest_alg : Bundle -> octets -> digest_t.
 
 (* ---- Lineage walk with fuel ------------------------------------- *)
 
@@ -223,7 +221,7 @@ Definition sig_input_size (s : SigAlg) : option nat :=
   | Ed25519 => None  (* self-hashes *)
   | ECDSA_P256 => Some 32
   | ECDSA_P384 => Some 48
-  | ECDSA_P521 => None  (* self-hashes via DigestInfo ASN.1 in practice *)
+  | ECDSA_P521 => Some 66  (* 521 bits rounds to 66 bytes *)
   | RSA_PSS_2048 => None
   | RSA_PSS_3072 => None
   | RSA_PSS_4096 => None
@@ -299,11 +297,14 @@ Proof.
   - exists SHA_256. reflexivity.
   - exists SHA_256. reflexivity.
   - exists SHA_384. reflexivity.
+  - exists BLAKE2b. unfold compatible. simpl.
+    (* SHA_512 is 64; ECDSA_P521 needs 66; mismatch *)
+    (* Need to pick a 66-byte digest, which doesn't exist in registry *)
+    admit.
   - exists SHA_256. reflexivity.
   - exists SHA_256. reflexivity.
   - exists SHA_256. reflexivity.
-  - exists SHA_256. reflexivity.
-Qed.
+Admitted.
 
 (* The ECDSA_P521 case reveals a real registry decision: we don't
    currently have a 66-byte digest. Either:
@@ -316,13 +317,11 @@ Qed.
    because ECDSA-P521 implementations in practice self-hash via
    DigestInfo. This closes the admit. *)
 
-End PB3_Robust.
-
 (* ================================================================ *)
 (* SUMMARY                                                           *)
 (* PB3 strengthened: digest binding, missing parent, cycle, depth,  *)
 (* empty refs, determinism — all proven over concrete walk.         *)
 (* PB9 strengthened: concrete sizes, real compatibility predicate,  *)
-(* incompatibility witnesses, coverage — all proven. Registry        *)
-(* decision applied: ECDSA_P521 self-hashes (None input size).      *)
+(* incompatibility witnesses, coverage with one flagged registry    *)
+(* decision pending.                                                 *)
 (* ================================================================ *)

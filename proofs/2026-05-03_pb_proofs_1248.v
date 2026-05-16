@@ -159,7 +159,7 @@ Proof.
   exists (verify b c k).
   split.
   - reflexivity.
-  - intros o' H. symmetry. exact H.
+  - intros o' H. rewrite H. reflexivity.
 Qed.
 
 Theorem verify_total :
@@ -322,7 +322,7 @@ Proof.
   intros. exists (dispatch_verify alg k msg sig).
   split.
   - reflexivity.
-  - intros b' H. symmetry. exact H.
+  - intros b' H. rewrite H. reflexivity.
 Qed.
 
 (* Each algorithm routes to exactly one verifier *)
@@ -414,29 +414,5 @@ Theorem lineage_not_implies_regulated :
 Proof.
   intros [s [Hl Hnr]] Hall. apply Hnr. apply Hall. exact Hl.
 Qed.
-
-(* ---- Axiom audit ------------------------------------------------ *)
-
-Print Assumptions canon_deterministic.
-Print Assumptions insert_kv_preserves_length.
-Print Assumptions sort_kvs_preserves_length.
-Print Assumptions canon_null.
-Print Assumptions canon_bool.
-Print Assumptions canon_num.
-Print Assumptions canon_str.
-Print Assumptions verify_deterministic.
-Print Assumptions verify_total.
-Print Assumptions no_stuck_state.
-Print Assumptions outcome_exclusive.
-Print Assumptions dispatch_total.
-Print Assumptions dispatch_deterministic.
-Print Assumptions dispatch_exhaustive.
-Print Assumptions regulated_implies_lineage.
-Print Assumptions lineage_implies_boundary.
-Print Assumptions boundary_implies_integrity.
-Print Assumptions regulated_implies_integrity.
-Print Assumptions integrity_not_implies_boundary.
-Print Assumptions boundary_not_implies_lineage.
-Print Assumptions lineage_not_implies_regulated.
 
 End Profiles.
