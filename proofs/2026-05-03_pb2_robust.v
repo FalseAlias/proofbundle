@@ -390,56 +390,25 @@ Proof.
             { left. reflexivity. }
             { destruct (stage6_boundary b c) as [|o6].
               { destruct (stage7_side b) as [|o7].
-                { destruct (hdr_profile (b_hdr b)) eqn:Hprof2.
-                  - rewrite Hprof in Hprof2. discriminate.
-                  - left. reflexivity.
-                  - destruct (stage8_lineage b p f) as [|o8].
-                    { destruct (hdr_profile (b_hdr b)) eqn:Hprof3.
-                      - rewrite Hprof in Hprof3. discriminate.
-                      - left. reflexivity.
-                      - left. reflexivity.
-                      - destruct (stage9_hitl b) as [|o9].
-                        { left. reflexivity. }
-                        { destruct o9; tauto. } }
-                    { destruct o8; tauto. }
-                  - destruct (stage8_lineage b p f) as [|o8].
-                    { destruct (hdr_profile (b_hdr b)) eqn:Hprof3.
-                      - rewrite Hprof in Hprof3. discriminate.
-                      - left. reflexivity.
-                      - left. reflexivity.
-                      - destruct (stage9_hitl b) as [|o9].
-                        { left. reflexivity. }
-                        { destruct o9; tauto. } }
-                    { destruct o8; tauto. } }
+                { left. reflexivity. }
                 { destruct o7; tauto. } }
               { destruct o6; tauto. } }
             { destruct (stage6_boundary b c) as [|o6].
               { destruct (stage7_side b) as [|o7].
-                { destruct (hdr_profile (b_hdr b)) eqn:Hprof2.
-                  - rewrite Hprof in Hprof2. discriminate.
-                  - left. reflexivity.
-                  - destruct (stage8_lineage b p f) as [|o8].
-                    { destruct (hdr_profile (b_hdr b)) eqn:Hprof3.
-                      - rewrite Hprof in Hprof3. discriminate.
-                      - left. reflexivity.
-                      - left. reflexivity.
-                      - destruct (stage9_hitl b) as [|o9].
-                        { left. reflexivity. }
-                        { destruct o9; tauto. } }
-                    { destruct o8; tauto. }
-                  - destruct (stage8_lineage b p f) as [|o8].
-                    { destruct (hdr_profile (b_hdr b)) eqn:Hprof3.
-                      - rewrite Hprof in Hprof3. discriminate.
-                      - left. reflexivity.
-                      - left. reflexivity.
-                      - destruct (stage9_hitl b) as [|o9].
-                        { left. reflexivity. }
-                        { destruct o9; tauto. } }
-                    { destruct o8; tauto. } }
+                { destruct (stage8_lineage b p f) as [|o8].
+                  { left. reflexivity. }
+                  { destruct o8; tauto. } }
                 { destruct o7; tauto. } }
               { destruct o6; tauto. } }
-            { (* PB_LINEAGE_1 case mirrors above *) admit. }
-            { (* PB_REGULATED_1 case mirrors above *) admit. } }
+            { destruct (stage6_boundary b c) as [|o6].
+              { destruct (stage7_side b) as [|o7].
+                { destruct (stage8_lineage b p f) as [|o8].
+                  { destruct (stage9_hitl b) as [|o9].
+                    { left. reflexivity. }
+                    { destruct o9; tauto. } }
+                  { destruct o8; tauto. } }
+                { destruct o7; tauto. } }
+              { destruct o6; tauto. } } }
           { destruct o5; tauto. } }
         { destruct o4; tauto. }
       * destruct o3; tauto.

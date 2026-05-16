@@ -145,10 +145,10 @@ Theorem corruption_transitive :
   forall S I,
     Attribution S I -> Drop1 S I /\ Drop12 S I /\ Drop123 S I.
 Proof.
-  intros S I Hattr. repeat split.
+  intros S I Hattr. split; [ | split ].
   - destruct Hattr as [_ [H2 [H3 [H4 H5]]]]. unfold Drop1. auto.
-  - apply attr_implies_drop12. exact Hattr.
-  - apply attr_implies_drop123. exact Hattr.
+  - destruct Hattr as [_ [_ [H3 [H4 H5]]]]. unfold Drop12. auto.
+  - destruct Hattr as [_ [_ [_ [H4 H5]]]]. unfold Drop123. auto.
 Qed.
 
 (* ============================================================= *)

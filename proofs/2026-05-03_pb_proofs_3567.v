@@ -51,7 +51,7 @@ Definition verify_lineage (depth_budget : nat) (bid : BundleID) : LineageOutcome
 
 (* Termination: always produces a result within fuel steps *)
 Theorem lineage_terminates :
-  forall fuel visited bid,
+  forall (fuel : nat) (visited : list BundleID) (bid : BundleID),
     exists o, verify_lineage_aux fuel visited bid = o.
 Proof.
   intros fuel. induction fuel as [| fuel' IH].
@@ -63,18 +63,18 @@ Qed.
 
 (* Determinism *)
 Theorem lineage_deterministic :
-  forall fuel visited bid,
+  forall (fuel : nat) (visited : list BundleID) (bid : BundleID),
     exists! o, verify_lineage_aux fuel visited bid = o.
 Proof.
   intros. exists (verify_lineage_aux fuel visited bid).
   split.
   - reflexivity.
-  - intros o' H. symmetry. exact H.
+  - intros o' H. rewrite H. reflexivity.
 Qed.
 
 (* Cycle detection: if bid is in visited, result is LineageInvalid *)
 Theorem cycle_detected :
-  forall fuel visited bid,
+  forall (fuel : nat) (visited : list BundleID) (bid : BundleID),
     In bid visited ->
     exists fuel', verify_lineage_aux (S fuel') visited bid = LineageInvalid.
 Proof.
@@ -82,8 +82,9 @@ Proof.
   exists fuel. simpl.
   destruct (existsb (fun v => if BundleID_eq_dec v bid then true else false) visited) eqn:Hex.
   - reflexivity.
-  - exfalso. rewrite existsb_exists in Hex.
-    apply Bool.not_true_iff_false in Hex. apply Hex.
+  - exfalso. apply Bool.not_true_iff_false in Hex.
+    rewrite existsb_exists in Hex.
+    apply Hex.
     exists bid. split.
     + exact Hin.
     + destruct (BundleID_eq_dec bid bid) as [_|Habs].
@@ -101,7 +102,7 @@ Qed.
 
 (* Root with no parents and valid digest succeeds *)
 Theorem root_valid :
-  forall fuel visited bid,
+  forall (fuel : nat) (visited : list BundleID) (bid : BundleID),
     parents bid = [] ->
     digest_ok bid = true ->
     ~In bid visited ->
@@ -219,7 +220,7 @@ Proof.
   intros. exists (eval_pred fuel ctx p).
   split.
   - reflexivity.
-  - intros r' H. symmetry. exact H.
+  - intros r' H. rewrite H. reflexivity.
 Qed.
 
 (* Sufficient fuel guarantees a definite answer for atoms *)

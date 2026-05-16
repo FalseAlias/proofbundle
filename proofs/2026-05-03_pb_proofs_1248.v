@@ -159,7 +159,7 @@ Proof.
   exists (verify b c k).
   split.
   - reflexivity.
-  - intros o' H. symmetry. exact H.
+  - intros o' H. rewrite H. reflexivity.
 Qed.
 
 Theorem verify_total :
@@ -322,7 +322,7 @@ Proof.
   intros. exists (dispatch_verify alg k msg sig).
   split.
   - reflexivity.
-  - intros b' H. symmetry. exact H.
+  - intros b' H. rewrite H. reflexivity.
 Qed.
 
 (* Each algorithm routes to exactly one verifier *)
