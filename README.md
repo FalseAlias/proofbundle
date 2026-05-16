@@ -2,6 +2,17 @@
 
 A sealed claim object. Verifiable offline. No certifying authority.
 
+## Browser showcase
+
+The single-file browser verifier is the primary inspectable artifact for this snapshot.
+
+Open locally from this repository:
+
+- `web/proofbundle_v1_0_app.html`
+- `web/2026-05-03_proofbundle_ui_v1.0.html`
+
+Both files are static HTML artifacts with no build step. They carry the alpha.1 standing display and the 12-algorithm verifier surface. They do not claim release-green or proof closure.
+
 ## Standing
 
 This repository is an `alpha-repair-snapshot`, not a release-green artifact.
@@ -24,11 +35,7 @@ The root `manifest.json` is an operative-source manifest. It intentionally exclu
 | TypeScript | local full run measured 136/300; sample runner 16/20; ECDSA/RSA and broader outcome blockers remain |
 | Go | patched but unverified in environment |
 
-## Browser demo
-
-Open:
-
-`web/2026-05-03_proofbundle_ui_v1.0.html`
+## Browser demo evidence
 
 The browser verifier runs locally in the page. The page states alpha.1 standing and does not inherit proof closure.
 
