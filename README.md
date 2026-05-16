@@ -137,7 +137,9 @@ agent output
 
 ## Contributing
 
-This project is currently driven by a single researcher (FalseAlias / Chaleb Tajia Russell) with agent coordination support. The formal proof debt must close before v1.0.0 can be claimed release-green.
+Maintained by FalseAlias.
+
+The formal proof debt must close before v1.0.0 can be claimed release-green.
 
 ## Acknowledgments
 
