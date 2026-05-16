@@ -1,0 +1,39 @@
+name: ProofBundle static verification
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  static-browser-check:
+    name: Static browser artifact check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Run static browser tests
+        run: node tests/proofbundle_app_static.test.mjs
+
+  public-surface-check:
+    name: Public surface files present
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify public entrypoint and status files
+        shell: bash
+        run: |
+          test -s index.html
+          test -s README.md
+          test -s STATUS.md
+          test -s status.json
+          test -s RELEASE_BOUNDARY.md
+          test -s web/proofbundle_v1_0_app.html
+          grep -q "blocked_not_release_green" README.md
+          grep -q "blocked_not_release_green" status.json
