@@ -26,7 +26,7 @@ test('standing block preserves blocked release truth', () => {
   assert.match(html, /closurePhrase:\s*'Closed for this lane\. Open to governed evolution\.'/);
   assert.match(html, /closureStanding:\s*'Closed for this lane\. Open to governed evolution\. Not release-green; no formal proof closure; descriptive-not-persuasive framing required\.'/);
   assert.match(html, /transcript_manifest_sha256:\s*'1C490970FB474B11DAD4AAD155CADEBB043BDE568C88D863505CBEDE545CD659'/);
-  assert.match(html, /TypeScript full conformance is 157\/300, not green/);
+  assert.match(html, /TypeScript full conformance is 300\/300, verified/);
   assert.match(html, /Proof assistant guard scaffolds are narrow VM-checked guards only; no proof closure/);
 });
 
