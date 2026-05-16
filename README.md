@@ -6,6 +6,8 @@ Cryptographically verifiable provenance workflows for AI agent coordination, con
 
 **Status:** `blocked_not_release_green` - `v1.0.0-alpha.1_conformance-manifest-sync` is closed for this lane, open to governed evolution, and still blocked from release-green. Conformance evidence is partial across implementations; 189 formal proof audit failures remain.
 
+**Public boundary:** See [`RELEASE_BOUNDARY.md`](RELEASE_BOUNDARY.md). This repository currently publishes an attribution-evidence/provenance anchor. It does not publish the full raw evidence archive, does not certify formal proof closure, and does not assert proof of consciousness.
+
 **License:** MIT OR Apache-2.0 (dual, at your option)
 
 ## What This Is
