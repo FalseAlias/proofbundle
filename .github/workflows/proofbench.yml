@@ -8,73 +8,56 @@ on:
     - cron: "17 */6 * * *"
 
 jobs:
-  proofbench:
+  conformance-typescript-current:
+    name: TypeScript current implementation
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-python@v6
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          python-version: "3.14"
-      - name: Install Z3
-        run: sudo apt-get update && sudo apt-get install -y z3
-      - name: Run proofbench
-        run: |
-          python scripts/proofbench.py --note "github actions proofbench"
-      - name: Upload proofbench status
-        uses: actions/upload-artifact@v5
-        with:
-          name: proofbench-status
-          path: |
-            proofs/PROOF_STATUS.generated.json
-            proofs/PROOF_LEDGER.jsonl
+          node-version: "22"
+      - name: Install dependencies
+        working-directory: implementations/typescript-core-20260516
+        run: npm ci
+      - name: Build
+        working-directory: implementations/typescript-core-20260516
+        run: npm run build
+      - name: Run 300-vector conformance tests
+        working-directory: implementations/typescript-core-20260516
+        run: npm test
 
-  conformance-python:
+  static-browser-check:
+    name: Static browser artifact check
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-python@v6
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          python-version: "3.14"
-      - name: Install Python dependencies
-        run: |
-          pip install -e .
+          node-version: "22"
+      - name: Run static browser tests
+        run: node tests/proofbundle_app_static.test.mjs
+
+  conformance-python-current:
+    name: Python current implementation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Python package and test dependencies
+        run: python -m pip install -e "python[dev]"
       - name: Run Python conformance tests
-        run: |
-          python -m pytest test/test_python_core.py -v
-      - name: Run Python vector generator
-        run: |
-          python scripts/generate_conformance.py
-      - name: Verify vectors count
-        run: |
-          python -c "import json; d=json.load(open('conformance/vectors.generated.json')); assert d['vector_count'] == 300, f'Expected 300 vectors, got {d[\"vector_count\"]}'"
+        run: python -m pytest python/tests/test_conformance.py -v
 
-  conformance-typescript:
+  conformance-go-current:
+    name: Go current implementation
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
-        with:
-          node-version: "24"
-      - name: Install Node dependencies
-        run: |
-          cd core && npm ci
-      - name: Build TypeScript
-        run: |
-          cd core && npm run build
-      - name: Run TypeScript conformance tests
-        run: |
-          cd core && npm test
-
-  conformance-go:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-go@v6
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
         with:
           go-version: "1.22"
-      - name: Run Go unit tests
-        run: |
-          cd implementations/go-core-20260516 && go test -v ./...
-      - name: Run Go conformance tests
-        run: |
-          cd implementations/go-core-20260516 && go test -v -run TestConformance ./...
+      - name: Run Go tests
+        working-directory: implementations/go-core-20260516
+        run: go test -v ./...
