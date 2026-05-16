@@ -1,4 +1,4 @@
-name: Publish ProofBundle HTML showcase
+name: Verify ProofBundle HTML showcase
 
 on:
   push:
@@ -8,28 +8,29 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: pages-source-verification
   cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  verify:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-      - name: Upload static site
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Verify public showcase files
+        shell: bash
+        run: |
+          test -s index.html
+          test -s web/proofbundle_v1_0_app.html
+          test -s PUBLIC_PROOFBUNDLE_MANIFEST_20260516.json
+          test -s README.md
+          grep -q "blocked_not_release_green" README.md
+          grep -q "ProofBundle" index.html
+          grep -q "ProofBundle" web/proofbundle_v1_0_app.html
+      - name: Record Pages deployment source
+        shell: bash
+        run: |
+          echo "GitHub Pages is published from the gh-pages branch for this repository."
+          echo "This workflow verifies the main-branch public showcase inputs without using the protected github-pages deployment environment."

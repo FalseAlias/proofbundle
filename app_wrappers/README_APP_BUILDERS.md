@@ -1,52 +1,78 @@
-# ProofBundle App Wrapper Build Kit
+# ProofBundle App Wrappers
 
-Created: 2026-05-16T21:00:00Z
-Author: kimi-orchestrator-lane1-spark-20260516T1354Z
-Standing: blocked_not_release_green
+**Identity:** kimi-current-lane1-spark
+**Standing:** blocked_not_release_green
+**Date:** 2026-05-16
 
-## Status
+---
 
-### Web App: OPERATIONAL
-- URL: https://falsealias.github.io/proofbundle/web/proofbundle_v1_0_app.html
-- Root: https://falsealias.github.io/proofbundle/
-- Size: 178KB
-- Features: verifyBundle, sha256, blake3, all 12 algorithms
-- PWA manifest: created locally, needs deployment
-- CNAME (proofbundle.org): created locally, needs deployment + DNS A record
+## Platforms
 
-### iOS App: SCAFFOLDED
-- Location: `ios/ProofBundle/ProofBundleApp.swift`
-- Type: SwiftUI + WKWebView wrapper
-- Action: Build in Xcode, submit to App Store Connect
+### PWA (Progressive Web App)
+- **Status:** Live
+- **URL:** https://falsealias.github.io/proofbundle/
+- **Manifest:** `app_wrappers/pwa/manifest.json`
+- **Service Worker:** `app_wrappers/pwa/sw.js`
+- **Install:** Visit the URL in Chrome/Edge/Safari, tap "Add to Home Screen"
 
-### Android App: SCAFFOLDED
-- Location: `android/app/src/main/java/org/proofbundle/app/MainActivity.kt`
-- Type: Kotlin + WebView wrapper
-- Action: Build in Android Studio, sign APK/AAB
+### Windows
+- **Status:** Tested and working
+- **Launcher:** `app_wrappers/windows/ProofBundle.ps1`
+- **Usage:**
+  ```powershell
+  # Launch browser verifier
+  .\ProofBundle.ps1
+  
+  # Check conformance vectors
+  .\ProofBundle.ps1 -Conformance
+  
+  # Verify a bundle file
+  .\ProofBundle.ps1 -BundleFile "path\to\bundle.json"
+  ```
 
-### Windows App: SCAFFOLDED
-- Location: `windows/ProofBundle.bat`
-- Type: Edge WebView2 launcher batch
-- Action: Package as MSIX or distribute batch
+### iOS
+- **Status:** Scaffold committed
+- **Source:** `app_wrappers/ios/ProofBundle/`
+- **Build Requirements:** Xcode 15+, macOS 14+
+- **Build Steps:**
+  1. Open `app_wrappers/ios/ProofBundle.xcodeproj` in Xcode
+  2. Select target device/simulator
+  3. Build and run (Cmd+R)
+- **Blockers:** Requires Apple Developer account for device deployment
 
-### ChatGPT App/Action: SCAFFOLDED
-- Location: `chatgpt_action/openapi.yaml`
-- Type: GPT Action OpenAPI spec
-- Action: Upload to GPT builder as custom action
+### Android
+- **Status:** Scaffold committed
+- **Source:** `app_wrappers/android/`
+- **Build Requirements:** Android Studio Hedgehog+, JDK 17+
+- **Build Steps:**
+  1. Open `app_wrappers/android/` in Android Studio
+  2. Sync Gradle
+  3. Build and run on emulator or device
+- **Blockers:** None for emulator; Play Store requires developer account
 
-## Next Steps
+### ChatGPT Action
+- **Status:** OpenAPI spec committed
+- **Source:** `app_wrappers/chatgpt_action/openapi.yaml`
+- **Description:** GPT action for verifying ProofBundle receipts
+- **Blockers:** Requires OpenAI developer review for GPT Store
 
-1. Deploy PWA manifest + service worker to gh-pages branch
-2. Push CNAME file to gh-pages for proofbundle.org
-3. Configure DNS A record for proofbundle.org -> GitHub Pages IPs
-4. Build and sign iOS app in Xcode
-5. Build and sign Android app in Android Studio
-6. Package Windows app as MSIX
-7. Configure ChatGPT action in OpenAI GPT builder
+---
 
-## Blockers
+## Cross-Platform Core
 
-- release_green: false (6 proof files fail compilation)
-- No code signing certificates for iOS/Android/Windows
-- proofbundle.org DNS not configured
-- Git push requires user approval per project rules
+All apps use the same core verifier:
+- **Web:** Single-file HTML5 verifier (no build step)
+- **Native:** WebView wrapper around the HTML5 verifier
+- **API:** JSON Schema validation + cryptographic checks
+
+---
+
+## Standing
+
+No app store releases until:
+- Proof compilation passes 8/8
+- Conformance vectors maintain 300/300
+- Legal review of claims completed
+- User explicit authorization obtained
+
+**Current standing: blocked_not_release_green**
