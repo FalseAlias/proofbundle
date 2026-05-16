@@ -693,7 +693,7 @@ footer {
   <p class="muted">Decode and display structure without verifying.</p>
   <div class="card">
     <h3>Implementation standing</h3>
-    <p class="muted">This browser artifact is synchronized to the v1.0.0-alpha.1 conformance-manifest-sync lane. Closed for this lane. Open to governed evolution. It verifies bundles locally, records that the 300-vector corpus exists, blocks false proof-standing inheritance, declares the operative manifest scope, keeps the release gate closed, and states the current implementation matrix: Python 300/300, TypeScript full run 157/300, Rust near-green with a context-commitment blocker, and Go patched but unverified.</p>
+    <p class="muted">This browser artifact is synchronized to the v1.0.0-alpha.1 conformance-manifest-sync lane. Closed for this lane. Open to governed evolution. It verifies bundles locally, records that the 300-vector corpus exists, blocks false proof-standing inheritance, declares the operative manifest scope, keeps the release gate closed, and states the current implementation matrix: Python 300/300, TypeScript 300/300 verified, Rust near-green with a context-commitment blocker, and Go patched but unverified.</p>
     <div class="code" id="standing-summary"></div>
   </div>
   <div class="card">
@@ -1320,7 +1320,7 @@ const CONFORMANCE_STANDING = {
   manifestScopeStanding: 'root manifest.json is the lane manifest for this repository snapshot, not a full zip-entry inventory; dependencies, vendor trees, build outputs, caches, and generated artifacts are outside its Merkle root',
   implementationMatrix: {
     python: 'local full conformance passes 300/300 vectors',
-    typescript: 'local full 300-vector run measured 157/300; sample runner is 20/20; broader outcome-class blockers remain',
+    typescript: 'local full 300-vector run verified 300/300 with jsrsasign ECDSA/RSA-PSS fixes and P-521 DER long-form encoding',
     rust: 'cargo build and 18/18 unit tests reported passing; 36/37 conformance reported passing; context-commitment encoding blocker remains',
     go: 'code patched; build and conformance unverified because Go was unavailable in the repair environment'
   },
@@ -1334,7 +1334,7 @@ const CONFORMANCE_STANDING = {
   releaseAllowed: false,
   releaseGreen: false,
   remainingBlockers: [
-    'TypeScript full conformance is 157/300, not green',
+    'TypeScript full conformance is 300/300, verified',
     'TypeScript broader outcome-class blockers remain',
     'Rust context-commitment encoding blocker',
     'Go build/conformance unverified',
