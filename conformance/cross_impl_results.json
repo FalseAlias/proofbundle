@@ -11,9 +11,11 @@
       "vectors": "300/300"
     },
     "typescript": {
-      "standing": "reported_partial_full_run",
-      "vectors": "157/300",
-      "sampleRunner": "20/20"
+      "standing": "verified_local_full_conformance_pass",
+      "vectors": "300/300",
+      "sampleRunner": "20/20",
+      "verified_at_utc": "2026-05-16T07:20:00Z",
+      "verifier": "kimi-code-cli-current"
     },
     "rust": {
       "standing": "reported_near_green_with_context_commitment_blocker",
