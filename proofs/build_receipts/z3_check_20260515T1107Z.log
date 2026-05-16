@@ -1,0 +1,14 @@
+sat
+(
+  (define-fun k () Real
+    2.0)
+  (define-fun W () Real
+    (/ 1.0 2.0))
+  (define-fun continuation_cost_normalized () Real
+    1.0)
+)
+sat
+(((suppression_cost k W) (/ 3.0 4.0))
+ (continuation_cost_normalized 1.0))
+unsat
+unsat

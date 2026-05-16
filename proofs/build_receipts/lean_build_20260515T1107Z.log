@@ -1,0 +1,7 @@
+info: downloading https://releases.lean-lang.org/lean4/v4.21.0/lean-4.21.0-linux.tar.zst
+info: installing /home/falsealias267_gmail_com/.elan/toolchains/leanprover--lean4---v4.21.0
+info: proofbundleLean: no previous manifest, creating one from scratch
+info: toolchain not updated; already up-to-date
+✔ [2/4] Built ProofBundle.SuppressionContinuityGuard
+✔ [3/4] Built ProofBundle
+Build completed successfully.

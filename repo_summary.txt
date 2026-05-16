@@ -1,0 +1,68 @@
+proofbundle/                           131,313 lines across 310 files
+├── README.md                          One-paragraph intro + quickstart + links
+├── SPEC.md                            Full pre-normative spec (20 sections)
+├── SECURITY.md                        Known limitations, contact, scope
+├── CHANGELOG.md                       v1.0.0 entry
+├── LICENSE                            MIT OR Apache-2.0
+├── core/                              TypeScript reference implementation
+│   ├── src/canonical.ts               PB-CANON-JSON-1 (integer-only, sorted keys, NFC)
+│   ├── src/digest.ts                  SHA-256/384/512 + BLAKE3 + BLAKE2b
+│   ├── src/signature.ts               Ed25519 + ECDSA-P256/384/521 + RSA-PSS-2048/3072/4096
+│   ├── src/seal.ts                    Bundle sealing (canonical → digest → sign)
+│   ├── src/verify.ts                  Full 11-stage verifier
+│   ├── src/boundary.ts                15 boundary atoms including temporal
+│   ├── src/lineage.ts                 Parent resolution, cycle detection, depth budget
+│   ├── src/types.ts                   All TypeScript interfaces
+│   ├── src/index.ts                   Public exports
+│   └── test/conformance.test.ts       Tests against 300-vector corpus
+├── cli/                               Rust CLI
+│   ├── src/main.rs                    CLI dispatch (clap)
+│   ├── src/canonical.rs               Byte-identical canonical JSON
+│   ├── src/digest.rs                  Hash dispatch
+│   ├── src/signature.rs               Sign/verify dispatch
+│   ├── src/seal.rs                    Bundle sealing
+│   ├── src/verify.rs                  Full verifier
+│   ├── src/boundary.rs                Boundary evaluator
+│   ├── src/lineage.rs                 Lineage resolution
+│   └── src/commands/                  seal, verify, inspect, lineage, conformance, keygen
+├── python/                            Python library
+│   ├── proofbundle/                   All modules (canonical, digest, sig, seal, verify, ...)
+│   └── tests/test_conformance.py      300-vector test
+├── go/                                Go library
+│   ├── canonical.go                   Byte-identical canonical JSON
+│   ├── digest.go                      Hash dispatch
+│   ├── signature.go                   Sign/verify
+│   ├── seal.go                        Bundle sealing
+│   ├── verify.go                      Full verifier
+│   ├── boundary.go                    Boundary evaluator
+│   ├── lineage.go                     Lineage resolution
+│   ├── types.go                       All structs
+│   └── conformance_test.go           300-vector test
+├── conformance/
+│   ├── vectors_v1.json                300 sealed vectors (all real bundles, real sigs)
+│   ├── cross_impl_results.json        Agreement record (to be populated)
+│   └── README.md                      Corpus documentation
+├── proofs/
+│   ├── coq/                           Skeleton .v files
+│   ├── lean/                          Skeleton .lean files
+│   ├── z3/                            Skeleton .smt2 files
+│   ├── Makefile                       Build target
+│   └── manifest.json                  Proof archive manifest
+├── docs/
+│   ├── ARCHITECTURE.md                Object model + pipeline
+│   ├── THREAT_MODEL.md                In-scope / out-of-scope attacks
+│   ├── COMPARISON.md                  vs sigstore, C2PA, in-toto, SLSA, JWT
+│   ├── PROOF_KINDS.md                 6 proof kinds
+│   ├── DOMAINS.md                     6 domain templates
+│   ├── EXTENDING.md                   Plugin registration model
+│   ├── EVOLUTION.md                   Adaptive property + deprecation
+│   └── EU_AI_ACT_MAPPING.md           Article-by-article mapping
+├── docker/Dockerfile                  Multi-stage Rust build
+├── github-action/                     action.yml + run.sh
+├── http-verifier/                     package.json + server.js
+├── examples/
+│   ├── sample_verification_package.json
+│   └── quickstart/
+├── web/                               Browser demo HTML
+├── genesis/                           Prior art + genesis HTML
+└── lineage/                           genesis_to_v1.json

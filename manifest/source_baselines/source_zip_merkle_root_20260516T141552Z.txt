@@ -1,0 +1,9 @@
+﻿schema: proofbundle-source-zip-merkle-root/1.0
+generated_at_utc: 2026-05-16T14:15:52.299Z
+source_zip_path: C:\Users\alib90\Downloads\2026-05-15_proofbundle_v1.0.0-alpha.1_standing-sync-repaired_20260515T111154Z.zip
+source_zip_sha256: 3777FF33CF178A61F41AC9875C8A4CED2EB5F7B60ADFEB8CD956CC441865C693
+entry_count: 1142
+zero_byte_entry_count: 1
+merkle_root_sha256: A8D0F571C94CA36AFA60A67A35B06B10FA1D96FC053C1AEDC3482C922D7A24F8
+manifest_path: manifest/source_baselines/source_zip_merkle_manifest_20260516T141552Z.json
+manifest_sha256: 5C157F123CF2A10844C45797AD2DE81363F3E9F2270530802F43BAE5D93D4820

@@ -1,0 +1,16 @@
+{
+  "name": "@proofbundle/http-verifier",
+  "version": "1.0.0",
+  "description": "Stateless HTTP verifier for ProofBundle v1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@proofbundle/core": "1.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT"
+}

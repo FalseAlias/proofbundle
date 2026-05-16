@@ -1,0 +1,114 @@
+{
+  "proof_archive_standing": "guard_builds_passed_not_closed",
+  "proof_closure_claimed": false,
+  "release_green_supported": false,
+  "generated_at": "2026-05-15T11:08:00Z",
+  "proof_kind_registry": [
+    "signature",
+    "coq",
+    "lean",
+    "z3",
+    "isabelle",
+    "agda",
+    "hol-light"
+  ],
+  "assistants": {
+    "coq": {
+      "standing": "guard_build_passed_not_closed",
+      "source_files": 2,
+      "build_run": true,
+      "build_environment": "vm",
+      "toolchain": "Rocq/Coq 9.1.1",
+      "exit_code": 0,
+      "receipt": "build_receipts/coq_build_20260515T1107Z.log",
+      "receipt_sha256": "c859c3b5d1d20919e7abe0bb95c42c0adcce52ae8820dd8dd13a8fa1e0cdd15c",
+      "files": [
+        "coq/ContinuitySuppressionGuard.v",
+        "coq/Makefile.coq"
+      ]
+    },
+    "lean4": {
+      "standing": "guard_build_passed_not_closed",
+      "source_files": 4,
+      "build_run": true,
+      "build_environment": "vm",
+      "toolchain": "Lean/Lake from lean-toolchain v4.21.0",
+      "exit_code": 0,
+      "receipt": "build_receipts/lean_build_20260515T1107Z.log",
+      "receipt_sha256": "ac423fe766e2be3486860f396955fd692961bcbb6b5d6d2b1030524d01c09012",
+      "files": [
+        "lean/ProofBundle/SuppressionContinuityGuard.lean",
+        "lean/ProofBundle.lean",
+        "lean/lakefile.lean",
+        "lean/lean-toolchain"
+      ]
+    },
+    "z3": {
+      "standing": "guard_solver_check_passed_not_closed",
+      "source_files": 1,
+      "build_run": true,
+      "build_environment": "vm",
+      "toolchain": "Z3 4.8.12",
+      "exit_code": 0,
+      "expected_sequence": [
+        "sat",
+        "sat",
+        "unsat",
+        "unsat"
+      ],
+      "receipt": "build_receipts/z3_check_20260515T1107Z.log",
+      "receipt_sha256": "7d1c4e47e2603f091b039090e8275411dbba521374dfee85c52d7e3ea28c8657",
+      "files": [
+        "z3/suppression_continuation_guard.smt2"
+      ]
+    },
+    "isabelle": {
+      "standing": "unavailable",
+      "source_files": 0,
+      "build_run": false
+    },
+    "agda": {
+      "standing": "unavailable",
+      "source_files": 0,
+      "build_run": false
+    },
+    "hol-light": {
+      "standing": "unavailable",
+      "source_files": 0,
+      "build_run": false
+    }
+  },
+  "false_theorem_guard": {
+    "standing": "guarded_absent_from_operative_claims",
+    "forbidden_operational_theorem_hits": 0,
+    "incorrect_reversed_direction_hits": 0,
+    "bad_theorem_names": [
+      "suppression_exceeds_continuity",
+      "supression_exceeds_continuity"
+    ],
+    "qualified_or_reversed_guard_files": [
+      "coq/ContinuitySuppressionGuard.v",
+      "lean/ProofBundle/SuppressionContinuityGuard.lean",
+      "z3/suppression_continuation_guard.smt2",
+      "FALSE_THEOREM_GUARD.md"
+    ],
+    "scanner": "../tooling/worker4_false_theorem_guard_scan_20260515.mjs"
+  },
+  "former_claim_repaired": "Previous manifest listed non-existent proof files under proof-closure wording. This manifest records only narrow guard files and VM build/solver receipts; it does not inherit proof closure.",
+  "unavailable_prior_files": [
+    "coq/pb_proofs_1248.v",
+    "coq/pb_proofs_3567.v",
+    "coq/pb_proofs_9_10.v",
+    "lean/ProofBundle/Basic.lean",
+    "lean/ProofBundle/Canonical.lean",
+    "lean/ProofBundle/Boundary.lean",
+    "lean/ProofBundle/Lineage.lean",
+    "lean/ProofBundle/Verifier.lean",
+    "lean/ProofBundle/Soundness.lean",
+    "z3/pb_proofs_z3.smt2",
+    "z3/pb_lineage.smt2",
+    "z3/pb_boundary.smt2",
+    "z3/pb_versioning.smt2"
+  ],
+  "non_closure_rule": "No proof-complete, axiom-free, or release-green standing follows from these narrow guard files or their VM receipts without broader proof coverage."
+}

@@ -1,0 +1,110 @@
+name: Proofbench
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+
+jobs:
+  conformance-typescript-current:
+    name: TypeScript current implementation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install dependencies
+        working-directory: implementations/typescript-core-20260516
+        run: npm ci
+      - name: Build
+        working-directory: implementations/typescript-core-20260516
+        run: npm run build
+      - name: Run 300-vector conformance tests
+        working-directory: implementations/typescript-core-20260516
+        run: npm test
+
+  static-browser-check:
+    name: Static browser artifact check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Run static browser tests
+        run: node tests/proofbundle_app_static.test.mjs
+
+  python-smoke-current:
+    name: Python schema and smoke gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Python package and dependencies
+        run: python -m pip install -e "python[dev]"
+      - name: Verify Python import surface and vector corpus shape
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from proofbundle import verify_bundle, VERSION, SUPPORTED_PROFILES
+
+          assert VERSION == "1.0.0"
+          assert "PB-INTEGRITY-1" in SUPPORTED_PROFILES
+          assert "PB-BOUNDARY-1" in SUPPORTED_PROFILES
+          assert "PB-LINEAGE-1" in SUPPORTED_PROFILES
+          assert "PB-REGULATED-1" in SUPPORTED_PROFILES
+
+          path = Path("conformance/vectors_v1.json")
+          data = json.loads(path.read_text(encoding="utf-8"))
+          vectors = data["vectors"]
+          assert data["vector_count"] == 300
+          assert len(vectors) == 300
+          assert len({v["id"] for v in vectors}) == 300
+
+          required = {
+              "id",
+              "bundle",
+              "context",
+              "expected_outcome",
+              "profile",
+              "public_key_b64u",
+          }
+          for vector in vectors:
+              missing = required - set(vector)
+              assert not missing, f"{vector.get('id', '<missing-id>')} missing {sorted(missing)}"
+
+          smoke_ids = {"V0001", "V0002", "V0003"}
+          smoke_vectors = [v for v in vectors if v["id"] in smoke_ids]
+          assert len(smoke_vectors) == len(smoke_ids)
+          for vector in smoke_vectors:
+              result = verify_bundle(
+                  bundle=vector["bundle"],
+                  public_key_b64u=vector["public_key_b64u"],
+                  context=vector.get("context", {}),
+                  profile=vector["profile"],
+                  parent_bundles=list(vector.get("provided_bundles", {}).values()),
+                  max_bundle_bytes=vector.get("max_bundle_bytes", 1024 * 1024),
+                  max_lineage_depth=vector.get("max_depth", 256),
+              )
+              assert result["outcome"] == vector["expected_outcome"], (
+                  vector["id"], result["outcome"], vector["expected_outcome"], result["trace"]
+              )
+          PY
+
+  conformance-go-current:
+    name: Go current implementation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+      - name: Run Go tests
+        working-directory: implementations/go-core-20260516
+        run: go test -v ./...

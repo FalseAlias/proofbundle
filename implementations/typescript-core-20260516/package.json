@@ -1,0 +1,23 @@
+{
+  "name": "@proofbundle/core",
+  "version": "1.0.0",
+  "description": "ProofBundle v1.0.0 TypeScript core",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "node --test --import tsx test/*.test.ts"
+  },
+  "dependencies": {
+    "@noble/curves": "^2.2.0",
+    "@noble/hashes": "^2.2.0",
+    "jsrsasign": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/jsrsasign": "^10.5.15",
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  },
+  "type": "module"
+}
