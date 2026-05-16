@@ -10,6 +10,11 @@ const latestRootPath = path.join(outDir, 'LATEST_REPO_MERKLE_ROOT.txt');
 
 const excludedParts = new Set(['.git', 'node_modules', 'dist', 'target', '__pycache__', '.pytest_cache', '.mypy_cache']);
 const excludedFiles = new Set(['proofbundle-7-commits.patch']);
+const excludedManifestOutputs = [
+  /^manifest\/LATEST_REPO_MERKLE_(MANIFEST|ROOT)\.(json|txt)$/,
+  /^manifest\/repo_merkle_(manifest|root)_\d{8}T\d{6}Z\.(json|txt)$/,
+  /^manifest\/repo_merkle_log\.jsonl$/,
+];
 
 function sha256Bytes(bytes) {
   return crypto.createHash('sha256').update(bytes).digest('hex').toUpperCase();
@@ -38,6 +43,7 @@ function stableJson(value) {
 function shouldSkip(rel) {
   const parts = rel.split(/[\\/]+/);
   if (parts.some((part) => excludedParts.has(part))) return true;
+  if (excludedManifestOutputs.some((pattern) => pattern.test(rel))) return true;
   return excludedFiles.has(parts.at(-1));
 }
 
@@ -103,7 +109,7 @@ const manifest = {
   schema: 'proofbundle-repo-merkle-manifest/1.0',
   generated_at_utc: generatedAtUtc,
   repo_root: '.',
-  scope: 'operative repo files excluding .git, node_modules, build/cache directories, and transient patch files',
+  scope: 'operative repo files excluding .git, node_modules, build/cache directories, transient patch files, and generated repo Merkle outputs',
   file_count: leaves.length,
   zero_byte_files: leaves.filter((leaf) => leaf.bytes === 0).map((leaf) => leaf.path),
   merkle_root_sha256: root,

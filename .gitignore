@@ -12,3 +12,6 @@ Thumbs.db
 *.swo
 proofbundle-7-commits.patch
 000_PUBLICATION_CONTROL_20260516.md
+manifest/repo_merkle_log.jsonl
+manifest/repo_merkle_manifest_*.json
+manifest/repo_merkle_root_*.txt
