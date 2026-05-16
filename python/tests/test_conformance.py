@@ -40,7 +40,10 @@ def load_vectors():
     if not VECTORS_PATH.exists():
         return []
     with open(VECTORS_PATH, "r", encoding="utf-8") as f:
-        return json.load(f)
+        data = json.load(f)
+    if isinstance(data, dict):
+        return data.get("vectors", [])
+    return data
 
 
 VECTORS = load_vectors()
@@ -312,15 +315,19 @@ class TestLineage:
 class TestConformanceVectors:
     @pytest.mark.parametrize("vector", VECTORS, ids=lambda v: v["id"])
     def test_vector(self, vector):
-        inp = vector["input"]
+        inp = vector.get("input", vector)
+        parent_bundles = inp.get("parent_bundles")
+        if parent_bundles is None:
+            provided = inp.get("provided_bundles", {})
+            parent_bundles = list(provided.values()) if isinstance(provided, dict) else provided
         result = verify_bundle(
             bundle=inp["bundle"],
             public_key_b64u=inp["public_key_b64u"],
             context=inp["context"],
             profile=inp["profile"],
-            parent_bundles=inp.get("parent_bundles", []),
+            parent_bundles=parent_bundles or [],
             max_bundle_bytes=inp.get("max_bundle_bytes", 1024 * 1024),
-            max_lineage_depth=256,
+            max_lineage_depth=inp.get("max_depth", 256),
         )
         assert result["outcome"] == vector["expected_outcome"], \
             f"trace: {json.dumps(result['trace'], indent=2)}"
