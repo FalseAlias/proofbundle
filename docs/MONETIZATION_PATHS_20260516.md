@@ -1,79 +1,86 @@
 # Monetization Pathways — ProofBundle Public Alpha
 
-**Identity:** kimi-current-lane1-spark
 **Standing:** blocked_not_release_green
 **Date:** 2026-05-16
 
----
+This document is exploratory. It is not a sales claim, release claim, legal-compliance claim, proof-closure claim, or deployment-readiness claim. Any external use must remain bounded by `status.json`, `STATUS.md`, `PUBLIC_PROOFBUNDLE_MANIFEST_20260516.json`, and `conformance/cross_impl_results.json`.
 
 ## 1. Enterprise Provenance Audit Service
 
 **Target:** Supply-chain security teams, compliance officers, SBOM tooling vendors
-**Model:** SaaS subscription for automated provenance verification
-**Value Prop:** 
-- Verify cryptographic receipts at scale
-- Detect tampered artifacts before deployment
-- Generate compliance reports for auditors
-**MVP:** Browser verifier + API endpoint for batch verification
-**Blockers:** Proof closure (189 -> 3 remaining), formal audit sign-off
-
-## 2. AI Governance & Agent Identity Verification
-
-**Target:** AI labs deploying autonomous agents, multi-agent orchestration platforms
-**Model:** Per-agent-identity licensing for bridge/ledger infrastructure
+**Model:** Pilot or consulting engagement around provenance verification workflows
 **Value Prop:**
-- Cryptographically verifiable agent handoffs
-- Append-only audit trails for AI actions
-- OTS-backed timestamps for regulatory compliance
-**MVP:** Current bridge + identity system
-**Blockers:** Documentation, customer onboarding, legal review of "autonomous agent" claims
+- Verify cryptographic provenance receipts where coverage exists
+- Detect artifact tampering where receipt coverage exists
+- Generate bounded review packets for auditors
+**Current MVP:** Browser verifier plus public alpha repository surface
+**Blockers:** Release-green is blocked; formal proof closure is unavailable; full implementation parity is not claimed; external timestamp or witness evidence must be committed where relied upon.
 
-## 3. Formal Proof Verification as a Service
+## 2. AI Governance And Agent Handoff Evidence
 
-**Target:** Cryptographic protocol designers, blockchain projects, zero-knowledge teams
-**Model:** Consulting + automated proof-checking infrastructure
+**Target:** AI labs, agent orchestration platforms, audit-tooling researchers
+**Model:** Design-partner review or limited pilot
 **Value Prop:**
-- Cross-implementation conformance verification
-- Continuous proof regression testing
-- Multi-language proof corpus (Coq, Lean, Z3)
-**MVP:** VM swarm infrastructure (already running 12 swarms across 2 VMs)
-**Blockers:** Complete the remaining 3 proof compilation failures
+- Hash-bound handoff records
+- Append-only audit trail design
+- Evidence-carrier mapping for agent workflows
+**Current MVP:** Public alpha verifier, bridge concepts, status surfaces, and standing docs
+**Blockers:** Customer-facing documentation, legal review, reproduction records, and strict claim boundary review.
+
+## 3. Formal Proof Verification Support
+
+**Target:** Cryptographic protocol designers, formal-methods teams, security reviewers
+**Model:** Consulting plus proof-audit infrastructure work
+**Value Prop:**
+- Conformance and proof-status tracking
+- Proof regression infrastructure
+- Multi-tool proof debt visibility
+**Current MVP:** Proof inventory, proof-status files, quarantine markers, and current audit debt record
+**Blockers:** Formal proof closure is not available; the known audit-debt marker remains 189; no proof-complete service claim is allowed.
 
 ## 4. Open Source Sustainability
 
 **Target:** Community, academic users, individual developers
 **Model:** GitHub Sponsors, Open Collective, grants
 **Value Prop:**
-- Free browser verifier forever
-- Open source all implementations
+- Public browser verifier
 - Public conformance vectors
-**MVP:** Already live at https://falsealias.github.io/proofbundle/
-**Blockers:** None — can launch immediately
+- Public review surface
+**Current MVP:** Public alpha is live at https://falsealias.github.io/proofbundle/
+**Blockers:** Sponsorship can launch as support for public-alpha development, but must not imply release-green, proof closure, legal compliance, or full cross-implementation parity.
 
-## 5. Custom Integration & Consulting
+## 5. Custom Integration And Consulting
 
-**Target:** Large enterprises with custom provenance needs
-**Model:** Professional services + custom schema development
+**Target:** Teams with custom provenance or review-packet needs
+**Model:** Professional services and schema integration
 **Value Prop:**
-- Bespoke proofbundle schemas for internal artifacts
-- Integration with existing CI/CD pipelines
-- On-premise verifier deployment
-**MVP:** Core library + documentation
-**Blockers:** Sales pipeline, case studies
+- Custom ProofBundle-compatible evidence schemas
+- CI/CD provenance review workflows
+- On-premise or offline verifier adaptation
+**Current MVP:** Browser verifier, conformance vectors, status surfaces, and documentation
+**Blockers:** Case studies, integration documentation, support scope, legal review, and deployment-hardening work.
 
 ## Revenue Stack Priority
 
-1. **Immediate:** Open Source Sustainability (GitHub Sponsors launch)
-2. **Short-term:** Enterprise Provenance Audit (pilot with 2-3 design partners)
-3. **Medium-term:** AI Governance Verification (target 3 AI labs for PoC)
-4. **Long-term:** Formal Proof Verification as a Service (requires proof closure)
+1. **Immediate:** Open-source sustainability framed as support for public-alpha development.
+2. **Short-term:** Design-partner review with provenance/security teams.
+3. **Medium-term:** Limited pilot around evidence-carrier workflows.
+4. **Long-term:** Formal proof verification support only after proof-closure evidence improves.
 
 ## Standing Reminder
 
-No monetization claims can be made until:
-- Proof compilation passes 8/8 (currently 5/8)
-- Conformance vectors maintain 300/300 across all implementations
-- Bridge ledger demonstrates 30+ days of continuous operation without fork
-- Legal review of all claims completed
+No monetization language may imply stronger standing than the repository currently supports.
+
+Current blockers include:
+
+- formal proof closure is unavailable
+- 189 proof-audit exceptions remain as the active debt marker unless superseded by a narrower reproducible audit
+- Python full 300-vector parity is not committed
+- Go full vector parity is not committed
+- Rust parity remains blocked pending reproduction and blocker resolution
+- JavaScript/browser parity requires committed reproduction records aligned with `conformance/vectors_v1.json`
+- full cross-implementation agreement is not claimed
+- release signing and external timestamp evidence are not committed
+- legal review of external claims remains pending
 
 **Current standing: blocked_not_release_green**
