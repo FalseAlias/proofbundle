@@ -1,6 +1,6 @@
 {
   "schema": "proofbundle-status/1.0",
-  "generatedUtc": "2026-05-16T07:31:00Z",
+  "generatedUtc": "2026-05-16T08:20:31Z",
   "lane": "v1.0.0-alpha.1_conformance-manifest-sync",
   "closurePhrase": "Closed for this lane. Open to governed evolution.",
   "standing": "blocked_not_release_green",
@@ -14,7 +14,7 @@
   },
   "implementationMatrix": {
     "python": "local full conformance passes 300/300 vectors",
-    "typescript": "Kimi TypeScript core handoff verified 300/300 vectors; root tree still reports 3 skipped conformance rows; release standing remains blocked",
+    "typescript": "current repository implementation test verified 300/300 vectors after conformance-vector path repair; release standing remains blocked by non-TypeScript gates",
     "rust": "cargo build and 18/18 unit tests reported passing; 36/37 conformance reported passing; context-commitment encoding blocker remains",
     "go": "code patched; build and conformance unverified in the repair environment"
   },
@@ -41,7 +41,7 @@
     "jsTestOutputSha256": "9CD85C4AEE3224B1347AF206FC99CB9BBFFDB9E10AEF26D092D55588E70CAD50",
     "pyTestOutputSha256": "E31D661BEA9E9022D45439C5CA78B3C9652C613E2A426AB6655515F9BE19E555",
     "coreResult": "300 pass, 0 fail, 0 skipped",
-    "rootResult": "303 pass, 0 fail; corpus summary 297 passed, 0 failed, 3 skipped, total 300"
+    "rootResult": "current repository implementation test 300 pass, 0 fail, 0 skipped; historical Kimi root-tree caveat preserved separately as 303 pass, 0 fail with corpus summary 297 passed, 0 failed, 3 skipped, total 300"
   },
   "classificationRule": {
     "closedLane": true,
@@ -54,7 +54,6 @@
     ]
   },
   "remainingBlockers": [
-    "Root Kimi tree still reports 3 skipped conformance rows outside the TypeScript core pass",
     "Rust context-commitment encoding blocker",
     "Go build/conformance unverified",
     "Proof assistant guard scaffolds are narrow VM-checked guards only; no proof closure",

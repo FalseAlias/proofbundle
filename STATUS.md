@@ -23,7 +23,7 @@ No release-green, proof-complete, axiom-free, or formal proof closure claim is m
 ## Implementation Matrix
 
 - Python: local full conformance passes 300/300 vectors.
-- TypeScript: Kimi TypeScript core handoff verified 300/300 vectors. The root Kimi tree still reports 3 skipped conformance rows, so release standing remains blocked.
+- TypeScript: current repository implementation test verified 300/300 vectors after resolving the conformance-vector path for both the Kimi working layout and repository layout. Release standing remains blocked by non-TypeScript gates.
 - Rust: cargo build and 18/18 unit tests reported passing; 36/37 conformance reported passing; context-commitment encoding blocker remains.
 - Go: code patched; build and conformance unverified in the repair environment.
 
@@ -33,7 +33,8 @@ No release-green, proof-complete, axiom-free, or formal proof closure claim is m
 - Evidence path: `conformance/kimi_20260516/`
 - Bridge sequences: 2255, 2262, 2263, 2264
 - TypeScript core result: 300 pass, 0 fail, 0 skipped
-- Root tree result: 303 pass, 0 fail; corpus summary 297 passed, 0 failed, 3 skipped, total 300
+- Current repository result: 300 pass, 0 fail, 0 skipped from `implementations/typescript-core-20260516/test/conformance.test.ts`
+- Historical Kimi root-tree caveat: 303 pass, 0 fail; corpus summary 297 passed, 0 failed, 3 skipped, total 300
 - Generated vectors SHA-256: `354EAE0DEFD3B8270362B2417B07DA20A14133D38AC1889221796EA7E3460445`
 
 ## Proof Standing

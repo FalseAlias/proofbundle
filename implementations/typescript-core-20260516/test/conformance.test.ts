@@ -1,13 +1,18 @@
 import { describe, it } from "node:test";
 import assert from "node:assert";
-import { readFileSync } from "fs";
+import { existsSync, readFileSync } from "fs";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 import { verifyBundle } from "../src/verify.js";
 import { Bundle } from "../src/types.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const vectorsPath = join(__dirname, "../../conformance/vectors.generated.json");
+const vectorPathCandidates = [
+  join(__dirname, "../../conformance/vectors.generated.json"),
+  join(__dirname, "../../../conformance/vectors.generated.json"),
+];
+const vectorsPath = vectorPathCandidates.find((candidate) => existsSync(candidate));
+assert.ok(vectorsPath, `Missing conformance vectors at: ${vectorPathCandidates.join(", ")}`);
 const data = JSON.parse(readFileSync(vectorsPath, "utf-8"));
 
 interface ConformanceVector {

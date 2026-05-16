@@ -1,6 +1,6 @@
 {
   "schema": "proofbundle-cross-implementation-results/1.0",
-  "generatedUtc": "2026-05-16T07:31:00Z",
+  "generatedUtc": "2026-05-16T08:20:31Z",
   "lane": "v1.0.0-alpha.1_conformance-manifest-sync",
   "standing": "partial_not_release_green",
   "releaseAllowed": false,
@@ -14,8 +14,8 @@
       "standing": "verified_local_full_conformance_pass",
       "vectors": "300/300",
       "sampleRunner": "20/20",
-      "verified_at_utc": "2026-05-16T07:20:00Z",
-      "verifier": "kimi-code-cli-current",
+      "verified_at_utc": "2026-05-16T08:20:31Z",
+      "verifier": "codex-harbor-lane2-gpt5-api-parent-20260516T0623Z",
       "implementationPath": "implementations/typescript-core-20260516",
       "evidencePath": "conformance/kimi_20260516",
       "bridgeSequences": [
@@ -24,7 +24,8 @@
         2263,
         2264
       ],
-      "rootTreeCaveat": "root npm test passed 303/303 but corpus summary still reports 3 skipped rows"
+      "repositoryTest": "implementations/typescript-core-20260516 npm test passed 300/300 after conformance-vector path repair",
+      "historicalKimiRootTreeCaveat": "root npm test passed 303/303 but corpus summary still reported 3 skipped rows in the prior Kimi working tree"
     },
     "rust": {
       "standing": "reported_near_green_with_context_commitment_blocker",
