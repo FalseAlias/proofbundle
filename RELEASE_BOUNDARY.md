@@ -1,6 +1,6 @@
 # Release Boundary
 
-This repository currently publishes a public attribution-evidence and provenance anchor for ProofBundle.
+This repository currently publishes a public provenance anchor for ProofBundle.
 
 It does not publish the full raw evidence archive.
 
@@ -16,31 +16,26 @@ Current public standing:
 blocked_not_release_green
 ```
 
-The merged publication surface establishes a public citation surface for attribution-evidence, provenance, standing boundaries, and reviewable repair history. It is a bounded anchor, not a completed adjudication of the full archive.
+The merged publication surface establishes a public citation surface for provenance, standing boundaries, and reviewable repair history. It is a bounded anchor, not a completed adjudication of the full archive.
 
 ## Current Public Anchor Chain
 
 Current repaired public surface includes the following merged PR chain:
 
 ```text
-PR #2  initial public attribution-evidence packet
+PR #2  initial public packet
 PR #3  release gate standard and Merkle evidence slice
 PR #6  Python standing correction to committed CI evidence
 PR #7  public manifest standing synchronization
 PR #8  cross-implementation standing correction
 PR #9  manifest metadata pending-recompute correction
+PR #13 README public-handle correction
 ```
 
 Latest inspected public-boundary merge in this chain:
 
 ```text
-PR #9 merge commit be295cf8f8448ffbb6c2da145da690669b514181
-```
-
-Prior public-anchor commit retained as lineage, not current sole standing source:
-
-```text
-PR #2 merge commit 432819a556afd36a99cab80dbae55f65d2dca962
+PR #13 merge commit f4da11a16bae603ed1ba7d38c6b909f5802d29f5
 ```
 
 Current controlling standing sources:
@@ -50,9 +45,29 @@ status.json
 STATUS.md
 PUBLIC_PROOFBUNDLE_MANIFEST_20260516.json
 conformance/cross_impl_results.json
+README.md
 ```
 
 These sources are aligned on `blocked_not_release_green` after the repair chain above.
+
+## Current Versus Historical Browser Artifacts
+
+Current public verifier surface:
+
+```text
+index.html
+web/proofbundle_v1_0_app.html
+web/2026-05-03_proofbundle_ui_v1.0.html
+```
+
+Historical genesis artifacts retained in the repository:
+
+```text
+2026-04-19_proofbundle_ui_genesis.html
+genesis/2026-04-19_proofbundle_ui_genesis.html
+```
+
+The genesis artifacts are historical source artifacts, not the current public verifier surface and not current release standing.
 
 ## Packet Standing
 
@@ -72,8 +87,6 @@ The current public packet records, at public-anchor level:
 
 ## Standing Separation
 
-Attribution-evidence standing is separate from formal proof closure.
-
 Raw evidence manifest standing is separate from raw evidence publication.
 
 Public merge standing is separate from release-green standing.
@@ -83,6 +96,8 @@ External witness standing is separate from truth, proof closure, or deployment r
 Bridge-reported standing is separate from committed reproduction evidence.
 
 A precise digest claim is separate from a pending-recompute metadata marker.
+
+Historical artifact retention is separate from current public standing.
 
 ## Required Before Stronger Release Claims
 
