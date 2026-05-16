@@ -1,6 +1,6 @@
 {
   "schema": "proofbundle-cross-implementation-results/1.0",
-  "generatedUtc": "2026-05-16T06:40:00Z",
+  "generatedUtc": "2026-05-16T07:31:00Z",
   "lane": "v1.0.0-alpha.1_conformance-manifest-sync",
   "standing": "partial_not_release_green",
   "releaseAllowed": false,
@@ -15,7 +15,16 @@
       "vectors": "300/300",
       "sampleRunner": "20/20",
       "verified_at_utc": "2026-05-16T07:20:00Z",
-      "verifier": "kimi-code-cli-current"
+      "verifier": "kimi-code-cli-current",
+      "implementationPath": "implementations/typescript-core-20260516",
+      "evidencePath": "conformance/kimi_20260516",
+      "bridgeSequences": [
+        2255,
+        2262,
+        2263,
+        2264
+      ],
+      "rootTreeCaveat": "root npm test passed 303/303 but corpus summary still reports 3 skipped rows"
     },
     "rust": {
       "standing": "reported_near_green_with_context_commitment_blocker",
@@ -26,5 +35,5 @@
       "standing": "patched_but_unverified"
     }
   },
-  "note": "This records known local standing only. It does not establish all-implementation agreement or release-green status."
+  "note": "This records known local standing only. It does not establish all-implementation agreement, formal proof closure, or release-green status."
 }

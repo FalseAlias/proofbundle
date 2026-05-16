@@ -1,0 +1,69 @@
+{
+  "schema": "proofbundle-kimi-typescript-handoff/1.0",
+  "generatedUtc": "2026-05-16T07:31:00Z",
+  "standing": "blocked_not_release_green",
+  "releaseAllowed": false,
+  "releaseGreen": false,
+  "sourceRoot": "proofbundle_working_20260515",
+  "repoImplementationPath": "implementations/typescript-core-20260516",
+  "repoGeneratedVectorsPath": "conformance/vectors.generated.json",
+  "evidencePath": "conformance/kimi_20260516",
+  "bridgeSequences": [
+    2255,
+    2262,
+    2263,
+    2264
+  ],
+  "results": {
+    "typescriptCore": {
+      "command": "npm test",
+      "path": "proofbundle_working_20260515/core",
+      "vectors": "300/300",
+      "pass": 300,
+      "fail": 0,
+      "skip": 0
+    },
+    "rootTree": {
+      "command": "npm test",
+      "path": "proofbundle_working_20260515",
+      "tests": 303,
+      "pass": 303,
+      "fail": 0,
+      "conformanceCorpusSummary": "297 passed, 0 failed, 3 skipped, total 300"
+    },
+    "python": {
+      "command": "pytest test/test_python_core.py",
+      "path": "proofbundle_working_20260515",
+      "pass": 4,
+      "fail": 0
+    }
+  },
+  "artifacts": [
+    {
+      "path": "implementations/typescript-core-20260516/src/signature.ts",
+      "sha256": "A7757B3489CB60A45F0EFB575C52A37CA416C8CA24907B297729535E881F7F0C"
+    },
+    {
+      "path": "conformance/vectors.generated.json",
+      "sha256": "354EAE0DEFD3B8270362B2417B07DA20A14133D38AC1889221796EA7E3460445"
+    },
+    {
+      "path": "conformance/kimi_20260516/vectors.generated.json",
+      "sha256": "354EAE0DEFD3B8270362B2417B07DA20A14133D38AC1889221796EA7E3460445"
+    },
+    {
+      "path": "conformance/kimi_20260516/js_test_output_300_300_20260516T0720Z.txt",
+      "sha256": "9CD85C4AEE3224B1347AF206FC99CB9BBFFDB9E10AEF26D092D55588E70CAD50"
+    },
+    {
+      "path": "conformance/kimi_20260516/py_test_output_300_300_20260516T0720Z.txt",
+      "sha256": "E31D661BEA9E9022D45439C5CA78B3C9652C613E2A426AB6655515F9BE19E555"
+    }
+  ],
+  "nonClaims": [
+    "release_green",
+    "release_allowed",
+    "formal_proof_closure",
+    "all_implementation_release_parity"
+  ]
+}
