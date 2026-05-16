@@ -1,0 +1,48 @@
+{
+  "schema": "proofbundle-status/1.0",
+  "generatedUtc": "2026-05-16T06:40:00Z",
+  "lane": "v1.0.0-alpha.1_conformance-manifest-sync",
+  "closurePhrase": "Closed for this lane. Open to governed evolution.",
+  "standing": "blocked_not_release_green",
+  "releaseAllowed": false,
+  "releaseGreen": false,
+  "formalProofClosureClaimed": false,
+  "conformance": {
+    "vectorsFile": "conformance/vectors_v1.json",
+    "vectors": 300,
+    "vectorsSha256": "7ACAF3C90DB8DF28BF250433FB29E31DC156482B3F1CEB30E08062E9C0560C1B"
+  },
+  "implementationMatrix": {
+    "python": "local full conformance passes 300/300 vectors",
+    "typescript": "local full 300-vector run measured 157/300; sample runner is 20/20; broader outcome-class blockers remain",
+    "rust": "cargo build and 18/18 unit tests reported passing; 36/37 conformance reported passing; context-commitment encoding blocker remains",
+    "go": "code patched; build and conformance unverified in the repair environment"
+  },
+  "proofStanding": {
+    "status": "guard_builds_passed_not_closed",
+    "auditFailuresRemaining": 189,
+    "note": "No formal proof closure is claimed by this browser artifact or repository snapshot."
+  },
+  "transcriptEvidence": {
+    "manifestSha256": "1C490970FB474B11DAD4AAD155CADEBB043BDE568C88D863505CBEDE545CD659",
+    "bridgeReadExtractSha256": "FD4800900911A904F2784AEE5758A029BAD19C2DB05DC105AA2823D580B2F568"
+  },
+  "classificationRule": {
+    "closedLane": true,
+    "allowedNextClasses": [
+      "existing-gate defect",
+      "governed v1.1 item",
+      "extension-pack item",
+      "proof-augmented item",
+      "inadmissible"
+    ]
+  },
+  "remainingBlockers": [
+    "TypeScript full conformance is 157/300, not green",
+    "TypeScript broader outcome-class blockers remain",
+    "Rust context-commitment encoding blocker",
+    "Go build/conformance unverified",
+    "Proof assistant guard scaffolds are narrow VM-checked guards only; no proof closure",
+    "No release signing or external timestamp proof included"
+  ]
+}

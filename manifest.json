@@ -1,0 +1,72 @@
+{
+  "schema": "proofbundle-lane-manifest/1.0",
+  "generatedUtc": "2026-05-16T06:38:17.1429396Z",
+  "lane": "v1.0.0-alpha.1_conformance-manifest-sync",
+  "closurePhrase": "Closed for this lane. Open to governed evolution.",
+  "standing": "blocked_not_release_green",
+  "releaseAllowed": false,
+  "releaseGreen": false,
+  "scope": "lane support manifest for repository source files; not a full zip-entry inventory or generated cache inventory",
+  "entries": [
+    {
+      "path": "README.md",
+      "bytes": 4808,
+      "sha256": "2EF14D3F065A02201B148D74C68F26CD990B8A4C5CD96CDDE8015F0F383CFA0B",
+      "lastWriteUtc": "2026-05-16T06:38:00.3609712Z"
+    },
+    {
+      "path": "STATUS.md",
+      "bytes": 1865,
+      "sha256": "02CE24C823C16457C1A20D358762766EDECE790D68F5455F59207940B1882BD6",
+      "lastWriteUtc": "2026-05-16T06:38:00.3324539Z"
+    },
+    {
+      "path": "status.json",
+      "bytes": 2014,
+      "sha256": "836006EF2B0A3CF33C662752D53D8429F9B98F15B50BFEF8392D7CAB89E5C0E2",
+      "lastWriteUtc": "2026-05-16T06:38:00.3444540Z"
+    },
+    {
+      "path": "web/proofbundle_v1_0_app.html",
+      "bytes": 178830,
+      "sha256": "C4E13F34C47FC10B15616E725837EA58227613F17BE6C9DF2EBCC93B114E4CEC",
+      "lastWriteUtc": "2026-05-16T06:38:00.3304460Z"
+    },
+    {
+      "path": "tests/proofbundle_app_static.test.mjs",
+      "bytes": 2723,
+      "sha256": "00735ED538CC29B0293AEBB4447F8AACCCFA9A77EE3B901CE5BDC69D60CAFA72",
+      "lastWriteUtc": "2026-05-16T06:38:00.3314570Z"
+    },
+    {
+      "path": "conformance/vectors_v1.json",
+      "bytes": 593462,
+      "sha256": "7ACAF3C90DB8DF28BF250433FB29E31DC156482B3F1CEB30E08062E9C0560C1B",
+      "lastWriteUtc": "2026-05-16T06:30:50.5017830Z"
+    },
+    {
+      "path": "conformance/cross_impl_results.json",
+      "bytes": 851,
+      "sha256": "E6F8FE46A970C85FFE4ED1325CADFC30671BC12E0FFA3EB9E757DE2638500391",
+      "lastWriteUtc": "2026-05-16T06:38:00.3539682Z"
+    },
+    {
+      "path": "docs/VERIFIER_TRACE_SCHEMA.md",
+      "bytes": 552,
+      "sha256": "D43142F75B00C4C4CAEFF45908DDF7DCB9A115A79A27CE2079579DF415DCCD8E",
+      "lastWriteUtc": "2026-05-16T06:38:00.3549678Z"
+    },
+    {
+      "path": "docs/BOUNDARY_PREDICATE_AUDIT.md",
+      "bytes": 704,
+      "sha256": "412DCE917D49129F41B6924FBD39208A9E8B6A450C89A22479B6417BFA548F5A",
+      "lastWriteUtc": "2026-05-16T06:38:00.3559688Z"
+    },
+    {
+      "path": "proofs/PROOF_STATUS.md",
+      "bytes": 700,
+      "sha256": "B4D527429CC86FEC9218F6DE72B042137A1A8100C15070801FC0EEE7E9E7C0E7",
+      "lastWriteUtc": "2026-05-16T06:38:00.3589708Z"
+    }
+  ]
+}
