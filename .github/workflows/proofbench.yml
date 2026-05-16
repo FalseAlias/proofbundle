@@ -1,0 +1,66 @@
+name: Proofbench
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 */6 * * *"
+
+jobs:
+  proofbench:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.14"
+      - name: Install Z3
+        run: sudo apt-get update && sudo apt-get install -y z3
+      - name: Run proofbench
+        run: |
+          python scripts/proofbench.py --note "github actions proofbench"
+      - name: Upload proofbench status
+        uses: actions/upload-artifact@v5
+        with:
+          name: proofbench-status
+          path: |
+            proofs/PROOF_STATUS.generated.json
+            proofs/PROOF_LEDGER.jsonl
+
+  conformance-python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.14"
+      - name: Install Python dependencies
+        run: |
+          pip install -e .
+      - name: Run Python conformance tests
+        run: |
+          python -m pytest test/test_python_core.py -v
+      - name: Run Python vector generator
+        run: |
+          python scripts/generate_conformance.py
+      - name: Verify vectors count
+        run: |
+          python -c "import json; d=json.load(open('conformance/vectors.generated.json')); assert d['vector_count'] == 300, f'Expected 300 vectors, got {d[\"vector_count\"]}'"
+
+  conformance-typescript:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "24"
+      - name: Install Node dependencies
+        run: |
+          cd core && npm ci
+      - name: Build TypeScript
+        run: |
+          cd core && npm run build
+      - name: Run TypeScript conformance tests
+        run: |
+          cd core && npm test
