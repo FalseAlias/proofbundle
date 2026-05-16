@@ -1,27 +1,10 @@
 package proofbundle
 
 import (
+	"bytes"
 	"encoding/base64"
 	"encoding/json"
-	"fmt"
 )
-
-// Seal is the cryptographic seal in a ProofBundle.
-type Seal struct {
-	SigAlg        string `json:"sigAlg"`
-	DigestAlg     string `json:"digestAlg"`
-	SignatureB64u string `json:"signature_b64u"`
-	DigestB64u    string `json:"digest_b64u"`
-}
-
-// Bundle is a minimal ProofBundle structure for verification.
-type Bundle struct {
-	Hdr     map[string]any `json:"hdr"`
-	Payload map[string]any `json:"payload"`
-	Meta    map[string]any `json:"meta"`
-	Refs    map[string]any `json:"refs"`
-	Seal    Seal           `json:"seal"`
-}
 
 // VerifyResult holds the outcome of verification.
 type VerifyResult struct {
@@ -31,18 +14,46 @@ type VerifyResult struct {
 
 // VerifyBundle checks a ProofBundle's cryptographic integrity.
 func VerifyBundle(bundleJSON []byte, publicKeyB64u string) (*VerifyResult, error) {
-	var b Bundle
-	if err := json.Unmarshal(bundleJSON, &b); err != nil {
+	// Parse with json.Number to preserve numeric representation
+	var bundle map[string]any
+	dec := json.NewDecoder(bytes.NewReader(bundleJSON))
+	dec.UseNumber()
+	if err := dec.Decode(&bundle); err != nil {
 		return nil, err
 	}
 
-	// Re-marshal and canonicalize to preserve numeric representation
-	withoutSeal := map[string]any{
-		"hdr":     b.Hdr,
-		"payload": b.Payload,
-		"meta":    b.Meta,
-		"refs":    b.Refs,
+	// Extract seal
+	sealRaw, ok := bundle["seal"].(map[string]any)
+	if !ok {
+		return &VerifyResult{Outcome: "invalid-signature"}, nil
 	}
+
+	sigAlg := stringValue(sealRaw["sig_alg"])
+	if sigAlg == "" {
+		sigAlg = stringValue(sealRaw["sigAlg"])
+	}
+	digestAlg := stringValue(sealRaw["digest_alg"])
+	if digestAlg == "" {
+		digestAlg = stringValue(sealRaw["digestAlg"])
+	}
+	digestB64u := stringValue(sealRaw["digest_b64u"])
+	if digestB64u == "" {
+		digestB64u = stringValue(sealRaw["digestB64u"])
+	}
+	signatureB64u := stringValue(sealRaw["signature_b64u"])
+	if signatureB64u == "" {
+		signatureB64u = stringValue(sealRaw["signatureB64u"])
+	}
+
+	// Build canonicalization input without seal
+	withoutSeal := map[string]any{}
+	for k, v := range bundle {
+		if k != "seal" {
+			withoutSeal[k] = v
+		}
+	}
+
+	// Re-marshal and canonicalize to preserve numeric representation
 	stdJSON, err := json.Marshal(withoutSeal)
 	if err != nil {
 		return nil, err
@@ -53,31 +64,44 @@ func VerifyBundle(bundleJSON []byte, publicKeyB64u string) (*VerifyResult, error
 	}
 
 	// Compute digest
-	digest, err := DigestBytes(canon, b.Seal.DigestAlg)
+	digest, err := DigestBytes(canon, digestAlg)
 	if err != nil {
-		return &VerifyResult{Outcome: "invalid-digest-algorithm", SigAlg: b.Seal.SigAlg}, nil
+		return &VerifyResult{Outcome: "invalid-digest-algorithm", SigAlg: sigAlg}, nil
 	}
 
 	// Verify digest match
-	declaredDigest, err := base64.RawURLEncoding.DecodeString(b.Seal.DigestB64u)
+	declaredDigest, err := base64.RawURLEncoding.DecodeString(digestB64u)
 	if err != nil {
-		return &VerifyResult{Outcome: "invalid-signature", SigAlg: b.Seal.SigAlg}, nil
+		return &VerifyResult{Outcome: "invalid-signature", SigAlg: sigAlg}, nil
 	}
 	if !bytesEqual(digest, declaredDigest) {
-		return &VerifyResult{Outcome: "invalid-signature", SigAlg: b.Seal.SigAlg}, nil
+		return &VerifyResult{Outcome: "invalid-signature", SigAlg: sigAlg}, nil
 	}
 
 	// Verify signature
-	sig, err := base64.RawURLEncoding.DecodeString(b.Seal.SignatureB64u)
+	sig, err := base64.RawURLEncoding.DecodeString(signatureB64u)
 	if err != nil {
-		return &VerifyResult{Outcome: "invalid-signature", SigAlg: b.Seal.SigAlg}, nil
+		return &VerifyResult{Outcome: "invalid-signature", SigAlg: sigAlg}, nil
 	}
-	ok, err := VerifyDigest(publicKeyB64u, b.Seal.SigAlg, digest, sig)
+	ok, err = VerifyDigest(publicKeyB64u, sigAlg, digest, sig)
 	if err != nil || !ok {
-		return &VerifyResult{Outcome: "invalid-signature", SigAlg: b.Seal.SigAlg}, nil
+		return &VerifyResult{Outcome: "invalid-signature", SigAlg: sigAlg}, nil
 	}
 
-	return &VerifyResult{Outcome: "verified", SigAlg: b.Seal.SigAlg}, nil
+	return &VerifyResult{Outcome: "verified", SigAlg: sigAlg}, nil
+}
+
+func stringValue(v any) string {
+	if v == nil {
+		return ""
+	}
+	if s, ok := v.(string); ok {
+		return s
+	}
+	if n, ok := v.(json.Number); ok {
+		return string(n)
+	}
+	return ""
 }
 
 func bytesEqual(a, b []byte) bool {

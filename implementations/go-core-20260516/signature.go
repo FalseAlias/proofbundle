@@ -7,8 +7,6 @@ import (
 	"crypto/elliptic"
 	"crypto/rand"
 	"crypto/rsa"
-	"crypto/sha256"
-	"crypto/sha512"
 	"crypto/x509"
 	"encoding/asn1"
 	"encoding/base64"
@@ -163,7 +161,7 @@ func VerifyDigest(publicKeyB64u string, sigAlg string, digest []byte, signature 
 
 	case "ECDSA-P256", "ECDSA-P384", "ECDSA-P521":
 		pub := key.(*ecdsa.PublicKey)
-		return ecdsa.VerifyASN1(pub, digest, signature)
+		return ecdsa.VerifyASN1(pub, digest, signature), nil
 
 	case "RSA-PSS-2048", "RSA-PSS-3072", "RSA-PSS-4096":
 		pub := key.(*rsa.PublicKey)

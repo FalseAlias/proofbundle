@@ -12,8 +12,9 @@ Standard-library-only implementation of ProofBundle v1.0.0 canonicalization, dig
 | Ed25519 sign/verify | Implemented |
 | ECDSA-P256/P384/P521 sign/verify | Implemented |
 | RSA-PSS-2048/3072/4096 sign/verify | Implemented |
-| Bundle verification | Implemented |
-| Conformance vectors | 240/300 pass (60 skipped for BLAKE3/BLAKE2b) |
+| Bundle verification | Implemented (cryptographic integrity only) |
+| Conformance vectors | 145/300 pass, 96 skipped (BLAKE3/BLAKE2b), 59 fail (semantic checks not implemented) |
+| Cryptographic verification | 41/41 non-BLAKE `verified` vectors pass |
 
 ## Running tests
 
@@ -22,10 +23,11 @@ cd go
 go test -v ./...
 ```
 
-Note: Go toolchain is not installed in the current workspace; tests are pending CI or local Go installation.
+Note: Go toolchain was not installed in the current workspace during development; tested via downloaded portable Go 1.22.4.
 
 ## Design notes
 
 - ECDSA signing uses `ecdsa.SignASN1` directly to avoid double-hashing by the `crypto.Signer` interface.
 - RSA-PSS uses `salt_length = digest_length` to match Python `cryptography` behavior.
 - Canonical JSON preserves numeric representation via `json.Number` to match Python `json.dumps` float formatting.
+- The verifier implements cryptographic integrity only. Semantic checks (boundary, lineage, profile, version) are not implemented, causing ~59 conformance vectors to report `verified` instead of semantic outcomes like `out-of-bounds`.

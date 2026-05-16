@@ -1,3 +1,5 @@
-module github.com/FalseAlias/proofbundle/implementations/go-core-20260516
+module github.com/proofbundle/proofbundle
 
 go 1.22
+
+require golang.org/x/text v0.15.0

@@ -10,8 +10,8 @@ import (
 
 func loadVectors(t *testing.T) []map[string]any {
 	vectorPaths := []string{
-		"../conformance/vectors_v1.json",
 		"../conformance/vectors.generated.json",
+		"../conformance/vectors_v1.json",
 	}
 	for _, p := range vectorPaths {
 		absPath, err := filepath.Abs(p)
@@ -22,13 +22,15 @@ func loadVectors(t *testing.T) []map[string]any {
 		if err != nil {
 			continue
 		}
-		var vectors []map[string]any
-		dec := json.NewDecoder(bytes.NewReader(data))
-		dec.UseNumber()
-		if err := dec.Decode(&vectors); err != nil {
+		var wrapper struct {
+			Vectors []map[string]any `json:"vectors"`
+		}
+		if err := json.Unmarshal(data, &wrapper); err != nil {
 			continue
 		}
-		return vectors
+		if len(wrapper.Vectors) > 0 {
+			return wrapper.Vectors
+		}
 	}
 	t.Skip("no conformance vectors found")
 	return nil
@@ -42,11 +44,10 @@ func TestConformanceVectors(t *testing.T) {
 	skipped := 0
 
 	for i, vec := range vectors {
-		sigAlg, _ := vec["sigAlg"].(string)
-		digestAlg, _ := vec["digestAlg"].(string)
-		publicKeyB64u, _ := vec["publicKey_b64u"].(string)
-		signatureB64u, _ := vec["signature_b64u"].(string)
-		expectedOutcome, _ := vec["expectedOutcome"].(string)
+		sigAlg, _ := vec["sig_alg"].(string)
+		digestAlg, _ := vec["digest_alg"].(string)
+		publicKeyB64u, _ := vec["public_key_b64u"].(string)
+		expectedOutcome, _ := vec["expected_outcome"].(string)
 
 		// Skip unsupported digest algorithms for now (BLAKE3/BLAKE2b)
 		if digestAlg == "BLAKE3" || digestAlg == "BLAKE2b" {
@@ -54,21 +55,16 @@ func TestConformanceVectors(t *testing.T) {
 			continue
 		}
 
-		// Build bundle from vector using json.Number for numeric fidelity
-		bundleMap := map[string]any{
-			"hdr":     vec["hdr"],
-			"payload": vec["payload"],
-			"meta":    vec["meta"],
-			"refs":    vec["refs"],
-			"seal": map[string]any{
-				"sigAlg":         sigAlg,
-				"digestAlg":      digestAlg,
-				"signature_b64u": signatureB64u,
-				"digest_b64u":    vec["digest_b64u"],
-			},
+		// The vector contains a full "bundle" object
+		bundleRaw, ok := vec["bundle"].(map[string]any)
+		if !ok {
+			t.Logf("vector %d: no bundle field", i)
+			failed++
+			continue
 		}
-		// Re-parse through JSON to get json.Number semantics
-		stdJSON, err := json.Marshal(bundleMap)
+
+		// Marshal and re-parse with json.Number for canonical fidelity
+		stdJSON, err := json.Marshal(bundleRaw)
 		if err != nil {
 			t.Logf("vector %d: marshal error: %v", i, err)
 			failed++
@@ -83,10 +79,9 @@ func TestConformanceVectors(t *testing.T) {
 			continue
 		}
 
-		// Re-marshal for VerifyBundle
 		bundleJSON, err := json.Marshal(reparsed)
 		if err != nil {
-			t.Logf("vector %d: marshal error: %v", i, err)
+			t.Logf("vector %d: remarshal error: %v", i, err)
 			failed++
 			continue
 		}
