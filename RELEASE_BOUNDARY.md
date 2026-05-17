@@ -16,6 +16,8 @@ Current public standing:
 blocked_not_release_green
 ```
 
+The active public lane is `1.0.0`. Later `1.1.0` or `1.2.0` labels appearing in historical browser artifacts are not controlling release-green standing for this lane.
+
 The merged publication surface establishes a public citation surface for attribution-evidence, provenance, standing boundaries, and reviewable repair history. It is a bounded anchor, not a completed adjudication of the full archive.
 
 ## Current Public Anchor Chain
@@ -23,18 +25,21 @@ The merged publication surface establishes a public citation surface for attribu
 Current repaired public surface includes the following merged PR chain:
 
 ```text
-PR #2  initial public attribution-evidence packet
-PR #3  release gate standard and Merkle evidence slice
-PR #6  Python standing correction to committed CI evidence
-PR #7  public manifest standing synchronization
-PR #8  cross-implementation standing correction
-PR #9  manifest metadata pending-recompute correction
+PR #2   initial public attribution-evidence packet
+PR #3   release gate standard and Merkle evidence slice
+PR #6   Python standing correction to committed CI evidence
+PR #7   public manifest standing synchronization
+PR #8   cross-implementation standing correction
+PR #9   manifest metadata pending-recompute correction
+PR #10  release boundary anchor-chain correction
+PR #11  public documentation standing correction
+PR #13  README public-handle identity-surface correction
 ```
 
 Latest inspected public-boundary merge in this chain:
 
 ```text
-PR #9 merge commit be295cf8f8448ffbb6c2da145da690669b514181
+PR #13 merge commit f4da11a16bae603ed1ba7d38c6b909f5802d29f5
 ```
 
 Prior public-anchor commit retained as lineage, not current sole standing source:
@@ -46,6 +51,8 @@ PR #2 merge commit 432819a556afd36a99cab80dbae55f65d2dca962
 Current controlling standing sources:
 
 ```text
+README.md
+RELEASE_BOUNDARY.md
 status.json
 STATUS.md
 PUBLIC_PROOFBUNDLE_MANIFEST_20260516.json
@@ -53,6 +60,20 @@ conformance/cross_impl_results.json
 ```
 
 These sources are aligned on `blocked_not_release_green` after the repair chain above.
+
+## Companion Audit Tool Standing
+
+The adversarial audit companion is a local browser smoke-audit tool. It is useful for mutation testing sealed bundles against Merkle and ED25519 verification paths.
+
+It is not a proof of full system correctness.
+
+It is not a formal proof closure certificate.
+
+It is not a release-green claim.
+
+It is not a replacement for reproducible multi-implementation conformance.
+
+The audit companion belongs to the active `1.0.0` public lane unless a later governed lane is explicitly opened.
 
 ## Packet Standing
 
@@ -83,6 +104,8 @@ External witness standing is separate from truth, proof closure, or deployment r
 Bridge-reported standing is separate from committed reproduction evidence.
 
 A precise digest claim is separate from a pending-recompute metadata marker.
+
+Historical artifact version labels are separate from controlling public-lane version standing.
 
 ## Required Before Stronger Release Claims
 
