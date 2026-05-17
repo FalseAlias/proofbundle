@@ -1,6 +1,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 
 const repoRoot = process.cwd();
 const outDir = path.join(repoRoot, 'manifest');
@@ -40,6 +41,22 @@ function stableJson(value) {
   return JSON.stringify(stable(value));
 }
 
+function gitTrackedFiles() {
+  try {
+    const raw = execFileSync('git', ['ls-files', '-z', '--cached'], { cwd: repoRoot });
+    return new Set(raw.toString('utf8').split('\0').filter(Boolean).map((rel) => rel.replaceAll('\\', '/')));
+  } catch {
+    return new Set();
+  }
+}
+
+function gitBlobBytes(rel) {
+  return execFileSync('git', ['cat-file', 'blob', `:${rel}`], {
+    cwd: repoRoot,
+    maxBuffer: 1024 * 1024 * 1024,
+  });
+}
+
 function shouldSkip(rel) {
   const parts = rel.split(/[\\/]+/);
   if (parts.some((part) => excludedParts.has(part))) return true;
@@ -74,10 +91,12 @@ function merkleRoot(leaves) {
   return level[0];
 }
 
+const trackedFiles = gitTrackedFiles();
 const files = walk(repoRoot).sort();
 const leaves = files.map((rel) => {
   const full = path.join(repoRoot, rel);
-  const bytes = fs.readFileSync(full);
+  const source = trackedFiles.has(rel) ? 'git_index_blob' : 'filesystem_untracked';
+  const bytes = source === 'git_index_blob' ? gitBlobBytes(rel) : fs.readFileSync(full);
   const stat = fs.statSync(full);
   const fileSha256 = sha256Bytes(bytes);
   const leafPayload = {
@@ -91,6 +110,7 @@ const leaves = files.map((rel) => {
     sha256: fileSha256,
     sha384: sha384Bytes(bytes),
     sha512: sha512Bytes(bytes),
+    hash_source: source,
     mtime_utc: stat.mtime.toISOString(),
     leaf_sha256: sha256Bytes(stableJson(leafPayload)),
   };
