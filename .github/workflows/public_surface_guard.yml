@@ -1,0 +1,45 @@
+name: public-surface-guard
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: verify controlling public lane
+        run: |
+          grep -q '\*\*Version:\*\* 1.0.0' README.md
+          grep -q 'blocked_not_release_green' README.md
+          grep -q 'blocked_not_release_green' RELEASE_BOUNDARY.md
+
+      - name: verify release boundary freshness
+        run: |
+          grep -q 'PR #13' RELEASE_BOUNDARY.md
+          grep -q 'PR #14' RELEASE_BOUNDARY.md
+
+      - name: verify required public files exist
+        run: |
+          test -f README.md
+          test -f RELEASE_BOUNDARY.md
+          test -f STATUS.md
+          test -f status.json
+          test -f PUBLIC_PROOFBUNDLE_MANIFEST_20260516.json
+          test -f web/proofbundle_v1_0_app.html
+
+      - name: verify forbidden identity leakage absent from controlling docs
+        run: |
+          if grep -R 'Chaleb Tajia Russell' README.md RELEASE_BOUNDARY.md STATUS.md status.json PUBLIC_PROOFBUNDLE_MANIFEST_20260516.json; then
+            echo 'Forbidden identity surface leakage found.'
+            exit 1
+          fi
+
+      - name: verify historical version drift remains bounded
+        run: |
+          grep -q 'Historical artifact version labels are separate from controlling public-lane version standing.' RELEASE_BOUNDARY.md
