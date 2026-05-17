@@ -1,6 +1,6 @@
 {
   "schema": "proofbundle-status/1.0",
-  "generatedUtc": "2026-05-17T07:22:25Z",
+  "generatedUtc": "2026-05-17T07:32:18Z",
   "lane": "v1.0.0-alpha.1_conformance-manifest-sync",
   "closurePhrase": "Closed for this lane. Open to governed evolution.",
   "standing": "blocked_not_release_green",
@@ -17,7 +17,7 @@
       "typescript": "300 / 300"
     },
     "ciEvidence": {
-      "typescript": "GitHub Proofbench full 300-vector conformance gate passed on PR #3 head 97f21d748c40fcd2f256d5a00a742594d6d408c7",
+      "typescript": "GitHub Proofbench and local generated-corpus checks passed 300/300 against conformance/vectors.generated.json; local direct check against conformance/vectors_v1.json reported 270 passed / 30 failed",
       "python": "Local 2026-05-17T07:22Z Python full-vector check against python/tests/test_conformance.py reported 274 passed / 94 failed; prior GitHub Proofbench evidence only covered Python schema/import/smoke",
       "go": "GitHub Proofbench Go test gate passed on PR #3 head 97f21d748c40fcd2f256d5a00a742594d6d408c7",
       "staticBrowser": "GitHub static browser artifact check passed on PR #3 head 97f21d748c40fcd2f256d5a00a742594d6d408c7"
@@ -25,7 +25,7 @@
   },
   "implementationMatrix": {
     "python": "committed GitHub evidence currently covers Python package import, profile constants, vector corpus shape/count/unique IDs, required vector fields, and signed-vector smoke sample V0001-V0003; full 300-vector Python parity remains a release blocker unless separately reproduced and committed",
-    "typescript": "committed GitHub Proofbench evidence covers 300/300 public-alpha conformance; release-green remains blocked until reproduction records, cross-implementation closure, proof audit, and witnessing gates are committed",
+    "typescript": "local 2026-05-17T07:22Z generated-corpus check passed 300/300; direct release-corpus vectors_v1.json check reported 270/300 with RSA-PSS leftmost-octets failures",
     "rust": "cargo build and 18/18 unit tests reported passing; 36/37 conformance reported passing; context-commitment encoding blocker remains",
     "go": "committed GitHub Proofbench evidence covers current Go test gate; full Go/vector parity status remains bounded by the current test suite"
   },
@@ -110,7 +110,7 @@
   },
   "remainingBlockers": [
     "Python full 300-vector parity currently fails locally: 274 passed / 94 failed on 2026-05-17T07:22Z",
-    "TypeScript 300-vector conformance passed locally on 2026-05-17T07:22Z; release-green still needs comparable cross-implementation closure and proof/witness gates",
+    "TypeScript generated-corpus check passed locally on 2026-05-17T07:22Z, but direct vectors_v1.json release-corpus check reported 270 passed / 30 failed",
     "Rust context-commitment encoding blocker",
     "Full Go/vector parity remains bounded by current committed test evidence",
     "Proof assistant guard scaffolds are narrow VM-checked guards only; no proof closure",

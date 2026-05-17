@@ -1,12 +1,12 @@
 {
   "schema": "ProofBundlePublicAlphaManifest/2026-05-16",
-  "generated_utc": "2026-05-17T07:22:25Z",
+  "generated_utc": "2026-05-17T07:32:18Z",
   "public_alpha_standing": "blocked_not_release_green",
   "release_status": "blocked_not_release_green",
   "release_green": false,
   "proof_closed": false,
   "status_source": "status.json",
-  "status_source_generated_utc": "2026-05-17T07:22:25Z",
+  "status_source_generated_utc": "2026-05-17T07:32:18Z",
   "standing_note": "Public alpha is live as a review surface, but release standing is blocked_not_release_green. This manifest does not assert release-green, universal closure, or proof closure.",
   "public_pages": {
     "pages_url": "https://falsealias.github.io/proofbundle/",
@@ -137,7 +137,7 @@
     }
   ],
   "ci_evidence": {
-    "typescript": "GitHub Proofbench full 300-vector conformance gate passed on PR #3 head 97f21d748c40fcd2f256d5a00a742594d6d408c7",
+    "typescript": "GitHub Proofbench and local generated-corpus checks passed 300/300 against conformance/vectors.generated.json; local direct check against conformance/vectors_v1.json reported 270 passed / 30 failed",
     "python": "GitHub Proofbench Python schema/import/smoke gate passed on PR #3 head 97f21d748c40fcd2f256d5a00a742594d6d408c7; full 300-vector Python parity is not claimed by committed CI evidence",
     "go": "GitHub Proofbench Go test gate passed on PR #3 head 97f21d748c40fcd2f256d5a00a742594d6d408c7",
     "static_browser": "GitHub static browser artifact check passed on PR #3 head 97f21d748c40fcd2f256d5a00a742594d6d408c7"
@@ -149,7 +149,8 @@
     "local_python_full_vector_check_20260517T0722Z": "274 passed / 94 failed",
     "bridge_reported_javascript_conformance": "303 / 303",
     "bridge_reported_typescript_conformance": "300 / 300",
-    "local_typescript_full_vector_check_20260517T0722Z": "300 passed / 0 failed",
+    "local_typescript_generated_vector_check_20260517T0722Z": "300 passed / 0 failed against conformance/vectors.generated.json",
+    "local_typescript_vectors_v1_check_20260517T0730Z": "270 passed / 30 failed against conformance/vectors_v1.json; RSA-PSS leftmost-octets failures",
     "vm_audit_total_files_checked": 8,
     "vm_audit_compilation_passed": 1,
     "vm_audit_compilation_failed": 6,
