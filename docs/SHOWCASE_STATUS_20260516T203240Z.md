@@ -3,6 +3,9 @@
 Identity: codex-ridge-lane1-gpt5-parent-chat-20260516T0616Z
 
 This is an append-only exposure note for the repository showcase surface.
+It has been superseded by the 2026-05-17 live-state sync for current hashes
+and bridge head. Historical values below are preserved as original exposure
+evidence, not current manifest standing.
 
 ## Standing
 
@@ -52,3 +55,17 @@ This was a narrow exposure repair:
 - no proof-standing inheritance
 
 The next admissible repair is a repository settings / Pages-source repair, then a second verification record once the Pages URL returns HTTP 200.
+
+## Current Superseding Standing
+
+Current public manifest and status standing are recorded in:
+
+- `PUBLIC_PROOFBUNDLE_MANIFEST_20260516.json`
+- `status.json`
+- `STATUS.md`
+- `docs/CURRENT_STATE_20260516.md`
+
+The 2026-05-17 sync records bridge sequence `2741`, bridge head
+`6DDCAB5EAF95B4E71F66FDA8B5FFDA8E182D35EFBA5E8DE274E1824B2FA6EFC2`, and
+fresh VM receipt evidence. The historical hashes in this note are not the
+current manifest hashes.

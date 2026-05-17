@@ -4,8 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ProofBundle Public Alpha</title>
-  <link rel="manifest" href="app_wrappers/pwa/manifest.json">
-  <meta name="theme-color" content="#151515">
   <style>
     :root { color-scheme: light dark; }
     body {
@@ -71,6 +69,8 @@
         <div class="card"><a href="README.md">README</a></div>
         <div class="card"><a href="STATUS.md">Status</a></div>
         <div class="card"><a href="docs/CURRENT_STATE_20260516.md">Current state snapshot</a></div>
+        <div class="card"><a href="docs/CONTROLLED_CORPUS_BOUNDARY_20260517.md">Controlled corpus boundary</a></div>
+        <div class="card"><a href="docs/PROOF_TRANCHE_PUBLICATION_POLICY_20260517.md">Proof tranche publication policy</a></div>
         <div class="card"><a href="conformance/vectors_v1.json">300-vector corpus</a></div>
         <div class="card"><a href="proofs/PROOF_INVENTORY.generated.json">Canonical proof inventory</a></div>
         <div class="card"><a href="proofs/PROOF_LEDGER.jsonl">Full inventory reference</a></div>
@@ -85,18 +85,25 @@
     <section>
       <h2>Latest Confirmed Bridge Root</h2>
       <p>
-        Latest confirmed bridge sequence in this publication pass:
-        <code>2684</code>.
+        Latest confirmed bridge sequence in this live sync pass:
+        <code>2741</code>.
       </p>
       <p>
         Latest confirmed bridge hash-chain head:
-        <code>BBC43459FC55341897D8DD13B03D202238C4F0BA7A5AB0AD23528BB646E62252</code>.
+        <code>6DDCAB5EAF95B4E71F66FDA8B5FFDA8E182D35EFBA5E8DE274E1824B2FA6EFC2</code>.
       </p>
       <p>
         Bridge Merkle standing: roots are bridge-reported across four major
-        sequences. Where no Merkle root artifact is committed here, this public
-        manifest records <code>unknown</code>. The hash-chain head is not
-        mislabeled as a Merkle root.
+        sequences. The current repository Merkle root is recorded in
+        <a href="./manifest/LATEST_REPO_MERKLE_ROOT.txt">manifest/LATEST_REPO_MERKLE_ROOT.txt</a>
+        with the leaf inventory in
+        <a href="./manifest/LATEST_REPO_MERKLE_MANIFEST.json">manifest/LATEST_REPO_MERKLE_MANIFEST.json</a>.
+        The hash-chain head is not mislabeled as a Merkle root.
+      </p>
+      <p>
+        OTS standing:
+        <a href="./manifest/ots_submission_index_20260517T050616Z.json">repo Merkle tick 20260517T050554Z submitted over Tor</a>.
+        Later witness files are captured by the next Merkle tick.
       </p>
     </section>
 
@@ -113,6 +120,19 @@
       <p>
         These are indexed corpus and standing numbers. They are not a universal
         closure claim and not a proof-closed claim.
+      </p>
+    </section>
+
+    <section>
+      <h2>Live VM Receipt Standing</h2>
+      <div class="grid">
+        <div class="card"><strong>VM1:</strong><br><code>proofbundle-dev-20260513</code><br>71 tmux sessions, 159GB free, CPU saturated</div>
+        <div class="card"><strong>VM2:</strong><br><code>proofbundle-dev-20260516-b</code><br>51 tmux sessions, 40GB free, CPU saturated</div>
+        <div class="card"><strong>Fresh receipt check:</strong><br><code>2026-05-17T05:28:44Z</code><br>receipts observed through <code>2026-05-17T05:26Z</code></div>
+      </div>
+      <p>
+        The public repository is a receipt-backed alpha surface. The full
+        private formal-math corpus is not committed here by default.
       </p>
     </section>
 

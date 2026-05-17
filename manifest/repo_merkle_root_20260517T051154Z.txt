@@ -1,0 +1,8 @@
+schema: proofbundle-repo-merkle-root/1.0
+generated_at_utc: 2026-05-17T05:11:54.785Z
+repo_root: .
+file_count: 487
+zero_byte_file_count: 2
+merkle_root_sha256: 8C2CC5A17DF30BE1BD660E644E594C3F5B393C60CC88451B5F28E68CB7477C2F
+manifest_path: manifest/repo_merkle_manifest_20260517T051154Z.json
+manifest_sha256: 54E64FCE338B4BBFD5C3F4C8E40B71669167EECD58D64ED77055EFAFB44CE00C

@@ -1,4 +1,4 @@
-# Current State - 2026-05-16
+# Current State - 2026-05-17 live sync
 
 This is a current-state snapshot for the public ProofBundle repository. It is
 not a release-green claim and not a proof-closed claim.
@@ -8,8 +8,10 @@ not a release-green claim and not a proof-closed claim.
 - GitHub Pages root: `https://falsealias.github.io/proofbundle/`
 - Browser app path: `https://falsealias.github.io/proofbundle/web/proofbundle_v1_0_app.html`
 - local app file: `web/proofbundle_v1_0_app.html`
-- local app bytes: 182,322
-- local app SHA-256: `313A25F33DC823B6F41A430041573CD5C4B3E69C07374E8306B40D5D0EE698C2`
+- local app bytes: 185,672
+- local app SHA-256: `9E142474ADA016AB930E4A7D20D2181374CA0ED8325BB6994A615906C8B06D4A`
+- local app SHA-384: `E26841A01BAF86AE56E57F494969DC857B1F02485CDCF57C44A4A1D5889BC301556B594EB319C5BFE04FC12C53C9967C`
+- local app SHA-512: `441FA26BCC7F3CD79A53C554DD6C27679FB91293E2925AACFC2BDC9F782CAFCC0360BD0D5E90137B3E5D2702624C53482041CE57D5A278F36234995AAA38D923`
 - dated browser artifact: `web/2026-05-03_proofbundle_ui_v1.0.html`
 
 ## Conformance Vectors
@@ -56,9 +58,9 @@ The bridge-reported public alpha snapshot relayed for publication records:
 - Isabelle: 981
 - Z3: 121
 - Python: 113
-- verified bridge records in the source report: 2,639
-- current verified bridge sequence in this publication pass: 2,684
-- current verified bridge head: `BBC43459FC55341897D8DD13B03D202238C4F0BA7A5AB0AD23528BB646E62252`
+- verified bridge records in the older source report: 2,639
+- current verified bridge sequence in this live sync pass: 2,741
+- current verified bridge head: `6DDCAB5EAF95B4E71F66FDA8B5FFDA8E182D35EFBA5E8DE274E1824B2FA6EFC2`
 - OTS artifacts present in the source report: 2,634 / 2,634
 - Python conformance: 4 / 4
 - JavaScript conformance: 303 / 303
@@ -77,30 +79,59 @@ indexed proof corpus has universal closure.
 
 ## VM State
 
-Primary worker VM:
+Primary worker VM, fresh SSH check at `2026-05-17T05:28:44Z`:
 
 - `proofbundle-dev-20260513`
 - 8 vCPUs
-- 200GB disk
-- 96 tmux sessions observed
-- 193 `agent_loop.mjs` processes observed
+- 193GB mounted root disk
+- 34GB used, 159GB available
+- 71 tmux sessions observed
+- load average: `17.32, 18.68, 13.18`
+- fresh scavenger and worker receipts observed through `2026-05-17T05:26Z`
 
-Second worker VM:
+Second worker VM, fresh SSH check at `2026-05-17T05:28:44Z`:
 
 - `proofbundle-dev-20260516-b`
 - 4 vCPUs
-- 50GB disk
-- SSH verified
-- baseline tools installed: git, node/npm, tmux, rsync, jq, Python, Coq, Z3
+- 49GB mounted root disk
+- 8GB used, 40GB available
+- 51 tmux sessions observed
+- load average: `33.10, 32.07, 19.67`
+- fresh scavenger and worker receipts observed through `2026-05-17T05:26Z`
+
+Current resource reading: storage is not the bottleneck. CPU is saturated.
+
+## Controlled Corpus Boundary
+
+The full formal mathematics corpus is not committed to this public repository
+by default. Public alpha publishes receipts, hashes, Merkle roots, indexes,
+selected reviewed artifacts, standing records, and quarantine evidence.
+
+Publication of additional proof source happens by tranche:
+
+- reviewed proof source
+- exact inventory hash
+- build or audit log
+- Merkle root or external timestamp witness
+- standing note
+
+This preserves adversarial review while avoiding an uncontrolled transfer of
+the full private corpus.
 
 ## OTS And Merkle Standing
 
 Bridge sequences are being written with record hashes and OTS submit receipts
 when fresh Tor checks pass. The source report states OTS artifacts are present
 for 2,634 / 2,634 reported artifacts and Merkle roots were computed across four
-major sequences. This repository snapshot records unknown where the underlying
-Merkle root artifact is not committed here. Missing or pending attestations
-remain operational evidence tasks, not release-green.
+major sequences. This repository snapshot records its current repo Merkle root
+in `manifest/LATEST_REPO_MERKLE_ROOT.txt` and the leaf inventory in
+`manifest/LATEST_REPO_MERKLE_MANIFEST.json`. Repo Merkle tick
+`20260517T050554Z` was submitted to OTS over a fresh Tor-true path, and the
+resulting `.ots` files and receipts are indexed in
+`manifest/ots_submission_index_20260517T050616Z.json`. Later OTS/index files
+are captured by the next Merkle tick rather than claiming a root contains its
+own future witness. Missing or pending attestations remain operational evidence
+tasks, not release-green.
 
 ## Current Standing
 

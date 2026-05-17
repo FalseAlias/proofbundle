@@ -1,10 +1,13 @@
 {
   "schema": "ProofBundlePublicAlphaManifest/2026-05-16",
-  "generated_utc": "2026-05-16T21:32:00Z",
-  "public_alpha_standing": "live_expanding_public_alpha",
+  "generated_utc": "2026-05-17T04:53:04Z",
+  "public_alpha_standing": "blocked_not_release_green",
   "release_status": "blocked_not_release_green",
   "release_green": false,
   "proof_closed": false,
+  "status_source": "status.json",
+  "status_source_generated_utc": "2026-05-17T04:53:04Z",
+  "standing_note": "Public alpha is live as a review surface, but release standing is blocked_not_release_green. This manifest does not assert release-green, universal closure, or proof closure.",
   "public_pages": {
     "pages_url": "https://falsealias.github.io/proofbundle/",
     "verifier_url": "https://falsealias.github.io/proofbundle/web/proofbundle_v1_0_app.html",
@@ -67,10 +70,12 @@
     },
     {
       "path": "conformance/cross_impl_results.json",
-      "bytes": 3923,
-      "sha256": "7B670A39A242857701D61ECE40149BAC74DFD5383B9BF6A993EFDF74D3E1C3DA",
-      "sha384": "4435E746B7667549D832DBE09A48F159FDB998E70144E277F8B2AC95BF5D058FE560F1488093EBE6FD2490AA0CE8B7B8",
-      "sha512": "0BC53286303E0EEB56187FE06195961CDB9D079B9EA2922B5629863A07734F307EE3AAFBB342400480EB7D70F1770F12F723B07402A140F6EA6559D77DB46C22"
+      "bytes": 4760,
+      "sha256": "72E00DC45DFFD5FA0107FF4F8F6F130507200E2F374BE8347FF98FAF14D6CE04",
+      "sha384": "1F90B4E328DF8F35D010259F7FA2EC714D65B6F2B7CCB20B7F0149EA698E0A62E015CF16F96340F88D9480C533780E14",
+      "sha512": "4E129BD41575F3B1F0093438C8A88A3ABE6AF29997C92E9543D27535933E1673BF1A4BCD7F4CCB18A3E201B5FB4EAEFD608974E1169EDFF9ADCC1B2ADC9A3C11",
+      "standing": "current_public_repo_hash_recomputed_20260517",
+      "note": "Hash metadata was recomputed from the committed public repo file during the 2026-05-17 live-state sync pass."
     },
     {
       "path": "proofs/PROOF_INVENTORY.generated.json",
@@ -102,19 +107,23 @@
     },
     {
       "path": "web/proofbundle_v1_0_app.html",
-      "bytes": 182322,
-      "sha256": "313A25F33DC823B6F41A430041573CD5C4B3E69C07374E8306B40D5D0EE698C2",
-      "sha384": "D807B82A6493936EE20113F5E77B5767452898070BE1D780C0610675C54D59F9B80E1E997C90A94CF407825335BAA149",
-      "sha512": "550A5303A22934ED824D9F1567AA55C27B65164AAF638AD4C99FDDFA19AF97D768597242DA686C77F82DF6FF09672A3CB0C37D59D3F16BC4A71BEA985E7A9A20"
+      "bytes": 185672,
+      "sha256": "9E142474ADA016AB930E4A7D20D2181374CA0ED8325BB6994A615906C8B06D4A",
+      "sha384": "E26841A01BAF86AE56E57F494969DC857B1F02485CDCF57C44A4A1D5889BC301556B594EB319C5BFE04FC12C53C9967C",
+      "sha512": "441FA26BCC7F3CD79A53C554DD6C27679FB91293E2925AACFC2BDC9F782CAFCC0360BD0D5E90137B3E5D2702624C53482041CE57D5A278F36234995AAA38D923"
     }
   ],
   "bridge_and_roots": {
-    "newest_confirmed_bridge_sequence": 2684,
-    "newest_confirmed_bridge_hash_chain_head_sha256": "BBC43459FC55341897D8DD13B03D202238C4F0BA7A5AB0AD23528BB646E62252",
-    "newest_confirmed_bridge_merkle_root": "unknown",
-    "manifest_merkle_root": "unknown",
+    "newest_confirmed_bridge_sequence": 2741,
+    "newest_confirmed_bridge_hash_chain_head_sha256": "6DDCAB5EAF95B4E71F66FDA8B5FFDA8E182D35EFBA5E8DE274E1824B2FA6EFC2",
+    "newest_confirmed_bridge_merkle_root": "not_committed_here",
+    "manifest_merkle_root": "externalized_to_avoid_self_reference",
+    "latest_repo_merkle_root_path": "manifest/LATEST_REPO_MERKLE_ROOT.txt",
+    "latest_repo_merkle_manifest_path": "manifest/LATEST_REPO_MERKLE_MANIFEST.json",
+    "ots_submission_standing": "submitted_for_repo_merkle_tick_20260517T050554Z",
+    "ots_submission_index": "manifest/ots_submission_index_20260517T050616Z.json",
     "bridge_reported_merkle_roots_computed_across_major_sequences": 4,
-    "note": "The bridge hash-chain head is confirmed and is not labeled as a Merkle root. Merkle root artifacts are recorded as unknown where not committed here."
+    "note": "The bridge hash-chain head is confirmed and is not labeled as a Merkle root. The current repository Merkle root value is recorded in manifest/LATEST_REPO_MERKLE_ROOT.txt after each sync pass rather than embedded here, because embedding a root inside a file included in that root changes the root."
   },
   "sample_sealed_claims": [
     {
@@ -126,6 +135,12 @@
       "standing": "synthetic_demo_data"
     }
   ],
+  "ci_evidence": {
+    "typescript": "GitHub Proofbench full 300-vector conformance gate passed on PR #3 head 97f21d748c40fcd2f256d5a00a742594d6d408c7",
+    "python": "GitHub Proofbench Python schema/import/smoke gate passed on PR #3 head 97f21d748c40fcd2f256d5a00a742594d6d408c7; full 300-vector Python parity is not claimed by committed CI evidence",
+    "go": "GitHub Proofbench Go test gate passed on PR #3 head 97f21d748c40fcd2f256d5a00a742594d6d408c7",
+    "static_browser": "GitHub static browser artifact check passed on PR #3 head 97f21d748c40fcd2f256d5a00a742594d6d408c7"
+  },
   "audit_exception_counts_used": {
     "legacy_audit_failure_count": 189,
     "bridge_reported_canonical_proof_audit_exceptions": 189,
@@ -151,15 +166,52 @@
     "code_server": "bridge_reported_http_302",
     "vm_novnc": "bridge_reported_http_200"
   },
+  "live_vm_snapshot_20260517": {
+    "source": "fresh ssh status check from 2026-05-17T05:28:44Z",
+    "primary_vm": {
+      "instance": "proofbundle-dev-20260513",
+      "disk_total_gb": 193,
+      "disk_used_gb": 34,
+      "disk_available_gb": 159,
+      "tmux_sessions": 71,
+      "load_average": "17.32, 18.68, 13.18",
+      "latest_receipts_observed": "scavenger and worker receipts through 2026-05-17T05:26Z"
+    },
+    "secondary_vm": {
+      "instance": "proofbundle-dev-20260516-b",
+      "disk_total_gb": 49,
+      "disk_used_gb": 8,
+      "disk_available_gb": 40,
+      "tmux_sessions": 51,
+      "load_average": "33.10, 32.07, 19.67",
+      "latest_receipts_observed": "scavenger and worker receipts through 2026-05-17T05:26Z"
+    },
+    "standing": "live worker activity observed; CPU saturated; storage not the current bottleneck; no release-green claim"
+  },
+  "controlled_corpus_boundary": {
+    "full_formal_math_corpus_committed_here": false,
+    "policy": "Publish receipts, hashes, Merkle roots, indexes, standing, selected reviewed artifacts, and quarantine evidence. Do not publish the full private mathematics corpus by default.",
+    "publication_units": [
+      "reviewed proof tranche",
+      "proof inventory hash",
+      "build or audit log",
+      "Merkle root or OTS witness",
+      "standing note"
+    ],
+    "standing": "public alpha exposes proof-of-existence and review entrypoints, not uncontrolled source transfer"
+  },
   "source_limits": [
     "Bridge-reported corpus counts are recorded as standing data, not independently expanded into this repository snapshot.",
-    "Where a Merkle root artifact is not committed here, the value is recorded as unknown.",
-    "Committed public surface is a slim alpha entrypoint plus references, not the full corpus."
+    "Repo Merkle roots are recorded in manifest/LATEST_REPO_MERKLE_ROOT.txt; OTS witnesses are recorded by tick in manifest/ots_submission_index_20260517T050616Z.json.",
+    "Committed public surface is a slim alpha entrypoint plus references, not the full corpus.",
+    "Python full 300-vector parity is not claimed by committed GitHub CI evidence.",
+    "conformance/cross_impl_results.json digest metadata is recorded in this public manifest."
   ],
   "standing_boundaries": [
     "No universal closure asserted.",
     "No proof closure asserted.",
     "No legal compliance asserted.",
+    "No release-green asserted.",
     "Full corpus growth and swarm audit continue in parallel."
   ]
 }

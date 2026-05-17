@@ -1,0 +1,38 @@
+{
+  "schema": "proofbundle-ots-submission-index/1.0",
+  "created_at_utc": "2026-05-17T05:03:42Z",
+  "standing": "ots_submitted_for_repo_merkle_tick_20260517T050041Z",
+  "tor_policy": {
+    "old_lock_preserved": "../proofbundles/state_checkpoints_20260510/TOR_NETWORK_STOP.lock.json",
+    "ots_only_supersession": "../proofbundles/state_checkpoints_20260510/TOR_NETWORK_STOP.superseded_20260517T050306Z.json",
+    "ots_only_supersession_sha256": "237DE0D06C0D665FCEF6365AC30999AB14F7806884625D04349F89FE3D5708E8",
+    "fresh_tor_check": {
+      "IsTor": true,
+      "IP": "45.128.133.242"
+    },
+    "cloud_control_reopened": false,
+    "external_http_reopened": false
+  },
+  "targets": [
+    {
+      "path": "manifest/repo_merkle_root_20260517T050041Z.txt",
+      "input_sha256": "DC2430D21390EFC0556FBF67768F43200B88FF50F378CFFF40B1559FB8DFFBEB",
+      "repo_merkle_root_sha256": "28CF82983375526E4421FEF096709F72DD62DC9A7283BB6745D095FACC03806A",
+      "ots_path": "manifest/repo_merkle_root_20260517T050041Z.txt.ots",
+      "ots_sha256": "15612F4A86E35E63D029534937EFAC34E0F001B1075EBEDAACCE6346BDFDD424",
+      "receipt_path": "manifest/repo_merkle_root_20260517T050041Z.txt.tor_ots_receipt.json",
+      "receipt_sha256": "5F6A56D915C35B8F290DD855B0E4353D3EFCF951B51F09E6FED17CE459AB1C67",
+      "calendar_merges": 4
+    },
+    {
+      "path": "manifest/repo_merkle_manifest_20260517T050041Z.json",
+      "input_sha256": "49306B45053D93D74A2DD1E426461C0C9F3F5088767F1FB00234589C242F1B74",
+      "ots_path": "manifest/repo_merkle_manifest_20260517T050041Z.json.ots",
+      "ots_sha256": "3FAFFC7C616EDBD43AAA87B925AAD57E6C95FDE81F5CA47D4499DEB9884521B5",
+      "receipt_path": "manifest/repo_merkle_manifest_20260517T050041Z.json.tor_ots_receipt.json",
+      "receipt_sha256": "9876DAE9F6058473924600EFBB51B5CEEACBDE8753282C555121B5C1CCB38288",
+      "calendar_merges": 4
+    }
+  ],
+  "tick_rule": "The OTS files witness repo Merkle tick 20260517T050041Z. Later OTS/index files are included by the next Merkle tick rather than claiming a root contains its own future witness."
+}
