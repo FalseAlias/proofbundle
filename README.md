@@ -42,12 +42,13 @@ Latest bridge-reported public alpha snapshot used for this page:
 | Z3 files | 121 |
 | Python proof/check files | 113 |
 | Verified bridge records in older source report | 2,639 |
-| Current verified bridge head in this live sync pass | sequence 2741 |
-| Current bridge head SHA-256 | `6DDCAB5EAF95B4E71F66FDA8B5FFDA8E182D35EFBA5E8DE274E1824B2FA6EFC2` |
+| Current verified bridge head in this live sync pass | sequence 2744 |
+| Current bridge head SHA-256 | `1EDF83040612EBA2D83191005207F06C37F51E596E0D020EBD36617CF172FB3F` |
 | OTS artifacts present in source report | 2,634 / 2,634 |
-| Python conformance | 4 / 4 |
+| Python source-report conformance | 4 / 4 |
+| Python local full-vector check, 2026-05-17T07:22Z | 274 passed / 94 failed |
 | JavaScript conformance | 303 / 303 |
-| TypeScript conformance | 300 / 300 |
+| TypeScript local full-vector check, 2026-05-17T07:22Z | 300 passed / 0 failed |
 | Canonical proof audit exceptions | 189 |
 | Quarantine files | 1 |
 | Large-file dedup scan | 432 files over 10 MB, 63 duplicate groups |
@@ -57,8 +58,8 @@ Latest bridge-reported public alpha snapshot used for this page:
 | Fresh VM receipt check | `2026-05-17T05:28:44Z` |
 | VM storage standing | VM1 159GB free, VM2 40GB free; CPU saturated before storage |
 | Latest repo Merkle root | `manifest/LATEST_REPO_MERKLE_ROOT.txt` |
-| OTS submitted tick | `manifest/repo_merkle_root_20260517T050554Z.txt` |
-| OTS submission index | `manifest/ots_submission_index_20260517T050616Z.json` |
+| OTS submitted tick | `manifest/repo_merkle_root_20260517T052916Z.txt` and `manifest/repo_merkle_manifest_20260517T052916Z.json` |
+| OTS submission index | `manifest/ots_submission_index_20260517T072225Z.json` |
 
 These are indexed corpus and standing numbers, not a claim that the indexed
 proof corpus is closed or that every proof has passed a proof assistant.
@@ -70,9 +71,10 @@ the browser verifier, manifest/status surfaces, current bridge and VM standing,
 Merkle roots, OTS references, proof inventories, selected reviewed artifacts,
 audit blockers, and quarantine evidence.
 
-Repo Merkle tick `20260517T050554Z` was submitted to OTS over a fresh Tor-true
-path. Its OTS files and submission receipts are indexed at
-[`manifest/ots_submission_index_20260517T050616Z.json`](manifest/ots_submission_index_20260517T050616Z.json).
+Repo Merkle tick `20260517T052916Z` was submitted to OTS over a fresh Tor-true
+path for both the root file and the Merkle manifest file. Its OTS files and
+submission receipts are indexed at
+[`manifest/ots_submission_index_20260517T072225Z.json`](manifest/ots_submission_index_20260517T072225Z.json).
 Later witness/index files are captured by the next Merkle tick rather than
 claiming that a root contains its own future witness.
 

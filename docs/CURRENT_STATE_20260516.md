@@ -60,12 +60,13 @@ The bridge-reported public alpha snapshot relayed for publication records:
 - Z3: 121
 - Python: 113
 - verified bridge records in the older source report: 2,639
-- current verified bridge sequence in this live sync pass: 2,741
-- current verified bridge head: `6DDCAB5EAF95B4E71F66FDA8B5FFDA8E182D35EFBA5E8DE274E1824B2FA6EFC2`
+- current verified bridge sequence in this live sync pass: 2,744
+- current verified bridge head: `1EDF83040612EBA2D83191005207F06C37F51E596E0D020EBD36617CF172FB3F`
 - OTS artifacts present in the source report: 2,634 / 2,634
-- Python conformance: 4 / 4
+- Python source-report conformance: 4 / 4
+- Python local full-vector check, 2026-05-17T07:22Z: 274 passed / 94 failed
 - JavaScript conformance: 303 / 303
-- TypeScript conformance: 300 / 300
+- TypeScript local full-vector check, 2026-05-17T07:22Z: 300 passed / 0 failed
 - canonical proof audit exceptions: 189
 - quarantine files: 1
 - large-file dedup scan: 432 files over 10 MB, 63 duplicate groups
@@ -127,9 +128,10 @@ for 2,634 / 2,634 reported artifacts and Merkle roots were computed across four
 major sequences. This repository snapshot records its current repo Merkle root
 in `manifest/LATEST_REPO_MERKLE_ROOT.txt` and the leaf inventory in
 `manifest/LATEST_REPO_MERKLE_MANIFEST.json`. Repo Merkle tick
-`20260517T050554Z` was submitted to OTS over a fresh Tor-true path, and the
-resulting `.ots` files and receipts are indexed in
-`manifest/ots_submission_index_20260517T050616Z.json`. Later OTS/index files
+`20260517T052916Z` was submitted to OTS over a fresh Tor-true path for both the
+root file and the Merkle manifest file, and the resulting `.ots` files and
+receipts are indexed in
+`manifest/ots_submission_index_20260517T072225Z.json`. Later OTS/index files
 are captured by the next Merkle tick rather than claiming a root contains its
 own future witness. Missing or pending attestations remain operational evidence
 tasks, not release-green.
