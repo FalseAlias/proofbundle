@@ -1,155 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ProofBundle Public Alpha</title>
+  <title>ProofBundle</title>
   <style>
-    :root { color-scheme: light dark; }
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      margin: 0;
-      line-height: 1.55;
-      color: #151515;
-      background: #f7f7f4;
-    }
-    main { max-width: 980px; margin: 0 auto; padding: 32px 20px 56px; }
-    h1 { margin: 0 0 8px; font-size: clamp(2rem, 5vw, 3.25rem); }
-    h2 { margin-top: 32px; }
+    :root { color-scheme: light dark; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body { margin: 0; background: #f6f7f9; color: #15181f; line-height: 1.5; }
+    main { max-width: 760px; margin: 0 auto; padding: 40px 18px 56px; }
+    h1 { margin: 0 0 10px; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.05; }
+    .panel { margin-top: 18px; border: 1px solid #c8d0dc; border-radius: 8px; background: #fff; padding: 16px; }
+    a.button { display: inline-block; margin-top: 12px; padding: 10px 14px; border-radius: 6px; background: #174ea6; color: #fff; text-decoration: none; }
     a { color: #0645ad; }
-    .status {
-      border: 1px solid #c9d1d9;
-      background: #fff;
-      border-radius: 8px;
-      padding: 16px;
-      margin: 18px 0;
-    }
-    .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-    .card {
-      border: 1px solid #c9d1d9;
-      background: #fff;
-      border-radius: 8px;
-      padding: 14px;
-    }
-    code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+    code { font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace; }
     @media (prefers-color-scheme: dark) {
-      body { color: #e8edf2; background: #111827; }
-      .status, .card { background: #172033; border-color: #314158; }
+      body { background: #111827; color: #e8edf2; }
+      .panel { background: #172033; border-color: #314158; }
       a { color: #8ab4ff; }
+      a.button { background: #8ab4ff; color: #09111f; }
     }
   </style>
 </head>
 <body>
   <main>
-    <h1>ProofBundle Public Alpha</h1>
-    <p>
-      Public alpha entrypoint for the live expanding ProofBundle corpus. This
-      page exposes the browser verifier, public manifest, audit standing,
-      quarantine evidence, and inventory references without asserting final
-      release standing.
-    </p>
-
-    <div class="status">
-      <strong>Standing:</strong> <code>blocked_not_release_green</code>.
-      This alpha exposes scoped verification where artifacts support it. It
-      does not assert universal closure, proof closure, legal compliance, or
-      release-green status.
-    </div>
-
-    <section>
-      <h2>Open The Verifier</h2>
-      <p><a href="web/proofbundle_v1_0_app.html">Launch the browser verifier and sealer</a></p>
-      <p><a href="web/2026-05-03_proofbundle_ui_v1.0.html">Open the dated browser artifact</a></p>
+    <h1>ProofBundle</h1>
+    <p>A local browser verifier for sealed JSON evidence bundles.</p>
+    <section class="panel">
+      <h2>Open The App</h2>
+      <p>The verifier runs in your browser. Files stay local.</p>
+      <a class="button" href="web/proofbundle_minimal_verifier_20260517.html">Launch verifier</a>
     </section>
-
-    <section>
-      <h2>Public Alpha References</h2>
-      <div class="grid">
-        <div class="card"><a href="PUBLIC_PROOFBUNDLE_MANIFEST_20260516.json">Slim public manifest</a></div>
-        <div class="card"><a href="README.md">README</a></div>
-        <div class="card"><a href="STATUS.md">Status</a></div>
-        <div class="card"><a href="docs/CURRENT_STATE_20260516.md">Current state snapshot</a></div>
-        <div class="card"><a href="docs/CONTROLLED_CORPUS_BOUNDARY_20260517.md">Controlled corpus boundary</a></div>
-        <div class="card"><a href="docs/PROOF_TRANCHE_PUBLICATION_POLICY_20260517.md">Proof tranche publication policy</a></div>
-        <div class="card"><a href="conformance/vectors_v1.json">300-vector corpus</a></div>
-        <div class="card"><a href="proofs/PROOF_INVENTORY.generated.json">Canonical proof inventory</a></div>
-        <div class="card"><a href="proofs/PROOF_LEDGER.jsonl">Full inventory reference</a></div>
-        <div class="card"><a href="proofs/PROOF_STATUS.generated.json">Proof audit standing</a></div>
-        <div class="card"><a href="evidence/quarantine/README.md">Quarantine evidence</a></div>
-        <div class="card"><a href="docs/EU_AI_ACT_MAPPING.md">EU AI Act evidence-carrier mapping</a></div>
-        <div class="card"><a href="docs/PINNED_ISSUE_DRAFT_20260516.md">Pinned issue draft</a></div>
-        <div class="card"><a href="docs/OUTREACH_PACKET_20260516.md">Outreach packet</a></div>
-        <div class="card"><a href="docs/MONETIZATION_PATHS_20260516.md">Monetization paths</a></div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Latest Confirmed Bridge Root</h2>
-      <p>
-        Latest confirmed bridge sequence in this live sync pass:
-        <code>2744</code>.
-      </p>
-      <p>
-        Latest confirmed bridge hash-chain head:
-        <code>1EDF83040612EBA2D83191005207F06C37F51E596E0D020EBD36617CF172FB3F</code>.
-      </p>
-      <p>
-        Bridge Merkle standing: roots are bridge-reported across four major
-        sequences. The current repository Merkle root is recorded in
-        <a href="./manifest/LATEST_REPO_MERKLE_ROOT.txt">manifest/LATEST_REPO_MERKLE_ROOT.txt</a>
-        with the leaf inventory in
-        <a href="./manifest/LATEST_REPO_MERKLE_MANIFEST.json">manifest/LATEST_REPO_MERKLE_MANIFEST.json</a>.
-        The hash-chain head is not mislabeled as a Merkle root.
-      </p>
-      <p>
-        OTS standing:
-        <a href="./manifest/ots_submission_index_20260517T072225Z.json">repo Merkle tick 20260517T052916Z submitted over Tor</a>.
-        Later witness files are captured by the next Merkle tick.
-      </p>
-    </section>
-
-    <section>
-      <h2>Bridge-Reported Corpus Snapshot</h2>
-      <div class="grid">
-        <div class="card"><strong>Indexed proof files:</strong><br><code>13,236</code></div>
-        <div class="card"><strong>Coq:</strong> <code>9,181</code><br><strong>Lean 4:</strong> <code>2,840</code></div>
-        <div class="card"><strong>Isabelle:</strong> <code>981</code><br><strong>Z3:</strong> <code>121</code><br><strong>Python:</strong> <code>113</code></div>
-        <div class="card"><strong>OTS artifacts:</strong><br><code>2,634 / 2,634</code></div>
-        <div class="card"><strong>Audit exceptions:</strong><br><code>189</code></div>
-        <div class="card"><strong>Local vector checks:</strong><br>TypeScript generated <code>300/300</code><br>TypeScript v1 <code>270/300</code><br>Python <code>274/368 pass</code></div>
-        <div class="card"><strong>Large-file scan:</strong><br><code>432 files, 63 duplicate groups</code></div>
-      </div>
-      <p>
-        These are indexed corpus and standing numbers. They are not a universal
-        closure claim and not a proof-closed claim.
-      </p>
-    </section>
-
-    <section>
-      <h2>Live VM Receipt Standing</h2>
-      <div class="grid">
-        <div class="card"><strong>VM1:</strong><br><code>proofbundle-dev-20260513</code><br>71 tmux sessions, 159GB free, CPU saturated</div>
-        <div class="card"><strong>VM2:</strong><br><code>proofbundle-dev-20260516-b</code><br>51 tmux sessions, 40GB free, CPU saturated</div>
-        <div class="card"><strong>Fresh receipt check:</strong><br><code>2026-05-17T05:28:44Z</code><br>receipts observed through <code>2026-05-17T05:26Z</code></div>
-      </div>
-      <p>
-        The public repository is a receipt-backed alpha surface. The full
-        private formal-math corpus is not committed here by default.
-      </p>
-    </section>
-
-    <section>
-      <h2>Audit And Quarantine Standing</h2>
-      <p>
-        Known release-green blockers remain visible by design: unresolved proof
-        failures, audit exceptions, quarantine records, missing closure checks,
-        missing reproduction records, and missing external witnesses.
-      </p>
-      <p>
-        Quarantine marker:
-        <code>suppression_exceeds_continuity</code>. See
-        <a href="proofs/QUARANTINE_suppression_exceeds_continuity_20260515.md">proof quarantine note</a>.
-      </p>
+    <section class="panel">
+      <h2>Status</h2>
+      <p>Public alpha. Release-green status is not claimed.</p>
+      <p><a href="PUBLIC_BOUNDARY_SUPERSESSION_20260517.json">View current public-surface record</a></p>
     </section>
   </main>
 </body>

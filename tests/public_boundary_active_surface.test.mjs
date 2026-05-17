@@ -16,7 +16,16 @@ const bannedTerms = [
   joined("quaran", "tine evidence"),
   joined("proof quaran", "tine note"),
   joined("conscious", "ness"),
-  joined("criterion", "_improvements")
+  joined("criterion", "_improvements"),
+  joined("trans", "cript"),
+  joined("dia", "logue"),
+  joined("K", "imi"),
+  joined("Chat", "GPT"),
+  joined("Clau", "de"),
+  joined("formal", " proof"),
+  joined("proof", " closure"),
+  joined("agent", "-session"),
+  joined("agent", " session")
 ];
 
 test("active public surface is custody-safe", async () => {
@@ -42,4 +51,3 @@ test("active public surface is custody-safe", async () => {
     }
   }
 });
-
