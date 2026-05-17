@@ -1,0 +1,65 @@
+{
+  "receipt_type": "proofbundle_tor_ots_stamp_receipt",
+  "schema": "ProofBundleTorOtsStampReceipt/v1.0.0",
+  "created_at_utc": "2026-05-17T05:11:40.187Z",
+  "input_path": "C:\\Users\\alib90\\Downloads\\ORGANIZED\\AGENT_COORDINATION\\github_repos\\FalseAlias_proofbundle\\manifest\\repo_merkle_root_20260517T045922Z.txt",
+  "input_sha256": "0B0B734D0B2AD605CD78B3FECDDC6B45B388BE8FD69FAD4B1F5179822A06E230",
+  "digest_alg": "SHA-256",
+  "tor_proxy": "socks5h://127.0.0.1:9050",
+  "tor_preflight": {
+    "IsTor": true,
+    "IP": "45.128.133.242",
+    "tor_network_stop_lock": "C:\\Users\\alib90\\Downloads\\ORGANIZED\\AGENT_COORDINATION\\proofbundles\\state_checkpoints_20260510\\TOR_NETWORK_STOP.lock.json",
+    "tor_network_stop_supersession": {
+      "path": "C:\\Users\\alib90\\Downloads\\ORGANIZED\\AGENT_COORDINATION\\proofbundles\\state_checkpoints_20260510\\TOR_NETWORK_STOP.superseded_20260517T050306Z.json",
+      "created_at_utc": "2026-05-17T05:03:06Z",
+      "supersedes_lock_sha256": "98E8D209F72841C684CC3C6C8B8DA3F2548D627EEBE9C249283924135D2949CC",
+      "scope": [
+        "ots"
+      ]
+    }
+  },
+  "calendars": [
+    "https://a.pool.opentimestamps.org",
+    "https://b.pool.opentimestamps.org",
+    "https://a.pool.eternitywall.com",
+    "https://ots.btc.catallaxy.com"
+  ],
+  "success_count": 4,
+  "attempts": [
+    {
+      "calendar": "https://a.pool.opentimestamps.org",
+      "exit_code": 0,
+      "stderr": "",
+      "response_length": 207,
+      "response_sha256": "053256D5481C4F83A2F8E0E74FE42180E8AAA4A59C8582C3F698698C96236C4E",
+      "status": "merged"
+    },
+    {
+      "calendar": "https://b.pool.opentimestamps.org",
+      "exit_code": 0,
+      "stderr": "",
+      "response_length": 135,
+      "response_sha256": "27D194B790E46FDEC62694A65DBF4C11DBA83D52BC7C0EDB1380065C029F5AE6",
+      "status": "merged"
+    },
+    {
+      "calendar": "https://a.pool.eternitywall.com",
+      "exit_code": 0,
+      "stderr": "",
+      "response_length": 156,
+      "response_sha256": "BAAD067261ACDFE6367A0880D33090EC5909C59F37579DDCA057EFBC110A91A6",
+      "status": "merged"
+    },
+    {
+      "calendar": "https://ots.btc.catallaxy.com",
+      "exit_code": 0,
+      "stderr": "",
+      "response_length": 150,
+      "response_sha256": "D6C6E383C7A7AB61B538ED6FEA0850362B181EDB1D1CBB386152D4990B39035F",
+      "status": "merged"
+    }
+  ],
+  "ots_path": "C:\\Users\\alib90\\Downloads\\ORGANIZED\\AGENT_COORDINATION\\github_repos\\FalseAlias_proofbundle\\manifest\\repo_merkle_root_20260517T045922Z.txt.ots",
+  "ots_sha256": "6863488AC6A40FC2835F1BACB01226FB874A8AC3B66FA1A187B91CA589C57233"
+}

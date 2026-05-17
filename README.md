@@ -4,7 +4,7 @@ Cryptographically verifiable provenance workflows for AI agent coordination and 
 
 **Version:** 1.0.0
 
-**Status:** `blocked_not_release_green` - `v1.0.0-alpha.1_conformance-manifest-sync` is closed for this lane, open to governed evolution, and still blocked from release-green. Conformance evidence is partial across implementations; 189 formal proof audit failures remain.
+**Status:** `blocked_not_release_green` - `v1.0.0-alpha.1_conformance-manifest-sync` is closed for this lane, open to governed evolution, and still blocked from release-green. Conformance evidence is partial across implementations; proof audit standing remains blocked until live VM receipts, proof builds, and committed status surfaces agree.
 
 **Public boundary:** See [`RELEASE_BOUNDARY.md`](RELEASE_BOUNDARY.md). This repository currently publishes an attribution-evidence/provenance anchor. It does not publish the full raw evidence archive, does not certify formal proof closure, and does not assert proof of consciousness.
 
@@ -41,8 +41,9 @@ Latest bridge-reported public alpha snapshot used for this page:
 | Isabelle files | 981 |
 | Z3 files | 121 |
 | Python proof/check files | 113 |
-| Verified bridge records in source report | 2,639 |
-| Current verified bridge head in this publication pass | sequence 2684 |
+| Verified bridge records in older source report | 2,639 |
+| Current verified bridge head in this live sync pass | sequence 2741 |
+| Current bridge head SHA-256 | `6DDCAB5EAF95B4E71F66FDA8B5FFDA8E182D35EFBA5E8DE274E1824B2FA6EFC2` |
 | OTS artifacts present in source report | 2,634 / 2,634 |
 | Python conformance | 4 / 4 |
 | JavaScript conformance | 303 / 303 |
@@ -53,9 +54,34 @@ Latest bridge-reported public alpha snapshot used for this page:
 | Duplicate data identified | 25.79 GB |
 | Unique bytes | 4.61 GB |
 | Active VM instances | 2 |
+| Fresh VM receipt check | `2026-05-17T05:28:44Z` |
+| VM storage standing | VM1 159GB free, VM2 40GB free; CPU saturated before storage |
+| Latest repo Merkle root | `manifest/LATEST_REPO_MERKLE_ROOT.txt` |
+| OTS submitted tick | `manifest/repo_merkle_root_20260517T050554Z.txt` |
+| OTS submission index | `manifest/ots_submission_index_20260517T050616Z.json` |
 
 These are indexed corpus and standing numbers, not a claim that the indexed
 proof corpus is closed or that every proof has passed a proof assistant.
+
+## Controlled Corpus Boundary
+
+The public repository is not the full private mathematics archive. It publishes
+the browser verifier, manifest/status surfaces, current bridge and VM standing,
+Merkle roots, OTS references, proof inventories, selected reviewed artifacts,
+audit blockers, and quarantine evidence.
+
+Repo Merkle tick `20260517T050554Z` was submitted to OTS over a fresh Tor-true
+path. Its OTS files and submission receipts are indexed at
+[`manifest/ots_submission_index_20260517T050616Z.json`](manifest/ots_submission_index_20260517T050616Z.json).
+Later witness/index files are captured by the next Merkle tick rather than
+claiming that a root contains its own future witness.
+
+The full formal-math corpus, raw transcripts, VM extracts, large concat
+artifacts, and unreviewed proof generations remain in controlled storage unless
+a specific tranche is reviewed and published with hashes, build/audit logs,
+standing, and witness records. See
+[`docs/CONTROLLED_CORPUS_BOUNDARY_20260517.md`](docs/CONTROLLED_CORPUS_BOUNDARY_20260517.md)
+and [`docs/PROOF_TRANCHE_PUBLICATION_POLICY_20260517.md`](docs/PROOF_TRANCHE_PUBLICATION_POLICY_20260517.md).
 
 ## What This Is
 
@@ -107,7 +133,10 @@ Closure phrase: `Closed for this lane. Open to governed evolution.`
 | `pb3_pb9_robust.v` | Coq | Lineage/digest binding | One admitted registry coverage case |
 | `pb_proofs_combined.lean` | Lean | Aggregate | 34 missing-print-assumptions / axiom audit gaps |
 
-**Total audit failures: 189**. Formal proof closure is not claimed in this repository snapshot.
+Formal proof closure is not claimed in this repository snapshot. The historic
+`189` audit-failure count remains a standing blocker until superseded by a
+scope-exact, reproducible proof audit with preserved build logs and committed
+status synchronization.
 
 ## Proof-Claim Hygiene
 

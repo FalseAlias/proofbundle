@@ -1,15 +1,19 @@
 {
   "schema": "proofbundle-public-alpha-manifest/2026-05-16",
-  "generatedUtc": "2026-05-16T21:32:00Z",
+  "generatedUtc": "2026-05-17T04:53:04Z",
   "lane": "public-alpha-entrypoint-20260516",
   "standing": "blocked_not_release_green",
   "releaseAllowed": false,
   "releaseGreen": false,
   "formalProofClosureClaimed": false,
   "scope": "public alpha repository files tracked or selected for this commit; dependency trees, caches, local IDE state, and patch files excluded by .gitignore",
-  "newestConfirmedBridgeSequence": 2684,
-  "newestConfirmedBridgeHashChainHeadSha256": "BBC43459FC55341897D8DD13B03D202238C4F0BA7A5AB0AD23528BB646E62252",
-  "manifestMerkleRootSha256": "354F5A6A890CF8B95B3A7D3AD9B31A8DC537136196877CD15CCFFE357D4A4414",
+  "newestConfirmedBridgeSequence": 2741,
+  "newestConfirmedBridgeHashChainHeadSha256": "6DDCAB5EAF95B4E71F66FDA8B5FFDA8E182D35EFBA5E8DE274E1824B2FA6EFC2",
+  "manifestMerkleRootSha256": null,
+  "manifestMerkleRootStanding": "externalized_to_avoid_self_reference",
+  "latestRepoMerkleRootPath": "manifest/LATEST_REPO_MERKLE_ROOT.txt",
+  "latestRepoMerkleManifestPath": "manifest/LATEST_REPO_MERKLE_MANIFEST.json",
+  "otsSubmissionIndex": "manifest/ots_submission_index_20260517T050616Z.json",
   "fileCount": 57,
   "zeroByteFiles": [
     ".gitkeep"
@@ -409,10 +413,10 @@
     },
     {
       "path": "web/proofbundle_v1_0_app.html",
-      "bytes": 185490,
-      "sha256": "DCEA3455589A6CF371522409F1482AA553047D6239F5F39D7788E338735E556A",
-      "sha384": "14EF0897E51520D3D98E8E41778ADEB5194FF9941400E3907C5ED70492973ABFA915EA866D601C7A575F91C7CEF28250",
-      "sha512": "E0C225EA8737A45DE202728A7492032A060AD3883E34BBF5F95C812C0F9A2C92BDD24DD710DBE6CFD890C7E078E08E751FD66261F8C15F3E41569B9EF3565ECD"
+      "bytes": 182016,
+      "sha256": "5B0FEAAA56B0A12CD0D3D8C2C463B579B208C265F524C78EC825D7466B6CB2C2",
+      "sha384": "975149C2134F2A753FEDD1111405E13DEA81AF7205B504DA27D2E4F84225B6616089755E84AB729E22FDBD5E5934F333",
+      "sha512": "465168661D4DEF86C63F2EA7861CE737E132398BCD8F3B5B561919A5B68784E8F43005EAFAFB5A62CF72B8853A7673B4956A9287B413D9B082173774E21CBDF0"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "schema": "proofbundle-status/1.0",
-  "generatedUtc": "2026-05-16T22:56:00Z",
+  "generatedUtc": "2026-05-17T04:53:04Z",
   "lane": "v1.0.0-alpha.1_conformance-manifest-sync",
   "closurePhrase": "Closed for this lane. Open to governed evolution.",
   "standing": "blocked_not_release_green",
@@ -33,8 +33,8 @@
     "manifest": "PUBLIC_PROOFBUNDLE_MANIFEST_20260516.json",
     "entrypoint": "index.html",
     "verifier": "web/proofbundle_v1_0_app.html",
-    "bridgeSequence": 2684,
-    "bridgeHashChainHeadSha256": "BBC43459FC55341897D8DD13B03D202238C4F0BA7A5AB0AD23528BB646E62252",
+    "bridgeSequence": 2741,
+    "bridgeHashChainHeadSha256": "6DDCAB5EAF95B4E71F66FDA8B5FFDA8E182D35EFBA5E8DE274E1824B2FA6EFC2",
     "bridgeReportedFormalProofAndVerificationFilesIndexed": 13236,
     "proofSystemCounts": {
       "coq": 9181,
@@ -47,7 +47,43 @@
     "bridgeReportedCanonicalProofAuditExceptions": 189,
     "quarantineFiles": 1,
     "activeVmInstances": 2,
-    "standingNote": "Indexed corpus and standing numbers only; no universal closure or proof-closed claim."
+    "standingNote": "Indexed corpus and standing numbers only; no universal closure or proof-closed claim. Live VM workers were observed producing receipts on both active VMs during the 2026-05-17 sync pass."
+  },
+  "liveVmSnapshot": {
+    "checkedUtc": "2026-05-17T05:28:44Z",
+    "primaryVm": {
+      "instance": "proofbundle-dev-20260513",
+      "diskTotalGb": 193,
+      "diskUsedGb": 34,
+      "diskAvailableGb": 159,
+      "tmuxSessions": 71,
+      "loadAverage": "17.32, 18.68, 13.18",
+      "latestReceiptsObserved": "scavenger and worker receipts through 2026-05-17T05:26Z"
+    },
+    "secondaryVm": {
+      "instance": "proofbundle-dev-20260516-b",
+      "diskTotalGb": 49,
+      "diskUsedGb": 8,
+      "diskAvailableGb": 40,
+      "tmuxSessions": 51,
+      "loadAverage": "33.10, 32.07, 19.67",
+      "latestReceiptsObserved": "scavenger and worker receipts through 2026-05-17T05:26Z"
+    },
+    "standing": "Live worker activity observed; CPU is saturated; storage is not the current bottleneck."
+  },
+  "controlledCorpusBoundary": {
+    "fullFormalMathCorpusCommittedHere": false,
+    "policy": "Public repo carries receipts, hashes, Merkle roots, indexes, selected reviewed artifacts, standing records, and quarantine evidence. Full private mathematics corpus is not committed by default."
+  },
+  "otsStanding": {
+    "latestRepoMerkleRootPath": "manifest/LATEST_REPO_MERKLE_ROOT.txt",
+    "latestRepoMerkleManifestPath": "manifest/LATEST_REPO_MERKLE_MANIFEST.json",
+    "submittedTick": "manifest/repo_merkle_root_20260517T050554Z.txt",
+    "submittedTickMerkleRootSha256": "DF4A6BCE6954475B33E81566B5EED17CA1B6BE3BF368234D162FD34BCEB8B4C6",
+    "submissionIndex": "manifest/ots_submission_index_20260517T050616Z.json",
+    "standing": "ots_submitted_for_repo_merkle_tick_20260517T050554Z",
+    "calendarMerges": 4,
+    "externalWitnessClaimedForSubmittedTick": true
   },
   "proofStanding": {
     "status": "guard_builds_passed_not_closed",
