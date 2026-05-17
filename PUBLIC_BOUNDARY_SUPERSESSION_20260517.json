@@ -1,0 +1,33 @@
+{
+  "schema": "ProofBundlePublicBoundarySupersession/v1.0.0",
+  "created_utc": "2026-05-17T10:48:11Z",
+  "standing": "append_only_public_boundary_supersession",
+  "release_status": "blocked_not_release_green",
+  "active_public_surface": [
+    "web/public_alpha_clean_entrypoint_20260517.html",
+    "web/proofbundle_v1_0_app_public_safe_20260517.html",
+    "docs/PUBLIC_BOUNDARY_APPEND_ONLY_SUPERSESSION_20260517.md",
+    "PUBLIC_BOUNDARY_SUPERSESSION_20260517.json"
+  ],
+  "active_verifier_path": "web/proofbundle_v1_0_app_public_safe_20260517.html",
+  "active_entrypoint_path": "web/public_alpha_clean_entrypoint_20260517.html",
+  "custody_receipt_sha256": {
+    "initial_withdrawal": "A2802C628D09B4C17AA4DD9AF3ADA8900F360D83581E491B44FE3D9CD53586D2",
+    "adjacent_material_withdrawal": "036CE7EED81D5D7D60321F50919719E1DCBD10AF3E44DC9735C372F0F34BB8F2",
+    "pre_cleanup_snapshot": "C8180CBFC023CBEC8F3068C9CA03E5E4B0F014C61A69CC0D249C5D3F872E2A3E"
+  },
+  "public_claims": {
+    "scope": "bounded_public_alpha_surface",
+    "proof_closure": "not_claimed",
+    "release_green": "not_claimed",
+    "full_corpus_publication": "not_claimed",
+    "private_custody": "hash_receipts_only"
+  },
+  "remaining_blockers": [
+    "root_index_requires_controlled_active_entrypoint_supersession",
+    "older_public_files_remain_historical_or_standing_limited",
+    "full_tree_boundary_scan_not_zero_hit_under_strict_append_only_mode",
+    "release_green_proof_and_audit_gates_remain_outstanding"
+  ]
+}
+

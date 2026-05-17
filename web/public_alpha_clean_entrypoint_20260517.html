@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ProofBundle Public Alpha - Bounded Surface</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    body {
+      margin: 0;
+      background: #f6f7f9;
+      color: #15181f;
+      line-height: 1.55;
+    }
+    main {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 32px 18px 56px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.05;
+    }
+    h2 {
+      margin-top: 32px;
+    }
+    a {
+      color: #0645ad;
+    }
+    .status, .grid a {
+      border: 1px solid #c8d0dc;
+      background: #fff;
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .status {
+      margin: 18px 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+    }
+    .grid a {
+      display: block;
+      text-decoration: none;
+    }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: #111827;
+        color: #e8edf2;
+      }
+      .status, .grid a {
+        background: #172033;
+        border-color: #314158;
+      }
+      a {
+        color: #8ab4ff;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>ProofBundle Public Alpha</h1>
+    <p>
+      Bounded public alpha surface for the ProofBundle browser verifier,
+      public standing record, and custody-safe release references.
+    </p>
+
+    <div class="status">
+      <strong>Standing:</strong> <code>blocked_not_release_green</code>.
+      This surface does not assert universal closure, formal proof closure,
+      legal compliance, full-corpus publication, or release-green status.
+    </div>
+
+    <section>
+      <h2>Verifier</h2>
+      <p>
+        <a href="proofbundle_v1_0_app_public_safe_20260517.html">
+          Launch the custody-safe browser verifier derivative
+        </a>
+      </p>
+    </section>
+
+    <section>
+      <h2>Public References</h2>
+      <div class="grid">
+        <a href="../PUBLIC_BOUNDARY_SUPERSESSION_20260517.json">
+          Public boundary supersession record
+        </a>
+        <a href="../docs/PUBLIC_BOUNDARY_APPEND_ONLY_SUPERSESSION_20260517.md">
+          Append-only boundary note
+        </a>
+        <a href="../PUBLIC_PROOFBUNDLE_MANIFEST_20260516.json">
+          Slim public manifest
+        </a>
+        <a href="../manifest/LATEST_REPO_MERKLE_ROOT.txt">
+          Latest repository Merkle root pointer
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Scope</h2>
+      <p>
+        This entrypoint is a superseding active public surface. Excluded
+        materials are not ProofBundle primitive standing and may be referenced
+        only by generic standing class and custody receipt hash.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
+
