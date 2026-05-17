@@ -1,19 +1,19 @@
 {
   "schema": "proofbundle-public-alpha-manifest/2026-05-16",
-  "generatedUtc": "2026-05-17T04:53:04Z",
+  "generatedUtc": "2026-05-17T07:22:25Z",
   "lane": "public-alpha-entrypoint-20260516",
   "standing": "blocked_not_release_green",
   "releaseAllowed": false,
   "releaseGreen": false,
   "formalProofClosureClaimed": false,
   "scope": "public alpha repository files tracked or selected for this commit; dependency trees, caches, local IDE state, and patch files excluded by .gitignore",
-  "newestConfirmedBridgeSequence": 2741,
-  "newestConfirmedBridgeHashChainHeadSha256": "6DDCAB5EAF95B4E71F66FDA8B5FFDA8E182D35EFBA5E8DE274E1824B2FA6EFC2",
+  "newestConfirmedBridgeSequence": 2744,
+  "newestConfirmedBridgeHashChainHeadSha256": "1EDF83040612EBA2D83191005207F06C37F51E596E0D020EBD36617CF172FB3F",
   "manifestMerkleRootSha256": null,
   "manifestMerkleRootStanding": "externalized_to_avoid_self_reference",
   "latestRepoMerkleRootPath": "manifest/LATEST_REPO_MERKLE_ROOT.txt",
   "latestRepoMerkleManifestPath": "manifest/LATEST_REPO_MERKLE_MANIFEST.json",
-  "otsSubmissionIndex": "manifest/ots_submission_index_20260517T050616Z.json",
+  "otsSubmissionIndex": "manifest/ots_submission_index_20260517T072225Z.json",
   "fileCount": 57,
   "zeroByteFiles": [
     ".gitkeep"

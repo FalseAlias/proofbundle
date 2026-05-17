@@ -1,6 +1,6 @@
 {
   "schema": "proofbundle-status/1.0",
-  "generatedUtc": "2026-05-17T04:53:04Z",
+  "generatedUtc": "2026-05-17T07:22:25Z",
   "lane": "v1.0.0-alpha.1_conformance-manifest-sync",
   "closurePhrase": "Closed for this lane. Open to governed evolution.",
   "standing": "blocked_not_release_green",
@@ -18,7 +18,7 @@
     },
     "ciEvidence": {
       "typescript": "GitHub Proofbench full 300-vector conformance gate passed on PR #3 head 97f21d748c40fcd2f256d5a00a742594d6d408c7",
-      "python": "GitHub Proofbench Python schema/import/smoke gate passed on PR #3 head 97f21d748c40fcd2f256d5a00a742594d6d408c7; full 300-vector Python parity is not claimed by committed CI evidence",
+      "python": "Local 2026-05-17T07:22Z Python full-vector check against python/tests/test_conformance.py reported 274 passed / 94 failed; prior GitHub Proofbench evidence only covered Python schema/import/smoke",
       "go": "GitHub Proofbench Go test gate passed on PR #3 head 97f21d748c40fcd2f256d5a00a742594d6d408c7",
       "staticBrowser": "GitHub static browser artifact check passed on PR #3 head 97f21d748c40fcd2f256d5a00a742594d6d408c7"
     }
@@ -33,8 +33,8 @@
     "manifest": "PUBLIC_PROOFBUNDLE_MANIFEST_20260516.json",
     "entrypoint": "index.html",
     "verifier": "web/proofbundle_v1_0_app.html",
-    "bridgeSequence": 2741,
-    "bridgeHashChainHeadSha256": "6DDCAB5EAF95B4E71F66FDA8B5FFDA8E182D35EFBA5E8DE274E1824B2FA6EFC2",
+    "bridgeSequence": 2744,
+    "bridgeHashChainHeadSha256": "1EDF83040612EBA2D83191005207F06C37F51E596E0D020EBD36617CF172FB3F",
     "bridgeReportedFormalProofAndVerificationFilesIndexed": 13236,
     "proofSystemCounts": {
       "coq": 9181,
@@ -78,10 +78,14 @@
   "otsStanding": {
     "latestRepoMerkleRootPath": "manifest/LATEST_REPO_MERKLE_ROOT.txt",
     "latestRepoMerkleManifestPath": "manifest/LATEST_REPO_MERKLE_MANIFEST.json",
-    "submittedTick": "manifest/repo_merkle_root_20260517T050554Z.txt",
-    "submittedTickMerkleRootSha256": "DF4A6BCE6954475B33E81566B5EED17CA1B6BE3BF368234D162FD34BCEB8B4C6",
-    "submissionIndex": "manifest/ots_submission_index_20260517T050616Z.json",
-    "standing": "ots_submitted_for_repo_merkle_tick_20260517T050554Z",
+    "submittedTick": "manifest/repo_merkle_root_20260517T052916Z.txt",
+    "submittedTickMerkleRootSha256": "C8F7F3EB3D5AAAF592E6A2E9F49C85FBFA43A89EFB26124D6D6C5173C46F4DAB",
+    "submittedManifest": "manifest/repo_merkle_manifest_20260517T052916Z.json",
+    "submittedManifestSha256": "BBBD024A00C20A456ABF9D7DC7269B1F8C8E1AA3929F9FE3BF56FA607CB7F993",
+    "rootOtsSha256": "F0936DE233532E6DD4B08CD1F9309C7F58E9E91EDDEB9FAE4616AD71B980285A",
+    "manifestOtsSha256": "E994A8C4B06F75CB95F6B127D50BE470FE8B187FF5CC4F491648BF7401D7A10D",
+    "submissionIndex": "manifest/ots_submission_index_20260517T072225Z.json",
+    "standing": "ots_submitted_for_repo_merkle_tick_20260517T052916Z_root_and_manifest",
     "calendarMerges": 4,
     "externalWitnessClaimedForSubmittedTick": true
   },
@@ -105,8 +109,8 @@
     ]
   },
   "remainingBlockers": [
-    "Python full 300-vector parity requires committed reproduction records before release-green",
-    "TypeScript bridge-reported conformance requires committed reproduction records before release-green",
+    "Python full 300-vector parity currently fails locally: 274 passed / 94 failed on 2026-05-17T07:22Z",
+    "TypeScript 300-vector conformance passed locally on 2026-05-17T07:22Z; release-green still needs comparable cross-implementation closure and proof/witness gates",
     "Rust context-commitment encoding blocker",
     "Full Go/vector parity remains bounded by current committed test evidence",
     "Proof assistant guard scaffolds are narrow VM-checked guards only; no proof closure",
