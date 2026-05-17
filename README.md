@@ -48,7 +48,8 @@ Latest bridge-reported public alpha snapshot used for this page:
 | Python source-report conformance | 4 / 4 |
 | Python local full-vector check, 2026-05-17T07:22Z | 274 passed / 94 failed |
 | JavaScript conformance | 303 / 303 |
-| TypeScript local full-vector check, 2026-05-17T07:22Z | 300 passed / 0 failed |
+| TypeScript generated-vector check, 2026-05-17T07:22Z | 300 passed / 0 failed against `conformance/vectors.generated.json` |
+| TypeScript release-corpus check, 2026-05-17T07:30Z | 270 passed / 30 failed against `conformance/vectors_v1.json` |
 | Canonical proof audit exceptions | 189 |
 | Quarantine files | 1 |
 | Large-file dedup scan | 432 files over 10 MB, 63 duplicate groups |
