@@ -9,12 +9,12 @@ or evidentiary files from the repository history.
 
 The active public surface for this supersession is limited to the paths named
 in `PUBLIC_BOUNDARY_SUPERSESSION_20260517.json`. Those paths are intended to
-present ProofBundle as a scoped public alpha without exposing excluded
-material, replacement handles, path hints, scanner residue, or adjacent
-research material as ProofBundle primitive standing.
+present ProofBundle as a small local verifier without exposing excluded
+material, replacement handles, path hints, scanner residue, private material,
+or adjacent research material as ProofBundle standing.
 
-This supersession does not claim release-green status, formal proof closure,
-universal closure, legal compliance, VM delivery, or full-corpus publication.
+This supersession does not claim release-green status, universal closure, legal
+compliance, VM delivery, or full-corpus publication.
 
 Private custody receipts remain outside the public release surface. Public
 references may cite custody receipt hashes and standing classes, but must not
@@ -36,4 +36,3 @@ The existing root `index.html` and older public files are not silently treated
 as clean by this note. Under strict append-only repair, they remain historical
 or standing-limited until a controlled active-entrypoint supersession is
 accepted and published.
-
