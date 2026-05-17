@@ -160,7 +160,8 @@
   "verifier_path": "web/proofbundle_v1_0_app.html",
   "canonical_proof_index_reference": "proofs/PROOF_INVENTORY.generated.json",
   "full_inventory_reference_path": "proofs/PROOF_LEDGER.jsonl",
-  "eu_ai_act_mapping": "unknown",
+  "eu_ai_act_mapping": "docs/EU_AI_ACT_MAPPING.md",
+  "eu_ai_act_mapping_standing": "evidence-carrier mapping only; no compliance claim",
   "service_status": {
     "github_pages": "bridge_reported_http_200",
     "code_server": "bridge_reported_http_302",
