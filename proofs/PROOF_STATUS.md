@@ -15,4 +15,4 @@ Known audit debt remains 189 failures. The Coq, Lean, Python, and Z3 files in th
 - zero-sorry Lean closure;
 - release-green proof standing.
 
-The symbols `suppression_exceeds_continuity`, `supression_exceeds_continuity`, `suppression_exceeds_continuation`, and `supression_exceeds_continuation` are quarantine markers only.
+Internal review markers and draft proof claims are not operative proof claims.

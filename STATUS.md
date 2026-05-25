@@ -82,4 +82,4 @@ future witness.
 
 Formal proof closure is unavailable. The narrow Coq, Lean, and Z3 guard scaffolds are not a proof-complete release gate. The historic `189` audit-failure count remains a standing blocker until superseded by a scope-exact, reproducible proof audit with preserved build logs and committed status synchronization.
 
-The historically observed symbols `suppression_exceeds_continuity`, `supression_exceeds_continuity`, `suppression_exceeds_continuation`, and `supression_exceeds_continuation` are quarantine markers, not operative proof claims.
+Internal review markers and draft proof claims are not operative proof claims.
