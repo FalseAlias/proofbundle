@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<!--
+  ProofBundle v1.1.0 — redesigned surface
+  Self-contained. No network calls. All 12 algorithms in-browser.
+  Author: C. T. Russell / FalseAlias
+  License: MIT OR Apache-2.0
+  Engine: same as v1.0.0 (SHA-256, SHA-384, SHA-512, BLAKE3, BLAKE2b,
+          Ed25519, ECDSA-P256/384/521, RSA-PSS-2048/3072/4096)
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>ProofBundle</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:     #0d1117;
+  --bg1:    #161b22;
+  --bg2:    #1c2128;
+  --border: #30363d;
+  --text:   #e6edf3;
+  --text2:  #8b949e;
+  --accent: #58a6ff;
+  --ok:     #3fb950;
+  --err:    #f85149;
+  --warn:   #d29922;
+  --mono:   ui-monospace, 'Cascadia Code', 'SF Mono', Consolas, monospace;
+  --ui:     system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --r:      8px;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg:     #ffffff;
+    --bg1:    #f6f8fa;
+    --bg2:    #eaeef2;
+    --border: #d0d7de;
+    --text:   #1f2328;
+    --text2:  #636c76;
+    --accent: #0969da;
+    --ok:     #1a7f37;
+    --err:    #cf222e;
+    --warn:   #9a6700;
+  }
+}
+
+html, body { height: 100%; }
+body {
+  font-family: var(--ui);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ── header ── */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.brand {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -.01em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ok);
+}
+.brand-ver {
+  font-size: 11px;
+  font-family: var(--mono);
+  color: var(--text2);
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 1px 7px;
+  border-radius: 4px;
+}
+.head-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-ghost {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text2);
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: var(--mono);
+}
+.btn-ghost:hover { background: var(--bg2); color: var(--text); }
+
+/* ── layout ── */
+main {
+  flex: 1;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 28px 20px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 16px;
+  align-items: start;
+}
+@media (max-width: 760px) {
+  main { grid-template-columns: 1fr; padding: 16px 14px 40px; }
+}
+
+/* ── cards ── */
+.card {
+  background: var(--bg1);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 20px;
+}
+.card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text2);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card-title::before {
+  content: '';
+  width: 3px;
+  height: 14px;
+  background: var(--accent);
+  border-radius: 2px;
+  display: block;
+}
+
+/* ── form elements ── */
+.field { margin-bottom: 12px; }
+label {
+  display: block;
+  font-size: 12px;
+  color: var(--text2);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+input, select, textarea {
+  width: 100%;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-family: var(--ui);
+  font-size: 13px;
+  transition: border-color .12s;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+select { cursor: pointer; }
+textarea { min-height: 72px; resize: vertical; font-family: var(--mono); font-size: 12px; }
+
+.row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.row-3 { display: grid; grid-template-columns: 1fr auto 1fr; gap: 8px; align-items: end; }
+.row-3-label { font-size: 11px; color: var(--text2); align-self: end; padding-bottom: 9px; }
+
+/* ── polarity toggle ── */
+.polarity-row { display: flex; gap: 8px; margin-bottom: 12px; }
+.polarity-btn {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg2);
+  color: var(--text2);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  transition: all .1s;
+}
+.polarity-btn.active-allow {
+  background: color-mix(in srgb, var(--ok) 12%, var(--bg2));
+  border-color: var(--ok);
+  color: var(--ok);
+}
+.polarity-btn.active-deny {
+  background: color-mix(in srgb, var(--err) 12%, var(--bg2));
+  border-color: var(--err);
+  color: var(--err);
+}
+
+/* ── primary button ── */
+.btn-primary {
+  width: 100%;
+  padding: 10px;
+  background: var(--accent);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+  letter-spacing: -.01em;
+  transition: opacity .1s;
+}
+.btn-primary:hover { opacity: .88; }
+.btn-primary:disabled { opacity: .45; cursor: not-allowed; }
+[data-theme-dark] .btn-primary { color: #0d1117; }
+
+/* ── drop zone ── */
+.dropzone {
+  border: 2px dashed var(--border);
+  border-radius: var(--r);
+  padding: 32px 20px;
+  text-align: center;
+  color: var(--text2);
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color .12s, background .12s;
+  margin-bottom: 12px;
+}
+.dropzone:hover, .dropzone.drag { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 5%, var(--bg1)); color: var(--text); }
+.drop-icon { font-size: 28px; margin-bottom: 8px; }
+.drop-label { margin-bottom: 4px; font-weight: 500; }
+.drop-sub { font-size: 11px; }
+
+/* ── result ── */
+.result-box {
+  display: none;
+  margin-top: 16px;
+}
+.result-box.show { display: block; }
+.trust-legs {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 14px;
+}
+.trust-leg {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 6px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.trust-leg .alg { color: var(--text2); width: 90px; flex-shrink: 0; }
+.trust-leg .status { font-weight: 600; }
+.trust-leg .detail { color: var(--text2); font-size: 11px; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.st-ok    { color: var(--ok); }
+.st-fail  { color: var(--err); }
+.st-pend  { color: var(--warn); }
+
+.outcome-banner {
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 12px;
+  border: 1px solid;
+}
+.outcome-verified { color: var(--ok); border-color: var(--ok); background: color-mix(in srgb, var(--ok) 10%, var(--bg1)); }
+.outcome-failed   { color: var(--err); border-color: var(--err); background: color-mix(in srgb, var(--err) 10%, var(--bg1)); }
+.outcome-pending  { color: var(--warn); border-color: var(--warn); background: color-mix(in srgb, var(--warn) 10%, var(--bg1)); }
+
+.claim-summary {
+  padding: 10px 12px;
+  border-radius: 6px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  font-size: 12px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+.claim-summary strong { color: var(--text); }
+.claim-summary span { color: var(--text2); }
+
+.code-block {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text2);
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-height: 200px;
+  overflow-y: auto;
+}
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+.code-label { font-size: 10px; color: var(--text2); font-family: var(--mono); text-transform: uppercase; letter-spacing: .05em; }
+.btn-copy {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text2);
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 10px;
+  font-family: var(--mono);
+}
+.btn-copy:hover { background: var(--bg2); color: var(--text); }
+
+/* ── advanced ── */
+details.advanced { margin-top: 16px; }
+details.advanced > summary {
+  font-size: 11px;
+  color: var(--text2);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  user-select: none;
+}
+details.advanced > summary::before { content: '▶'; font-size: 9px; transition: transform .12s; }
+details.advanced[open] > summary::before { transform: rotate(90deg); }
+details.advanced .adv-body { margin-top: 12px; }
+
+/* ── footer ── */
+footer {
+  padding: 12px 24px;
+  border-top: 1px solid var(--border);
+  background: var(--bg1);
+  font-size: 11px;
+  color: var(--text2);
+  font-family: var(--mono);
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.alg-chips { display: flex; gap: 5px; flex-wrap: wrap; }
+.chip {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+}
+
+/* ── status ── */
+#status { font-size: 11px; color: var(--text2); font-family: var(--mono); }
+
+/* ── span ── */
+.full-width { grid-column: 1 / -1; }
+
+/* ── pubkey field ── */
+.pubkey-hint {
+  font-size: 11px;
+  color: var(--text2);
+  margin-top: 4px;
+  font-family: var(--mono);
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <span class="brand-dot"></span>
+    ProofBundle
+    <span class="brand-ver">v1.1.0</span>
+  </div>
+  <div class="head-right">
+    <span id="status">ready</span>
+  </div>
+</header>
+
+<main>
+
+  <!-- ── SEAL ── -->
+  <div class="card" id="seal-card">
+    <div class="card-title">Make a prediction</div>
+
+    <div class="field">
+      <label for="subject">Subject</label>
+      <input id="subject" type="text" placeholder="Patient name, ID, entity..." autocomplete="off" spellcheck="false">
+    </div>
+
+    <div class="field">
+      <label>Polarity</label>
+      <div class="polarity-row">
+        <button class="polarity-btn" id="pol-allow" onclick="setPol('allow')">CAN</button>
+        <button class="polarity-btn active-deny" id="pol-deny" onclick="setPol('deny')">CANNOT</button>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="action">What</label>
+      <input id="action" type="text" placeholder="Dispense oxycodone 10mg, access record, approve..." autocomplete="off" spellcheck="false">
+    </div>
+
+    <div class="field">
+      <label>Valid window</label>
+      <div class="row-2">
+        <div>
+          <label for="valid-from" style="font-size:11px;">From</label>
+          <input id="valid-from" type="datetime-local">
+        </div>
+        <div>
+          <label for="valid-through" style="font-size:11px;">Through</label>
+          <input id="valid-through" type="datetime-local">
+        </div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="issuer">Issuer (your name / ID)</label>
+      <input id="issuer" type="text" placeholder="Dr. Sarah Chen / DEA-BC1234567" autocomplete="off" spellcheck="false">
+    </div>
+
+    <button class="btn-primary" id="btn-seal" onclick="doSeal()">Seal prediction</button>
+
+    <details class="advanced">
+      <summary>Algorithm options</summary>
+      <div class="adv-body">
+        <div class="row-2">
+          <div class="field">
+            <label for="adv-digest">Digest</label>
+            <select id="adv-digest">
+              <option value="SHA-256" selected>SHA-256</option>
+              <option value="SHA-384">SHA-384</option>
+              <option value="SHA-512">SHA-512</option>
+              <option value="BLAKE3">BLAKE3</option>
+              <option value="BLAKE2b">BLAKE2b</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="adv-sig">Signature</label>
+            <select id="adv-sig">
+              <option value="Ed25519" selected>Ed25519</option>
+              <option value="ECDSA-P256">ECDSA-P256</option>
+              <option value="ECDSA-P384">ECDSA-P384</option>
+              <option value="ECDSA-P521">ECDSA-P521</option>
+              <option value="RSA-PSS-2048">RSA-PSS-2048</option>
+              <option value="RSA-PSS-3072">RSA-PSS-3072</option>
+              <option value="RSA-PSS-4096">RSA-PSS-4096</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="adv-notes">Notes (included in bundle)</label>
+          <textarea id="adv-notes" placeholder="Optional — context, case number, reference..."></textarea>
+        </div>
+      </div>
+    </details>
+
+    <!-- seal result -->
+    <div class="result-box" id="seal-result">
+      <div class="claim-summary" id="seal-summary"></div>
+      <div class="trust-legs" id="seal-legs"></div>
+      <div class="code-header">
+        <span class="code-label">Bundle JSON</span>
+        <button class="btn-copy" onclick="copyEl('seal-bundle-out')">copy</button>
+      </div>
+      <div class="code-block" id="seal-bundle-out"></div>
+      <div class="code-header" style="margin-top:8px;">
+        <span class="code-label">Public key (needed to verify)</span>
+        <button class="btn-copy" onclick="copyEl('seal-pubkey-out')">copy</button>
+      </div>
+      <div class="code-block" id="seal-pubkey-out"></div>
+      <p class="pubkey-hint">Save both. Anyone with the public key can verify this bundle.</p>
+    </div>
+  </div>
+
+  <!-- ── VERIFY ── -->
+  <div class="card" id="verify-card">
+    <div class="card-title">Test a prediction</div>
+
+    <div class="dropzone" id="verify-drop" tabindex="0"
+         onclick="document.getElementById('verify-file').click()"
+         ondragover="event.preventDefault(); this.classList.add('drag')"
+         ondragleave="this.classList.remove('drag')"
+         ondrop="handleDrop(event)">
+      <div class="drop-icon">⬇</div>
+      <div class="drop-label">Drop bundle file</div>
+      <div class="drop-sub">or click to browse · also accepts pasted JSON below</div>
+    </div>
+    <input type="file" id="verify-file" style="display:none" accept=".json,.txt" onchange="handleFileInput(this)">
+
+    <div class="field">
+      <label for="verify-json">Paste bundle JSON</label>
+      <textarea id="verify-json" placeholder='{"hdr":{"spec_id":"PROOFBUNDLE"...}' spellcheck="false" style="min-height:90px;"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="verify-pubkey">Public key (base64url)</label>
+      <input id="verify-pubkey" type="text" placeholder="Auto-filled if packed in bundle · paste from seal result" autocomplete="off" spellcheck="false">
+    </div>
+
+    <div class="field">
+      <label>Context</label>
+      <div class="row-2">
+        <div>
+          <label for="ctx-subject" style="font-size:11px;">Subject (for boundary check)</label>
+          <input id="ctx-subject" type="text" placeholder="Match the sealed subject" autocomplete="off" spellcheck="false">
+        </div>
+        <div>
+          <label for="ctx-now" style="font-size:11px;">Check at time (blank = now)</label>
+          <input id="ctx-now" type="datetime-local">
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-primary" id="btn-verify" onclick="doVerify()">Verify</button>
+
+    <!-- verify result -->
+    <div class="result-box" id="verify-result">
+      <div class="outcome-banner" id="verify-banner"></div>
+      <div class="trust-legs" id="verify-legs"></div>
+      <div class="claim-summary" id="verify-summary"></div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <span>ProofBundle v1.1.0 · files stay local · no network calls</span>
+  <div class="alg-chips">
+    <span class="chip">SHA-256</span>
+    <span class="chip">SHA-384</span>
+    <span class="chip">SHA-512</span>
+    <span class="chip">BLAKE3</span>
+    <span class="chip">BLAKE2b</span>
+    <span class="chip">Ed25519</span>
+    <span class="chip">ECDSA-P256</span>
+    <span class="chip">ECDSA-P384</span>
+    <span class="chip">ECDSA-P521</span>
+    <span class="chip">RSA-PSS-2048</span>
+    <span class="chip">RSA-PSS-3072</span>
+    <span class="chip">RSA-PSS-4096</span>
+  </div>
+</footer>
+
+<script>
+'use strict';
+
+/* ══════════════════════════════════════════════
+   ENGINE — ProofBundle v1.0.0 (unchanged)
+   ══════════════════════════════════════════════ */
+
+function b64uEncode(bytes) {
+  let s = '';
+  for (let i = 0; i < bytes.length; i++) s += String.fromCharCode(bytes[i]);
+  return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+function b64uDecode(str) {
+  str = str.replace(/-/g, '+').replace(/_/g, '/');
+  while (str.length % 4) str += '=';
+  const bin = atob(str);
+  const bytes = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+  return bytes;
+}
+function utf8Encode(s) { return new TextEncoder().encode(s); }
+function bytesEqual(a, b) {
+  if (a.length !== b.length) return false;
+  for (let i = 0; i < a.length; i++) if (a[i] !== b[i]) return false;
+  return true;
+}
+function concatBytes(...arrs) {
+  let total = 0; for (const a of arrs) total += a.length;
+  const out = new Uint8Array(total); let off = 0;
+  for (const a of arrs) { out.set(a, off); off += a.length; }
+  return out;
+}
+function canonicalJSON(value) {
+  const t = typeof value;
+  if (value === null) return 'null';
+  if (t === 'boolean') return value ? 'true' : 'false';
+  if (t === 'number') { if (!Number.isFinite(value)) throw new Error('NaN/Infinity rejected'); return value.toString(); }
+  if (t === 'string') return JSON.stringify(value.normalize('NFC'));
+  if (Array.isArray(value)) return '[' + value.map(canonicalJSON).join(',') + ']';
+  if (t === 'object') {
+    const keys = Object.keys(value).sort(); const seen = new Set(); const parts = [];
+    for (const k of keys) { if (seen.has(k)) throw new Error('Duplicate key: ' + k); seen.add(k); parts.push(JSON.stringify(k) + ':' + canonicalJSON(value[k])); }
+    return '{' + parts.join(',') + '}';
+  }
+  throw new Error('Unsupported type: ' + t);
+}
+function canonicalBytes(obj) { return utf8Encode(canonicalJSON(obj)); }
+
+const BLAKE2B_IV = new Uint32Array([0xf3bcc908,0x6a09e667,0x84caa73b,0xbb67ae85,0xfe94f82b,0x3c6ef372,0x5f1d36f1,0xa54ff53a,0xade682d1,0x510e527f,0x2b3e6c1f,0x9b05688c,0xfb41bd6b,0x1f83d9ab,0x137e2179,0x5be0cd19]);
+const BLAKE2B_SIGMA = [[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],[14,10,4,8,9,15,13,6,1,12,0,2,11,7,5,3],[11,8,12,0,5,2,15,13,10,14,3,6,7,1,9,4],[7,9,3,1,13,12,11,14,2,6,5,10,4,0,15,8],[9,0,5,7,2,4,10,15,14,1,11,12,6,8,3,13],[2,12,6,10,0,11,8,3,4,13,7,5,15,14,1,9],[12,5,1,15,14,13,4,10,0,7,6,3,9,2,8,11],[13,11,7,14,12,1,3,9,5,0,15,4,8,6,2,10],[6,15,14,9,11,3,0,8,12,2,13,7,1,4,10,5],[10,2,8,4,7,6,1,5,15,11,9,14,3,12,13,0],[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],[14,10,4,8,9,15,13,6,1,12,0,2,11,7,5,3]];
+function blake2bAdd64(v,idx,x0,x1){const lo=(v[idx]>>>0)+(x0>>>0);v[idx]=lo>>>0;v[idx+1]=(v[idx+1]+x1+(lo>0xffffffff?1:0))>>>0;}
+function blake2bRotr64(v,idx,n){const a=v[idx+1],b=v[idx];let lo,hi;if(n===32){lo=a;hi=b;}else if(n<32){lo=(b>>>n)|(a<<(32-n));hi=(a>>>n)|(b<<(32-n));}else{const m=n-32;lo=(a>>>m)|(b<<(32-m));hi=(b>>>m)|(a<<(32-m));}v[idx]=lo>>>0;v[idx+1]=hi>>>0;}
+function blake2bG(v,a,b,c,d,x0,x1,y0,y1){blake2bAdd64(v,a,v[b],v[b+1]);blake2bAdd64(v,a,x0,x1);v[d]^=v[a];v[d+1]^=v[a+1];blake2bRotr64(v,d,32);blake2bAdd64(v,c,v[d],v[d+1]);v[b]^=v[c];v[b+1]^=v[c+1];blake2bRotr64(v,b,24);blake2bAdd64(v,a,v[b],v[b+1]);blake2bAdd64(v,a,y0,y1);v[d]^=v[a];v[d+1]^=v[a+1];blake2bRotr64(v,d,16);blake2bAdd64(v,c,v[d],v[d+1]);v[b]^=v[c];v[b+1]^=v[c+1];blake2bRotr64(v,b,63);}
+function blake2bCompress(ctx,last){const v=new Uint32Array(32);for(let i=0;i<16;i++){v[i]=ctx.h[i];v[i+16]=BLAKE2B_IV[i];}v[24]^=ctx.tLo;v[25]^=ctx.tHi;if(last){v[28]^=0xffffffff;v[29]^=0xffffffff;}const m=new Uint32Array(32);for(let i=0;i<32;i++){m[i]=ctx.b[i*4]|(ctx.b[i*4+1]<<8)|(ctx.b[i*4+2]<<16)|(ctx.b[i*4+3]<<24);}for(let r=0;r<12;r++){const s=BLAKE2B_SIGMA[r];blake2bG(v,0,8,16,24,m[s[0]*2],m[s[0]*2+1],m[s[1]*2],m[s[1]*2+1]);blake2bG(v,2,10,18,26,m[s[2]*2],m[s[2]*2+1],m[s[3]*2],m[s[3]*2+1]);blake2bG(v,4,12,20,28,m[s[4]*2],m[s[4]*2+1],m[s[5]*2],m[s[5]*2+1]);blake2bG(v,6,14,22,30,m[s[6]*2],m[s[6]*2+1],m[s[7]*2],m[s[7]*2+1]);blake2bG(v,0,10,20,30,m[s[8]*2],m[s[8]*2+1],m[s[9]*2],m[s[9]*2+1]);blake2bG(v,2,12,22,24,m[s[10]*2],m[s[10]*2+1],m[s[11]*2],m[s[11]*2+1]);blake2bG(v,4,14,16,26,m[s[12]*2],m[s[12]*2+1],m[s[13]*2],m[s[13]*2+1]);blake2bG(v,6,8,18,28,m[s[14]*2],m[s[14]*2+1],m[s[15]*2],m[s[15]*2+1]);}for(let i=0;i<16;i++)ctx.h[i]^=v[i]^v[i+16];}
+function blake2b(input,outLen){outLen=outLen||64;const ctx={b:new Uint8Array(128),h:new Uint32Array(16),tLo:0,tHi:0,c:0,outLen:outLen};for(let i=0;i<16;i++)ctx.h[i]=BLAKE2B_IV[i];ctx.h[0]^=0x01010000^outLen;for(let i=0;i<input.length;i++){if(ctx.c===128){ctx.tLo=(ctx.tLo+ctx.c)>>>0;if(ctx.tLo<ctx.c)ctx.tHi=(ctx.tHi+1)>>>0;blake2bCompress(ctx,false);ctx.c=0;}ctx.b[ctx.c++]=input[i];}ctx.tLo=(ctx.tLo+ctx.c)>>>0;if(ctx.tLo<ctx.c)ctx.tHi=(ctx.tHi+1)>>>0;while(ctx.c<128)ctx.b[ctx.c++]=0;blake2bCompress(ctx,true);const out=new Uint8Array(outLen);for(let i=0;i<outLen;i++){out[i]=(ctx.h[i>>2]>>>(8*(i&3)))&0xff;}return out;}
+
+const BLAKE3_IV=new Uint32Array([0x6A09E667,0xBB67AE85,0x3C6EF372,0xA54FF53A,0x510E527F,0x9B05688C,0x1F83D9AB,0x5BE0CD19]);
+const BLAKE3_MSG_SCHEDULE=[[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15],[2,6,3,10,7,0,4,13,1,11,12,5,9,14,15,8],[3,4,10,12,13,2,7,14,6,5,9,0,11,15,8,1],[10,7,12,9,14,3,13,15,4,0,11,2,5,8,1,6],[12,13,9,11,15,10,14,8,7,2,5,3,0,1,6,4],[9,14,11,5,8,12,15,1,13,3,0,10,2,6,4,7],[11,15,5,0,1,9,8,6,14,10,2,12,3,4,7,13]];
+const BLAKE3_CHUNK_START=1,BLAKE3_CHUNK_END=2,BLAKE3_PARENT=4,BLAKE3_ROOT=8;
+function blake3Rotr(x,n){return((x>>>n)|(x<<(32-n)))>>>0;}
+function blake3G(state,a,b,c,d,mx,my){state[a]=(state[a]+state[b]+mx)>>>0;state[d]=blake3Rotr(state[d]^state[a],16);state[c]=(state[c]+state[d])>>>0;state[b]=blake3Rotr(state[b]^state[c],12);state[a]=(state[a]+state[b]+my)>>>0;state[d]=blake3Rotr(state[d]^state[a],8);state[c]=(state[c]+state[d])>>>0;state[b]=blake3Rotr(state[b]^state[c],7);}
+function blake3Round(state,m,schedule){blake3G(state,0,4,8,12,m[schedule[0]],m[schedule[1]]);blake3G(state,1,5,9,13,m[schedule[2]],m[schedule[3]]);blake3G(state,2,6,10,14,m[schedule[4]],m[schedule[5]]);blake3G(state,3,7,11,15,m[schedule[6]],m[schedule[7]]);blake3G(state,0,5,10,15,m[schedule[8]],m[schedule[9]]);blake3G(state,1,6,11,12,m[schedule[10]],m[schedule[11]]);blake3G(state,2,7,8,13,m[schedule[12]],m[schedule[13]]);blake3G(state,3,4,9,14,m[schedule[14]],m[schedule[15]]);}
+function blake3Compress(cv,block,blockLen,counter,flags){const state=new Uint32Array(16);for(let i=0;i<8;i++)state[i]=cv[i];for(let i=0;i<4;i++)state[8+i]=BLAKE3_IV[i];state[12]=counter&0xffffffff;state[13]=Math.floor(counter/0x100000000)>>>0;state[14]=blockLen>>>0;state[15]=flags>>>0;const m=new Uint32Array(16);for(let i=0;i<16;i++){m[i]=block[i*4]|(block[i*4+1]<<8)|(block[i*4+2]<<16)|(block[i*4+3]<<24);}for(let r=0;r<7;r++)blake3Round(state,m,BLAKE3_MSG_SCHEDULE[r]);for(let i=0;i<8;i++)state[i]^=state[i+8];return state;}
+function blake3(input,outLen){outLen=outLen||32;const CHUNK_LEN=1024,BLOCK_LEN=64;const chunks=[];for(let off=0;off<input.length||off===0;off+=CHUNK_LEN){const chunk=input.slice(off,Math.min(off+CHUNK_LEN,input.length));if(chunk.length===0&&off>0)break;let chunkCv=new Uint32Array(BLAKE3_IV);let blockOff=0;while(blockOff<chunk.length){const block=new Uint8Array(BLOCK_LEN);const blen=Math.min(BLOCK_LEN,chunk.length-blockOff);block.set(chunk.subarray(blockOff,blockOff+blen));let flags=0;if(blockOff===0)flags|=BLAKE3_CHUNK_START;if(blockOff+blen===chunk.length)flags|=BLAKE3_CHUNK_END;const isLastChunk=(off+chunk.length>=input.length);const isLastBlock=(blockOff+blen===chunk.length);if(isLastChunk&&isLastBlock&&chunks.length===0)flags|=BLAKE3_ROOT;chunkCv=blake3Compress(chunkCv,block,blen,off/CHUNK_LEN,flags).slice(0,8);blockOff+=BLOCK_LEN;}chunks.push(chunkCv);if(off+chunk.length>=input.length)break;}let result;if(chunks.length===1){result=chunks[0];}else{let level=chunks;while(level.length>1){const next=[];for(let i=0;i<level.length;i+=2){if(i+1<level.length){const block=new Uint8Array(BLOCK_LEN);for(let j=0;j<8;j++){block[j*4]=level[i][j]&0xff;block[j*4+1]=(level[i][j]>>>8)&0xff;block[j*4+2]=(level[i][j]>>>16)&0xff;block[j*4+3]=(level[i][j]>>>24)&0xff;}for(let j=0;j<8;j++){block[32+j*4]=level[i+1][j]&0xff;block[32+j*4+1]=(level[i+1][j]>>>8)&0xff;block[32+j*4+2]=(level[i+1][j]>>>16)&0xff;block[32+j*4+3]=(level[i+1][j]>>>24)&0xff;}const isRoot=(level.length===2&&next.length===0);const flags=BLAKE3_PARENT|(isRoot?BLAKE3_ROOT:0);next.push(blake3Compress(new Uint32Array(BLAKE3_IV),block,BLOCK_LEN,0,flags).slice(0,8));}else{next.push(level[i]);}}level=next;}result=level[0];}const out=new Uint8Array(outLen);for(let i=0;i<Math.min(outLen,32);i++){out[i]=(result[i>>2]>>>(8*(i&3)))&0xff;}return out;}
+
+const DIGEST_ALGS = ['SHA-256','SHA-384','SHA-512','BLAKE3','BLAKE2b'];
+const SIG_ALGS = ['Ed25519','ECDSA-P256','ECDSA-P384','ECDSA-P521','RSA-PSS-2048','RSA-PSS-3072','RSA-PSS-4096'];
+
+async function digest(alg, bytes) {
+  if (alg==='SHA-256'||alg==='SHA-384'||alg==='SHA-512') return new Uint8Array(await crypto.subtle.digest(alg, bytes));
+  if (alg==='BLAKE3') return blake3(bytes, 32);
+  if (alg==='BLAKE2b') return blake2b(bytes, 64);
+  throw new Error('Unknown digest: ' + alg);
+}
+function sigAlgParams(alg) {
+  if (alg==='Ed25519') return {name:'Ed25519'};
+  if (alg==='ECDSA-P256') return {name:'ECDSA',namedCurve:'P-256',hash:'SHA-256'};
+  if (alg==='ECDSA-P384') return {name:'ECDSA',namedCurve:'P-384',hash:'SHA-384'};
+  if (alg==='ECDSA-P521') return {name:'ECDSA',namedCurve:'P-521',hash:'SHA-512'};
+  if (alg==='RSA-PSS-2048') return {name:'RSA-PSS',modulusLength:2048,publicExponent:new Uint8Array([1,0,1]),hash:'SHA-256',saltLength:32};
+  if (alg==='RSA-PSS-3072') return {name:'RSA-PSS',modulusLength:3072,publicExponent:new Uint8Array([1,0,1]),hash:'SHA-384',saltLength:48};
+  if (alg==='RSA-PSS-4096') return {name:'RSA-PSS',modulusLength:4096,publicExponent:new Uint8Array([1,0,1]),hash:'SHA-512',saltLength:64};
+  throw new Error('Unknown sig: ' + alg);
+}
+async function generateKeyPair(alg) {
+  if (alg==='Ed25519') return await crypto.subtle.generateKey({name:'Ed25519'},true,['sign','verify']);
+  if (alg.startsWith('ECDSA-')) { const p=sigAlgParams(alg); return await crypto.subtle.generateKey({name:'ECDSA',namedCurve:p.namedCurve},true,['sign','verify']); }
+  if (alg.startsWith('RSA-PSS-')) { const p=sigAlgParams(alg); return await crypto.subtle.generateKey({name:'RSA-PSS',modulusLength:p.modulusLength,publicExponent:p.publicExponent,hash:p.hash},true,['sign','verify']); }
+  throw new Error('Unknown sig: '+alg);
+}
+async function exportPublicKey(key, alg) {
+  if (alg==='Ed25519'||alg.startsWith('ECDSA-')) return new Uint8Array(await crypto.subtle.exportKey('raw', key.publicKey));
+  if (alg.startsWith('RSA-PSS-')) return new Uint8Array(await crypto.subtle.exportKey('spki', key.publicKey));
+  throw new Error('Unknown sig: '+alg);
+}
+async function importPublicKey(bytes, alg) {
+  const p = sigAlgParams(alg);
+  if (alg==='Ed25519') return await crypto.subtle.importKey('raw',bytes,{name:'Ed25519'},false,['verify']);
+  if (alg.startsWith('ECDSA-')) return await crypto.subtle.importKey('raw',bytes,{name:'ECDSA',namedCurve:p.namedCurve},false,['verify']);
+  if (alg.startsWith('RSA-PSS-')) return await crypto.subtle.importKey('spki',bytes,{name:'RSA-PSS',hash:p.hash},false,['verify']);
+  throw new Error('Unknown sig: '+alg);
+}
+async function signBytes(privateKey, message, alg) {
+  const p=sigAlgParams(alg);
+  let opts;
+  if (alg==='Ed25519') opts={name:'Ed25519'};
+  else if (alg.startsWith('ECDSA-')) opts={name:'ECDSA',hash:p.hash};
+  else if (alg.startsWith('RSA-PSS-')) opts={name:'RSA-PSS',saltLength:p.saltLength};
+  return new Uint8Array(await crypto.subtle.sign(opts, privateKey, message));
+}
+async function verifyBytes(publicKey, signature, message, alg) {
+  const p=sigAlgParams(alg);
+  let opts;
+  if (alg==='Ed25519') opts={name:'Ed25519'};
+  else if (alg.startsWith('ECDSA-')) opts={name:'ECDSA',hash:p.hash};
+  else if (alg.startsWith('RSA-PSS-')) opts={name:'RSA-PSS',saltLength:p.saltLength};
+  return await crypto.subtle.verify(opts, publicKey, signature, message);
+}
+
+async function sealBundle(opts) {
+  const {payload,boundary,digestAlg,sigAlg,profile,proofKind,producerId,expiration,privateKey,refs,contextCommitment} = opts;
+  const payloadBytes = typeof payload==='string' ? utf8Encode(payload) : payload;
+  const meta = {
+    producer_id: producerId||'local',
+    created_at: new Date().toISOString(),
+    canonical_encoding: 'PB-CANON-JSON-1',
+    digest_alg: digestAlg,
+    sig_alg: sigAlg,
+    proof_kind: proofKind||'signature',
+    boundary: boundary
+  };
+  if (expiration) meta.expiration = expiration;
+  if (contextCommitment !== undefined) {
+    meta.context_commitment = { digest_alg: digestAlg, digest_b64u: b64uEncode(await digest(digestAlg, canonicalBytes(contextCommitment))) };
+  }
+  const partial = { hdr:{spec_id:'PROOFBUNDLE',spec_ver:'1.0.0',profile:profile,bundle_id:''}, payload:b64uEncode(payloadBytes), meta, refs:Array.isArray(refs)?refs:[] };
+  const canon = canonicalBytes(partial);
+  const dig = await digest(digestAlg, canon);
+  const digB64u = b64uEncode(dig);
+  partial.hdr.bundle_id = digB64u;
+  const canon2 = canonicalBytes(partial);
+  const dig2 = await digest(digestAlg, canon2);
+  const dig2B64u = b64uEncode(dig2);
+  const sig = await signBytes(privateKey, dig2, sigAlg);
+  partial.seal = { digest_alg:digestAlg, digest_b64u:dig2B64u, sig_alg:sigAlg, signature_b64u:b64uEncode(sig) };
+  return partial;
+}
+
+const PROFILES = ['PB-INTEGRITY-1','PB-BOUNDARY-1','PB-LINEAGE-1','PB-REGULATED-1'];
+
+function profileLevel(p) { return PROFILES.indexOf(p); }
+
+function evaluateAtom(atom, ctx) {
+  if (!atom||typeof atom!=='object'||Array.isArray(atom)) return {ok:false,outcome:'indeterminate',reason:'malformed-atom'};
+  const keys=Object.keys(atom); if(keys.length!==1) return {ok:false,outcome:'indeterminate',reason:'malformed-atom'};
+  const k=keys[0], v=atom[k];
+  function getPath(path){if(typeof path!=='string'||path.length===0)return{exists:false,value:undefined,malformed:true};const parts=path.split('.');let cur=ctx;for(const p of parts){if(cur==null||typeof cur!=='object'||!(p in cur))return{exists:false,value:undefined};cur=cur[p];}return{exists:true,value:cur};}
+  function now(){if(ctx&&typeof ctx._now==='string'){const n=new Date(ctx._now);if(Number.isNaN(n.getTime()))return{ok:false,date:null};return{ok:true,date:n};}return{ok:true,date:new Date()};}
+  function parseDate(s){if(typeof s!=='string')return{ok:false,date:null};const d=new Date(s);if(Number.isNaN(d.getTime()))return{ok:false,date:null};return{ok:true,date:d};}
+  function parseDuration(value){if(typeof value==='number'&&Number.isFinite(value)&&value>=0)return{ok:true,ms:value};if(typeof value!=='string')return{ok:false,ms:0};const m=value.trim().match(/^(\d+(?:\.\d+)?)(ms|s|m|h|d|w)$/);if(!m)return{ok:false,ms:0};const n=Number(m[1]),unit=m[2],scale={ms:1,s:1000,m:60000,h:3600000,d:86400000,w:604800000}[unit];return{ok:true,ms:n*scale};}
+  function missing(path){return{ok:false,outcome:'missing-side-info',reason:'missing:'+path};}
+  if(k==='equals'){if(!Array.isArray(v)||v.length!==2)return{ok:false,outcome:'indeterminate',reason:'equals-shape'};const p=getPath(v[0]);if(p.malformed)return{ok:false,outcome:'indeterminate',reason:'path-shape'};if(!p.exists)return missing(v[0]);return{ok:p.value===v[1],outcome:'out-of-bounds',reason:'equals:'+v[0]};}
+  if(k==='in'){if(!Array.isArray(v)||v.length!==2||!Array.isArray(v[1]))return{ok:false,outcome:'indeterminate',reason:'in-shape'};const p=getPath(v[0]);if(!p.exists)return missing(v[0]);return{ok:v[1].includes(p.value),outcome:'out-of-bounds',reason:'in:'+v[0]};}
+  if(k==='range'){if(!Array.isArray(v)||v.length!==3||typeof v[1]!=='number'||typeof v[2]!=='number')return{ok:false,outcome:'indeterminate',reason:'range-shape'};const p=getPath(v[0]);if(!p.exists)return missing(v[0]);if(typeof p.value!=='number'||!Number.isFinite(p.value))return{ok:false,outcome:'indeterminate',reason:'range-type:'+v[0]};return{ok:p.value>=v[1]&&p.value<=v[2],outcome:'out-of-bounds',reason:'range:'+v[0]};}
+  if(k==='present'){const p=getPath(v);return p.exists?{ok:true}:missing(v);}
+  if(k==='before'||k==='after'||k==='within'){if(!Array.isArray(v)||(k==='within'?v.length!==3:v.length!==2))return{ok:false,outcome:'indeterminate',reason:k+'-shape'};const p=getPath(v[0]);if(!p.exists)return missing(v[0]);const t=parseDate(p.value),a=parseDate(v[1]),b=k==='within'?parseDate(v[2]):null;if(!t.ok||!a.ok||(b&&!b.ok))return{ok:false,outcome:'indeterminate',reason:k+'-date'};if(k==='before')return{ok:t.date<a.date,outcome:'out-of-bounds',reason:'before:'+v[0]};if(k==='after')return{ok:t.date>a.date,outcome:'out-of-bounds',reason:'after:'+v[0]};return{ok:t.date>=a.date&&t.date<=b.date,outcome:'out-of-bounds',reason:'within:'+v[0]};}
+  if(k==='expired'||k==='not_expired'){const p=getPath(v);if(!p.exists)return missing(v);const t=parseDate(p.value),n=now();if(!t.ok||!n.ok)return{ok:false,outcome:'indeterminate',reason:k+'-date'};return k==='expired'?{ok:t.date<n.date,outcome:'out-of-bounds',reason:'not-expired:'+v}:{ok:t.date>=n.date,outcome:'out-of-bounds',reason:'expired:'+v};}
+  if(k==='age_lt'||k==='age_gt'||k==='within_last'||k==='within_next'){if(!Array.isArray(v)||v.length!==2)return{ok:false,outcome:'indeterminate',reason:k+'-shape'};const p=getPath(v[0]);if(!p.exists)return missing(v[0]);const t=parseDate(p.value),n=now(),d=parseDuration(v[1]);if(!t.ok||!n.ok||!d.ok)return{ok:false,outcome:'indeterminate',reason:k+'-time'};const delta=n.date.getTime()-t.date.getTime();if(k==='age_lt')return{ok:delta>=0&&delta<d.ms,outcome:'out-of-bounds',reason:'age-lt:'+v[0]};if(k==='age_gt')return{ok:delta>=0&&delta>d.ms,outcome:'out-of-bounds',reason:'age-gt:'+v[0]};if(k==='within_last')return{ok:delta>=0&&delta<=d.ms,outcome:'out-of-bounds',reason:'within-last:'+v[0]};return{ok:delta<=0&&Math.abs(delta)<=d.ms,outcome:'out-of-bounds',reason:'within-next:'+v[0]};}
+  if(k==='all'){if(!Array.isArray(v))return{ok:false,outcome:'indeterminate',reason:'all-shape'};for(const a of v){const r=evaluateAtom(a,ctx);if(!r.ok)return r;}return{ok:true};}
+  if(k==='any'){if(!Array.isArray(v))return{ok:false,outcome:'indeterminate',reason:'any-shape'};let last={ok:false,outcome:'out-of-bounds',reason:'any'};for(const a of v){const r=evaluateAtom(a,ctx);if(r.ok)return r;last=r;}return last;}
+  if(k==='not'){const r=evaluateAtom(v,ctx);return r.ok?{ok:false,outcome:'out-of-bounds',reason:'not'}:{ok:true,reason:'not:'+(r.reason||r.outcome||'false')};}
+  return {ok:false,outcome:'not-defined-in-this-version',reason:'unknown-atom:'+k};
+}
+function evaluateBoundary(boundary, ctx) {
+  if (!boundary||typeof boundary!=='object') return {ok:false,outcome:'indeterminate',reason:'malformed-boundary'};
+  return evaluateAtom(boundary, ctx||{});
+}
+async function sealedContentDigest(bundle) {
+  const partial={hdr:bundle.hdr,payload:bundle.payload,meta:bundle.meta,refs:bundle.refs};
+  return b64uEncode(await digest(bundle.meta.digest_alg, canonicalBytes(partial)));
+}
+
+async function verifyBundle(bundle, publicKeyBytes, ctx, profile, options={}) {
+  const trace=[];
+  function step(name,ok,detail){trace.push({name,ok,detail:detail||''});}
+  if(typeof bundle!=='object'||bundle===null){step('parse',false,'not an object');return{outcome:'malformed',trace};}
+  if(!bundle.hdr||!bundle.payload||!bundle.meta||!Array.isArray(bundle.refs)||!bundle.seal){step('schema',false,'missing required field');return{outcome:'malformed',trace};}
+  const maxBytes=Number.isInteger(options.maxBundleBytes)?options.maxBundleBytes:2000000;
+  try{if(JSON.stringify(bundle).length>maxBytes){step('resource-budget',false,'bundle byte budget exceeded');return{outcome:'resource-exhausted',trace};}}catch(e){step('schema',false,'unserializable bundle');return{outcome:'malformed',trace};}
+  step('parse',true);step('schema',true);
+  if(bundle.hdr.spec_id!=='PROOFBUNDLE'){step('version',false,'spec_id');return{outcome:'malformed',trace};}
+  if(bundle.hdr.spec_ver!=='1.0.0'){step('version',false,'spec_ver');return{outcome:'unknown-version',trace};}
+  if(!PROFILES.includes(bundle.hdr.profile)){step('version',false,'profile');return{outcome:'not-defined-in-this-version',trace};}
+  const reqProf=profile||bundle.hdr.profile;
+  if(!PROFILES.includes(reqProf)){step('version',false,'requested profile');return{outcome:'not-defined-in-this-version',trace};}
+  if(profileLevel(reqProf)>profileLevel(bundle.hdr.profile)){step('version',false,'requested profile exceeds declared');return{outcome:'not-defined-in-this-version',trace};}
+  step('version',true);
+  if(bundle.meta.canonical_encoding!=='PB-CANON-JSON-1'){step('canonical',false,'encoding');return{outcome:'not-defined-in-this-version',trace};}
+  if(!DIGEST_ALGS.includes(bundle.meta.digest_alg)){step('canonical',false,'digest_alg');return{outcome:'not-defined-in-this-version',trace};}
+  if(!SIG_ALGS.includes(bundle.meta.sig_alg)){step('canonical',false,'sig_alg');return{outcome:'not-defined-in-this-version',trace};}
+  if(bundle.seal.digest_alg&&bundle.seal.digest_alg!==bundle.meta.digest_alg){step('canonical',false,'seal digest_alg mismatch');return{outcome:'malformed',trace};}
+  if(bundle.seal.sig_alg&&bundle.seal.sig_alg!==bundle.meta.sig_alg){step('canonical',false,'seal sig_alg mismatch');return{outcome:'malformed',trace};}
+  const partial={hdr:bundle.hdr,payload:bundle.payload,meta:bundle.meta,refs:bundle.refs};
+  let canon;
+  try{canon=canonicalBytes(partial);}catch(e){step('canonical',false,e.message);return{outcome:'malformed',trace};}
+  const dig=await digest(bundle.meta.digest_alg,canon);
+  const digB64u=b64uEncode(dig);
+  if(digB64u!==bundle.seal.digest_b64u){step('canonical',false,'digest mismatch');return{outcome:'invalid-signature',trace};}
+  step('canonical',true);
+  let pubKey;
+  try{pubKey=await importPublicKey(publicKeyBytes,bundle.meta.sig_alg);}catch(e){step('integrity',false,'pubkey: '+e.message);return{outcome:'malformed',trace};}
+  let sig;
+  try{sig=b64uDecode(bundle.seal.signature_b64u);}catch(e){step('integrity',false,'signature encoding');return{outcome:'malformed',trace};}
+  let sigOk;
+  try{sigOk=await verifyBytes(pubKey,sig,dig,bundle.meta.sig_alg);}catch(e){step('integrity',false,'signature verify: '+e.message);return{outcome:'invalid-signature',trace};}
+  if(!sigOk){step('integrity',false,'signature');return{outcome:'invalid-signature',trace};}
+  step('integrity',true);
+  if(bundle.meta.context_commitment){
+    const cc=bundle.meta.context_commitment;
+    if(!cc||typeof cc!=='object'||typeof cc.digest_b64u!=='string'){step('context-commitment',false,'commitment shape');return{outcome:'malformed',trace};}
+    let ctxDigest;
+    try{ctxDigest=b64uEncode(await digest(cc.digest_alg||bundle.meta.digest_alg,canonicalBytes(ctx||{})));}catch(e){step('context-commitment',false,e.message);return{outcome:'indeterminate',trace};}
+    if(ctxDigest!==cc.digest_b64u){step('context-commitment',false,'context digest mismatch');return{outcome:'out-of-bounds',trace};}
+    step('context-commitment',true);
+  }
+  if(bundle.hdr.profile==='PB-INTEGRITY-1')return{outcome:'verified',trace};
+  if(bundle.meta.expiration){const exp=new Date(bundle.meta.expiration);if(Number.isNaN(exp.getTime())){step('boundary',false,'expiration date');return{outcome:'indeterminate',trace};}if(new Date()>=exp){step('boundary',false,'expired');return{outcome:'out-of-bounds',trace};}}
+  const br=evaluateBoundary(bundle.meta.boundary,ctx);
+  if(!br.ok){step('boundary',false,br.reason||'condition');return{outcome:br.outcome||'out-of-bounds',trace};}
+  step('boundary',true);
+  step('side-info',true,'not required');
+  return{outcome:'verified',trace};
+}
+
+/* ══════════════════════════════════════════════
+   UI CONTROLLER
+   ══════════════════════════════════════════════ */
+
+let _polarity = 'deny';
+let _lastKey = null;
+let _lastSigAlg = null;
+
+function setStatus(t) {
+  const el = document.getElementById('status');
+  if (el) el.textContent = t;
+}
+
+function setPol(p) {
+  _polarity = p;
+  const allow = document.getElementById('pol-allow');
+  const deny = document.getElementById('pol-deny');
+  allow.className = 'polarity-btn' + (p === 'allow' ? ' active-allow' : '');
+  deny.className = 'polarity-btn' + (p === 'deny' ? ' active-deny' : '');
+}
+
+function randomNonce() {
+  const bytes = new Uint8Array(32);
+  crypto.getRandomValues(bytes);
+  return b64uEncode(bytes);
+}
+
+function toIso(localDt) {
+  if (!localDt) return null;
+  try { return new Date(localDt).toISOString(); } catch { return null; }
+}
+
+function escH(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function leg(alg, ok, detail) {
+  const cls = ok === true ? 'st-ok' : ok === false ? 'st-fail' : 'st-pend';
+  const sym = ok === true ? '✓' : ok === false ? '✗' : '·';
+  return `<div class="trust-leg">
+    <span class="alg">${escH(alg)}</span>
+    <span class="status ${cls}">${sym}</span>
+    <span class="detail">${escH(detail)}</span>
+  </div>`;
+}
+
+async function doSeal() {
+  const subject = document.getElementById('subject').value.trim();
+  const action  = document.getElementById('action').value.trim();
+  const issuer  = document.getElementById('issuer').value.trim();
+  const fromDt  = document.getElementById('valid-from').value;
+  const thruDt  = document.getElementById('valid-through').value;
+  const digestAlg = document.getElementById('adv-digest').value;
+  const sigAlg    = document.getElementById('adv-sig').value;
+  const notes     = document.getElementById('adv-notes').value.trim();
+
+  if (!subject || !action) { setStatus('subject and action required'); return; }
+
+  const btn = document.getElementById('btn-seal');
+  btn.disabled = true;
+  setStatus('generating key and sealing…');
+
+  try {
+    const nonce = randomNonce();
+    const fromIso = toIso(fromDt) || new Date().toISOString();
+    const thruIso = toIso(thruDt) || null;
+
+    const claimObj = {
+      subject,
+      polarity: _polarity,
+      action,
+      issuer: issuer || 'local',
+      valid_from: fromIso,
+      nonce
+    };
+    if (thruIso) claimObj.valid_through = thruIso;
+    if (notes) claimObj.notes = notes;
+
+    const boundary = { all: [
+      { present: 'subject' },
+      { present: 'action' },
+      { present: 'issuer' },
+      ...(thruIso ? [{ not_expired: 'valid_through' }] : [])
+    ]};
+
+    const key = await generateKeyPair(sigAlg);
+    const bundle = await sealBundle({
+      payload: JSON.stringify(claimObj),
+      boundary,
+      digestAlg,
+      sigAlg,
+      profile: 'PB-BOUNDARY-1',
+      proofKind: 'signature+boundary',
+      producerId: issuer || 'local',
+      privateKey: key.privateKey,
+      contextCommitment: claimObj
+    });
+
+    const pubBytes = await exportPublicKey(key, sigAlg);
+    const pubB64u = b64uEncode(pubBytes);
+
+    bundle._pubkey = pubB64u;
+
+    _lastKey = key;
+    _lastSigAlg = sigAlg;
+
+    const polarityLabel = _polarity === 'deny' ? 'CANNOT' : 'CAN';
+    const thruLabel = thruIso ? ` through ${new Date(thruIso).toLocaleDateString()}` : '';
+
+    document.getElementById('seal-summary').innerHTML =
+      `<strong>${escH(subject)}</strong> <span>${polarityLabel}</span> <strong>${escH(action)}</strong>` +
+      (issuer ? ` <span>— issued by ${escH(issuer)}</span>` : '') +
+      `<br><span>Valid from ${new Date(fromIso).toLocaleDateString()}${thruLabel}</span>` +
+      `<br><span style="font-family:var(--mono);font-size:10px;color:var(--text2);">nonce: ${nonce.slice(0,16)}…</span>`;
+
+    document.getElementById('seal-legs').innerHTML =
+      leg(digestAlg, true, 'payload sealed') +
+      leg(sigAlg, true, 'signature generated') +
+      leg('OTS', null, 'not yet anchored — submit to opentimestamps.org');
+
+    document.getElementById('seal-bundle-out').textContent = JSON.stringify(bundle, null, 2);
+    document.getElementById('seal-pubkey-out').textContent = pubB64u;
+
+    document.getElementById('seal-result').classList.add('show');
+    setStatus('sealed');
+
+    document.getElementById('verify-json').value = JSON.stringify(bundle, null, 2);
+    document.getElementById('verify-pubkey').value = pubB64u;
+    document.getElementById('ctx-subject').value = subject;
+
+  } catch(e) {
+    setStatus('error: ' + e.message);
+    console.error(e);
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+async function doVerify() {
+  const jsonText = document.getElementById('verify-json').value.trim();
+  const pubkeyText = document.getElementById('verify-pubkey').value.trim();
+  const ctxSubject = document.getElementById('ctx-subject').value.trim();
+  const ctxNow = document.getElementById('ctx-now').value;
+
+  if (!jsonText) { setStatus('paste a bundle to verify'); return; }
+
+  const btn = document.getElementById('btn-verify');
+  btn.disabled = true;
+  setStatus('verifying…');
+
+  try {
+    let bundle;
+    try { bundle = JSON.parse(jsonText); } catch(e) { setStatus('invalid JSON'); btn.disabled=false; return; }
+
+    const pubB64u = pubkeyText || bundle._pubkey;
+    if (!pubB64u) { setStatus('public key required'); btn.disabled=false; return; }
+
+    let pubBytes;
+    try { pubBytes = b64uDecode(pubB64u); } catch(e) { setStatus('invalid public key encoding'); btn.disabled=false; return; }
+
+    const ctx = {};
+    if (ctxSubject) ctx.subject = ctxSubject;
+    if (ctxNow) ctx._now = new Date(ctxNow).toISOString();
+
+    if (bundle.meta && bundle.meta.context_commitment) {
+      try {
+        const claimObj = JSON.parse(new TextDecoder().decode(b64uDecode(bundle.payload)));
+        Object.assign(ctx, claimObj);
+        if (ctxSubject) ctx.subject = ctxSubject;
+        if (ctxNow) ctx._now = new Date(ctxNow).toISOString();
+      } catch {}
+    }
+
+    const result = await verifyBundle(bundle, pubBytes, ctx, bundle.hdr && bundle.hdr.profile);
+
+    const ok = result.outcome === 'verified';
+    const bannerEl = document.getElementById('verify-banner');
+    bannerEl.className = 'outcome-banner ' + (ok ? 'outcome-verified' : 'outcome-failed');
+    bannerEl.textContent = ok ? '✓ Prediction holds' : '✗ ' + result.outcome.replace(/-/g,' ');
+
+    const integrityStep = result.trace.find(s => s.name === 'integrity');
+    const canonicalStep = result.trace.find(s => s.name === 'canonical');
+    const boundaryStep  = result.trace.find(s => s.name === 'boundary');
+
+    const sigAlg = bundle.meta && bundle.meta.sig_alg || '?';
+    const digestAlg = bundle.meta && bundle.meta.digest_alg || '?';
+
+    document.getElementById('verify-legs').innerHTML =
+      leg(digestAlg, canonicalStep ? canonicalStep.ok : null, canonicalStep ? (canonicalStep.ok ? 'payload intact' : canonicalStep.detail) : 'not checked') +
+      leg(sigAlg, integrityStep ? integrityStep.ok : null, integrityStep ? (integrityStep.ok ? 'signature valid' : integrityStep.detail) : 'not checked') +
+      leg('OTS', null, 'blockchain anchor not checked locally');
+
+    let summaryHtml = '';
+    try {
+      const claimObj = JSON.parse(new TextDecoder().decode(b64uDecode(bundle.payload)));
+      const polLabel = claimObj.polarity === 'deny' ? 'CANNOT' : (claimObj.polarity === 'allow' ? 'CAN' : '');
+      summaryHtml = `<strong>${escH(claimObj.subject||'?')}</strong> <span>${escH(polLabel)}</span> <strong>${escH(claimObj.action||'?')}</strong>`;
+      if (claimObj.issuer) summaryHtml += ` <span>— ${escH(claimObj.issuer)}</span>`;
+      if (claimObj.valid_from) summaryHtml += `<br><span>From ${new Date(claimObj.valid_from).toLocaleDateString()}`;
+      if (claimObj.valid_through) summaryHtml += ` through ${new Date(claimObj.valid_through).toLocaleDateString()}`;
+      if (claimObj.valid_from || claimObj.valid_through) summaryHtml += '</span>';
+      if (bundle.meta && bundle.meta.created_at) summaryHtml += `<br><span style="font-family:var(--mono);font-size:10px;color:var(--text2);">Sealed ${new Date(bundle.meta.created_at).toLocaleString()}</span>`;
+    } catch {}
+    document.getElementById('verify-summary').innerHTML = summaryHtml;
+
+    document.getElementById('verify-result').classList.add('show');
+    setStatus(ok ? 'verified' : result.outcome);
+
+  } catch(e) {
+    setStatus('error: ' + e.message);
+    console.error(e);
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+function handleDrop(e) {
+  e.preventDefault();
+  document.getElementById('verify-drop').classList.remove('drag');
+  const file = e.dataTransfer.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    document.getElementById('verify-json').value = ev.target.result;
+    try {
+      const b = JSON.parse(ev.target.result);
+      if (b._pubkey) document.getElementById('verify-pubkey').value = b._pubkey;
+      try {
+        const claim = JSON.parse(new TextDecoder().decode(b64uDecode(b.payload)));
+        if (claim.subject) document.getElementById('ctx-subject').value = claim.subject;
+      } catch {}
+    } catch {}
+  };
+  reader.readAsText(file);
+}
+
+function handleFileInput(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    document.getElementById('verify-json').value = ev.target.result;
+    try {
+      const b = JSON.parse(ev.target.result);
+      if (b._pubkey) document.getElementById('verify-pubkey').value = b._pubkey;
+      try {
+        const claim = JSON.parse(new TextDecoder().decode(b64uDecode(b.payload)));
+        if (claim.subject) document.getElementById('ctx-subject').value = claim.subject;
+      } catch {}
+    } catch {}
+  };
+  reader.readAsText(file);
+}
+
+async function copyEl(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  try {
+    await navigator.clipboard.writeText(el.textContent);
+    setStatus('copied');
+    setTimeout(() => setStatus('ready'), 1200);
+  } catch { setStatus('copy failed'); }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const now = new Date();
+  const local = dt => {
+    const pad = n => String(n).padStart(2,'0');
+    return `${dt.getFullYear()}-${pad(dt.getMonth()+1)}-${pad(dt.getDate())}T${pad(dt.getHours())}:${pad(dt.getMinutes())}`;
+  };
+  document.getElementById('valid-from').value = local(now);
+  const thru = new Date(now);
+  thru.setDate(thru.getDate() + 90);
+  document.getElementById('valid-through').value = local(thru);
+});
+</script>
+</body>
+</html>
